@@ -1,0 +1,5 @@
+node_modules
+jupiter
+bower_components
+gulp-docs/styles
+docs/styles

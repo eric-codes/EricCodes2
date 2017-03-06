@@ -1,0 +1,1157 @@
+/**
+ * @file Chisel Cartel Angular Theme Gulp File and Workflow
+ * @author Eric.Codes - Eric Cheung - 2016 - 2017
+ *
+ * 
+ */
+
+/**
+ * Gulp Task
+ * @typedef {String} Task
+ */
+
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
+var argv = require('yargs').argv;
+var clipboard = require("gulp-clipboard");
+var gutil = require('gulp-util');
+var cssbeautify = require('gulp-cssbeautify');
+var ftp = require('vinyl-ftp');
+var jsdoc = require('gulp-jsdoc3');
+var concat = require('gulp-concat');
+var minify = require('gulp-minify');
+var bump = require('gulp-bump');
+var git = require('gulp-git');
+var prompt = require('gulp-prompt');
+var reload = require('require-reload')(require);
+var gitRev = require('git-rev');
+var clear = require('clear');
+var fs = require('fs');
+
+var npmPackage = require('./package.json');
+
+clear();
+
+
+/**
+ *
+ *  =====  CONSOLE LOGGING  =====
+ * 
+ */
+
+var Log = {
+    Msg: function(msg) {
+        console.log(msg);
+    },
+    Value: function(valname, val) {
+        console.log(valname + ": " + val);
+    },
+    Divider: function() {
+        console.log("");
+        console.log("");
+        console.log("================================================================================");
+        console.log("================================================================================");
+        console.log("");
+        console.log("");
+    },
+    Heading: function(msg) {
+        console.log("");
+        console.log("");
+        console.log("");
+        console.log("================================================================================");
+        console.log("==   " + msg);
+        console.log("================================================================================");
+        console.log("");
+        console.log("");
+    },
+    Space: function() {
+        console.log("");
+        console.log("");
+        console.log("");
+        console.log("");
+        console.log("");
+    },
+    Function: function(msg) {
+        console.log("");
+        console.log("");
+        console.log("--- " + msg);
+        console.log("");
+    },
+    Warning: function(msg) {
+        console.log("");
+        console.log("");
+        console.log("!!!!!!!  " + msg + "  !!!!!!!");
+        console.log("");
+    }
+}
+
+/**
+ *
+ *  =====  LOAD DEFAULT SETTINGS  =====
+ * 
+ */
+
+
+/**
+ * Settings parameters - changed using yargs
+ * @type {Object}
+ */
+var params = {
+    file: argv.f,
+    debug: false,
+    phpOnly: false
+};
+
+/**
+ * Object containing file paths of main project folders - used only by `Directory`
+ * @type {Object}
+ * 
+ */
+var FilePaths = {
+    App: './eric-codes-app/',
+    Theme: './eric-codes-theme/',
+}
+
+/**
+ * Object containing inner directories of major folders
+ * @type {Object}
+ *
+ * @property {String} GulpFile          GulpFile selector
+ * 
+ * @property {Object} App               Main app paths
+ * @property {String} App.Main          Main app path
+ * @property {String} App.Components    App components path
+ * @property {String} App.Shared        App Shared path
+ * @property {String} App.Core          App Core path
+ * @property {String} App.Sass          App Sass path
+ *
+ * @property {Object} Theme             Main app paths
+ * @property {String} Theme.Main        Main Theme path
+ * @property {String} Theme.App         Theme App path
+ * @property {String} Theme.Assets      Theme Assets path
+ * @property {String} Theme.Models      Theme Models path
+ * 
+ * @example
+ * // Returns './jupiter-app/components'
+ * Directory.App.Components;
+ *
+ * // Returns gulp file selection
+ * Directory.GulpFile;
+ */
+var Directory = {
+    GulpFile: './gulpfile.js',
+    App: {
+        Main: FilePaths.App,
+        Components: FilePaths.App + "components/",
+        Shared: FilePaths.App + "shared/",
+        Core: FilePaths.App + "core/",
+        Sass: FilePaths.App + "sass/",
+        Admin: FilePaths.App + "admin/",
+    },
+    Theme: {
+        Main: FilePaths.Theme,
+        App: FilePaths.Theme + "app/",
+        Assets: FilePaths.Theme + "assets/",
+        Models: FilePaths.Theme + "models/",
+    }
+}
+
+/**
+ * Object containing selection queries for folders
+ * @type {Object}
+ *
+ * @example
+ * // Returns "*.js"
+ * Select.ThisFolder.JS
+ */
+var Select = {
+    All: {
+        JS: "**/*.js",
+        HTML: "**/*.html",
+        SCSS: "**/*.scss",
+        CSS: "**/*.css",
+        PHP: "**/*.php"
+    },
+    ThisFolder: {
+        JS: "*.js",
+        HTML: "*.html",
+        SCSS: "*.scss",
+        CSS: "*.css",
+        PHP: "*.php"
+    }
+}
+
+/**
+ * Object containing FTP variables and functions
+ * @type {Object}
+ * @namespace FTP
+ */
+var FTP = {
+    Live: {
+        host: 'chiselcartel.com',
+        user: 'chiselcartel',
+        password: 'Stabyouquick1!',
+        parallel: 10,
+        log: gutil.log
+    },
+    Dev: {
+        host: 'dev1.ericcodes.com',
+        user: 'development@dev1.ericcodes.com',
+        password: 'r10t5NYC',
+        parallel: 10,
+        log: gutil.log
+    },
+    Deploy: function(Conn, FolderArr, FTPDir, callback) {
+        Log.Function("Deploying to " + Conn.host);
+
+        var Connection = ftp.create(Conn);
+
+        gulp.src(FolderArr, { base: '.', buffer: false })
+            .pipe(Connection.newer(FTPDir))
+            .pipe(Connection.dest(FTPDir));
+        if (callback) callback();
+    }
+}
+
+
+
+
+
+/**
+ *
+ *  =====  SETTINGS CHECKS  =====
+ * 
+ */
+
+if (argv.d) {
+    params.debug = true;
+}
+
+if (argv.p) {
+    params.phpOnly = true;
+}
+
+var MinifyOptions = {
+    ext: {
+        src: '.js',
+        min: '.min.js'
+    }
+};
+
+if (params.debug) {
+    MinifyOptions.ext.src = ".min.js";
+    MinifyOptions.ext.min = ".js";
+}
+
+/**
+ * @todo Write new default task
+ */
+// gulp.task('default', ['sass', 'plugin']);
+
+
+/**
+ *
+ *  =====  MISC FUNCTIONS  =====
+ * 
+ */
+
+function SetDelay(seconds, callback) {
+    Log.Value("Setting Timeout", seconds + " seconds");
+    var WaitSecs = seconds,
+        TempSecs = WaitSecs;
+
+    for (var i = WaitSecs; i >= 0; i = i - 1) {
+        var Sauce = i;
+        setTimeout(function() {
+            console.log(TempSecs);
+            TempSecs = TempSecs - 1;
+        }, 1000 * i);
+    }
+
+    setTimeout(function() {
+        callback();
+    }, WaitSecs * 1000);
+}
+
+
+
+
+
+/**
+ *
+ *  ===== PROMPT  =====
+ * 
+ */
+
+var Prompt = {
+    Ask: function(name, message, type, callback, choices, validation) {
+
+        var PromptArgs = {
+            type: type,
+            name: name,
+            message: message
+        };
+
+        if (type == 'checkbox') {
+            PromptArgs.choices = choices;
+        }
+
+        if (type == 'password') {
+            PromptArgs.validation = validation;
+        }
+
+        gulp.src('./')
+            .pipe(prompt.prompt([PromptArgs], function(rsp) {
+                if (callback) {
+                    callback(rsp);
+                }
+            }))
+    },
+    Text: function(name, message, callback) {
+        Prompt.Ask(name, message, 'input', callback);
+    },
+    Choices: function(name, message, choices, callback) {
+        Prompt.Ask(name, message, 'checkbox', callback, choices);
+    }
+}
+
+
+
+
+
+/**
+ *
+ *  =====  PLUGIN FUNCTIONS (DEPRECATED)  =====
+ * 
+ */
+
+/**
+ * Parses SASS in `sass/` and returns to clipboard
+ *
+ * @param {String} -f   Specific filename of `.scss` file
+ *
+ * @deprecated
+ * @example
+ * gulp sass -f 'homepage'
+ * gulp sass
+ */
+gulp.task('sass', function() {
+
+    var FileCheck = function() {
+        if (params.file) {
+            return './sass/' + params.file + '.scss';
+        } else {
+            return './sass/*.scss';
+        }
+    }
+
+    return gulp.src(FileCheck())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(cssbeautify())
+        .pipe(clipboard())
+        .pipe(gulp.dest('./css'))
+        .pipe(gulp.dest('./wp-vote-angular-plugin/css'));
+
+});
+
+gulp.task('sass:watch', function() {
+    gulp.watch('./sass/**/*.scss', ['sass']);
+});
+
+
+
+gulp.task('plugin', function() {
+
+    var globs = [
+        'wp-vote-angular-plugin/**',
+    ];
+
+    return gulp.src(globs, { base: '.', buffer: false })
+        .pipe(FTP.Live.newer('public_html/wp-content/plugins/')) // only upload newer files 
+        .pipe(FTP.Live.dest('public_html/wp-content/plugins/'));
+
+});
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *
+ *  =====  THEME PRODUCTION  =====
+ * 
+ */
+
+var Compile = {
+    Folder: function(selection, outputFileName, outputFileDir, callback) {
+        gulp.src(selection)
+            .pipe(concat(outputFileName))
+            .pipe(minify(MinifyOptions))
+            .pipe(gulp.dest(outputFileDir));
+        if (callback) callback();
+    },
+    File: function(selection, outputFileDir, callback) {
+        gulp.src(selection)
+            .pipe(minify(MinifyOptions))
+            .pipe(gulp.dest(outputFileDir));
+        if (callback) callback();
+    },
+    SASS: function(selection, outputFileDir, callback) {
+        Log.Function('Running SASS Compilation');
+        gulp.src(selection)
+            .pipe(sass().on('error', sass.logError))
+            .pipe(cssbeautify())
+            .pipe(gulp.dest(outputFileDir));
+        if (callback) callback();
+    },
+    App: {
+        Module: function(callback) {
+            Log.Function("Compiling App Module");
+            Compile.File(Directory.App.Main + Select.ThisFolder.JS, Directory.Theme.App);
+            if (callback) callback();
+        },
+        Controllers: function(callback) {
+            Log.Function("Compiling App Controllers");
+            Compile.Folder(Directory.App.Components + Select.ThisFolder.JS, 'app.controllers.js', Directory.Theme.App);
+            if (callback) callback();
+        },
+        Directives: function(callback) {
+            Log.Function("Compiling App Directives");
+            Compile.Folder(Directory.App.Shared + Select.ThisFolder.JS, 'app.directives.js', Directory.Theme.App);
+            if (callback) callback();
+        },
+        Core: function(callback) {
+            Log.Function("Compiling App Core");
+            Compile.Folder(Directory.App.Core + Select.ThisFolder.JS, 'app.core.js', Directory.Theme.App);
+            if (callback) callback();
+        },
+        Admin: function(callback) {
+            Log.Function("Compiling App Admin");
+            Compile.Folder(Directory.App.Admin + Select.ThisFolder.JS, 'app.admin.js', Directory.Theme.App);
+            if (callback) callback();
+        },
+    }
+}
+
+gulp.task('theme-sass', function() {
+    Log.Heading('Compiling theme SASS');
+    var FileCheck = function() {
+        if (params.file) {
+            return Directory.App.Sass + params.file + '.scss';
+        } else {
+            return Directory.App.Sass + Select.ThisFolder.SCSS;
+        }
+    }
+
+    Log.Value('SASS Selection', FileCheck());
+    Compile.SASS(FileCheck(), Directory.Theme.Assets + 'css/');
+
+});
+
+gulp.task('theme-minify-module', function() {
+    Compile.App.Module();
+});
+
+gulp.task('theme-minify-controllers', function() {
+    Compile.App.Controllers();
+})
+
+gulp.task('theme-minify-directives', function() {
+    Compile.App.Directives();
+})
+
+gulp.task('theme-minify-core', function() {
+    Compile.App.Core();
+})
+
+gulp.task('theme-minify-admin', function() {
+    Compile.App.Admin();
+})
+
+gulp.task('theme-copy-view-assets', function() {
+    Log.Heading("Copying HTML views");
+    gulp.src(Directory.App.Main + Select.All.HTML)
+        .pipe(gulp.dest(Directory.Theme.App))
+})
+
+
+
+
+
+gulp.task('theme-deploy', function() {
+    Log.Heading("Deploying Theme");
+    SetDelay(5, function() {
+        FTP.Deploy(FTP.Dev, ['eric-codes-theme/**'], 'wp-content/themes/');
+    })
+})
+
+
+gulp.task('theme-release', function() {
+    Log.Heading("Deploying Theme");
+    SetDelay(5, function() {
+        FTP.Deploy(FTP.Live, ['eric-codes-theme/**'], 'public_html/wp-content/themes/');
+    })
+})
+
+
+
+
+
+/**
+ *
+ *  =====  DOCUMENTATION  =====
+ * 
+ */
+
+gulp.task('doc-theme', function(cb) {
+    Log.Heading("Documenting Theme");
+    var configs = require('./jsdocConfig.json');
+    gulp.src(['README.md', Directory.App.Main + '**/*.js'], {
+            read: false
+        })
+        .pipe(jsdoc(configs, cb));
+});
+
+gulp.task('doc-gulp', function(cb) {
+    Log.Heading("Documenting Gulpfile");
+    var configs = require('./jsdocConfig.gulp.json');
+    gulp.src(['README.md', Directory.GulpFile], {
+            read: false
+        })
+        .pipe(jsdoc(configs, cb));
+});
+
+
+
+/**
+ *
+ *  =====  VERSION CONTROL  =====
+ * 
+ */
+
+
+gulp.task('bump', function() {
+    Log.Heading("Bumping Version");
+    var BumpSettings = 'minor';
+
+    if (argv.t) {
+        BumpSettings = argv.t
+    }
+    Log.Value("Bump type", BumpSettings);
+    Bump.Version(BumpSettings);
+
+})
+
+var Bump = {
+    Version: function(bumpType, callback) {
+        Log.Function("Bumping...")
+        var BumpSettings = {
+            type: bumpType
+        };
+
+        gulp.src('./package.json')
+            .pipe(bump(BumpSettings))
+            .pipe(gulp.dest('./'));
+
+        npmPackage = reload('./package.json');
+        Log.Value("Version", npmPackage.version);
+
+        if (callback) {
+            callback();
+        }
+    },
+    Feature: function(callback) {
+        Bump.Version('minor', callback);
+    },
+    Patch: function(callback) {
+        Bump.Version('patch', callback);
+    },
+    Update: function(callback) {
+        Bump.Version('prerelease', callback);
+    }
+}
+
+
+
+
+/**
+ *
+ *  =====  GITHUB  =====
+ *
+ * @todo Change cleanup.release to something else
+ * 
+ */
+
+
+
+function commitMsg(bumpType, commit, statusMsg) {
+    Log.Function("Generating commit message");
+
+    npmPackage = reload('./package.json');
+
+    var CommitMsg = "v" + npmPackage.version + " " + ReturnCommitTag(bumpType);
+
+
+    if (commit) {
+        CommitMsg = CommitMsg + " - " + commit;
+    }
+
+    if (statusMsg) {
+        CommitMsg = CommitMsg + " - " + statusMsg;
+    }
+
+    Log.Value("Commit Message", CommitMsg);
+
+    return CommitMsg;
+
+}
+
+var Git = {
+    Commit: {
+        Current: function(commitMsg, callback) {
+            Log.Function('Committing Current');
+            git.exec({
+                args: 'add .'
+            }, function(err, std) {
+                if (err) throw err;
+                console.log(std);
+                git.exec({
+                    args: 'commit -m "' + commitMsg + '"'
+                }, function(err, std) {
+                    if (err) throw err;
+                    console.log(std);
+                    git.exec({
+                        args: 'push'
+                    }, function(err, stdout) {
+                        if (err) throw err;
+                        console.log(stdout);
+                        if (callback) {
+                            callback();
+                        }
+                    });
+                });
+
+            });
+        }
+    },
+    Checkout: {
+        Develop: function(callback) {
+            Log.Function("Switching to develop");
+            git.exec({
+                args: 'checkout develop'
+            }, function(err, stdout) {
+                if (err) throw err;
+                console.log(stdout);
+                if (callback) {
+                    callback();
+                }
+            });
+        },
+        Branch: function(branchName, callback) {
+            Log.Function("Switching to " + branchName);
+            git.exec({
+                args: "checkout " + branchName
+            }, function(err, std) {
+                if (err) throw err;
+                console.log(std);
+                if (callback) {
+                    callback();
+                }
+            })
+        }
+    },
+    Create: {
+        Feature: function(branchName, callback) {
+            Log.Function("Creating feature");
+            git.exec({
+                args: 'checkout -b feature-' + branchName
+            }, function(err, std) {
+                if (err) throw err;
+                console.log(std);
+
+                Prompt.Text('featureDescription', 'Description of New Branch: ', function(res) {
+                    git.exec({
+                        args: "add ."
+                    }, function(err, std) {
+                        if (err) throw err;
+                        console.log(std);
+
+                        var CommitMsg = commitMsg('minor', res.featureDescription, 'CREATED');
+
+
+                        git.exec({
+                            args: 'commit -m "' + CommitMsg + '"'
+                        }, function(err, std) {
+                            if (err) throw err;
+                            console.log(std);
+
+                            git.exec({
+                                args: 'push --set-upstream origin feature-' + branchName
+                            }, function(err, std) {
+                                if (err) throw err;
+                                console.log(std);
+                                if (callback) {
+                                    callback();
+                                }
+                            })
+                        })
+                    })
+                })
+
+            });
+        },
+        Patch: function(branchName, callback) {
+            Log.Function("Creating patch");
+            git.exec({
+                args: 'checkout -b patch-' + branchName
+            }, function(err, std) {
+                if (err) throw err;
+                console.log(std);
+
+                Prompt.Text('featureDescription', 'Description of New Branch: ', function(res) {
+                    git.exec({
+                        args: "add ."
+                    }, function(err, std) {
+                        if (err) throw err;
+                        console.log(std);
+
+                        var CommitMsg = commitMsg('patch', res.featureDescription, 'CREATED');
+
+
+                        git.exec({
+                            args: 'commit -m "' + CommitMsg + '"'
+                        }, function(err, std) {
+                            if (err) throw err;
+                            console.log(std);
+
+                            git.exec({
+                                args: 'push --set-upstream origin patch-' + branchName
+                            }, function(err, std) {
+                                if (err) throw err;
+                                console.log(std);
+                                if (callback) {
+                                    callback();
+                                }
+                            })
+                        })
+                    })
+                })
+
+            });
+        },
+    },
+    Merge: {
+        To: {
+            Develop: function(CurrentBranch, callback) {
+                Log.Function("Merging to develop");
+
+                git.exec({
+                    args: "merge --no-ff " + CurrentBranch
+                }, function(err, std) {
+                    if (err) throw err;
+                    console.log(std);
+
+                    git.exec({
+                        args: "push"
+                    }, function(err, std) {
+                        if (err) throw err;
+                        console.log(std);
+
+                        if (callback) {
+                            callback();
+                        }
+
+                    })
+
+                })
+
+            },
+            Master: function(callback) {
+                Log.Function("Merging to master");
+                git.exec({
+                    args: "checkout master"
+                }, function(err, std) {
+                    if (err) throw err;
+                    console.log(std);
+
+                    git.exec({
+                        args: "merge --no-ff develop"
+                    }, function(err, std) {
+                        if (err) throw err;
+                        console.log(std);
+
+                        git.exec({
+                            args: "push"
+                        }, function(err, std) {
+                            if (err) throw err;
+                            console.log(std);
+
+                            if (callback) {
+                                callback();
+                            }
+                        })
+                    })
+                })
+            }
+        }
+    },
+    Cleanup: {
+        Release: function(releaseBranch, callback) {
+            Log.Function('Cleaning up release');
+            git.exec({
+                args: "branch -d " + releaseBranch
+            }, function(err, std) {
+                if (err) throw err;
+                console.log(std);
+
+                git.exec({
+                    args: "checkout develop"
+                }, function(err, std) {
+                    if (err) throw err;
+                    console.log(std);
+
+                    git.exec({
+                        args: "merge --no-ff master"
+                    }, function(err, std) {
+                        if (err) throw err;
+                        console.log(std);
+
+                        git.exec({
+                            args: "push"
+                        }, function(err, std) {
+                            if (err) throw err;
+                            console.log(std);
+                            if (callback) callback();
+                        })
+                    })
+                })
+            })
+        }
+    },
+    Push: {
+        Commit: function(type, callback) {
+            Log.Function('Pushing current work as ' + type);
+            if (argv.nogit) {
+                if (callback) {
+                    callback();
+                }
+            } else {
+
+                if (argv.c) {
+                    var CommitMsg = commitMsg(type, argv.c);
+                    Git.Commit.Current(CommitMsg, callback);
+                } else if (argv.n) {
+                    var CommitMsg = commitMsg(type, "-- push to FTP --");
+                    Git.Commit.Current(CommitMsg, callback);
+                } else {
+                    Prompt.Text('commit', 'Commit Message: ', function(rsp) {
+                        var CommitMsg = commitMsg(type, rsp.commit);
+                        Git.Commit.Current(CommitMsg, callback);
+                    })
+                }
+            }
+        }
+    },
+    Prepare: {
+        Branch: function(branchName, callback) {
+            Log.Function("Creating Branch " + branchName);
+            Process.Theme(function() {
+                Git.Commit.Current('[ === CREATING NEW BRANCH ===] - ' + branchName, function() {
+                    Git.Checkout.Develop(function() {
+                        Process.Theme(function() {
+                            if (callback) callback();
+                        })
+                    })
+                })
+            })
+        }
+    }
+}
+
+
+gulp.task('deploy-update', function() {
+    Log.Heading("Deploying Update");
+    Git.Push.Commit('prerelease', function() {
+        runSequence(
+            'theme-deploy'
+        );
+    });
+})
+
+gulp.task('deploy-release', function() {
+    Log.Heading("Deploying Update");
+        runSequence(
+            'theme-release'
+        );
+})
+
+
+/**
+ * Deploy theme
+ */
+
+gulp.task('process-theme', function() {
+    Log.Heading("Processing Theme");
+    Process.Theme();
+});
+
+var Process = {
+    Theme: function(callback) {
+        Log.Function("Processing theme...")
+
+        if (params.phpOnly === true) {
+            Log.Warning('No documentation, only minification!');
+            runSequence(
+                'theme-sass',
+                'theme-minify-module',
+                'theme-minify-core',
+                'theme-minify-controllers',
+                'theme-minify-directives',
+                'theme-minify-admin',
+                function() {
+                    if (callback) {
+                        SetDelay(2, callback);
+
+                    }
+                }
+            );
+
+        } else {
+            Log.Msg('Running full compile...');
+            runSequence(
+                'theme-sass',
+                'theme-minify-module',
+                'theme-minify-core',
+                'theme-minify-controllers',
+                'theme-minify-directives',
+                'theme-minify-admin',
+                'theme-copy-view-assets',
+                'doc-theme',
+                'doc-gulp',
+                function() {
+                    if (callback) {
+                        if (argv.nogit) {
+                            SetDelay(5, callback);
+                        } else {
+                            callback();
+                        }
+                    }
+                }
+            );
+
+        }
+
+    }
+}
+
+
+
+gulp.task('push-update', function() {
+    Log.Heading("Pushing Update");
+    Bump.Update(function() {
+        runSequence(
+            'process-theme',
+            'deploy-update'
+        )
+    })
+
+});
+
+
+
+function ReturnCommitTag(type) {
+    Log.Value("Commit Tag Type", type);
+    if (type == "prerelease") {
+        return "[UPDATE]"
+    } else if (type == "patch") {
+        return "[PATCH]"
+    } else if (type == "minor") {
+        return "[FEATURE]"
+    } else if (type == "major") {
+        return "[VERSION]"
+    }
+}
+
+
+
+var Feature = {
+    Open: function(callback) {
+        if (argv.n) {
+            var branchName = argv.n;
+            Git.Prepare.Branch(branchName, function() {
+                Git.Create.Feature(branchName, callback);
+            });
+        } else {
+            Prompt.Text('featureName', "Set a feature name (Lowercase only, Hyphens only!)", function(res) {
+                var branchName = res.featureName;
+                Git.Prepare.Branch(branchName, function() {
+                    Git.Create.Feature(branchName, callback);
+                });
+            })
+        }
+    },
+    Push: function(callback) {
+        Bump.Update(function() {
+            gitRev.branch(function(str) {
+
+                var CurrentBranch = str;
+                var CommitMsg = commitMsg("minor", "PUSHED TO DEVELOP");
+
+                Process.Theme(function() {
+                    Git.Commit.Current(CommitMsg, function() {
+                        Git.Checkout.Develop(function() {
+                            Git.Merge.To.Develop(CurrentBranch, function() {
+                                Prompt.Choices('yesno', "Switch back to " + CurrentBranch + "?", ['yes', 'no'], function(res) {
+                                    if (res.yesno == "yes") {
+                                        Git.Checkout.Branch(CurrentBranch, callback);
+                                    }
+                                })
+                            });
+                        })
+                    })
+                })
+            })
+        })
+    },
+    Release: function(callback) {
+        Bump.Feature(function() {
+            gitRev.branch(function(str) {
+
+                var CurrentBranch = str;
+                var CommitMsg = commitMsg("minor", "RELEASE TO PUBLIC");
+
+                Process.Theme(function() {
+                    Git.Commit.Current(CommitMsg, function() {
+                        Git.Checkout.Develop(function() {
+                            Git.Merge.To.Develop(CurrentBranch, function() {
+                                Git.Merge.To.Master(function() {
+                                    Prompt.Choices('yesno', "Clean up " + CurrentBranch + "?", ['yes', 'no'], function(res) {
+                                        if (res.yesno == "yes") {
+                                            Git.Cleanup.Release(CurrentBranch, callback);
+                                        }
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    }
+}
+
+var Patch = {
+    Open: function(callback) {
+        Bump.Patch(function() {
+            if (argv.n) {
+                var branchName = argv.n;
+                Git.Prepare.Branch(branchName, function() {
+                    Git.Create.Patch(branchName, callback);
+                });
+            } else {
+                Prompt.Text('featureName', "Set a patch name (Lowercase only, Hyphens only!)", function(res) {
+                    var branchName = res.featureName;
+                    Git.Prepare.Branch(branchName, function() {
+                        Git.Create.Patch(branchName, callback);
+                    });
+                })
+            }
+        })
+    },
+    Push: function(callback) {
+        Bump.Update(function() {
+            gitRev.branch(function(str) {
+
+                var CurrentBranch = str;
+                var CommitMsg = commitMsg("patch", "PUSHED TO DEVELOP");
+
+                Process.Theme(function() {
+                    Git.Commit.Current(CommitMsg, function() {
+                        Git.Checkout.Develop(function() {
+                            Git.Merge.To.Develop(CurrentBranch, function() {
+                                Prompt.Choices('yesno', "Switch back to " + CurrentBranch + "?", ['yes', 'no'], function(res) {
+                                    if (res.yesno == "yes") {
+                                        Git.Checkout.Branch(CurrentBranch, callback);
+                                    }
+                                })
+                            });
+                        })
+                    })
+                })
+            })
+        })
+    },
+    Release: function(callback) {
+
+        gitRev.branch(function(str) {
+
+            var CurrentBranch = str;
+            var CommitMsg = commitMsg("patch", "RELEASE TO PUBLIC");
+
+            Process.Theme(function() {
+                Git.Commit.Current(CommitMsg, function() {
+                    Git.Checkout.Develop(function() {
+                        Git.Merge.To.Develop(CurrentBranch, function() {
+                            Git.Merge.To.Master(function() {
+                                Prompt.Choices('yesno', "Clean up " + CurrentBranch + "?", ['yes', 'no'], function(res) {
+                                    if (res.yesno == "yes") {
+                                        Git.Cleanup.Release(CurrentBranch, callback);
+                                    }
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+
+    }
+}
+
+
+
+
+gulp.task('open-feature', function() {
+    Log.Heading("Opening Feature");
+    Feature.Open();
+})
+
+
+
+gulp.task('push-feature', function() {
+    Log.Heading("Pushing feature to develop");
+    Feature.Push();
+})
+
+
+gulp.task('release-feature', function() {
+    Log.Heading("Releasing feature to master");
+    Feature.Release();
+})
+
+
+
+gulp.task('open-patch', function() {
+    Log.Heading("Opening Patch");
+    Patch.Open();
+})
+
+
+
+gulp.task('push-patch', function() {
+    Log.Heading("Pushing patch to develop");
+    Patch.Push();
+})
+
+
+gulp.task('release-patch', function() {
+    Log.Heading("Releasing patch to master");
+    Patch.Release();
+})
