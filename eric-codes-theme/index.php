@@ -33,6 +33,12 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes">
 
+<section ui-view class="main-page-section">
+	
+	
+
+</section>
+
 
 	<script type="text/javascript" src="<?php TemplateGet('/app/app.module.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php TemplateGet('/app/app.core.min.js'); ?>"></script>

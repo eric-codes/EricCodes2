@@ -97,8 +97,73 @@ if (window.Debug == true) {
 }
 
 
+
+
 /**
  * Initialize Angular site main module
  * @type {class}
  */
 var app = angular.module('EricCodes', ['ui.router', 'ngAnimate']);
+
+/**
+ * Returns template URL for the view name input.
+ * @param {String} view_name    File of view .html file
+ * @returns {String}            URL of the template HTML
+ */
+function GetView(view_name) {
+    return themeURL + "app/components/" + view_name + ".html";
+}
+
+/**
+ * Returns template URL for the directive name input
+ * @param {String} view_name    File of view .html file
+ * @returns {String}            URL of the template HTML
+ */
+function GetShared(view_name) {
+    return themeURL + "app/shared/" + view_name + ".html";
+}
+
+/**
+ * Angular Routing configuration settings
+ */
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise("/");
+
+    $stateProvider
+        .state('home', { // Home Page
+            url: '/',
+            controller: 'homepage',
+            templateUrl: GetView('homepage')
+        }) // Battles Main Page
+/*        .state('battles', {
+            url: '/battles',
+            controller: 'cc_battles',
+            templateUrl: GetView('battles-featured')
+        }) // Battles Main Page
+        .state('battles-active', {
+            url: '/battles/active',
+            controller: 'cc_battles_active',
+            templateUrl: GetView('battles-active')
+        })
+        .state('battle-page', {
+            url: '/battles/:battleSlug',
+            controller: 'cc_battle_page',
+            templateUrl: GetView('battle-page')
+        })
+        .state('vote', { // Vote Main Page
+            url: '/vote',
+            controller: 'cc_vote',
+            templateUrl: GetView('vote')
+        })
+        .state('vote-battle', { // Vote Specific battle
+            url: '/vote/:battleSlug',
+            controller: 'cc_vote',
+            templateUrl: GetView('vote')
+        })
+        .state('news', { // Blog Posts Main Page
+            url: '/news',
+            controller: 'cc_news',
+            templateUrl: GetView('news')
+        })*/
+}])
