@@ -106,6 +106,12 @@ if (window.Debug == true) {
 var app = angular.module('EricCodes', ['ui.router', 'ngAnimate']);
 
 /**
+ * Set global child theme template folder
+ * @type {String}
+ */
+var themeURL = 'http://' + window.location.host + "/wp-content/themes/eric-codes-theme/";
+
+/**
  * Returns template URL for the view name input.
  * @param {String} view_name    File of view .html file
  * @returns {String}            URL of the template HTML

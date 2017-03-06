@@ -1,5 +1,1 @@
-
-
-app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
-	
-}])
+app.controller("homepage",["$scope","$rootScope",function(o,e){}]);
