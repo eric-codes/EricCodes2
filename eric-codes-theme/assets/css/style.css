@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'LFT Etica';
+    src: url("../fonts/LFTEtica-Book.eot");
+    src: url("../fonts/LFTEtica-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Book.woff2") format("woff2"), url("../fonts/LFTEtica-Book.woff") format("woff"), url("../fonts/LFTEtica-Book.svg#LFTEtica-Book") format("svg");
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-BookItalic.eot");
+  src: url("../fonts/LFTEtica-BookItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-BookItalic.woff2") format("woff2"), url("../fonts/LFTEtica-BookItalic.woff") format("woff"), url("../fonts/LFTEtica-BookItalic.svg#LFTEtica-BookItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-ExtraBold.eot");
+  src: url("../fonts/LFTEtica-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-ExtraBold.woff2") format("woff2"), url("../fonts/LFTEtica-ExtraBold.woff") format("woff"), url("../fonts/LFTEtica-ExtraBold.svg#LFTEtica-ExtraBold") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-ExtraBoldItalic.eot");
+  src: url("../fonts/LFTEtica-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/LFTEtica-ExtraBoldItalic.woff") format("woff"), url("../fonts/LFTEtica-ExtraBoldItalic.svg#LFTEtica-ExtraBoldItalic") format("svg");
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-Light.eot");
+  src: url("../fonts/LFTEtica-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Light.woff2") format("woff2"), url("../fonts/LFTEtica-Light.woff") format("woff"), url("../fonts/LFTEtica-Light.svg#LFTEtica-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-LightItalic.eot");
+  src: url("../fonts/LFTEtica-LightItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-LightItalic.woff2") format("woff2"), url("../fonts/LFTEtica-LightItalic.woff") format("woff"), url("../fonts/LFTEtica-LightItalic.svg#LFTEtica-LightItalic") format("svg");
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-SemiBold.eot");
+  src: url("../fonts/LFTEtica-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-SemiBold.woff2") format("woff2"), url("../fonts/LFTEtica-SemiBold.woff") format("woff"), url("../fonts/LFTEtica-SemiBold.svg#LFTEtica-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-SemiBoldItalic.eot");
+  src: url("../fonts/LFTEtica-SemiBoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-SemiBoldItalic.woff2") format("woff2"), url("../fonts/LFTEtica-SemiBoldItalic.woff") format("woff"), url("../fonts/LFTEtica-SemiBoldItalic.svg#LFTEtica-SemiBoldItalic") format("svg");
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
