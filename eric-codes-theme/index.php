@@ -22,7 +22,7 @@ function TemplateGet($input) {
 	<link rel="stylesheet" type="text/css" href="<?php TemplateGet('/assets/css/bootstrap.min.css'); ?>">
 	<script type="text/javascript" src="<?php TemplateGet('/assets/js/bootstrap.min.js'); ?>"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Fjalla+One|Oxygen:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php TemplateGet('/assets/css/style.css'); ?>">
 	<script src="https://use.fontawesome.com/e8d681bf45.js"></script>
 
@@ -31,7 +31,7 @@ function TemplateGet($input) {
 	</script>
 
 </head>
-<body ng-app="EricCodes">
+<body ng-app="EricCodes" ngClass="BodyClass">
 
 <section ui-view class="main-page-section">
 	

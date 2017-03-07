@@ -1,1 +1,1 @@
-app.controller("homepage",["$scope","$rootScope",function(o,e){}]);
+app.controller("homepage",["$scope","$rootScope",function(o,e){o.LogoURL=themeURL+"images/mainLogo.png"}]);

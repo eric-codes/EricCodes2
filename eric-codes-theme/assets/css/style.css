@@ -77,3 +77,7 @@
   font-stretch: normal;
   unicode-range: U+0020-00FE;
 }
+
+body {
+    font-family: "LFT Etica";
+}

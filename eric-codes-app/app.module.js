@@ -103,7 +103,7 @@ if (window.Debug == true) {
  */
 var themeURL = 'http://' + window.location.host + "/wp-content/themes/eric-codes-theme/";
 
-
+Log.Value('themeURL',themeURL);
 
 
 
