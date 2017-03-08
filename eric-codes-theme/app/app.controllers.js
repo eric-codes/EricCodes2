@@ -1,1 +1,1 @@
-app.controller("homepage",["$scope","$rootScope",function(o,e){o.LogoURL=themeURL+"images/mainLogo.svg"}]);
+app.controller("homepage",["$scope","$rootScope",function(o,a){var e=themeURL+"images/icons/";o.LogoURL=themeURL+"images/mainLogo.svg",Log.Value("$scope.LogoURL",o.LogoURL),o.NavIcons=[{name:"About",URL:e+"nav_about.svg"},{name:"Work",URL:e+"nav_work.svg"},{name:"Contact",URL:e+"nav_contact.svg"}]}]);
