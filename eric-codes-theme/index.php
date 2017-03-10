@@ -9,6 +9,7 @@ function TemplateGet($input) {
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="/">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,11 +34,11 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes" ngClass="BodyClass">
 
-<section ui-view class="main-page-section">
-	
-	
+	<section ui-view class="main-page-section">
+		
+		
 
-</section>
+	</section>
 
 
 	<script type="text/javascript" src="<?php TemplateGet('/app/app.module.min.js'); ?>"></script>
