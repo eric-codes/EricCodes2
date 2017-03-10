@@ -134,6 +134,12 @@ function GetShared(view_name) {
 }
 
 /**
+ * Static var for the icon folder - changes depending on themeURL
+ * @type {String}
+ */
+var iconFolder = themeURL + "images/icons/";
+
+/**
  * Angular Routing configuration settings
  */
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -145,35 +151,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/',
             controller: 'homepage',
             templateUrl: GetView('homepage')
-        }) // Battles Main Page
-/*        .state('battles', {
-            url: '/battles',
-            controller: 'cc_battles',
-            templateUrl: GetView('battles-featured')
-        }) // Battles Main Page
-        .state('battles-active', {
-            url: '/battles/active',
-            controller: 'cc_battles_active',
-            templateUrl: GetView('battles-active')
         })
-        .state('battle-page', {
-            url: '/battles/:battleSlug',
-            controller: 'cc_battle_page',
-            templateUrl: GetView('battle-page')
+        .state('about', { // Home Page
+            url: '/about',
+            controller: 'about',
+            templateUrl: GetView('about')
         })
-        .state('vote', { // Vote Main Page
-            url: '/vote',
-            controller: 'cc_vote',
-            templateUrl: GetView('vote')
-        })
-        .state('vote-battle', { // Vote Specific battle
-            url: '/vote/:battleSlug',
-            controller: 'cc_vote',
-            templateUrl: GetView('vote')
-        })
-        .state('news', { // Blog Posts Main Page
-            url: '/news',
-            controller: 'cc_news',
-            templateUrl: GetView('news')
-        })*/
 }])

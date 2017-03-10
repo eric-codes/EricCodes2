@@ -2,7 +2,7 @@
 
 app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
 	
-	var iconFolder = themeURL + "images/icons/";
+	
 
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";
 
@@ -11,13 +11,16 @@ app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
 	$scope.NavIcons = [
 	{
 		name: "About",
-		URL: iconFolder + 'nav_about.svg'
+		URL: iconFolder + 'nav_about.svg',
+		link: "/#/about"
 	},{
 		name: "Work",
-		URL: iconFolder + 'nav_work.svg'
+		URL: iconFolder + 'nav_work.svg',
+		link: "/#/work"
 	},{
 		name: "Contact",
-		URL: iconFolder + 'nav_contact.svg'
+		URL: iconFolder + 'nav_contact.svg',
+		link: "/#/contact"
 	},
 	]
 
