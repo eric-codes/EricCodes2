@@ -157,4 +157,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             controller: 'about',
             templateUrl: GetView('about')
         })
+        .state('work', { // Home Page
+            url: '/work',
+            controller: 'work',
+            templateUrl: GetView('work')
+        })
 }])

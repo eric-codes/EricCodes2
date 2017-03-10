@@ -20,7 +20,7 @@
 			<div class="nav-icon-single" ng-repeat="icon in NavIcons">
 
 				<div class="nav-icon-container">
-					<img class="nav-icon-img" ng-src="{{icon.URL}}"></img>
+				<img class="nav-icon-img" ng-src="{{icon.URL}}" ng-click="OpenLink(icon.link)"></img>
 				</div>
 
 				<span class="icon-title">{{icon.name}}</span>

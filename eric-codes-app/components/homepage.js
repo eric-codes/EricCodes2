@@ -24,4 +24,8 @@ app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
 	},
 	]
 
+	$scope.OpenLink = function(link){
+		window.location.href = link;
+	}
+
 }])
