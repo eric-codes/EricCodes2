@@ -21,10 +21,38 @@
 
 		</div>
 		<div class="col-sm-6">
-
+			<div class="about-image-container">
+				<img class="about-image" src="http://placehold.it/1024x1280"></img>
+			</div>
 		</div>
 
 
+
+	</div>
+
+</div>
+
+<div class="page-section">
+
+	<div class="skill-section">
+
+		<h2 class="center-header">skill.<span>set</span></h2>
+
+		<div class="skill-icon-set">
+
+			<div class="skill-icon-container" ng-repeat="skill in skillIcons">
+
+				<div class="skill-icon">
+					<img class="skill-icon-img" ng-src="{{skill.icon}}"></img>
+				</div>
+
+				<span class="skill-icon-title">{{skill.title}}</span>
+
+			</div>
+
+			<div class="clearfix"></div>
+
+		</div>
 
 	</div>
 
