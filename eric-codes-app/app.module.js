@@ -103,7 +103,7 @@ if (window.Debug == true) {
  */
 var themeURL = 'http://' + window.location.host + "/wp-content/themes/eric-codes-theme/";
 
-Log.Value('themeURL',themeURL);
+Log.Value('themeURL', themeURL);
 
 
 
@@ -142,7 +142,7 @@ var iconFolder = themeURL + "images/icons/";
 /**
  * Angular Routing configuration settings
  */
-app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise("/");
 
@@ -162,4 +162,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             controller: 'work',
             templateUrl: GetView('work')
         })
+
+    $locationProvider.html5Mode(true);
 }])
