@@ -162,6 +162,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: 'work',
             templateUrl: GetView('work')
         })
+        .state('work_single', {
+            url: '/work/:workSlug',
+            controller: 'work_single',
+            templateUrl: GetView('work_single')
+        })
 
     $locationProvider.html5Mode(true);
 }])
