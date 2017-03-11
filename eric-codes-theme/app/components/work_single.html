@@ -43,6 +43,8 @@
 
 		<div class="row section" ng-repeat="section in Sections">
 
+
+
 			<div class="col-sm-6" ng-if="section.title">
 				<h3 class="section-heading">{{WorkData.title}}.{{section.title}}</h3>
 			</div>
@@ -55,9 +57,14 @@
 				</div>
 			</div>
 
+
+			<div class="clearfix" ng-if="section.title"></div>
+
 			<div class="col-xs-12" ng-if="section.description">
 				<p class="section-description">{{section.description}}</p>
 			</div>
+
+
 
 			<div class="col-sm-8" ng-if="section.gallery">
 				<div class="main-image-container">
@@ -74,6 +81,13 @@
 					</div>
 				</div>
 			</div>
+
+
+			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
+				<h4 class="sub-heading">{{WorkData.title}}.{{section.title}}.{{textSection.title}}</h4>
+				<p class="sub-section-description">{{textSection.description}}</p>
+			</div>
+
 			
 		</div>
 
