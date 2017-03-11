@@ -58,6 +58,22 @@
 			<div class="col-xs-12" ng-if="section.description">
 				<p class="section-description">{{section.description}}</p>
 			</div>
+
+			<div class="col-sm-8" ng-if="section.gallery">
+				<div class="main-image-container">
+					<img class="main-image"></img>
+				</div>
+			</div>
+
+			<div class="col-sm-4" ng-if="section.gallery">
+				<div class="image-thumbs row">
+					<div class="col-xs-6" ng-repeat="image in section.gallery">
+						<div class="image-thumb">
+							<img class="image-thumb-img" ng-src="{{image.URL}}"></img>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 		</div>
 
