@@ -34,9 +34,28 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes" ngClass="BodyClass">
 
+<nav class="navbar navbar-default" ng-controller="navbar">
+	<div class="container">
+
+
+		<div class="pull-left logo-area">
+			<span class="logo-type">eric.codes</span>
+		</div>
+
+		<div class="pull-right icon-area">
+			<div class="icon-drawer">
+				<a class="icon-link" ng-repeat="link in NavBar" ng-href="{{link.link}}">
+					<img class="icon-img" ng-src="{{link.icon}}"></img>
+				</a>
+			</div>
+		</div>
+
+	</div>
+</nav>
+
 	<section ui-view class="main-page-section">
-		
-		
+
+
 
 	</section>
 
