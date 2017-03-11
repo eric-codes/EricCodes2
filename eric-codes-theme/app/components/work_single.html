@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="work-icon-container">
-				<div class="icon-container" ng-repeat="icon in WorkData.tags">
+					<div class="icon-container" ng-repeat="icon in WorkData.tags">
 						<img class="icon" ng-src="{{icon.icon}}"></img>
 					</div>
 				</div>
@@ -36,9 +36,24 @@
 		<div class="row hero-image-set">
 			<div class="col-sm-4" ng-repeat="image in WorkData.hero">
 				<div class="hero-image-container">
-					<img class="hero-image" ng-href="image"></img>
+					<img class="hero-image" ng-src="{{image.image}}"></img>
 				</div>
 			</div>
+		</div>
+
+		<div class="row section section-header">
+
+			<div class="col-sm-6">
+				<h3 class="section-heading">{{WorkData.title}}</h3>
+			</div>
+			<div class="col-sm-6">
+				<div class="work-icon-container">
+					<div class="icon-container" ng-repeat="icon in WorkData.tags">
+						<img class="icon" ng-src="{{icon.icon}}"></img>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 
 

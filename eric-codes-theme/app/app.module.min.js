@@ -139,6 +139,64 @@ function GetShared(view_name) {
  */
 var iconFolder = themeURL + "images/icons/";
 
+function returnTags(tagArray) {
+
+    var returnArr = [];
+
+    $.each(tagArray, function(i, val) {
+        var AddToArr = {
+            icon: iconFolder + "code_" + val + ".svg"
+        }
+        var Title;
+        switch (val) {
+            case "jquery":
+                Title = "jQuery";
+                break;
+            case "angular":
+                Title = "Angular 1.x";
+                break;
+
+            case "sass":
+                Title = "SASS / LESS";
+                break;
+
+            case "backend":
+                Title = "PHP / MySQL";
+                break;
+
+            case "css3":
+                Title = "CSS3";
+                break;
+
+            case "graphicdesign":
+                Title = "Graphic Design";
+                break;
+
+            case "gulp":
+                Title = "Gulp";
+                break;
+
+            case "html5":
+                Title = "HTML5";
+                break;
+
+            case "typography":
+                Title = "Typography";
+                break;
+
+            case "uidesign":
+                Title = "UI Design";
+                break;
+        }
+        AddToArr.title = Title;
+        returnArr.push(AddToArr);
+    })
+
+    return returnArr;
+}
+
+Log.Set('returnTags Test',returnTags(['jquery','angular']));
+
 /**
  * Angular Routing configuration settings
  */

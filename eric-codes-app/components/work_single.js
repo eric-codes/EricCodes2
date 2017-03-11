@@ -34,12 +34,19 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
             icon: iconFolder + "code_uidesign.svg",
             title: "UI Design"
         }, ],
-        hero: [
-        "http://placehold.it/500x500",
-        "http://placehold.it/500x500",
-        "http://placehold.it/500x500"
-        ]
+        hero: [{
+            image: "http://placehold.it/500x500"
+        }, {
+            image: "http://placehold.it/500x500"
+        }, {
+            image: "http://placehold.it/500x500"
+        }]
 
     }
+
+    $scope.Sections = [{
+        title: "design()",
+
+    }]
 
 }])
