@@ -3,7 +3,6 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
     $scope.WorkData = {
         title: "chisel.cartel",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
-        
         tags: [{
             icon: iconFolder + "code_jquery.svg",
             title: "jQuery"
@@ -35,6 +34,11 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
             icon: iconFolder + "code_uidesign.svg",
             title: "UI Design"
         }, ],
+        hero: [
+        "http://placehold.it/500x500",
+        "http://placehold.it/500x500",
+        "http://placehold.it/500x500"
+        ]
 
     }
 

@@ -1,11 +1,17 @@
 <div class="return-area">
+
 	<div class="container">
 		<a class="return-link"><i class="fa fa-chevron-left" aria-hidden="true"></i> Return to Work</a>
 	</div>
+
 </div>
+
+
+
 <div class="page-section work-layout">
 	
 	<div class="container">
+
 
 		<div class="row header">
 			<div class="col-sm-6">
@@ -20,11 +26,21 @@
 			</div>
 		</div>
 
+
 		<div class="row description">
 			<div class="col-sm-8">
 				<p>{{WorkData.description}}</p>
 			</div>
 		</div>
+
+		<div class="row hero-image-set">
+			<div class="col-sm-4" ng-repeat="image in WorkData.hero">
+				<div class="hero-image-container">
+					<img class="hero-image" ng-href="image"></img>
+				</div>
+			</div>
+		</div>
+
 
 	</div>
 
