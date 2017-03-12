@@ -1,0 +1,27 @@
+.page-section {
+
+	& > .container {
+		height: 100%;
+
+		& > .text-outer {
+			height:100%;
+		}
+
+	}
+
+}
+
+
+.about-image-container {
+	height: calc(100vh - 50px);
+	overflow: hidden;
+	position: relative;
+
+	.about-image {
+		height: 100%;
+		left: 50%;
+		position: relative;
+		transform: translateX(-50%);
+	}
+	
+}

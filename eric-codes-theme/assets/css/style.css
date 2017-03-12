@@ -85,7 +85,8 @@ body {
 }
 
 .page-section {
-    min-height: 100vh;
+    min-height: calc(100vh - 50px);
+    margin-top: 50px;
 }
 
 span.mid-breaker {
@@ -166,4 +167,25 @@ body.homepage .page-section .homepage-container .nav-icons .icon-title {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.04em;
+}
+
+body.about .page-section > .container {
+    height: 100%;
+}
+
+body.about .page-section > .container > .text-outer {
+    height: 100%;
+}
+
+body.about .about-image-container {
+    height: calc(100vh - 50px);
+    overflow: hidden;
+    position: relative;
+}
+
+body.about .about-image-container .about-image {
+    height: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
 }
