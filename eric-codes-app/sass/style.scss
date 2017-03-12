@@ -14,7 +14,7 @@ body {
 
 span.mid-breaker {
 	margin: 0px 10px;
-	color: $COLOR_SPOT;
+	color: $COLOR_Spot;
 }
 
 /* nav */
@@ -52,6 +52,20 @@ span.mid-breaker {
 		letter-spacing: 0.03em;
 	}
 
+}
+
+h1.top-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 48px;
+    color: $COLOR_Spot;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width:80%;
+    }
 }
 
 

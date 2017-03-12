@@ -1,10 +1,10 @@
 .page-section {
 
 	& > .container {
-		height: 100%;
+		height: $PAGE_Height;
 
 		& > .text-outer {
-			height:100%;
+			height:$PAGE_Height;
 		}
 
 	}
@@ -23,5 +23,35 @@
 		position: relative;
 		transform: translateX(-50%);
 	}
-	
+
+}
+
+.text-outer {
+	display: flex;
+}
+
+.text-container {
+	margin: auto;
+
+	p {
+		font-size: 18px;
+		width: 80%;
+	}
+
+}
+
+
+
+.social-icons {
+	margin-top: 30px;
+
+	.icon-container {
+		display: inline-block;
+		margin: 0px 10px;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+
+	}
 }

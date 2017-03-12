@@ -78,6 +78,7 @@
   unicode-range: U+0020-00FE;
 }
 
+/* COLORS */
 body {
     font-family: "LFT Etica";
     font-weight: 300;
@@ -121,6 +122,20 @@ span.mid-breaker {
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.03em;
+}
+
+h1.top-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 48px;
+    color: #4f8ac8;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 80%;
+    }
 }
 
 /* Import pages */
@@ -170,11 +185,11 @@ body.homepage .page-section .homepage-container .nav-icons .icon-title {
 }
 
 body.about .page-section > .container {
-    height: 100%;
+    height: calc(100vh - 50px);
 }
 
 body.about .page-section > .container > .text-outer {
-    height: 100%;
+    height: calc(100vh - 50px);
 }
 
 body.about .about-image-container {
@@ -188,4 +203,30 @@ body.about .about-image-container .about-image {
     left: 50%;
     position: relative;
     transform: translateX(-50%);
+}
+
+body.about .text-outer {
+    display: flex;
+}
+
+body.about .text-container {
+    margin: auto;
+}
+
+body.about .text-container p {
+    font-size: 18px;
+    width: 80%;
+}
+
+body.about .social-icons {
+    margin-top: 30px;
+}
+
+body.about .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+body.about .social-icons .icon-container:first-child {
+    margin-left: 0px;
 }
