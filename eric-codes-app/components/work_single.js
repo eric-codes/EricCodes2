@@ -1,5 +1,6 @@
 app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootScope) {
 
+    $rootScope.BodyClass = "work-single";
 
     $scope.WorkData = {
         title: "chisel.cartel",

@@ -1,5 +1,7 @@
 app.controller('about', ['$scope', '$rootScope', function($scope, $rootScope) {
 
+    $rootScope.BodyClass = "about";
+
     $scope.SocialIcons = [{
         icon: iconFolder + "social_linkedin.svg"
     }, {

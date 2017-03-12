@@ -1,5 +1,7 @@
 app.controller('work', ['$scope', '$rootScope', function($scope, $rootScope) {
 
+$rootScope.BodyClass = "work";
+
     $scope.WorkItems = [{
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
