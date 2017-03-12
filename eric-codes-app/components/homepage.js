@@ -2,6 +2,7 @@
 
 app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
 	
+	$rootScope.BodyClass = "homepage";
 	
 
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";

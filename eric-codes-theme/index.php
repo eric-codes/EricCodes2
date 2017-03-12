@@ -32,7 +32,7 @@ function TemplateGet($input) {
 	</script>
 
 </head>
-<body ng-app="EricCodes" ngClass="BodyClass">
+<body ng-app="EricCodes" ng-class="BodyClass">
 
 <nav class="navbar navbar-default" ng-controller="navbar">
 	<div class="container">
