@@ -1,0 +1,97 @@
+<div class="return-area">
+
+	<div class="container">
+		<a class="return-link" href="/work"><i class="fa fa-chevron-left" aria-hidden="true"></i> Return to Work</a>
+	</div>
+
+</div>
+
+
+
+<div class="page-section work-layout">
+	
+	<div class="container">
+
+
+		<div class="row header">
+			<div class="col-sm-6">
+				<h2 class="layout-header">{{WorkData.title}}</h2>
+			</div>
+			<div class="col-sm-6">
+				<div class="work-icon-container">
+					<div class="icon-container" ng-repeat="icon in WorkData.tags">
+						<img class="icon" ng-src="{{icon.icon}}"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row description">
+			<div class="col-sm-8">
+				<p>{{WorkData.description}}</p>
+			</div>
+		</div>
+
+		<div class="row hero-image-set">
+			<div class="col-sm-4" ng-repeat="image in WorkData.hero">
+				<div class="hero-image-container">
+					<img class="hero-image" ng-src="{{image.image}}"></img>
+				</div>
+			</div>
+		</div>
+
+		<div class="row section" ng-repeat="section in Sections">
+
+
+
+			<div class="col-sm-6" ng-if="section.title">
+				<h3 class="section-heading">{{WorkData.title}}.{{section.title}}</h3>
+			</div>
+
+			<div class="col-sm-6" ng-if="section.tags">
+				<div class="work-icon-container">
+					<div class="icon-container" ng-repeat="icon in section.tags">
+						<img class="icon" ng-src="{{icon.icon}}"></img>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="clearfix" ng-if="section.title"></div>
+
+			<div class="col-xs-12" ng-if="section.description">
+				<p class="section-description">{{section.description}}</p>
+			</div>
+
+
+
+			<div class="col-sm-8" ng-if="section.gallery">
+				<div class="main-image-container">
+					<img class="main-image"></img>
+				</div>
+			</div>
+
+			<div class="col-sm-4" ng-if="section.gallery">
+				<div class="image-thumbs row">
+					<div class="col-xs-6" ng-repeat="image in section.gallery">
+						<div class="image-thumb">
+							<img class="image-thumb-img" ng-src="{{image.URL}}"></img>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
+				<h4 class="sub-heading">{{section.title}}.{{textSection.title}}</h4>
+				<p class="sub-section-description">{{textSection.description}}</p>
+			</div>
+
+			
+		</div>
+
+
+	</div>
+
+</div>
