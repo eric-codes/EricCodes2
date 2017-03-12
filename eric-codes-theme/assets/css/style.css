@@ -93,6 +93,27 @@ span.mid-breaker {
     color: #4f8ac8;
 }
 
+/* nav */
+.navbar-default {
+    border: none;
+    background: #444;
+    color: white;
+    padding: 10px;
+    max-height: 50px;
+}
+
+.navbar-default .icon-area .icon-drawer .icon-img {
+    width: 30px;
+}
+
+.navbar-default span.logo-type {
+    font-family: "Space Mono";
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
 /* Import pages */
 body.homepage .page-section {
     display: flex;
