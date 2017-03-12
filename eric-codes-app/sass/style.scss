@@ -1,11 +1,19 @@
 @import 'fonts/LFT_Etica';
+@import 'variables';
 
 body {
 	font-family:"LFT Etica";
+	font-weight: 300;
+    letter-spacing: 0.04em;
 }
 
 .page-section {
 	min-height:100vh;
+}
+
+span.mid-breaker {
+    margin: 0px 10px;
+    color: $COLOR_SPOT;
 }
 
 
