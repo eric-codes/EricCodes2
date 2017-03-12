@@ -102,7 +102,15 @@ span.mid-breaker {
     max-height: 50px;
 }
 
-.navbar-default .icon-area .icon-drawer .icon-img {
+.navbar-default .icon-area .icon-drawer .icon-link {
+    margin: 0px 5px;
+}
+
+.navbar-default .icon-area .icon-drawer .icon-link:last-child {
+    margin-right: 0px;
+}
+
+.navbar-default .icon-area .icon-drawer .icon-link .icon-img {
     width: 30px;
 }
 

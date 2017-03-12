@@ -34,7 +34,7 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes" ng-class="BodyClass">
 
-<nav class="navbar navbar-default" ng-controller="navbar">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
 	<div class="container">
 
 

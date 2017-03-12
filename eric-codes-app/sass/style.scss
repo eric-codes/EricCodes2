@@ -25,8 +25,22 @@ span.mid-breaker {
 	padding: 10px;
 	max-height: 50px;
 
-	.icon-area .icon-drawer .icon-img {
-		width: 30px;
+	.icon-area .icon-drawer {
+
+		.icon-link {
+			margin: 0px 5px;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			.icon-img {
+				width: 30px;
+			}
+
+		}
+
+
 	}
 
 	span.logo-type {
@@ -36,7 +50,7 @@ span.mid-breaker {
 		font-weight: 400;
 		letter-spacing: 0.03em;
 	}
-	
+
 }
 
 
