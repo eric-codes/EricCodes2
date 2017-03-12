@@ -189,9 +189,9 @@ var Select = {
  */
 var FTP = {
     Live: {
-        host: 'chiselcartel.com',
-        user: 'chiselcartel',
-        password: 'Stabyouquick1!',
+        host: 'dev1.ericcodes.com',
+        user: 'development@dev1.ericcodes.com',
+        password: 'r10t5NYC',
         parallel: 10,
         log: gutil.log
     },
@@ -496,7 +496,7 @@ gulp.task('theme-deploy', function() {
 gulp.task('theme-release', function() {
     Log.Heading("Deploying Theme");
     SetDelay(5, function() {
-        FTP.Deploy(FTP.Live, ['eric-codes-theme/**'], 'public_html/wp-content/themes/');
+        FTP.Deploy(FTP.Live, ['eric-codes-theme/**'], 'wp-content/themes/');
     })
 })
 
