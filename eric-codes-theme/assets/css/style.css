@@ -79,24 +79,25 @@
 }
 
 /* COLORS */
-body {
+body.eric-codes {
     font-family: "LFT Etica";
     font-weight: 300;
     letter-spacing: 0.04em;
+  /* nav */
+  /* Import pages */
 }
 
-.page-section {
+body.eric-codes .page-section {
     min-height: calc(100vh - 50px);
     margin-top: 50px;
 }
 
-span.mid-breaker {
+body.eric-codes span.mid-breaker {
     margin: 0px 10px;
     color: #4f8ac8;
 }
 
-/* nav */
-.navbar-default {
+body.eric-codes .navbar-default {
     border: none;
     background: #444;
     color: white;
@@ -104,19 +105,19 @@ span.mid-breaker {
     max-height: 50px;
 }
 
-.navbar-default .icon-area .icon-drawer .icon-link {
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
     margin: 0px 5px;
 }
 
-.navbar-default .icon-area .icon-drawer .icon-link:last-child {
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link:last-child {
     margin-right: 0px;
 }
 
-.navbar-default .icon-area .icon-drawer .icon-link .icon-img {
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .icon-img {
     width: 30px;
 }
 
-.navbar-default span.logo-type {
+body.eric-codes .navbar-default span.logo-type {
     font-family: "Space Mono";
     line-height: 30px;
     font-size: 18px;
@@ -124,7 +125,11 @@ span.mid-breaker {
     letter-spacing: 0.03em;
 }
 
-h1.top-title {
+body.eric-codes .navbar-default.not-shown {
+    top: -70px;
+}
+
+body.eric-codes h1.top-title {
     margin-top: 0px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -133,22 +138,21 @@ h1.top-title {
 }
 
 @media (min-width: 1200px) {
-    .container {
+    body.eric-codes .container {
         width: 80%;
     }
 }
 
-/* Import pages */
-body.homepage .page-section {
+body.eric-codes.homepage .page-section {
     display: flex;
 }
 
-body.homepage .page-section .homepage-container {
+body.eric-codes.homepage .page-section .homepage-container {
     margin: auto;
     text-align: center;
 }
 
-body.homepage .page-section .homepage-container .logo-container {
+body.eric-codes.homepage .page-section .homepage-container .logo-container {
     width: 90vw;
     margin-bottom: 20px;
     text-align: center;
@@ -157,26 +161,26 @@ body.homepage .page-section .homepage-container .logo-container {
     margin-right: auto;
 }
 
-body.homepage .page-section .homepage-container .logo-container .logo-img {
+body.eric-codes.homepage .page-section .homepage-container .logo-container .logo-img {
     width: 100%;
     max-width: 700px;
 }
 
-body.homepage .page-section .homepage-container .main-headlines {
+body.eric-codes.homepage .page-section .homepage-container .main-headlines {
     font-size: 18px;
 }
 
-body.homepage .page-section .homepage-container .nav-icons {
+body.eric-codes.homepage .page-section .homepage-container .nav-icons {
     margin-top: 30px;
 }
 
-body.homepage .page-section .homepage-container .nav-icons .nav-icon-single {
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single {
     display: inline-block;
     width: calc(100% / 3);
     max-width: 200px;
 }
 
-body.homepage .page-section .homepage-container .nav-icons .icon-title {
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-title {
     margin-top: 20px;
     display: block;
     text-transform: uppercase;
@@ -184,49 +188,49 @@ body.homepage .page-section .homepage-container .nav-icons .icon-title {
     letter-spacing: 0.04em;
 }
 
-body.about .page-section > .container {
+body.eric-codes.about .page-section > .container {
     height: calc(100vh - 50px);
 }
 
-body.about .page-section > .container > .text-outer {
+body.eric-codes.about .page-section > .container > .text-outer {
     height: calc(100vh - 50px);
 }
 
-body.about .about-image-container {
+body.eric-codes.about .about-image-container {
     height: calc(100vh - 50px);
     overflow: hidden;
     position: relative;
 }
 
-body.about .about-image-container .about-image {
+body.eric-codes.about .about-image-container .about-image {
     height: 100%;
     left: 50%;
     position: relative;
     transform: translateX(-50%);
 }
 
-body.about .text-outer {
+body.eric-codes.about .text-outer {
     display: flex;
 }
 
-body.about .text-container {
+body.eric-codes.about .text-container {
     margin: auto;
 }
 
-body.about .text-container p {
+body.eric-codes.about .text-container p {
     font-size: 18px;
     width: 80%;
 }
 
-body.about .social-icons {
+body.eric-codes.about .social-icons {
     margin-top: 30px;
 }
 
-body.about .social-icons .icon-container {
+body.eric-codes.about .social-icons .icon-container {
     display: inline-block;
     margin: 0px 10px;
 }
 
-body.about .social-icons .icon-container:first-child {
+body.eric-codes.about .social-icons .icon-container:first-child {
     margin-left: 0px;
 }

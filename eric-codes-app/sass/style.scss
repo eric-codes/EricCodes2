@@ -1,78 +1,85 @@
 @import 'fonts/LFT_Etica';
 @import 'variables';
 
-body {
+body.eric-codes {
 	font-family:"LFT Etica";
 	font-weight: 300;
 	letter-spacing: 0.04em;
-}
 
-.page-section {
-	min-height:calc(100vh - 50px);
-	margin-top: 50px;
-}
 
-span.mid-breaker {
-	margin: 0px 10px;
-	color: $COLOR_Spot;
-}
+	.page-section {
+		min-height:calc(100vh - 50px);
+		margin-top: 50px;
+	}
 
-/* nav */
+	span.mid-breaker {
+		margin: 0px 10px;
+		color: $COLOR_Spot;
+	}
 
-.navbar-default {
-	border: none;
-	background: #444;
-	color: white;
-	padding: 10px;
-	max-height: 50px;
+	/* nav */
 
-	.icon-area .icon-drawer {
+	.navbar-default {
+		border: none;
+		background: #444;
+		color: white;
+		padding: 10px;
+		max-height: 50px;
 
-		.icon-link {
-			margin: 0px 5px;
+		.icon-area .icon-drawer {
 
-			&:last-child {
-				margin-right: 0px;
+			.icon-link {
+				margin: 0px 5px;
+
+				&:last-child {
+					margin-right: 0px;
+				}
+
+				.icon-img {
+					width: 30px;
+				}
+
 			}
 
-			.icon-img {
-				width: 30px;
-			}
 
 		}
 
+		span.logo-type {
+			font-family: "Space Mono";
+			line-height: 30px;
+			font-size: 18px;
+			font-weight: 400;
+			letter-spacing: 0.03em;
+		}
+
+		&.not-shown {
+			top: -70px;
+		}
 
 	}
 
-	span.logo-type {
-		font-family: "Space Mono";
-		line-height: 30px;
-		font-size: 18px;
-		font-weight: 400;
-		letter-spacing: 0.03em;
+
+
+
+	h1.top-title {
+		margin-top: 0px;
+		margin-bottom: 20px;
+		font-weight: 600;
+		font-size: 48px;
+		color: $COLOR_Spot;
 	}
 
-}
-
-h1.top-title {
-    margin-top: 0px;
-    margin-bottom: 20px;
-    font-weight: 600;
-    font-size: 48px;
-    color: $COLOR_Spot;
-}
-
-@media (min-width: 1200px) {
-    .container {
-        width:80%;
-    }
-}
+	@media (min-width: 1200px) {
+		.container {
+			width:80%;
+		}
+	}
 
 
 
-/* Import pages */
+	/* Import pages */
 
-body {
+
 
 	&.homepage {
 		@import 'components/homepage';
@@ -81,5 +88,7 @@ body {
 	&.about {
 		@import 'components/about';
 	}
+
+
 
 }
