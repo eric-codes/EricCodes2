@@ -3,3 +3,18 @@
 body {
 	font-family:"LFT Etica";
 }
+
+.page-section {
+	min-height:100vh;
+}
+
+
+/* Import pages */
+
+body {
+
+	&.homepage {
+		@import 'components/homepage';
+	}
+
+}

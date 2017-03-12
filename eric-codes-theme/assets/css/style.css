@@ -81,3 +81,18 @@
 body {
     font-family: "LFT Etica";
 }
+
+.page-section {
+    min-height: 100vh;
+}
+
+/* Import pages */
+body.homepage .homepage-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+body.homepage .homepage-container .logo-container {
+    margin: auto;
+}
