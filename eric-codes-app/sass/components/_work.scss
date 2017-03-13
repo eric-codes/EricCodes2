@@ -30,7 +30,7 @@
     .work-item-info {
         position: absolute;
         width: 100%;
-        bottom: -100%;
+        top: -100%;
         height: 100%;
         padding: 25px;
         background: rgba(255, 255, 255, 0.8);
@@ -69,7 +69,7 @@
 
 
     &:hover .work-item-info {
-        bottom:0;
+        top:0;
     }
 
     h2.work-item-title {

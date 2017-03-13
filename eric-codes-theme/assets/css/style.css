@@ -345,7 +345,7 @@ body.eric-codes.work .work-item {
 body.eric-codes.work .work-item .work-item-info {
     position: absolute;
     width: 100%;
-    bottom: -100%;
+    top: -100%;
     height: 100%;
     padding: 25px;
     background: rgba(255, 255, 255, 0.8);
@@ -381,7 +381,7 @@ body.eric-codes.work .work-item .work-item-info p {
 }
 
 body.eric-codes.work .work-item:hover .work-item-info {
-    bottom: 0;
+    top: 0;
 }
 
 body.eric-codes.work .work-item h2.work-item-title {
