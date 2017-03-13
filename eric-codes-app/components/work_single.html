@@ -46,7 +46,7 @@
 
 
 			<div class="col-sm-6" ng-if="section.title">
-				<h3 class="section-heading">{{WorkData.title}}.{{section.title}}</h3>
+				<h3 class="section-heading">{{WorkData.title}}.<span>{{section.title}}</span></h3>
 			</div>
 
 			<div class="col-sm-6" ng-if="section.tags">
@@ -84,7 +84,7 @@
 
 
 			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
-				<h4 class="sub-heading">{{section.title}}.{{textSection.title}}</h4>
+				<h4 class="sub-heading">{{section.title}}.<span>{{textSection.title}}</span></h4>
 				<p class="sub-section-description">{{textSection.description}}</p>
 			</div>
 
