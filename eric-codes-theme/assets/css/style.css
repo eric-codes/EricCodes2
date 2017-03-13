@@ -405,3 +405,11 @@ body.eric-codes.work .work-icon-container .icon-container {
     padding: 0px 10px;
     width: calc(100% / 5);
 }
+
+body.eric-codes.work-single .return-area {
+    margin-top: 50px;
+}
+
+body.eric-codes.work-single .page-section:first-child {
+    margin-top: 0px;
+}

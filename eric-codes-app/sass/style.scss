@@ -103,6 +103,10 @@ body.eric-codes {
 		@import 'components/work';
 	}
 
+	&.work-single {
+		@import 'components/work-single';
+	}
+
 
 
 }
