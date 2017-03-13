@@ -1,11 +1,20 @@
 @import 'fonts/LFT_Etica';
 @import 'variables';
 
+
+
+
 body.eric-codes {
 	font-family:"LFT Etica";
 	font-weight: 300;
 	letter-spacing: 0.04em;
 	color:$COLOR_Main;
+
+	hr {
+		width: 260px;
+		border-top: solid $COLOR_Spot 1px;
+		margin: 30px auto;
+	}
 
 
 	.page-section {

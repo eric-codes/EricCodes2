@@ -90,6 +90,12 @@ body.eric-codes {
   /* Import pages */
 }
 
+body.eric-codes hr {
+    width: 260px;
+    border-top: solid #4f8ac8 1px;
+    margin: 30px auto;
+}
+
 body.eric-codes .page-section {
     min-height: calc(100vh - 50px);
     margin-top: 50px;
