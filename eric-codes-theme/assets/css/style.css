@@ -345,10 +345,11 @@ body.eric-codes.work .work-item {
 body.eric-codes.work .work-item .work-item-info {
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: -100%;
     height: 100%;
     padding: 25px;
     background: rgba(255, 255, 255, 0.8);
+    transition: 0.4s;
 }
 
 body.eric-codes.work .work-item .work-item-info .col-sm-6 {
@@ -387,6 +388,10 @@ body.eric-codes.work .work-item h2.work-item-title {
     margin: auto;
     font-family: "Space Mono";
     color: white;
+}
+
+body.eric-codes.work .work-item a.btn {
+    background-color: #4f8ac8;
 }
 
 body.eric-codes.work .work-icon-container {
