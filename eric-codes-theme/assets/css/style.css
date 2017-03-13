@@ -1,11 +1,13 @@
+@charset "UTF-8";
+
 @font-face {
     font-family: 'LFT Etica';
-    src: url("../fonts/LFTEtica-Book.eot");
-    src: url("../fonts/LFTEtica-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Book.woff2") format("woff2"), url("../fonts/LFTEtica-Book.woff") format("woff"), url("../fonts/LFTEtica-Book.svg#LFTEtica-Book") format("svg");
-    font-weight: 400;
-    font-style: normal;
-    font-stretch: normal;
-    unicode-range: U+0020-00FE;
+  src: url("../fonts/LFTEtica-Book.eot");
+  src: url("../fonts/LFTEtica-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Book.woff2") format("woff2"), url("../fonts/LFTEtica-Book.woff") format("woff"), url("../fonts/LFTEtica-Book.svg#LFTEtica-Book") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
 }
 
 @font-face {
@@ -103,6 +105,7 @@ body.eric-codes .navbar-default {
     color: white;
     padding: 10px;
     max-height: 50px;
+    margin-bottom: 0px;
 }
 
 body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
@@ -127,6 +130,17 @@ body.eric-codes .navbar-default span.logo-type {
 
 body.eric-codes .navbar-default.not-shown {
     top: -70px;
+}
+
+body.eric-codes .btn-default {
+    border: none;
+    background: #212121;
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 body.eric-codes h1.top-title {
@@ -220,6 +234,7 @@ body.eric-codes.about .text-container {
 body.eric-codes.about .text-container p {
     font-size: 18px;
     width: 80%;
+    margin-bottom: 20px;
 }
 
 body.eric-codes.about .social-icons {
@@ -233,4 +248,73 @@ body.eric-codes.about .social-icons .icon-container {
 
 body.eric-codes.about .social-icons .icon-container:first-child {
     margin-left: 0px;
+}
+
+body.eric-codes.about .skill-section {
+    margin-top: 20vh;
+    text-align: center;
+}
+
+body.eric-codes.about .skill-section h2.center-header {
+    text-align: center;
+    font-family: "Space Mono";
+    font-size: 48px;
+}
+
+body.eric-codes.about .skill-section h2.center-header span {
+    color: #4f8ac8;
+}
+
+body.eric-codes.about img.skill-icon-img {
+    width: 100%;
+    max-width: 130px;
+}
+
+body.eric-codes.about .skill-icon-set.container {
+    margin-top: 60px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container {
+    width: calc(100% / 5);
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container .skill-icon {
+    margin-bottom: 20px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container span.skill-icon-title {
+    font-size: 18px;
+}
+
+body.eric-codes.about .large-list {
+    margin-top: 40px;
+    width: 70%;
+    text-align: center;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.eric-codes.about .large-list li {
+    font-size: 22px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+body.eric-codes.about .large-list li:after {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #4f8ac8;
+}
+
+body.eric-codes.about .skill-section a.btn.btn-default {
+    margin-top: 30px;
+}
+
+body.eric-codes.about .page-section {
+    padding-bottom: 30vh;
 }
