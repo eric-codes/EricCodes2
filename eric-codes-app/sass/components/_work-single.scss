@@ -168,17 +168,41 @@ h2.layout-header {
 		font-family: "Space Mono";
 		letter-spacing: 0.04em;
 		font-size: 24px;
-		
+
 		span {
 			color: $COLOR_Spot;
 		}
 	}
 
+
 }
 
 
+ul.other-projects-list {
+	text-align: center;
+	padding: 0px;
+	margin-top: 30px;
+	margin-bottom: 25vh;
 
+	li.project-link {
+		display: inline-block;
+		font-size: 18px;
+		font-weight: 400;
+		color: blue;
 
+		a {
+			color: grey;
+		}
 
+		&:before {
+			content:"•";
+			margin-left:10px;
+			margin-right:10px;
+		}
 
-
+		&:first-child:before {
+			content:"";
+			margin-left:0px;
+		}
+	}
+}

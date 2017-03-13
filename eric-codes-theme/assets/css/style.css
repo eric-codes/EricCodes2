@@ -93,7 +93,7 @@ body.eric-codes {
 body.eric-codes hr {
     width: 260px;
     border-top: solid #4f8ac8 1px;
-    margin: 30px auto;
+    margin: 40px auto;
 }
 
 body.eric-codes .page-section {
@@ -552,4 +552,33 @@ body.eric-codes.work-single .work-layout h3.other-projects-header {
 
 body.eric-codes.work-single .work-layout h3.other-projects-header span {
     color: #4f8ac8;
+}
+
+body.eric-codes.work-single ul.other-projects-list {
+    text-align: center;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 25vh;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    color: blue;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link a {
+    color: grey;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link:before {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link:first-child:before {
+    content: "";
+    margin-left: 0px;
 }
