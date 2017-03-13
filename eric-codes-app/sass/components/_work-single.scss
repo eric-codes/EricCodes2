@@ -163,6 +163,17 @@ h2.layout-header {
 
 	}
 
+	h3.other-projects-header {
+		text-align: center;
+		font-family: "Space Mono";
+		letter-spacing: 0.04em;
+		font-size: 24px;
+		
+		span {
+			color: $COLOR_Spot;
+		}
+	}
+
 }
 
 

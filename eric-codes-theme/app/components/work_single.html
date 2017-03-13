@@ -93,9 +93,9 @@
 
 		<div class="row other-projects">
 			<hr>
-			<h3 class="other-projects-header">other.projects</h3>
-			<ul class="other-projects-list" ng-repeat="project in AllProjects">
-				<li class="project-link">
+			<h3 class="other-projects-header">other.<span>projects</span></h3>
+			<ul class="other-projects-list">
+				<li class="project-link" ng-repeat="project in AllProjects">
 					<a ng-href="/work/{{project.slug}}">{{project.name}}</a>
 				</li>
 			</ul>

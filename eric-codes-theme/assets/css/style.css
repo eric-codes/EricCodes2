@@ -536,3 +536,14 @@ body.eric-codes.work-single .work-layout .work-icon-container .icon-container {
 body.eric-codes.work-single .work-layout .work-icon-container .icon-container img {
     width: 100%;
 }
+
+body.eric-codes.work-single .work-layout h3.other-projects-header {
+    text-align: center;
+    font-family: "Space Mono";
+    letter-spacing: 0.04em;
+    font-size: 24px;
+}
+
+body.eric-codes.work-single .work-layout h3.other-projects-header span {
+    color: #4f8ac8;
+}
