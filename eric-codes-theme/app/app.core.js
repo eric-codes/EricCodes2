@@ -1,1 +1,1 @@
-app.controller("CoreController",["$scope","$rootScope",function(o,r){}]),app.factory("breadcrumbs",["$rootScope",function(){return{}}]);
+app.controller("CoreController",["$scope","$rootScope",function(e,o){}]),app.factory("breadcrumbs",["$rootScope",function(e){Log.Heading("Breadcrumbs Service initiated");var o={};return o.homepage=function(){e.NavText=[{text:"eric.codes",link:"/"}]},o.updateFirstChild=function(o){Log.Function("Updating Nav First Child");var t=e.NavText;t[1]=o,e.NavText=t},o}]);
