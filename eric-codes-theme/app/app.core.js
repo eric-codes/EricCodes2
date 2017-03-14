@@ -1,13 +1,1 @@
-
-app.controller('CoreController', ['$scope', '$rootScope', function($scope,$rootScope){
-	
-	
-	
-}])
-
-app.factory('breadcrumbs', ['$rootScope', function(){
-
-	var scope = {};
-
-	return scope;
-}])
+app.controller("CoreController",["$scope","$rootScope",function(o,r){}]),app.factory("breadcrumbs",["$rootScope",function(){return{}}]);

@@ -1,18 +1,19 @@
 app.controller('navbar', ['$scope', '$rootScope', function($scope, $rootScope) {
 
-	/**
-	 * $rootScope nav text array.
-	 * @type {Array}
-	 */
-    $rootScope.NavText = [{
+	$rootScope.NavText;
+
+    /**
+     * $rootScope nav text array.
+     * @type {Array}
+     */
+    $scope.NavText = [{
         text: 'eric.codes',
         link: '/'
     }];
 
-    /**
-     * Nav text array used in $scope of navbar controller
-     */
-    $scope.NavText = $rootScope.NavText;
+
+
+    $scope.NavOutput;
 
     $scope.NavBar = [{
         icon: iconFolder + "nav_about.svg",
@@ -26,13 +27,27 @@ app.controller('navbar', ['$scope', '$rootScope', function($scope, $rootScope) {
     }, ];
 
 
+    function updateNav(newv) {
+
+        $.each(newv, function(i, val) {
+
+        })
+
+    }
 
 
     $rootScope.$watch('NavText', function(newv, oldv) {
 
-    	$scope.NavText = newv;
+        $scope.NavText = newv;
+
+        updateNav(newv)
 
     });
+
+        /**
+     * Nav text array used in $scope of navbar controller
+     */
+    $rootScope.NavText = $scope.NavText;
 
 
 }])
