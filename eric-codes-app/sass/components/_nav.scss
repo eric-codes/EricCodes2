@@ -1,0 +1,41 @@
+/* nav */
+
+	.navbar-default {
+		border: none;
+		background: #444;
+		color: white;
+		padding: 10px;
+		max-height: 50px;
+		margin-bottom: 0px;
+
+		.icon-area .icon-drawer {
+
+			.icon-link {
+				margin: 0px 5px;
+
+				&:last-child {
+					margin-right: 0px;
+				}
+
+				.icon-img {
+					width: 30px;
+				}
+
+			}
+
+
+		}
+
+		span.logo-type {
+			font-family: "Space Mono";
+			line-height: 30px;
+			font-size: 18px;
+			font-weight: 400;
+			letter-spacing: 0.03em;
+		}
+
+		&.not-shown {
+			top: -70px;
+		}
+
+	}
