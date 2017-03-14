@@ -1,0 +1,142 @@
+.page-section {
+
+	& > .container {
+		height: $PAGE_Height;
+
+		& > .text-outer {
+			height:$PAGE_Height;
+		}
+
+	}
+
+}
+
+
+.about-image-container {
+	height: calc(100vh - 50px);
+	overflow: hidden;
+	position: relative;
+
+	.about-image {
+		height: 100%;
+		left: 50%;
+		position: relative;
+		transform: translateX(-50%);
+	}
+
+}
+
+.text-outer {
+	display: flex;
+}
+
+.text-container {
+	margin: auto;
+
+	p {
+		font-size: 18px;
+		width: 80%;
+		margin-bottom:20px;
+	}
+
+}
+
+
+
+.social-icons {
+	margin-top: 30px;
+
+	.icon-container {
+		display: inline-block;
+		margin: 0px 10px;
+
+		&:first-child {
+			margin-left: 0px;
+		}
+
+	}
+}
+
+
+
+
+
+.skill-section {
+	margin-top: 20vh;
+	text-align: center;
+
+	h2.center-header {
+		text-align: center;
+		font-family: "Space Mono";
+		font-size: 48px;
+
+		span {
+			color: $COLOR_Spot;
+		}
+	}
+}
+
+
+
+
+
+img.skill-icon-img {
+	width: 100%;
+	max-width: 130px;
+}
+
+
+
+.skill-icon-set.container {
+	margin-top: 60px;
+
+	.skill-icon-container {
+		width: calc(100% / 5);
+		text-align: center;
+		display: inline-block;
+		margin-bottom: 50px;
+		.skill-icon {
+			margin-bottom: 20px;
+		}
+		span.skill-icon-title {
+			font-size: 18px;
+		}
+	}
+
+}
+
+
+
+.large-list {
+	margin-top: 40px;
+	width:70%;
+	text-align:center;
+	padding-left: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	li {
+		font-size: 22px;
+		display: inline-block;
+		margin-bottom: 10px;
+		&:after {
+			content:"•";
+			margin-left:10px;
+			margin-right:10px;
+			color:$COLOR_Spot;
+		}
+	}
+}
+
+
+
+
+
+
+
+.skill-section a.btn.btn-default {
+	margin-top: 30px;
+}
+
+.page-section {
+	padding-bottom:30vh;
+}

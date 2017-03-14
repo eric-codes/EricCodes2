@@ -46,7 +46,7 @@
 
 
 			<div class="col-sm-6" ng-if="section.title">
-				<h3 class="section-heading">{{WorkData.title}}.{{section.title}}</h3>
+				<h3 class="section-heading">{{WorkData.title}}.<span>{{section.title}}</span></h3>
 			</div>
 
 			<div class="col-sm-6" ng-if="section.tags">
@@ -68,7 +68,7 @@
 
 			<div class="col-sm-8" ng-if="section.gallery">
 				<div class="main-image-container">
-					<img class="main-image"></img>
+					<img class="main-image" src="http://placehold.it/1280x1024"></img>
 				</div>
 			</div>
 
@@ -84,11 +84,21 @@
 
 
 			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
-				<h4 class="sub-heading">{{section.title}}.{{textSection.title}}</h4>
+				<h4 class="sub-heading">{{section.title}}.<span>{{textSection.title}}</span></h4>
 				<p class="sub-section-description">{{textSection.description}}</p>
 			</div>
 
 			
+		</div>
+
+		<div class="row other-projects">
+			<hr>
+			<h3 class="other-projects-header">other.<span>projects</span></h3>
+			<ul class="other-projects-list">
+				<li class="project-link" ng-repeat="project in AllProjects">
+					<a ng-href="/work/{{project.slug}}">{{project.name}}</a>
+				</li>
+			</ul>
 		</div>
 
 

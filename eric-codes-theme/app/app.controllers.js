@@ -78,73 +78,116 @@ app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
 	}
 
 }])
-app.controller('navbar', ['$scope', function($scope){
-	
-	$scope.NavBar = [
-	{
-		icon: iconFolder + "nav_about.svg",
-		link: "/about"
-	},{
-		icon: iconFolder + "nav_work.svg",
-		link: "/work"
-	},{
-		icon: iconFolder + "nav_contact.svg",
-		link: "/contact"
-	},
-	]
+app.controller('navbar', ['$scope', '$rootScope', function($scope, $rootScope) {
+
+	/**
+	 * $rootScope nav text array.
+	 * @type {Array}
+	 */
+    $rootScope.NavText = [{
+        text: 'eric.codes',
+        link: '/'
+    }];
+
+    /**
+     * Nav text array used in $scope of navbar controller
+     */
+    $scope.NavText = $rootScope.NavText;
+
+    $scope.NavBar = [{
+        icon: iconFolder + "nav_about.svg",
+        link: "/about"
+    }, {
+        icon: iconFolder + "nav_work.svg",
+        link: "/work"
+    }, {
+        icon: iconFolder + "nav_contact.svg",
+        link: "/contact"
+    }, ];
+
+
+
+
+    $rootScope.$watch('NavText', function(newv, oldv) {
+
+    	$scope.NavText = newv;
+
+    });
+
 
 }])
+
 app.controller('work', ['$scope', '$rootScope', function($scope, $rootScope) {
 
-$rootScope.BodyClass = "work";
+    $rootScope.BodyClass = "work";
+
+
 
     $scope.WorkItems = [{
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
         blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
         tags: returnTags([
-        	'jquery',
-        	'angular',
-        	'uidesign',
-        	'typography'
-        	]),
+            'jquery',
+            'angular',
+            'uidesign',
+            'typography'
+            ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
         blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
         tags: returnTags([
-        	'jquery',
-        	'angular',
-        	'uidesign',
-        	'typography'
-        	]),
+            'jquery',
+            'angular',
+            'uidesign',
+            'typography'
+            ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
         blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
         tags: returnTags([
-        	'jquery',
-        	'angular',
-        	'uidesign',
-        	'typography'
-        	]),
+            'jquery',
+            'angular',
+            'uidesign',
+            'typography'
+            ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
         blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
         tags: returnTags([
-        	'jquery',
-        	'angular',
-        	'uidesign',
-        	'typography'
-        	]),
+            'jquery',
+            'angular',
+            'uidesign',
+            'typography'
+            ]),
     }, ]
+
+    setTimeout(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    },500);
 
 }])
 
 app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootScope) {
 
     $rootScope.BodyClass = "work-single";
+
+    $scope.AllProjects = [{
+        name: "Chisel Cartel",
+        slug: "chisel-cartel"
+    }, {
+        name: "Chisel Cartel 2",
+        slug: "chisel-cartel"
+    }, {
+        name: "Chisel Cartel 3",
+        slug: "chisel-cartel"
+    }, {
+        name: "Chisel Cartel 4",
+        slug: "chisel-cartel"
+    }]
 
     $scope.WorkData = {
         title: "chisel.cartel",
@@ -195,18 +238,16 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
             'backend',
             'angular',
         ]),
-    	textSections: [
-    	{
-    		title: "frontEnd()",
-    		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
-    	},{
-    		title: "backEnd()",
-    		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
-    	},{
-    		title: "automation()",
-    		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
-    	},
-    	]
+        textSections: [{
+            title: "frontEnd()",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+        }, {
+            title: "backEnd()",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+        }, {
+            title: "automation()",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+        }, ]
     }, {
         gallery: [{
             URL: "http://placehold.it/640x480"
