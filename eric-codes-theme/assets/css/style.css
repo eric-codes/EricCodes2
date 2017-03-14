@@ -86,7 +86,6 @@ body.eric-codes {
     font-weight: 300;
     letter-spacing: 0.04em;
     color: #212121;
-  /* nav */
   /* Import pages */
 }
 
@@ -104,39 +103,6 @@ body.eric-codes .page-section {
 body.eric-codes span.mid-breaker {
     margin: 0px 10px;
     color: #4f8ac8;
-}
-
-body.eric-codes .navbar-default {
-    border: none;
-    background: #444;
-    color: white;
-    padding: 10px;
-    max-height: 50px;
-    margin-bottom: 0px;
-}
-
-body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
-    margin: 0px 5px;
-}
-
-body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link:last-child {
-    margin-right: 0px;
-}
-
-body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .icon-img {
-    width: 30px;
-}
-
-body.eric-codes .navbar-default span.logo-type {
-    font-family: "Space Mono";
-    line-height: 30px;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-}
-
-body.eric-codes .navbar-default.not-shown {
-    top: -70px;
 }
 
 body.eric-codes .btn-default {

@@ -33,13 +33,14 @@ function TemplateGet($input) {
 
 </head>
 <body ng-app="EricCodes" ng-class="BodyClass" class="eric-codes">
+<div ng-controller="CoreController"></div> 
 
 <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
 	<div class="container">
 
 
 		<div class="pull-left logo-area">
-			<span class="logo-type">eric.codes</span>
+			<span class="logo-type"><a href="/">eric.codes</a></span>
 		</div>
 
 		<div class="pull-right icon-area">
