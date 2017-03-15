@@ -102,7 +102,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             Animate.In(newv[2].text, 2);
 
-        } else if (newv[1] && !newv[2]) {
+        } else if (newv[1]) {
 
             // one page in
 
