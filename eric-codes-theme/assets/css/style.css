@@ -86,6 +86,8 @@ body.eric-codes {
     font-weight: 300;
     letter-spacing: 0.04em;
     color: #212121;
+  /* Main elements */
+  /* nav */
   /* Import pages */
 }
 
@@ -128,6 +130,51 @@ body.eric-codes h1.top-title {
     body.eric-codes .container {
         width: 80%;
     }
+}
+
+body.eric-codes .navbar-default {
+    border: none;
+    background: #444;
+    color: white;
+    padding: 10px;
+    max-height: 50px;
+    margin-bottom: 0px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
+    margin: 0px 5px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link:last-child {
+    margin-right: 0px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .icon-img {
+    width: 30px;
+}
+
+body.eric-codes .navbar-default span.logo-type {
+    font-family: "Space Mono";
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb {
+    color: white;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:last-child {
+    font-weight: 700;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:first-child {
+    font-weight: 400 !important;
+}
+
+body.eric-codes .navbar-default.not-shown {
+    top: -70px;
 }
 
 body.eric-codes.homepage .page-section {
@@ -181,6 +228,10 @@ body.eric-codes.about .page-section > .container {
 
 body.eric-codes.about .page-section > .container > .text-outer {
     height: calc(100vh - 50px);
+}
+
+body.eric-codes.about .page-section:first-child {
+    padding-bottom: 0px;
 }
 
 body.eric-codes.about .about-image-container {

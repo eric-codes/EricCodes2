@@ -1,8 +1,11 @@
-app.controller('work', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
     $rootScope.BodyClass = "work";
 
-
+    breadcrumbs.updateFirstChild({
+        text: ".work",
+        link: "/work"
+    })
 
     $scope.WorkItems = [{
         name: "Chisel Cartel",

@@ -1,9 +1,10 @@
 
 
-app.controller('homepage', ['$scope', '$rootScope', function($scope,$rootScope){
+app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($scope,$rootScope,breadcrumbs){
 	
 	$rootScope.BodyClass = "homepage";
 	
+	breadcrumbs.homepage();
 
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";
 

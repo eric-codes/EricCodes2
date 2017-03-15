@@ -56,12 +56,10 @@ if (window.Debug == true) {
         },
         Function: function(msg) {
             console.log("");
-            console.log("");
             console.log("--- " + msg);
             console.log("");
         },
         Warning: function(msg) {
-            console.log("");
             console.log("");
             console.log("!!!!!!!  " + msg + "  !!!!!!!");
             console.log("");
