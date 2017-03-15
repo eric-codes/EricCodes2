@@ -161,6 +161,18 @@ body.eric-codes .navbar-default span.logo-type {
     letter-spacing: 0.03em;
 }
 
+body.eric-codes .navbar-default span.logo-type a.crumb {
+    color: white;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:last-child {
+    font-weight: 700;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:first-child {
+    font-weight: 400 !important;
+}
+
 body.eric-codes .navbar-default.not-shown {
     top: -70px;
 }
@@ -216,6 +228,10 @@ body.eric-codes.about .page-section > .container {
 
 body.eric-codes.about .page-section > .container > .text-outer {
     height: calc(100vh - 50px);
+}
+
+body.eric-codes.about .page-section:first-child {
+    padding-bottom: 0px;
 }
 
 body.eric-codes.about .about-image-container {

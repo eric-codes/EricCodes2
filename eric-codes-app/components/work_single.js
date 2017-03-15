@@ -1,6 +1,11 @@
-app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
     $rootScope.BodyClass = "work-single";
+
+     breadcrumbs.updateSecondChild({
+        text: ".chisel.cartel",
+        link: "/chisel-cartel"
+    })
 
     $scope.AllProjects = [{
         name: "Chisel Cartel",
