@@ -18,7 +18,10 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
         var currentNav = $rootScope.NavText;
 
-
+		if (currentNav[2]) {
+			currentNav.pop();
+		}   
+		     
         currentNav[1] = obj;
 
 
