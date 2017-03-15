@@ -7,7 +7,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         link: '/'
     }];
 
-    $rootScope.NavHidden = false;
+    $rootScope.NavHidden = true;
 
     /**
      * $rootScope nav text array.

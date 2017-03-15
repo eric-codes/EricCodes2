@@ -2,6 +2,8 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     $rootScope.BodyClass = "work";
 
+    $rootScope.NavHidden = false;
+
     breadcrumbs.updateFirstChild({
         text: ".work",
         link: "/work"

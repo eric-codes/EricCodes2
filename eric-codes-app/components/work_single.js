@@ -2,6 +2,8 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($
 
     $rootScope.BodyClass = "work-single";
 
+    $rootScope.NavHidden = false;
+
      breadcrumbs.updateSecondChild({
         text: ".chisel.cartel",
         link: "/chisel-cartel"
