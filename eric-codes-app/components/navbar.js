@@ -226,7 +226,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                     $scope.NavText = NewVal;
                     updateNav(NewVal, oldv);
                 } else {
-                	Log.Msg('New length equal to or greater than old length');
+                    Log.Msg('New length equal to or greater than old length');
                     updateNav(NewVal, oldv, function() {
                         $scope.NavText = NewVal;
                     });
@@ -238,11 +238,9 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             }
 
-            if (newv === oldv) {
-                Log.Warning('No good! Not running');
-            } else {
-                RunUpdate();
-            }
+
+            RunUpdate();
+
 
 
         }
