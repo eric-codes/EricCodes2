@@ -7,6 +7,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         link: '/'
     }];
 
+    $rootScope.NavHidden = true;
+
     /**
      * $rootScope nav text array.
      * @type {Array}
@@ -244,6 +246,16 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
 
         }
+
+    }, true);
+
+    $rootScope.$watch('NavHidden', function(newValue, oldValue) {
+    	
+    	if (newValue === true) {
+    		$('.navbar').addClass('not-shown');
+    	} else {
+    		$('.navbar').removeClass('not-shown');
+    	}
 
     }, true);
 
