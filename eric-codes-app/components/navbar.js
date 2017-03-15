@@ -132,7 +132,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             } else if (oldv[1]) {
 
-            	Log.Warning('Old second value! replacing...');
+                Log.Warning('Old second value! replacing...');
 
                 Animate.Out(1, function() {
                     Animate.In(newv[1].text, 1, function() {
@@ -143,7 +143,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                 })
             } else if (!oldv[0]) {
 
-            	Log.Warning('First load! Running full anim...');
+                Log.Warning('First load! Running full anim...');
 
                 if (newv[0]) {
                     Animate.In(newv[0].text, 0, function() {
@@ -204,31 +204,33 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
     $rootScope.$watch('NavText', function(newv, oldv) {
 
-    	Log.Function('NavText watcher triggered!');
+        Log.Function('NavText watcher triggered!');
 
         var NewVal = newv;
 
         if (NewVal[0]) {
 
-        	if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
-        		return false;
-        	}
+            if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
+                return false;
+            } else {
 
-            $.each(NewVal, function(i, v) {
-                NewVal[i].class = "crumb-" + i;
-            })
-
-
-            if (newv.length >= oldv.length) {
-                $scope.NavText = NewVal;
-            }
+                $.each(NewVal, function(i, v) {
+                    NewVal[i].class = "crumb-" + i;
+                })
 
 
-            updateNav(NewVal, oldv, function() {
-                if (newv.length < oldv.length) {
+                if (newv.length >= oldv.length) {
                     $scope.NavText = NewVal;
                 }
-            });
+
+
+                updateNav(NewVal, oldv, function() {
+                    if (newv.length < oldv.length) {
+                        $scope.NavText = NewVal;
+                    }
+                });
+
+            }
 
         }
 
