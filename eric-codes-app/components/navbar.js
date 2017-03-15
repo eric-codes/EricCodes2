@@ -210,7 +210,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
         if (NewVal[0]) {
 
-            if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
+            if (newv[1] && oldv[1] && !newv[2] && newv[1].text == oldv[1].text) {
                 return false;
             } else {
 
