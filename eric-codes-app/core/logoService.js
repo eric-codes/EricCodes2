@@ -2,6 +2,8 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
     Log.Heading('Breadcrumbs Service initiated');
 
+    $rootScope.NavText = [];
+
     var scope = {};
 
     scope.homepage = function() {

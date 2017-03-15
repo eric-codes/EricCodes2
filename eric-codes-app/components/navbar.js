@@ -2,7 +2,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
 	Log.Heading('Navbar Controller Loaded');
 
-	$rootScope.NavText = [];
+	
 
     /**
      * $rootScope nav text array.
