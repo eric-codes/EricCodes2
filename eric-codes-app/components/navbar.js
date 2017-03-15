@@ -122,6 +122,10 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             	Animate.Out(1, function() {
             		Animate.In(newv[1].text, 1);
             	})
+            } else if (!oldv[0]) {
+				Animate.In(newv[0].text, 0, function(){
+					Animate.In(newv[1].text, 1);
+				});
             } else {
             	Animate.In(newv[1].text, 1);
             }
