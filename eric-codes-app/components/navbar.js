@@ -235,7 +235,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             }
 
-            if (newv[1] && oldv[1]) {
+/*            if (newv[1] && oldv[1]) {
             	if (newv[1].text == oldv[1].text && !newv[2]) {
             		Log.Warning('No good! Not running');
             	} else {
@@ -243,7 +243,9 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             	}
             } else {
             	RunUpdate();
-            }
+            }*/
+
+            RunUpdate();
 
         }
 
