@@ -89,7 +89,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         }
     }
 
-    function updateNav(newv, oldv) {
+    function updateNav(newv, oldv, callback) {
 
         Log.Function('Updating Nav');
         Log.Set('New Value', newv);
@@ -100,7 +100,11 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             Log.Warning('Third value found');
 
-            Animate.In(newv[2].text, 2);
+            Animate.In(newv[2].text, 2, function() {
+                if (callback) {
+                    callback();
+                }
+            });
 
         } else if (newv[1]) {
 
@@ -110,13 +114,17 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             if (oldv[2]) {
 
-            	Log.Warning('Third value found');
+                Log.Warning('Third value found');
 
                 Animate.Out(2, function() {
 
                     if (newv[1].text !== oldv[1].text) {
                         Animate.Out(1, function() {
-                            Animate.In(newv[1].text, 1);
+                            Animate.In(newv[1].text, 1, function() {
+                                if (callback) {
+                                    callback();
+                                }
+                            });
                         })
                     }
 
@@ -125,18 +133,30 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             } else if (oldv[1]) {
 
                 Animate.Out(1, function() {
-                    Animate.In(newv[1].text, 1);
+                    Animate.In(newv[1].text, 1, function() {
+                        if (callback) {
+                            callback();
+                        }
+                    });
                 })
             } else if (!oldv[0]) {
                 if (newv[0]) {
                     Animate.In(newv[0].text, 0, function() {
-                        Animate.In(newv[1].text, 1);
+                        Animate.In(newv[1].text, 1, function() {
+                            if (callback) {
+                                callback();
+                            }
+                        });
                     });
                 } else {
                     return false;
                 }
             } else {
-                Animate.In(newv[1].text, 1);
+                Animate.In(newv[1].text, 1, function() {
+                    if (callback) {
+                        callback();
+                    }
+                });
             }
 
         } else if (!newv[1]) {
@@ -149,12 +169,24 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             if (oldv[2]) {
                 Animate.Out(2, function() {
-                    Animate.Out(1);
+                    Animate.Out(1, function() {
+                        if (callback) {
+                            callback();
+                        }
+                    });
                 })
             } else if (oldv[1]) {
-                Animate.Out(1);
+                Animate.Out(1, function() {
+                    if (callback) {
+                        callback();
+                    }
+                });
             } else {
-                Animate.In(newv[0].text, 0);
+                Animate.In(newv[0].text, 0, function() {
+                    if (callback) {
+                        callback();
+                    }
+                });
             }
 
 
@@ -175,10 +207,16 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             })
 
 
+            if (newv.length >= oldv.length) {
+                $scope.NavText = NewVal;
+            }
 
-            $scope.NavText = NewVal;
 
-            updateNav(NewVal, oldv);
+            updateNav(NewVal, oldv, function() {
+                if (newv.length < oldv.length) {
+                    $scope.NavText = NewVal;
+                }
+            });
 
         }
 
