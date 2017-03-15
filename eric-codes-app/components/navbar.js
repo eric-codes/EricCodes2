@@ -209,6 +209,11 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         var NewVal = newv;
 
         if (NewVal[0]) {
+
+        	if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
+        		return false;
+        	}
+
             $.each(NewVal, function(i, v) {
                 NewVal[i].class = "crumb-" + i;
             })
