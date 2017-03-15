@@ -2,7 +2,7 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
     Log.Heading('Breadcrumbs Service initiated');
 
-    
+
 
     var scope = {};
 
@@ -20,10 +20,6 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
 
         currentNav[1] = obj;
-
-        if ($rootScope.NavText[2]) {
-        	currentNav.splice(1,1);
-        };
 
 
         $rootScope.NavText = currentNav;
