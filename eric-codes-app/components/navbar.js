@@ -222,14 +222,13 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
 
                 if (newv.length >= oldv.length) {
+                	Log.Msg('Old length greater than new length!');
                     $scope.NavText = NewVal;
                 }
 
 
                 updateNav(NewVal, oldv, function() {
-                    if (newv.length < oldv.length) {
                         $scope.NavText = NewVal;
-                    }
                 });
 
 
