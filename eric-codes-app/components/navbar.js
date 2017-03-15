@@ -114,7 +114,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             if (oldv[2]) {
 
-                Log.Warning('Third value found');
+                Log.Warning('Old third value');
 
                 Animate.Out(2, function() {
 
@@ -132,6 +132,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
             } else if (oldv[1]) {
 
+            	Log.Warning('Old second value! replacing...');
+
                 Animate.Out(1, function() {
                     Animate.In(newv[1].text, 1, function() {
                         if (callback) {
@@ -140,6 +142,9 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                     });
                 })
             } else if (!oldv[0]) {
+
+            	Log.Warning('First load! Running full anim...');
+
                 if (newv[0]) {
                     Animate.In(newv[0].text, 0, function() {
                         Animate.In(newv[1].text, 1, function() {
@@ -198,6 +203,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
 
     $rootScope.$watch('NavText', function(newv, oldv) {
+
+    	Log.Function('NavText watcher triggered!');
 
         var NewVal = newv;
 
