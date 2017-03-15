@@ -18,11 +18,16 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
         var currentNav = $rootScope.NavText;
 
-		if (currentNav[2]) {
-			currentNav.pop();
-		}   
-		     
+        Log.Set('currentNav before change', currentNav);
+
+        if (currentNav[2]) {
+            currentNav.pop();
+            Log.Set('currentNav popped!', currentNav);
+        }
+
         currentNav[1] = obj;
+
+        Log.Set('currentNav after change', currentNav);
 
 
         $rootScope.NavText = currentNav;
@@ -33,9 +38,11 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
         var currentNav = $rootScope.NavText;
 
+        Log.Set('currentNav before change', currentNav);
 
         currentNav[2] = obj;
 
+        Log.Set('currentNav after change', currentNav);
 
         $rootScope.NavText = currentNav;
     }
