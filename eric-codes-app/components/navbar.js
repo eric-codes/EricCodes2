@@ -149,6 +149,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             }
 
 
+        } else {
+        	return false;
         }
 
     }
