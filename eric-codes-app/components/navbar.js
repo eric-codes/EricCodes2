@@ -109,6 +109,9 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             Log.Warning('Second value found');
 
             if (oldv[2]) {
+
+            	Log.Warning('Third value found');
+
                 Animate.Out(2, function() {
 
                     if (newv[1].text !== oldv[1].text) {
@@ -116,7 +119,6 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                             Animate.In(newv[1].text, 1);
                         })
                     }
-
 
                 })
 
