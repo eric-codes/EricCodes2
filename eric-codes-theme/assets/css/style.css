@@ -178,6 +178,11 @@ body.eric-codes .navbar-default.not-shown {
     top: -70px;
 }
 
+body.eric-codes .navbar-default .nav-icon {
+    width: 100%;
+    height: 100%;
+}
+
 body.eric-codes .navbar-default .nav-icon .nav-icon-fill {
     fill: #010101;
     fill-rule: evenodd;
