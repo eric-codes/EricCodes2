@@ -19,7 +19,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
     }];
 
     $scope.NavBar = [{
-        icon: GetShared('nav_contact'),
+        icon: GetShared('nav_about'),
         link: "/about"
     }, {
         icon: GetShared('nav_work'),
