@@ -13,13 +13,20 @@
 
 		.icon-link {
 			margin: 0px 5px;
+			display: inline-block;
 
 			&:last-child {
 				margin-right: 0px;
 			}
 
-			.icon-img {
-				width: 30px;
+			.nav-icon {
+				width:30px;
+				height:30px;
+
+				.nav-icon-fill {
+					fill: #010101;
+					fill-rule: evenodd;
+				}
 			}
 
 		}
@@ -55,14 +62,6 @@
 		top: -70px;
 	}
 
-	.nav-icon {
-		width:100%;
-		height:100%;
-		
-		.nav-icon-fill {
-			fill: #010101;
-			fill-rule: evenodd;
-		}
-	}
+
 
 }
