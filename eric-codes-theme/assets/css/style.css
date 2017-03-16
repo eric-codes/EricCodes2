@@ -86,6 +86,7 @@ body.eric-codes {
     font-weight: 300;
     letter-spacing: 0.04em;
     color: #212121;
+    background: #f9f9f9;
   /* Main elements */
   /* nav */
   /* Import pages */
@@ -157,8 +158,13 @@ body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon {
 }
 
 body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon .nav-icon-fill {
-    fill: #010101;
+    fill: #f9f9f9;
     fill-rule: evenodd;
+    transition: 0.3s;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon:hover .nav-icon-fill {
+    fill: #4f8ac8;
 }
 
 body.eric-codes .navbar-default span.logo-type {
