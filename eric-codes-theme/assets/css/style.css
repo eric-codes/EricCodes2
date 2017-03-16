@@ -139,6 +139,7 @@ body.eric-codes .navbar-default {
     padding: 10px;
     max-height: 50px;
     margin-bottom: 0px;
+    transition: 0.5s;
 }
 
 body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
@@ -175,6 +176,11 @@ body.eric-codes .navbar-default span.logo-type a.crumb:first-child {
 
 body.eric-codes .navbar-default.not-shown {
     top: -70px;
+}
+
+body.eric-codes .navbar-default .nav-icon .nav-icon-fill {
+    fill: #010101;
+    fill-rule: evenodd;
 }
 
 body.eric-codes.homepage .page-section {
