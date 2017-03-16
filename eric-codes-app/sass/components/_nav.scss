@@ -24,8 +24,19 @@
 				height:30px;
 
 				.nav-icon-fill {
-					fill: #010101;
+					fill: $COLOR_Bg;
 					fill-rule: evenodd;
+					transition:0.3s;
+				}
+
+
+
+				&:hover {
+
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
+
 				}
 			}
 
