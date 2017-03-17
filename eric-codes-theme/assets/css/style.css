@@ -349,6 +349,14 @@ body.eric-codes.about .large-list li:after {
     color: #4f8ac8;
 }
 
+body.eric-codes.about .tooltip-inner {
+    font-size: 20px;
+    padding: 10px 15px;
+    font-family: "Space Mono";
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
 body.eric-codes.about .skill-section a.btn.btn-default {
     margin-top: 30px;
 }
