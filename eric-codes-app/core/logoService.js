@@ -33,14 +33,19 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
         $rootScope.NavText = currentNav;
     }
 
-    scope.updateSecondChild = function(obj,parent) {
+    scope.updateSecondChild = function(obj, parent) {
         Log.Function('Updating Nav Second Child');
 
         var currentNav = $rootScope.NavText;
 
         Log.Set('currentNav before change', currentNav);
 
+        if (parent[1].text && parent[1].text !== currentNav[1].text) {
             currentNav[1] = parent;
+        }
+
+
+
         currentNav[2] = obj;
 
         Log.Set('currentNav after change', currentNav);
