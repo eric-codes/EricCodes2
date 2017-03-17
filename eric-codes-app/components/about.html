@@ -43,10 +43,8 @@
 			<div class="skill-icon-container" ng-repeat="skill in skillIcons">
 
 				<div class="skill-icon">
-					<img class="skill-icon-img" ng-src="{{skill.icon}}"></img>
+					<img class="skill-icon-img" ng-src="{{skill.icon}}" data-toggle="tooltip" data-placement="top" title="{{skill.title}}"></img>
 				</div>
-
-				<span class="skill-icon-title">{{skill.title}}</span>
 
 			</div>
 
