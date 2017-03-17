@@ -226,10 +226,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
     $locationProvider.html5Mode(true);
 
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 1000);
-    });
+
 
 }])
