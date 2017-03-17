@@ -40,7 +40,7 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
 
         Log.Set('currentNav before change', currentNav);
 
-        if (parent.text && parent.text !== currentNav[1].text) {
+        if (parent.text && parent.text !== $('.crumb-1').text()) {
             currentNav[1] = parent;
         }
 
