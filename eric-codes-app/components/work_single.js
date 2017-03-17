@@ -7,6 +7,9 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($
      breadcrumbs.updateSecondChild({
         text: ".chisel.cartel",
         link: "/chisel-cartel"
+    },{
+        text: ".work",
+        link: "/work"
     })
 
     $scope.AllProjects = [{
