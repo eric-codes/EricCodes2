@@ -4,7 +4,7 @@ app.controller('CoreController', ['$scope', '$rootScope', function($scope,$rootS
 	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
 		$('html, body').animate({
 			scrollTop: 0
-		}, 1000);
+		}, 0);
 	});
 	
 }])
