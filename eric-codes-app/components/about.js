@@ -50,5 +50,8 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "UI Design"
     }, ];
 
+    setTimeout(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    },500);
 
 }])
