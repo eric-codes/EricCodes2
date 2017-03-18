@@ -6,6 +6,8 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
 
     $rootScope.NavHidden = false;
 
+    $rootScope.Footer = true;
+
     breadcrumbs.updateFirstChild({
         text: ".about()",
         link: "/about"
