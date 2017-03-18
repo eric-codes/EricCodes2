@@ -40,7 +40,15 @@
 				text-transform: uppercase;
 				font-weight: 600;
 				letter-spacing: 0.04em;
+
+				a {
+					color: $COLOR_Spot;
+					font-size: 12px;
+				}
+
 			}
+
+
 
 		}
 
