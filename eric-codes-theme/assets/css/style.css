@@ -627,11 +627,11 @@ body.eric-codes.work-single ul.other-projects-list li.project-link:first-child:b
     margin-left: 0px;
 }
 
-body.eric-codes.contact .container {
+body.eric-codes.contact .page-section .container {
     min-height: calc(100vh - 50px);
 }
 
-body.eric-codes.contact .container > div {
+body.eric-codes.contact .page-section .container > div {
     min-height: calc(100vh - 50px);
     display: flex;
 }

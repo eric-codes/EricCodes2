@@ -9,13 +9,15 @@
 				<h1 class="top-title">Get in touch!</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. </p>
 
+				<div class="social-icons">
+					<div class="icon-container" ng-repeat="icon in SocialIcons">
+						<img class="icon" ng-src="{{icon.icon}}"></img>
+					</div>
+				</div>
+
 			</div>
 
-			<div class="social-icons">
-				<div class="icon-container" ng-repeat="icon in SocialIcons">
-					<img class="icon" ng-src="{{icon.icon}}"></img>
-				</div>
-			</div>
+
 
 		</div>
 		<div class="col-sm-6">
