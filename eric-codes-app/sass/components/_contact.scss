@@ -1,9 +1,9 @@
 .container {
 
-	height:100%;
+	height:$PAGE_Height;
 
 	& > div  {
-		height:100%;
+		height:$PAGE_Height;
 		display: flex;
 	}
 
