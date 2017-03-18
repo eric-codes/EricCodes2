@@ -6,19 +6,12 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
 
     $rootScope.NavHidden = false;
 
+    $rootScope.Footer = true;
+
     breadcrumbs.updateFirstChild({
         text: ".about()",
         link: "/about"
     })
-
-    $scope.SocialIcons = [{
-        icon: iconFolder + "social_linkedin.svg"
-    }, {
-        icon: iconFolder + "social_behance.svg"
-    }, {
-        icon: iconFolder + "social_twitter.svg"
-    }, ];
-
 
     $scope.skillIcons = [{
         icon: iconFolder + "code_jquery.svg",
@@ -34,7 +27,7 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "PHP / MySQL"
     }, {
         icon: iconFolder + "code_css3.svg",
-        title: "CSS3"
+        title: "CSS3" 
     }, {
         icon: iconFolder + "code_graphicdesign.svg",
         title: "Graphic Design"
@@ -58,11 +51,31 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
 
 }])
 
-app.controller('contact', ['$scope', '$rootScope', function($scope,$rootScope){
-	
-	
-	
+app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
+
+    breadcrumbs.updateNav(2);
+
+    $rootScope.BodyClass = "contact";
+
+    $rootScope.NavHidden = false;
+
+    $rootScope.Footer = true;
+
+    breadcrumbs.updateFirstChild({
+        text: ".contact()",
+        link: "/contact"
+    })
+
+    $scope.SocialIcons = [{
+        icon: iconFolder + "social_linkedin.svg"
+    }, {
+        icon: iconFolder + "social_behance.svg"
+    }, {
+        icon: iconFolder + "social_twitter.svg"
+    }, ];
+
 }])
+
 
 
 app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($scope,$rootScope,breadcrumbs){
@@ -72,6 +85,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 	$rootScope.NavHidden = true;
 	
 	breadcrumbs.homepage();
+
+	$rootScope.Footer = false;
 
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";
 
@@ -379,6 +394,8 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     $rootScope.NavHidden = false;
 
+    $rootScope.Footer = true;
+
     breadcrumbs.updateFirstChild({
         text: ".work",
         link: "/work"
@@ -439,6 +456,8 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($
     $rootScope.BodyClass = "work-single";
 
     $rootScope.NavHidden = false;
+
+    $rootScope.Footer = true;
 
     breadcrumbs.updateSecondChild({
         text: ".chisel.cartel",

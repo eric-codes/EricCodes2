@@ -6,19 +6,12 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
 
     $rootScope.NavHidden = false;
 
+    $rootScope.Footer = true;
+
     breadcrumbs.updateFirstChild({
         text: ".about()",
         link: "/about"
     })
-
-    $scope.SocialIcons = [{
-        icon: iconFolder + "social_linkedin.svg"
-    }, {
-        icon: iconFolder + "social_behance.svg"
-    }, {
-        icon: iconFolder + "social_twitter.svg"
-    }, ];
-
 
     $scope.skillIcons = [{
         icon: iconFolder + "code_jquery.svg",
@@ -34,7 +27,7 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "PHP / MySQL"
     }, {
         icon: iconFolder + "code_css3.svg",
-        title: "CSS3"
+        title: "CSS3" 
     }, {
         icon: iconFolder + "code_graphicdesign.svg",
         title: "Graphic Design"

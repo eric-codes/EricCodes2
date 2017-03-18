@@ -218,6 +218,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             controller: 'work',
             templateUrl: GetView('work')
         })
+        .state('contact', { // Home Page
+            url: '/contact',
+            controller: 'contact',
+            templateUrl: GetView('contact')
+        })
         .state('work_single', {
             url: '/work/:workSlug',
             controller: 'work_single',
