@@ -8,6 +8,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 	
 	breadcrumbs.homepage();
 
+	$rootScope.Footer = false;
+
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";
 
 	Log.Value("$scope.LogoURL",$scope.LogoURL);

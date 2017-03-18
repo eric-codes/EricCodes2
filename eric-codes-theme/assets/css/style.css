@@ -90,6 +90,7 @@ body.eric-codes {
   /* Main elements */
   /* nav */
   /* Import pages */
+  /* responsive */
 }
 
 body.eric-codes hr {
@@ -195,6 +196,81 @@ body.eric-codes .navbar-default.not-shown {
     top: -70px;
 }
 
+body.eric-codes .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+    width: 35px;
+}
+
+body.eric-codes .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
+
+body.eric-codes .social-icons .icon-container svg {
+    width: 100%;
+}
+
+body.eric-codes .social-icons .icon-container svg .social-icon {
+    fill: #333;
+    fill-rule: evenodd;
+}
+
+body.eric-codes footer {
+    background: #333;
+    color: white;
+    padding: 15px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top: 15vh;
+}
+
+body.eric-codes footer span.footer-text {
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+body.eric-codes footer .social {
+    display: inline-block;
+}
+
+body.eric-codes footer .social .social-icons {
+    margin-top: 0px !important;
+    margin-left: 10px;
+    display: block;
+}
+
+body.eric-codes footer .social .social-icons .icon-container {
+    width: 24px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+body.eric-codes footer .social .social-icons .icon-container .social-icon {
+    fill: #f9f9f9;
+}
+
+body.eric-codes footer a.back-to-top {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    color: #333;
+}
+
 body.eric-codes.homepage .page-section {
     display: flex;
 }
@@ -277,19 +353,6 @@ body.eric-codes.about .text-container p {
     font-size: 18px;
     width: 80%;
     margin-bottom: 20px;
-}
-
-body.eric-codes.about .social-icons {
-    margin-top: 30px;
-}
-
-body.eric-codes.about .social-icons .icon-container {
-    display: inline-block;
-    margin: 0px 10px;
-}
-
-body.eric-codes.about .social-icons .icon-container:first-child {
-    margin-left: 0px;
 }
 
 body.eric-codes.about .skill-section {
@@ -430,14 +493,20 @@ body.eric-codes.work .work-item .work-item-info p {
     font-weight: 400;
 }
 
+body.eric-codes.work .work-item .work-item-title {
+    margin: auto;
+    font-family: "Space Mono";
+    color: white;
+    transition: 0.4s;
+    opacity: 1;
+}
+
 body.eric-codes.work .work-item:hover .work-item-info {
     top: 0;
 }
 
-body.eric-codes.work .work-item h2.work-item-title {
-    margin: auto;
-    font-family: "Space Mono";
-    color: white;
+body.eric-codes.work .work-item:hover .work-item-title {
+    opacity: 0;
 }
 
 body.eric-codes.work .work-item a.btn {
@@ -619,9 +688,67 @@ body.eric-codes.work-single ul.other-projects-list li.project-link:before {
     content: "•";
     margin-left: 10px;
     margin-right: 10px;
+    display: inline-block;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link:first-child:before {
     content: "";
     margin-left: 0px;
+}
+
+body.eric-codes.contact .page-section .container {
+    min-height: calc(100vh - 50px);
+}
+
+body.eric-codes.contact .page-section .container > div {
+    min-height: calc(100vh - 50px);
+    display: flex;
+}
+
+body.eric-codes.contact .contact-info {
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-info p {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+body.eric-codes.contact .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes.contact .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+body.eric-codes.contact .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
+
+body.eric-codes.contact .contact-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px 25px;
+    background: #efefef;
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-form label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #333333;
+}
+
+body.eric-codes.contact .contact-form button {
+    margin: 30px auto 0px;
+    display: block;
+}
+
+body.eric-codes.contact .contact-form textarea {
+    min-height: 220px;
 }
