@@ -1,5 +1,7 @@
 app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(1);
+
     $rootScope.BodyClass = "work-single";
 
     $rootScope.NavHidden = false;

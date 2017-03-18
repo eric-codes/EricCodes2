@@ -1,5 +1,7 @@
 app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(0);
+
     $rootScope.BodyClass = "about";
 
     $rootScope.NavHidden = false;

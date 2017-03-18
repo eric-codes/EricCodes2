@@ -20,13 +20,16 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
     $scope.NavBar = [{
         icon: GetShared('nav_about'),
-        link: "/about"
+        link: "/about",
+        slug: 'about'
     }, {
         icon: GetShared('nav_work'),
-        link: "/work"
+        link: "/work",
+        slug: 'work'
     }, {
         icon: GetShared('nav_contact'),
-        link: "/contact"
+        link: "/contact",
+        slug: 'contact'
     }, ];
 
 

@@ -53,5 +53,10 @@ app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
         $rootScope.NavText = currentNav;
     }
 
+    scope.updateNav = function(i) {
+        $('.icon-link').removeClass('selected');
+        $('.icon-link').eq(i).addClass('selected');
+    }
+
     return scope;
 }])
