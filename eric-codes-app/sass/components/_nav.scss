@@ -38,6 +38,17 @@
 					}
 
 				}
+
+
+
+			}
+
+			&.selected {
+
+				.nav-icon-fill {
+					fill: $COLOR_Spot;
+				}
+				
 			}
 
 		}
