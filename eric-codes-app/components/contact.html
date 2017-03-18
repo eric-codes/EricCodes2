@@ -5,7 +5,7 @@
 		<div class="col-sm-6">
 
 			<div class="contact-info">
-				
+
 				<h1 class="top-title">Get in touch!</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. </p>
 
@@ -24,10 +24,23 @@
 				
 				<ng-form>
 					<form novalidate class="main-form">
+
 						<div class="form-group">
 							<label>Name</label>
-							<input class="form-control" type="text"></input>
+							<input class="form-control" type="text" ng-model="contact.name"></input>
 						</div>
+
+						<div class="form-group">
+							<label>E-mail</label>
+							<input class="form-control" type="email" ng-model="contact.email"></input>
+						</div>
+
+						<div class="form-group">
+							<label>Inquiry</label>
+							<textarea class="form-control" type="text" ng-model="contact.message"></textarea>
+						</div>
+
+						<button class="btn btn-default">Contact Me!</button>
 
 					</form>
 				</ng-form>
