@@ -1,0 +1,1 @@
+app.directive("workGallery",function(){function e(e,r,t){}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("work-gallery"),link:e}});

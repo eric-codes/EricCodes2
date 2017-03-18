@@ -66,21 +66,7 @@
 
 
 
-			<div class="col-sm-8" ng-if="section.gallery">
-				<div class="main-image-container">
-					<img class="main-image" src="http://placehold.it/1280x1024"></img>
-				</div>
-			</div>
-
-			<div class="col-sm-4" ng-if="section.gallery">
-				<div class="image-thumbs row">
-					<div class="col-xs-6" ng-repeat="image in section.gallery">
-						<div class="image-thumb">
-							<img class="image-thumb-img" ng-src="{{image.URL}}"></img>
-						</div>
-					</div>
-				</div>
-			</div>
+			<work-gallery class="row" ng-if="section.gallery" maindata="section.gallery"></work-gallery>
 
 
 			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
