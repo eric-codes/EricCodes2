@@ -4,13 +4,19 @@
 	.icon-container {
 		display: inline-block;
 		margin: 0px 10px;
+		width:35px;
 
 		&:first-child {
 			margin-left: 0px;
 		}
 
-		.social-icon {
-			fill:#333;
+		svg {
+			width:100%;
+
+			.social-icon {
+				fill:#333;
+			}
+			
 		}
 
 	}

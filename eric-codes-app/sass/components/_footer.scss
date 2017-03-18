@@ -19,6 +19,11 @@ footer {
         .social-icons {
             display: inline-block;
             margin-top: 0px !important;
+
+            .social-icon {
+                fill:$COLOR_Bg;
+            }
+
         }
         
     }
