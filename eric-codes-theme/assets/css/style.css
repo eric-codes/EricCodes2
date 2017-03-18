@@ -635,3 +635,11 @@ body.eric-codes.contact .container > div {
     height: 100%;
     display: flex;
 }
+
+body.eric-codes.contact .contact-info {
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-form {
+    margin: auto;
+}

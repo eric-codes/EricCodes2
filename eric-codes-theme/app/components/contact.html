@@ -23,24 +23,24 @@
 			<div class="contact-form">
 				
 				<ng-form>
-					<form novalidate class="main-form">
+					<form novalidate class="main-form" name="mainform">
 
 						<div class="form-group">
 							<label>Name</label>
-							<input class="form-control" type="text" ng-model="contact.name"></input>
+							<input class="form-control" type="text" ng-model="contact.name" required ></input>
 						</div>
 
 						<div class="form-group">
 							<label>E-mail</label>
-							<input class="form-control" type="email" ng-model="contact.email"></input>
+							<input class="form-control" type="email" ng-model="contact.email" required ></input>
 						</div>
 
 						<div class="form-group">
 							<label>Inquiry</label>
-							<textarea class="form-control" type="text" ng-model="contact.message"></textarea>
+							<textarea class="form-control" type="text" ng-model="contact.message" required ></textarea>
 						</div>
 
-						<button class="btn btn-default">Contact Me!</button>
+						<button class="btn btn-default" ng-disabled="mainform.$invalid">Contact Me!</button>
 
 					</form>
 				</ng-form>
