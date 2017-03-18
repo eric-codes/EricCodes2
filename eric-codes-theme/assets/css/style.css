@@ -1,0 +1,743 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-Book.eot");
+  src: url("../fonts/LFTEtica-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Book.woff2") format("woff2"), url("../fonts/LFTEtica-Book.woff") format("woff"), url("../fonts/LFTEtica-Book.svg#LFTEtica-Book") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-BookItalic.eot");
+  src: url("../fonts/LFTEtica-BookItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-BookItalic.woff2") format("woff2"), url("../fonts/LFTEtica-BookItalic.woff") format("woff"), url("../fonts/LFTEtica-BookItalic.svg#LFTEtica-BookItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-ExtraBold.eot");
+  src: url("../fonts/LFTEtica-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-ExtraBold.woff2") format("woff2"), url("../fonts/LFTEtica-ExtraBold.woff") format("woff"), url("../fonts/LFTEtica-ExtraBold.svg#LFTEtica-ExtraBold") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-ExtraBoldItalic.eot");
+  src: url("../fonts/LFTEtica-ExtraBoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-ExtraBoldItalic.woff2") format("woff2"), url("../fonts/LFTEtica-ExtraBoldItalic.woff") format("woff"), url("../fonts/LFTEtica-ExtraBoldItalic.svg#LFTEtica-ExtraBoldItalic") format("svg");
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-Light.eot");
+  src: url("../fonts/LFTEtica-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-Light.woff2") format("woff2"), url("../fonts/LFTEtica-Light.woff") format("woff"), url("../fonts/LFTEtica-Light.svg#LFTEtica-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-LightItalic.eot");
+  src: url("../fonts/LFTEtica-LightItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-LightItalic.woff2") format("woff2"), url("../fonts/LFTEtica-LightItalic.woff") format("woff"), url("../fonts/LFTEtica-LightItalic.svg#LFTEtica-LightItalic") format("svg");
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-SemiBold.eot");
+  src: url("../fonts/LFTEtica-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-SemiBold.woff2") format("woff2"), url("../fonts/LFTEtica-SemiBold.woff") format("woff"), url("../fonts/LFTEtica-SemiBold.svg#LFTEtica-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+@font-face {
+    font-family: 'LFT Etica';
+  src: url("../fonts/LFTEtica-SemiBoldItalic.eot");
+  src: url("../fonts/LFTEtica-SemiBoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/LFTEtica-SemiBoldItalic.woff2") format("woff2"), url("../fonts/LFTEtica-SemiBoldItalic.woff") format("woff"), url("../fonts/LFTEtica-SemiBoldItalic.svg#LFTEtica-SemiBoldItalic") format("svg");
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+0020-00FE;
+}
+
+/* COLORS */
+body.eric-codes {
+    font-family: "LFT Etica";
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: #212121;
+    background: #f9f9f9;
+  /* Main elements */
+  /* nav */
+  /* Import pages */
+}
+
+body.eric-codes hr {
+    width: 260px;
+    border-top: solid #4f8ac8 1px;
+    margin: 40px auto;
+}
+
+body.eric-codes .page-section {
+    min-height: calc(100vh - 50px);
+    margin-top: 50px;
+}
+
+body.eric-codes span.mid-breaker {
+    margin: 0px 10px;
+    color: #4f8ac8;
+}
+
+body.eric-codes .btn-default {
+    border: none;
+    background: #212121;
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+body.eric-codes h1.top-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 48px;
+    color: #4f8ac8;
+}
+
+@media (min-width: 1200px) {
+    body.eric-codes .container {
+        width: 80%;
+    }
+}
+
+body.eric-codes .navbar-default {
+    border: none;
+    background: #444;
+    color: white;
+    padding: 10px;
+    max-height: 50px;
+    margin-bottom: 0px;
+    transition: 0.5s;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
+    margin: 0px 5px;
+    display: inline-block;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link:last-child {
+    margin-right: 0px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon {
+    width: 30px;
+    height: 30px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon .nav-icon-fill {
+    fill: #f9f9f9;
+    fill-rule: evenodd;
+    transition: 0.3s;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon:hover .nav-icon-fill {
+    fill: #4f8ac8;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link.selected .nav-icon .nav-icon-fill {
+    fill: #4f8ac8;
+}
+
+body.eric-codes .navbar-default span.logo-type {
+    font-family: "Space Mono";
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb {
+    color: white;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:last-child {
+    font-weight: 700;
+}
+
+body.eric-codes .navbar-default span.logo-type a.crumb:first-child {
+    font-weight: 400 !important;
+}
+
+body.eric-codes .navbar-default.not-shown {
+    top: -70px;
+}
+
+body.eric-codes .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+    width: 35px;
+}
+
+body.eric-codes .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
+
+body.eric-codes .social-icons .icon-container svg {
+    width: 100%;
+}
+
+body.eric-codes .social-icons .icon-container svg .social-icon {
+    fill: #333;
+}
+
+body.eric-codes footer {
+    background: #333;
+    color: white;
+    padding: 15px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top: 15vh;
+}
+
+body.eric-codes footer span.footer-text {
+    display: inline-block;
+}
+
+body.eric-codes footer .social {
+    display: inline-block;
+}
+
+body.eric-codes footer .social .social-icons {
+    display: inline-block;
+    margin-top: 0px !important;
+}
+
+body.eric-codes footer .social .social-icons .social-icon {
+    fill: #f9f9f9;
+}
+
+body.eric-codes footer a.back-to-top {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    color: #333;
+}
+
+body.eric-codes.homepage .page-section {
+    display: flex;
+}
+
+body.eric-codes.homepage .page-section .homepage-container {
+    margin: auto;
+    text-align: center;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .logo-container {
+    width: 90vw;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .logo-container .logo-img {
+    width: 100%;
+    max-width: 700px;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .main-headlines {
+    font-size: 18px;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single {
+    display: inline-block;
+    width: calc(100% / 3);
+    max-width: 200px;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-title {
+    margin-top: 20px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+body.eric-codes.about .page-section > .container {
+    height: calc(100vh - 50px);
+}
+
+body.eric-codes.about .page-section > .container > .text-outer {
+    height: calc(100vh - 50px);
+}
+
+body.eric-codes.about .page-section:first-child {
+    padding-bottom: 0px;
+}
+
+body.eric-codes.about .about-image-container {
+    height: calc(100vh - 50px);
+    overflow: hidden;
+    position: relative;
+}
+
+body.eric-codes.about .about-image-container .about-image {
+    height: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+body.eric-codes.about .text-outer {
+    display: flex;
+}
+
+body.eric-codes.about .text-container {
+    margin: auto;
+}
+
+body.eric-codes.about .text-container p {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+body.eric-codes.about .skill-section {
+    margin-top: 20vh;
+    text-align: center;
+}
+
+body.eric-codes.about .skill-section h2.center-header {
+    text-align: center;
+    font-family: "Space Mono";
+    font-size: 48px;
+}
+
+body.eric-codes.about .skill-section h2.center-header span {
+    color: #4f8ac8;
+}
+
+body.eric-codes.about img.skill-icon-img {
+    width: 100%;
+    max-width: 130px;
+}
+
+body.eric-codes.about .skill-icon-set.container {
+    margin-top: 60px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container {
+    width: calc(100% / 5);
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container .skill-icon {
+    margin-bottom: 20px;
+}
+
+body.eric-codes.about .skill-icon-set.container .skill-icon-container span.skill-icon-title {
+    font-size: 18px;
+}
+
+body.eric-codes.about .large-list {
+    margin-top: 40px;
+    width: 70%;
+    text-align: center;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.eric-codes.about .large-list li {
+    font-size: 22px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+body.eric-codes.about .large-list li:after {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #4f8ac8;
+}
+
+body.eric-codes.about .tooltip-inner {
+    font-size: 20px;
+    padding: 10px 15px;
+    font-family: "Space Mono";
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+body.eric-codes.about .skill-section a.btn.btn-default {
+    margin-top: 30px;
+}
+
+body.eric-codes.about .page-section {
+    padding-bottom: 30vh;
+}
+
+body.eric-codes.work .text-container {
+    margin-bottom: 50px;
+}
+
+body.eric-codes.work .text-container h1.top-title {
+    margin-top: 70px;
+}
+
+body.eric-codes.work .text-container p {
+    font-size: 18px;
+    line-height: 1.5em;
+    width: 80%;
+}
+
+body.eric-codes.work .work-item {
+    height: 300px;
+    background: black;
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+body.eric-codes.work .work-item .work-item-info {
+    position: absolute;
+    width: 100%;
+    top: -100%;
+    height: 100%;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: 0.4s;
+}
+
+body.eric-codes.work .work-item .work-item-info .col-sm-6 {
+    height: 100%;
+}
+
+body.eric-codes.work .work-item .work-item-info .row {
+    height: 100%;
+}
+
+body.eric-codes.work .work-item .work-item-info .work-icons {
+    display: flex;
+}
+
+body.eric-codes.work .work-item .work-item-info h3.work-inside-title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #4f8ac8;
+    font-weight: 300;
+    font-size: 28px;
+    letter-spacing: 0.05em;
+}
+
+body.eric-codes.work .work-item .work-item-info p {
+    margin-bottom: 20px;
+    line-height: 1.5em;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+body.eric-codes.work .work-item .work-item-title {
+    margin: auto;
+    font-family: "Space Mono";
+    color: white;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+body.eric-codes.work .work-item:hover .work-item-info {
+    top: 0;
+}
+
+body.eric-codes.work .work-item:hover .work-item-title {
+    opacity: 0;
+}
+
+body.eric-codes.work .work-item a.btn {
+    background-color: #4f8ac8;
+}
+
+body.eric-codes.work .work-icon-container {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+
+body.eric-codes.work .work-icon-container .icon-container {
+    display: inline-block;
+    padding: 0px 10px;
+    width: calc(100% / 5);
+}
+
+body.eric-codes.work-single .return-area {
+    margin-top: 50px;
+}
+
+body.eric-codes.work-single .page-section:first-child {
+    margin-top: 0px;
+}
+
+body.eric-codes.work-single .return-area {
+    padding: 20px 0px;
+}
+
+body.eric-codes.work-single .return-area a.return-link {
+    color: #212121;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+body.eric-codes.work-single .return-area a.return-link i.fa {
+    margin-right: 10px;
+}
+
+body.eric-codes.work-single h2.layout-header {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Space Mono";
+    color: #4f8ac8;
+    font-size: 36px;
+}
+
+body.eric-codes.work-single .work-layout .row.section {
+    margin-top: 50px;
+}
+
+body.eric-codes.work-single .work-layout .row.section h3.section-heading {
+    font-family: "Space Mono";
+    font-size: 20px;
+}
+
+body.eric-codes.work-single .work-layout .row.section h3.section-heading span {
+    color: #4f8ac8;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container {
+    overflow: hidden;
+    min-height: 600px;
+    height: 70vh;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body.eric-codes.work-single .work-layout .row.section p.section-description {
+    font-size: 16px;
+    width: 80%;
+    line-height: 1.6em;
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb {
+    overflow: hidden;
+    height: 15vh;
+    margin-bottom: 30px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb .image-thumb-img {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body.eric-codes.work-single .work-layout .row.section h4.sub-heading {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: "Space Mono";
+}
+
+body.eric-codes.work-single .work-layout .row.section h4.sub-heading span {
+    color: #4f8ac8;
+}
+
+body.eric-codes.work-single .work-layout .row.section p.sub-section-description {
+    line-height: 1.7em;
+}
+
+body.eric-codes.work-single .work-layout .row.header {
+    margin-bottom: 30px;
+}
+
+body.eric-codes.work-single .work-layout .row.description p {
+    font-size: 18px;
+    line-height: 1.6em;
+}
+
+body.eric-codes.work-single .work-layout .row.description {
+    margin-bottom: 40px;
+}
+
+body.eric-codes.work-single .work-layout .hero-image-container {
+    overflow: hidden;
+}
+
+body.eric-codes.work-single .work-layout .hero-image-container .hero-image {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+}
+
+body.eric-codes.work-single .work-layout .work-icon-container {
+    display: block;
+    text-align: right;
+}
+
+body.eric-codes.work-single .work-layout .work-icon-container .icon-container {
+    display: inline-block;
+    margin: 0px 5px;
+    width: 35px;
+}
+
+body.eric-codes.work-single .work-layout .work-icon-container .icon-container img {
+    width: 100%;
+}
+
+body.eric-codes.work-single .work-layout h3.other-projects-header {
+    text-align: center;
+    font-family: "Space Mono";
+    letter-spacing: 0.04em;
+    font-size: 24px;
+}
+
+body.eric-codes.work-single .work-layout h3.other-projects-header span {
+    color: #4f8ac8;
+}
+
+body.eric-codes.work-single ul.other-projects-list {
+    text-align: center;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 25vh;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    color: blue;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link a {
+    color: grey;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link:before {
+    content: "•";
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+body.eric-codes.work-single ul.other-projects-list li.project-link:first-child:before {
+    content: "";
+    margin-left: 0px;
+}
+
+body.eric-codes.contact .page-section .container {
+    min-height: calc(100vh - 50px);
+}
+
+body.eric-codes.contact .page-section .container > div {
+    min-height: calc(100vh - 50px);
+    display: flex;
+}
+
+body.eric-codes.contact .contact-info {
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-info p {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+body.eric-codes.contact .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes.contact .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+body.eric-codes.contact .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
+
+body.eric-codes.contact .contact-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px 25px;
+    background: #efefef;
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-form label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #333333;
+}
+
+body.eric-codes.contact .contact-form button {
+    margin: 30px auto 0px;
+    display: block;
+}
+
+body.eric-codes.contact .contact-form textarea {
+    min-height: 220px;
+}
