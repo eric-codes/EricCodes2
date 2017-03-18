@@ -4,8 +4,12 @@ app.directive('workGallery', function(){
 
 	function link_return(scope,elem,attr){
 
-		scope.Click = function(){
-			alert('click is good');
+		scope.maindata;
+
+		scope.currentSlide = scope.maindata[1];
+
+		scope.ChangeSlide = function(i){
+			scope.currentSlide = scope.maindata[i];
 		}
 
 	}
