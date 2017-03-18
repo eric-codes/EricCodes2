@@ -9,6 +9,7 @@ app.directive('workGallery', function(){
 		scope.currentSlide = scope.maindata[1];
 
 		scope.ChangeSlide = function(i){
+			Log.Msg('Gallery item clicked!');
 			scope.currentSlide = scope.maindata[i];
 		}
 

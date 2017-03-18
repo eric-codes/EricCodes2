@@ -1,1 +1,1 @@
-app.directive("workGallery",function(){function a(a,e,t){a.maindata,a.currentSlide=a.maindata[1],a.ChangeSlide=function(e){a.currentSlide=a.maindata[e]}}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("work-gallery"),link:a}});
+app.directive("workGallery",function(){function e(e,a,t){e.maindata,e.currentSlide=e.maindata[1],e.ChangeSlide=function(a){Log.Msg("Gallery item clicked!"),e.currentSlide=e.maindata[a]}}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("work-gallery"),link:e}});
