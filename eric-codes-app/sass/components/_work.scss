@@ -67,16 +67,28 @@
 
     }
 
-
-    &:hover .work-item-info {
-        top:0;
-    }
-
-    h2.work-item-title {
+    .work-item-title {
         margin: auto;
         font-family: "Space Mono";
         color: white;
+        transition: 0.4s;
+        opacity: 1;
     }
+
+    &:hover {
+        
+        .work-item-info {
+            top:0;
+        }
+
+        .work-item-title {
+            opacity: 0;
+        }
+
+
+    }
+
+
 
 
     a.btn {
