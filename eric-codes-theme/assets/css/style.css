@@ -90,6 +90,7 @@ body.eric-codes {
   /* Main elements */
   /* nav */
   /* Import pages */
+  /* responsive */
 }
 
 body.eric-codes hr {
@@ -229,7 +230,9 @@ body.eric-codes footer {
 }
 
 body.eric-codes footer span.footer-text {
-    display: inline-block;
+    display: block;
+    float: left;
+    margin-top: 5px;
 }
 
 body.eric-codes footer .social {
@@ -237,11 +240,18 @@ body.eric-codes footer .social {
 }
 
 body.eric-codes footer .social .social-icons {
-    display: inline-block;
     margin-top: 0px !important;
+    margin-left: 10px;
+    display: block;
 }
 
-body.eric-codes footer .social .social-icons .social-icon {
+body.eric-codes footer .social .social-icons .icon-container {
+    width: 24px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+body.eric-codes footer .social .social-icons .icon-container .social-icon {
     fill: #f9f9f9;
 }
 
