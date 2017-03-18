@@ -3,6 +3,11 @@
 app.directive('workGallery', function(){
 
 	function link_return(scope,elem,attr){
+
+		scope.Click = function(){
+			alert('click is good');
+		}
+
 	}
 
 	// Runs during compile
