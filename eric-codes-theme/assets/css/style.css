@@ -208,6 +208,10 @@ body.eric-codes .social-icons .icon-container:first-child {
     margin-left: 0px;
 }
 
+body.eric-codes .social-icons .icon-container .social-icon {
+    fill: #333;
+}
+
 body.eric-codes footer {
     background: #333;
     color: white;

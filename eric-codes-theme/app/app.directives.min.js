@@ -3,11 +3,11 @@ app.directive('socialIcons', function() {
     function link_return(scope, elem, attr) {
 
         scope.SocialIcons = [{
-            icon: iconFolder + "social_linkedin.svg"
+            icon: GetShared("social_linkedin.html")
         }, {
-            icon: iconFolder + "social_behance.svg"
+            icon: GetShared("social_behance.html")
         }, {
-            icon: iconFolder + "social_twitter.svg"
+            icon: GetShared("social_twitter.html")
         }];
 
     }
