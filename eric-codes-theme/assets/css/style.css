@@ -971,4 +971,18 @@ body.eric-codes.contact .contact-form textarea {
         display: inline-block;
         margin: 0px;
     }
+
+    body.eric-codes.contact .page-section {
+        min-height: initial;
+        margin-top: 0px;
+    }
+
+    body.eric-codes.contact .contact-info p {
+        width: 100%;
+    }
+
+    body.eric-codes.contact .page-section .container > div {
+        min-height: initial;
+        margin-top: 50px;
+    }
 }

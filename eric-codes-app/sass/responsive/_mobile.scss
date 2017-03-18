@@ -280,7 +280,21 @@ body.eric-codes {
 
 	}
 
+	&.contact {
+		.page-section {
+			min-height: initial;
+			margin-top: 0px;
+		}
 
+		.contact-info p {
+			width: 100%;
+		}
+
+		.page-section .container > div {
+			min-height: initial;
+			margin-top: 50px;
+		}
+	}
 
 
 
