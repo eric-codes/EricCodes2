@@ -195,6 +195,19 @@ body.eric-codes .navbar-default.not-shown {
     top: -70px;
 }
 
+body.eric-codes .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+body.eric-codes .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
+
 body.eric-codes.homepage .page-section {
     display: flex;
 }
@@ -277,19 +290,6 @@ body.eric-codes.about .text-container p {
     font-size: 18px;
     width: 80%;
     margin-bottom: 20px;
-}
-
-body.eric-codes.about .social-icons {
-    margin-top: 30px;
-}
-
-body.eric-codes.about .social-icons .icon-container {
-    display: inline-block;
-    margin: 0px 10px;
-}
-
-body.eric-codes.about .social-icons .icon-container:first-child {
-    margin-left: 0px;
 }
 
 body.eric-codes.about .skill-section {
@@ -430,14 +430,20 @@ body.eric-codes.work .work-item .work-item-info p {
     font-weight: 400;
 }
 
+body.eric-codes.work .work-item .work-item-title {
+    margin: auto;
+    font-family: "Space Mono";
+    color: white;
+    transition: 0.4s;
+    opacity: 1;
+}
+
 body.eric-codes.work .work-item:hover .work-item-info {
     top: 0;
 }
 
-body.eric-codes.work .work-item h2.work-item-title {
-    margin: auto;
-    font-family: "Space Mono";
-    color: white;
+body.eric-codes.work .work-item:hover .work-item-title {
+    opacity: 0;
 }
 
 body.eric-codes.work .work-item a.btn {

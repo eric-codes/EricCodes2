@@ -11,15 +11,6 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         link: "/about"
     })
 
-    $scope.SocialIcons = [{
-        icon: iconFolder + "social_linkedin.svg"
-    }, {
-        icon: iconFolder + "social_behance.svg"
-    }, {
-        icon: iconFolder + "social_twitter.svg"
-    }, ];
-
-
     $scope.skillIcons = [{
         icon: iconFolder + "code_jquery.svg",
         title: "jQuery"

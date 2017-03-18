@@ -6,6 +6,8 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scop
 
     $rootScope.NavHidden = false;
 
+    $rootScope.Footer = true;
+
     breadcrumbs.updateFirstChild({
         text: ".contact()",
         link: "/contact"

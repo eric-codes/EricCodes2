@@ -62,6 +62,23 @@ function TemplateGet($input) {
 
 	</section>
 
+	<footer ng-if="Footer">
+		
+	<div class="container">
+		<div class="pull-left">
+			
+		<span class="footer-text">2010 - 2017 Eric.Codes</span>
+		<social-icons></social-icons>
+		</div>
+		<div class="pull-right">
+			
+			<a class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+		</div>
+	</div>
+
+	</footer>
+
 
 	<script type="text/javascript" src="<?php TemplateGet('/app/app.module.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php TemplateGet('/app/app.core.min.js'); ?>"></script>

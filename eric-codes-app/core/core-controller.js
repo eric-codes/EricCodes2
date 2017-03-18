@@ -7,4 +7,6 @@ app.controller('CoreController', ['$scope', '$rootScope', function($scope,$rootS
 		}, 0);
 	});
 	
+	$rootScope.Footer = true;
+
 }])
