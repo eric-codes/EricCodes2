@@ -10,18 +10,29 @@ footer {
 
 
     span.footer-text {
-        display: inline-block;
+        display: block;
+        float: left;
+        margin-top: 5px;
     }
 
     .social {
         display: inline-block;
 
         .social-icons {
-            display: inline-block;
             margin-top: 0px !important;
+            margin-left: 10px;
+            display: block;
 
-            .social-icon {
-                fill:$COLOR_Bg;
+
+            .icon-container {
+                width: 24px;
+                margin-right: 5px;
+                margin-left: 5px;
+
+                .social-icon {
+                    fill:$COLOR_Bg;
+                }
+
             }
 
         }
