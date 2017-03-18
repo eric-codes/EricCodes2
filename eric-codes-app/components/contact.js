@@ -11,4 +11,12 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scop
         link: "/contact"
     })
 
+    $scope.SocialIcons = [{
+        icon: iconFolder + "social_linkedin.svg"
+    }, {
+        icon: iconFolder + "social_behance.svg"
+    }, {
+        icon: iconFolder + "social_twitter.svg"
+    }, ];
+
 }])
