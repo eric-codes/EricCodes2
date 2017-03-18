@@ -68,7 +68,7 @@ function TemplateGet($input) {
 		<div class="pull-left">
 			
 		<span class="footer-text">2010 - 2017 Eric.Codes</span>
-		<social-icons></social-icons>
+		<social-icons class="social"></social-icons>
 		</div>
 		<div class="pull-right">
 			

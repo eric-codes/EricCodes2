@@ -208,6 +208,45 @@ body.eric-codes .social-icons .icon-container:first-child {
     margin-left: 0px;
 }
 
+body.eric-codes footer {
+    background: #333;
+    color: white;
+    padding: 15px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top: 15vh;
+}
+
+body.eric-codes footer span.footer-text {
+    display: inline-block;
+}
+
+body.eric-codes footer .social {
+    display: inline-block;
+}
+
+body.eric-codes footer .social .social-icons {
+    display: inline-block;
+    margin-top: 0px !important;
+}
+
+body.eric-codes footer a.back-to-top {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    color: #333;
+}
+
 body.eric-codes.homepage .page-section {
     display: flex;
 }

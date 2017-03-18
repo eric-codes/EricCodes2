@@ -1,0 +1,47 @@
+footer {
+    background: #333;
+    color: white;
+    padding: 15px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-top:15vh;
+
+
+
+    span.footer-text {
+        display: inline-block;
+    }
+
+    .social {
+        display: inline-block;
+
+        .social-icons {
+            display: inline-block;
+            margin-top: 0px !important;
+        }
+        
+    }
+
+
+    a.back-to-top {
+        background: white;
+        width: 30px;
+        height: 30px;
+        display: block;
+
+        i.fa.fa-chevron-up {
+            font-size: 14px;
+            position: relative;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            left: 50%;
+            color: #333;
+        }
+
+    }
+
+
+}
+
+
