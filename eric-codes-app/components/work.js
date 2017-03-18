@@ -57,15 +57,19 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     setTimeout(function() {
         $('[data-toggle="tooltip"]').tooltip();
-    }, 500);
+    
 
     $('.work-item').click(function(event) {
-        if (window.width < 768) {
+        Log.Msg('Clicked!');
+        Log.Value('Window width',$(window).width())
+        if ($(window).width() < 768) {
             Log.Value('Firing scroll top',$(this).position().top);
             $("body, html").animate({
                 scrollTop: $(this).position().top
             },500);
         }
     });
+
+    }, 500);
 
 }])
