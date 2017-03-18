@@ -45,10 +45,12 @@
 
 			&.selected {
 
-				.nav-icon-fill {
-					fill: $COLOR_Spot;
+				.nav-icon {
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
 				}
-				
+
 			}
 
 		}

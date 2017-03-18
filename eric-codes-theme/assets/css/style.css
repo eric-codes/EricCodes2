@@ -167,6 +167,10 @@ body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon:hov
     fill: #4f8ac8;
 }
 
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link.selected .nav-icon .nav-icon-fill {
+    fill: #4f8ac8;
+}
+
 body.eric-codes .navbar-default span.logo-type {
     font-family: "Space Mono";
     line-height: 30px;
