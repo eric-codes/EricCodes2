@@ -640,8 +640,10 @@ body.eric-codes.contact .contact-info {
     margin: auto;
 }
 
-body.eric-codes.contact .contact-form {
-    margin: auto;
+body.eric-codes.contact .contact-info p {
+    font-size: 18px;
+    width: 80%;
+    margin-bottom: 20px;
 }
 
 body.eric-codes.contact .social-icons {
@@ -655,4 +657,29 @@ body.eric-codes.contact .social-icons .icon-container {
 
 body.eric-codes.contact .social-icons .icon-container:first-child {
     margin-left: 0px;
+}
+
+body.eric-codes.contact .contact-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px 25px;
+    background: #efefef;
+    margin: auto;
+}
+
+body.eric-codes.contact .contact-form label {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #333333;
+}
+
+body.eric-codes.contact .contact-form button {
+    margin: 30px auto 0px;
+    display: block;
+}
+
+body.eric-codes.contact .contact-form textarea {
+    min-height: 220px;
 }
