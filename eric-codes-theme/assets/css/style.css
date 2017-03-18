@@ -215,6 +215,7 @@ body.eric-codes .social-icons .icon-container svg {
 
 body.eric-codes .social-icons .icon-container svg .social-icon {
     fill: #333;
+    fill-rule: evenodd;
 }
 
 body.eric-codes footer {

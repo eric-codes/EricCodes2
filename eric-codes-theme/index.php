@@ -75,6 +75,7 @@ function TemplateGet($input) {
 			<a class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 
 		</div>
+		<div class="clearfix"></div>
 	</div>
 
 	</footer>
