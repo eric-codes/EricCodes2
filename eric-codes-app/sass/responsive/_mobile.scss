@@ -189,6 +189,97 @@ body.eric-codes {
 
 
 
+	&.work-single {
+
+		.page-section {
+			margin-top: 0px;
+		}
+
+		h2.layout-header {
+			font-size: 28px;
+		}
+
+		.work-layout {
+
+			.work-icon-container {
+				text-align: left;
+				margin-top: 15px;
+				.icon-container {
+					width: calc((100% / 10) - 4px);
+					margin: 0px 2px;
+					&:first-child {
+						margin-left:0px;
+					}
+				}
+			}
+
+
+
+			.row.description p {
+				font-size: 15px;
+			}
+
+			.hero-image-container {
+				height: 300px;
+				margin-bottom: 25px;
+			}
+
+			.row.section {
+				p.section-description {
+					font-size: 13px;
+					width: 100%;
+				}
+				.main-image-container {
+					min-height: initial;
+					height: 300px;
+					margin-bottom: 30px;
+				}
+
+				.main-image-container .main-image {
+					width: auto;
+					height: 100%;
+					top: initial;
+					left: 50%;
+					transform: translateY(0) translateX(-50%);
+				}
+
+				h3.section-heading {
+					font-size: 16px;
+				}
+
+				h4.sub-heading {
+					font-size: 12px;
+					font-weight: 700;
+					letter-spacing: 0.1em;
+				}
+			}
+
+
+
+
+		}
+
+
+
+		a.return-link {
+			font-size: 12px;
+		}
+
+		ul.other-projects-list li.project-link {
+			display: block;
+			text-align: center;
+			margin-bottom: 5px;
+			&:before {
+				content: "";
+				display:inline-block;
+				margin: 0px;
+			}
+		}
+
+
+
+	}
+
 
 
 

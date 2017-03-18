@@ -67,7 +67,6 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
             $("body, html").animate({
                 scrollTop: $(this).position().top + 50
             },400);
-            $(this).find('[data-toggle="tooltip"]').tooltip('show');
         }
     });
 
