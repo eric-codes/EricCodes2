@@ -86,6 +86,7 @@ body.eric-codes {
     font-weight: 300;
     letter-spacing: 0.04em;
     color: #212121;
+    background: #f9f9f9;
   /* Main elements */
   /* nav */
   /* Import pages */
@@ -139,18 +140,35 @@ body.eric-codes .navbar-default {
     padding: 10px;
     max-height: 50px;
     margin-bottom: 0px;
+    transition: 0.5s;
 }
 
 body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
     margin: 0px 5px;
+    display: inline-block;
 }
 
 body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link:last-child {
     margin-right: 0px;
 }
 
-body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .icon-img {
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon {
     width: 30px;
+    height: 30px;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon .nav-icon-fill {
+    fill: #f9f9f9;
+    fill-rule: evenodd;
+    transition: 0.3s;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link .nav-icon:hover .nav-icon-fill {
+    fill: #4f8ac8;
+}
+
+body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link.selected .nav-icon .nav-icon-fill {
+    fill: #4f8ac8;
 }
 
 body.eric-codes .navbar-default span.logo-type {
@@ -333,6 +351,14 @@ body.eric-codes.about .large-list li:after {
     margin-left: 10px;
     margin-right: 10px;
     color: #4f8ac8;
+}
+
+body.eric-codes.about .tooltip-inner {
+    font-size: 20px;
+    padding: 10px 15px;
+    font-family: "Space Mono";
+    font-weight: 400;
+    letter-spacing: 0.05em;
 }
 
 body.eric-codes.about .skill-section a.btn.btn-default {

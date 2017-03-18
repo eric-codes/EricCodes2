@@ -48,7 +48,7 @@ function TemplateGet($input) {
 		<div class="pull-right icon-area">
 			<div class="icon-drawer">
 				<a class="icon-link" ng-repeat="link in NavBar" ng-href="{{link.link}}">
-					<img class="icon-img" ng-src="{{link.icon}}"></img>
+					<div ng-include="link.icon"></div>
 				</a>
 			</div>
 		</div>

@@ -1,6 +1,10 @@
 app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(0);
+
     $rootScope.BodyClass = "about";
+
+    $rootScope.NavHidden = false;
 
     breadcrumbs.updateFirstChild({
         text: ".about()",
@@ -48,5 +52,8 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "UI Design"
     }, ];
 
+    setTimeout(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    },500);
 
 }])

@@ -4,6 +4,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 	
 	$rootScope.BodyClass = "homepage";
 	
+	$rootScope.NavHidden = true;
+	
 	breadcrumbs.homepage();
 
 	$scope.LogoURL = themeURL + "images/mainLogo.svg";

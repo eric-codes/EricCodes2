@@ -1,6 +1,10 @@
 app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(0);
+
     $rootScope.BodyClass = "about";
+
+    $rootScope.NavHidden = false;
 
     breadcrumbs.updateFirstChild({
         text: ".about()",
@@ -48,14 +52,24 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "UI Design"
     }, ];
 
+    setTimeout(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    },500);
 
 }])
 
+app.controller('contact', ['$scope', '$rootScope', function($scope,$rootScope){
+	
+	
+	
+}])
 
 
 app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($scope,$rootScope,breadcrumbs){
 	
 	$rootScope.BodyClass = "homepage";
+	
+	$rootScope.NavHidden = true;
 	
 	breadcrumbs.homepage();
 
@@ -93,6 +107,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         link: '/'
     }];
 
+    $rootScope.NavHidden = true;
+
     /**
      * $rootScope nav text array.
      * @type {Array}
@@ -103,14 +119,17 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
     }];
 
     $scope.NavBar = [{
-        icon: iconFolder + "nav_about.svg",
-        link: "/about"
+        icon: GetShared('nav_about'),
+        link: "/about",
+        slug: 'about'
     }, {
-        icon: iconFolder + "nav_work.svg",
-        link: "/work"
+        icon: GetShared('nav_work'),
+        link: "/work",
+        slug: 'work'
     }, {
-        icon: iconFolder + "nav_contact.svg",
-        link: "/contact"
+        icon: GetShared('nav_contact'),
+        link: "/contact",
+        slug: 'contact'
     }, ];
 
 
@@ -250,6 +269,10 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                 });
             }
 
+            if ($('.crumb:eq(0)').text().length < 1) {
+            	Animate.In(newv[0].text, 0);
+            }
+
         } else if (!newv[1]) {
 
             // homepage only
@@ -296,29 +319,50 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
         if (NewVal[0]) {
 
-            if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
-                return false;
-            } else {
+            function RunUpdate() {
+
+                Log.Warning('Firing anims..');
 
                 $.each(NewVal, function(i, v) {
                     NewVal[i].class = "crumb-" + i;
                 })
 
+                Log.Set('NewVal', NewVal);
 
-                if (newv.length >= oldv.length) {
+
+                if (newv.length > oldv.length) {
+                    Log.Msg('Old length greater than new length!');
                     $scope.NavText = NewVal;
+                    updateNav(NewVal, oldv);
+                } else {
+                    Log.Msg('New length equal to or greater than old length');
+                    updateNav(NewVal, oldv, function() {
+                        $scope.NavText = NewVal;
+                    });
+
                 }
 
 
-                updateNav(NewVal, oldv, function() {
-                    if (newv.length < oldv.length) {
-                        $scope.NavText = NewVal;
-                    }
-                });
+
 
             }
 
+
+            RunUpdate();
+
+
+
         }
+
+    }, true);
+
+    $rootScope.$watch('NavHidden', function(newValue, oldValue) {
+    	
+    	if (newValue === true) {
+    		$('.navbar').addClass('not-shown');
+    	} else {
+    		$('.navbar').removeClass('not-shown');
+    	}
 
     }, true);
 
@@ -329,7 +373,11 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
 app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(1);
+
     $rootScope.BodyClass = "work";
+
+    $rootScope.NavHidden = false;
 
     breadcrumbs.updateFirstChild({
         text: ".work",
@@ -386,11 +434,18 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
 app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(1);
+
     $rootScope.BodyClass = "work-single";
 
-     breadcrumbs.updateSecondChild({
+    $rootScope.NavHidden = false;
+
+    breadcrumbs.updateSecondChild({
         text: ".chisel.cartel",
         link: "/chisel-cartel"
+    }, {
+        text: ".work",
+        link: "/work"
     })
 
     $scope.AllProjects = [{
@@ -438,15 +493,20 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
     }, {
         gallery: [{
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1281x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1282x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1283x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1284x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1285x1024",
         }]
     }, {
         title: "development",
@@ -468,20 +528,29 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($
         }, ]
     }, {
         gallery: [{
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1210x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1220x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1230x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1240x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1250x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1260x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1270x1024",
         }]
-    }]
+    }];
 
-}])
+
+
+}]);

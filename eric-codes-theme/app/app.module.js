@@ -193,7 +193,7 @@ function returnTags(tagArray) {
     return returnArr;
 }
 
-Log.Set('returnTags Test',returnTags(['jquery','angular']));
+Log.Set('returnTags Test', returnTags(['jquery', 'angular']));
 
 /**
  * Angular Routing configuration settings
@@ -225,4 +225,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
 
     $locationProvider.html5Mode(true);
+
+
+
 }])

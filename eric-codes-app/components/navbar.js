@@ -7,6 +7,8 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
         link: '/'
     }];
 
+    $rootScope.NavHidden = true;
+
     /**
      * $rootScope nav text array.
      * @type {Array}
@@ -17,14 +19,17 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
     }];
 
     $scope.NavBar = [{
-        icon: iconFolder + "nav_about.svg",
-        link: "/about"
+        icon: GetShared('nav_about'),
+        link: "/about",
+        slug: 'about'
     }, {
-        icon: iconFolder + "nav_work.svg",
-        link: "/work"
+        icon: GetShared('nav_work'),
+        link: "/work",
+        slug: 'work'
     }, {
-        icon: iconFolder + "nav_contact.svg",
-        link: "/contact"
+        icon: GetShared('nav_contact'),
+        link: "/contact",
+        slug: 'contact'
     }, ];
 
 
@@ -164,6 +169,10 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                 });
             }
 
+            if ($('.crumb:eq(0)').text().length < 1) {
+            	Animate.In(newv[0].text, 0);
+            }
+
         } else if (!newv[1]) {
 
             // homepage only
@@ -210,29 +219,50 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
         if (NewVal[0]) {
 
-            if (newv[1] && oldv[1] && newv[1].text == oldv[1].text) {
-                return false;
-            } else {
+            function RunUpdate() {
+
+                Log.Warning('Firing anims..');
 
                 $.each(NewVal, function(i, v) {
                     NewVal[i].class = "crumb-" + i;
                 })
 
+                Log.Set('NewVal', NewVal);
 
-                if (newv.length >= oldv.length) {
+
+                if (newv.length > oldv.length) {
+                    Log.Msg('Old length greater than new length!');
                     $scope.NavText = NewVal;
+                    updateNav(NewVal, oldv);
+                } else {
+                    Log.Msg('New length equal to or greater than old length');
+                    updateNav(NewVal, oldv, function() {
+                        $scope.NavText = NewVal;
+                    });
+
                 }
 
 
-                updateNav(NewVal, oldv, function() {
-                    if (newv.length < oldv.length) {
-                        $scope.NavText = NewVal;
-                    }
-                });
+
 
             }
 
+
+            RunUpdate();
+
+
+
         }
+
+    }, true);
+
+    $rootScope.$watch('NavHidden', function(newValue, oldValue) {
+    	
+    	if (newValue === true) {
+    		$('.navbar').addClass('not-shown');
+    	} else {
+    		$('.navbar').removeClass('not-shown');
+    	}
 
     }, true);
 

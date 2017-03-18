@@ -43,10 +43,10 @@
 			<div class="skill-icon-container" ng-repeat="skill in skillIcons">
 
 				<div class="skill-icon">
-					<img class="skill-icon-img" ng-src="{{skill.icon}}"></img>
+					<a href="/work"><img class="skill-icon-img" ng-src="{{skill.icon}}" data-toggle="tooltip" data-placement="top" title="{{skill.title}}"></img></a>
 				</div>
 
-				<span class="skill-icon-title">{{skill.title}}</span>
+				<span class="skill-icon-title visible-xs">{{skill.title}}</span>
 
 			</div>
 
@@ -83,14 +83,14 @@
 			</ul>
 		</div>
 
-		<a class="btn btn-default">View Case Studies</a>
+		<a class="btn btn-default" href="/work">View Case Studies</a>
 
 	</div>
 
 
 	<div class="skill-section">
 
-		<h2 class="center-header">industry.<span>skills</span></h2>
+		<h2 class="center-header">client.<span>list</span></h2>
 
 		<div class="container">
 			<ul class="large-list">

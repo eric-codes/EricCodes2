@@ -1,6 +1,10 @@
 app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
+    breadcrumbs.updateNav(1);
+
     $rootScope.BodyClass = "work";
+
+    $rootScope.NavHidden = false;
 
     breadcrumbs.updateFirstChild({
         text: ".work",

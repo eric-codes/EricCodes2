@@ -7,18 +7,50 @@
 	padding: 10px;
 	max-height: 50px;
 	margin-bottom: 0px;
+	transition:0.5s;
 
 	.icon-area .icon-drawer {
 
 		.icon-link {
 			margin: 0px 5px;
+			display: inline-block;
 
 			&:last-child {
 				margin-right: 0px;
 			}
 
-			.icon-img {
-				width: 30px;
+			.nav-icon {
+				width:30px;
+				height:30px;
+
+				.nav-icon-fill {
+					fill: $COLOR_Bg;
+					fill-rule: evenodd;
+					transition:0.3s;
+				}
+
+
+
+				&:hover {
+
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
+
+				}
+
+
+
+			}
+
+			&.selected {
+
+				.nav-icon {
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
+				}
+
 			}
 
 		}
@@ -53,5 +85,7 @@
 	&.not-shown {
 		top: -70px;
 	}
+
+
 
 }
