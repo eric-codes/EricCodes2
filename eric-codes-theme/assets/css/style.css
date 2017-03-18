@@ -619,6 +619,7 @@ body.eric-codes.work-single ul.other-projects-list li.project-link:before {
     content: "•";
     margin-left: 10px;
     margin-right: 10px;
+    display: inline-block;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link:first-child:before {
