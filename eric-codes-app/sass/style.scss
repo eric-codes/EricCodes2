@@ -9,6 +9,7 @@ body.eric-codes {
 	font-weight: 300;
 	letter-spacing: 0.04em;
 	color:$COLOR_Main;
+	background:$COLOR_Bg;
 
 	hr {
 		width: 260px;
@@ -56,6 +57,8 @@ body.eric-codes {
 	}
 
 
+	/* Main elements */
+	@import 'components/nav';
 
 	/* Import pages */
 

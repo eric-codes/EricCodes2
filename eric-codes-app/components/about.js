@@ -1,6 +1,15 @@
-app.controller('about', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
+
+    breadcrumbs.updateNav(0);
 
     $rootScope.BodyClass = "about";
+
+    $rootScope.NavHidden = false;
+
+    breadcrumbs.updateFirstChild({
+        text: ".about()",
+        link: "/about"
+    })
 
     $scope.SocialIcons = [{
         icon: iconFolder + "social_linkedin.svg"
@@ -41,7 +50,10 @@ app.controller('about', ['$scope', '$rootScope', function($scope, $rootScope) {
     }, {
         icon: iconFolder + "code_uidesign.svg",
         title: "UI Design"
-    }, ]
+    }, ];
 
+    setTimeout(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    },500);
 
 }])

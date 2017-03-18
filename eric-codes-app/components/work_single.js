@@ -1,6 +1,18 @@
-app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
+
+    breadcrumbs.updateNav(1);
 
     $rootScope.BodyClass = "work-single";
+
+    $rootScope.NavHidden = false;
+
+    breadcrumbs.updateSecondChild({
+        text: ".chisel.cartel",
+        link: "/chisel-cartel"
+    }, {
+        text: ".work",
+        link: "/work"
+    })
 
     $scope.AllProjects = [{
         name: "Chisel Cartel",
@@ -47,15 +59,20 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
     }, {
         gallery: [{
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1281x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1282x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1283x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1284x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1285x1024",
         }]
     }, {
         title: "development",
@@ -77,20 +94,29 @@ app.controller('work_single', ['$scope', '$rootScope', function($scope, $rootSco
         }, ]
     }, {
         gallery: [{
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1210x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1220x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1230x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1240x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1250x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1260x1024",
         }, {
-            URL: "http://placehold.it/640x480"
+            thumbnail: "http://placehold.it/640x480",
+            URL: "http://placehold.it/1270x1024",
         }]
-    }]
+    }];
 
-}])
+
+
+}]);

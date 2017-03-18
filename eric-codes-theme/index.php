@@ -40,13 +40,15 @@ function TemplateGet($input) {
 
 
 		<div class="pull-left logo-area">
-			<span class="logo-type"><a href="/">eric.codes</a></span>
+			<span class="logo-type">
+			<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
+			</span>
 		</div>
 
 		<div class="pull-right icon-area">
 			<div class="icon-drawer">
 				<a class="icon-link" ng-repeat="link in NavBar" ng-href="{{link.link}}">
-					<img class="icon-img" ng-src="{{link.icon}}"></img>
+					<div ng-include="link.icon"></div>
 				</a>
 			</div>
 		</div>

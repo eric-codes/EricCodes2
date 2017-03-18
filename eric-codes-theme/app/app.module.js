@@ -56,12 +56,10 @@ if (window.Debug == true) {
         },
         Function: function(msg) {
             console.log("");
-            console.log("");
             console.log("--- " + msg);
             console.log("");
         },
         Warning: function(msg) {
-            console.log("");
             console.log("");
             console.log("!!!!!!!  " + msg + "  !!!!!!!");
             console.log("");
@@ -195,7 +193,7 @@ function returnTags(tagArray) {
     return returnArr;
 }
 
-Log.Set('returnTags Test',returnTags(['jquery','angular']));
+Log.Set('returnTags Test', returnTags(['jquery', 'angular']));
 
 /**
  * Angular Routing configuration settings
@@ -227,4 +225,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         })
 
     $locationProvider.html5Mode(true);
+
+
+
 }])
