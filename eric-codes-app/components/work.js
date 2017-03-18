@@ -22,7 +22,7 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
             'angular',
             'uidesign',
             'typography'
-            ]),
+        ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
@@ -32,7 +32,7 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
             'angular',
             'uidesign',
             'typography'
-            ]),
+        ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
@@ -42,7 +42,7 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
             'angular',
             'uidesign',
             'typography'
-            ]),
+        ]),
     }, {
         name: "Chisel Cartel",
         codeName: "chisel.cartel",
@@ -52,11 +52,19 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
             'angular',
             'uidesign',
             'typography'
-            ]),
+        ]),
     }, ]
 
-    setTimeout(function(){
+    setTimeout(function() {
         $('[data-toggle="tooltip"]').tooltip();
-    },500);
+    }, 500);
+
+    $('.work-item').mouseover(function(event) {
+        if (window.width < 768) {
+            $("body, html").animate({
+                scrollTop: $(this).position().top
+            });
+        }
+    });
 
 }])

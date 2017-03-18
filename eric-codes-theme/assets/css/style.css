@@ -847,4 +847,52 @@ body.eric-codes.contact .contact-form textarea {
         content: "" !important;
         display: block;
     }
+
+    body.eric-codes.work .text-container h1.top-title {
+        margin-top: 40px;
+    }
+
+    body.eric-codes.work .text-container p {
+        font-size: 14px;
+        width: 100%;
+        line-height: 1.7em;
+    }
+
+    body.eric-codes.work .work-item {
+        transition: 0.4s;
+    }
+
+    body.eric-codes.work .work-item a.btn {
+        display: block;
+        margin-top: 20px;
+    }
+
+    body.eric-codes.work .work-item:hover {
+        height: 600px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info {
+        overflow: hidden;
+    }
+
+    body.eric-codes.work .work-item .work-item-info p {
+        font-size: 12px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info .col-sm-6 {
+        height: auto;
+    }
+
+    body.eric-codes.work .work-icon-container {
+        margin-top: 20px;
+    }
+
+    body.eric-codes.work .work-icon-container .icon-container {
+        width: calc(100% / 4);
+        padding: 0px 5px;
+    }
+
+    body.eric-codes.work .work-icon-container .icon-container img.icon {
+        width: 100%;
+    }
 }
