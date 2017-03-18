@@ -90,7 +90,6 @@ body.eric-codes {
   /* Main elements */
   /* nav */
   /* Import pages */
-  /* responsive */
 }
 
 body.eric-codes hr {
@@ -758,18 +757,19 @@ body.eric-codes.contact .contact-form textarea {
     min-height: 220px;
 }
 
+/* responsive */
 @media (max-width: 768px) {
-    body.eric-codes body.homepage .page-section {
+    body.eric-codes.homepage .page-section {
         margin-top: 0px;
         height: 100vh;
         padding: 25px;
     }
 
-    body.eric-codes body.homepage .homepage-container .logo-container {
+    body.eric-codes.homepage .homepage-container .logo-container {
         width: 100%;
     }
 
-    body.eric-codes body.homepage .homepage-container .main-headlines {
+    body.eric-codes.homepage .homepage-container .main-headlines {
         font-size: 11px;
         font-weight: 400;
         margin: 30px 0px 50px;
