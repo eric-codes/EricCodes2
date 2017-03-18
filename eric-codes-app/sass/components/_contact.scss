@@ -1,13 +1,19 @@
-.container {
+.page-section {
 
-	min-height:$PAGE_Height;
+	.container {
 
-	& > div  {
 		min-height:$PAGE_Height;
-		display: flex;
+
+		& > div  {
+			min-height:$PAGE_Height;
+			display: flex;
+		}
+
 	}
 
 }
+
+
 
 .contact-info {
 	margin: auto;

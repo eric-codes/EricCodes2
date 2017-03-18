@@ -643,3 +643,16 @@ body.eric-codes.contact .contact-info {
 body.eric-codes.contact .contact-form {
     margin: auto;
 }
+
+body.eric-codes.contact .social-icons {
+    margin-top: 30px;
+}
+
+body.eric-codes.contact .social-icons .icon-container {
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+body.eric-codes.contact .social-icons .icon-container:first-child {
+    margin-left: 0px;
+}
