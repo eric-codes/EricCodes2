@@ -27,7 +27,7 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         title: "PHP / MySQL"
     }, {
         icon: iconFolder + "code_css3.svg",
-        title: "CSS3"
+        title: "CSS3" 
     }, {
         icon: iconFolder + "code_graphicdesign.svg",
         title: "Graphic Design"
