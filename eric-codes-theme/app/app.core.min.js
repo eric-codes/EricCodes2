@@ -1,1 +1,72 @@
-app.controller("CoreController",["$scope","$rootScope",function(e,t){t.$on("$stateChangeStart",function(e,t,o,n,a){$("html, body").animate({scrollTop:0},0)})}]),app.factory("breadcrumbs",["$rootScope",function(e){Log.Heading("Breadcrumbs Service initiated");var t={};return t.homepage=function(){e.NavText=[{text:"eric.codes",link:"/"}]},t.updateFirstChild=function(t){Log.Function("Updating Nav First Child");var o=e.NavText;Log.Set("currentNav before change",o),o[2]&&(o.pop(),Log.Set("currentNav popped!",o)),o[1]=t,Log.Set("currentNav after change",o),e.NavText=o},t.updateSecondChild=function(t,o){Log.Function("Updating Nav Second Child");var n=e.NavText;Log.Set("currentNav before change",n),o.text&&o.text!==$(".crumb-1").text()&&(n[1]=o),n[2]=t,Log.Set("currentNav after change",n),e.NavText=n},t.updateNav=function(e){$(".icon-link").removeClass("selected"),$(".icon-link").eq(e).addClass("selected")},t}]);
+
+app.controller('CoreController', ['$scope', '$rootScope', function($scope,$rootScope){
+	
+	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+		$('html, body').animate({
+			scrollTop: 0
+		}, 0);
+	});
+	
+}])
+app.factory('breadcrumbs', ['$rootScope', function($rootScope) {
+
+    Log.Heading('Breadcrumbs Service initiated');
+
+
+
+    var scope = {};
+
+    scope.homepage = function() {
+        $rootScope.NavText = [{
+            text: 'eric.codes',
+            link: '/'
+        }];
+    }
+
+    scope.updateFirstChild = function(obj) {
+        Log.Function('Updating Nav First Child');
+
+        var currentNav = $rootScope.NavText;
+
+        Log.Set('currentNav before change', currentNav);
+
+        if (currentNav[2]) {
+            currentNav.pop();
+            Log.Set('currentNav popped!', currentNav);
+        }
+
+        currentNav[1] = obj;
+
+        Log.Set('currentNav after change', currentNav);
+
+
+        $rootScope.NavText = currentNav;
+    }
+
+    scope.updateSecondChild = function(obj, parent) {
+        Log.Function('Updating Nav Second Child');
+
+        var currentNav = $rootScope.NavText;
+
+        Log.Set('currentNav before change', currentNav);
+
+        if (parent.text && parent.text !== $('.crumb-1').text()) {
+            currentNav[1] = parent;
+        }
+
+
+
+        currentNav[2] = obj;
+
+        Log.Set('currentNav after change', currentNav);
+
+        $rootScope.NavText = currentNav;
+    }
+
+    scope.updateNav = function(i) {
+        $('.icon-link').removeClass('selected');
+        $('.icon-link').eq(i).addClass('selected');
+    }
+
+    return scope;
+}])
