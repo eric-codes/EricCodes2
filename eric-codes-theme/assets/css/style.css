@@ -765,11 +765,11 @@ body.eric-codes.contact .contact-form textarea {
         padding: 25px;
     }
 
-    body.eric-codes.homepage .homepage-container .logo-container {
+    body.eric-codes.homepage .page-section .homepage-container .logo-container {
         width: 100%;
     }
 
-    body.eric-codes.homepage .homepage-container .main-headlines {
+    body.eric-codes.homepage .page-section .homepage-container .main-headlines {
         font-size: 11px;
         font-weight: 400;
         margin: 30px 0px 50px;
