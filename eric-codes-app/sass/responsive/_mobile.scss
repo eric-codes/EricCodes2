@@ -123,11 +123,75 @@ body.eric-codes {
 	}
 
 
+	&.work {
+
+		.text-container  {
+			h1.top-title {
+				margin-top: 40px;
+			}
+			p {
+				font-size: 14px;
+				width: 100%;
+				line-height: 1.7em;
+			}
+		}
+
+
+
+		.work-item {
+			transition:0.4s;
+
+			a.btn {
+				display: block;
+				margin-top: 20px;
+			}
+
+			&:hover {
+				height: 600px;
+			}
+
+			.work-item-info {
+				overflow: hidden;
+				p {
+					font-size: 12px;
+				}
+				.col-sm-6 {
+					height: auto;
+				}
+			}
+
+
+		}
+
+
+
+
+		.work-icon-container {
+			margin-top: 20px;
+
+			.icon-container {
+				width: calc(100% / 4);
+				padding: 0px 5px;
+
+				img.icon {
+					width: 100%;
+				}
+
+			}
 
 
 
 
 
-}
+
+		}
+
+
+
+
+
+
+
+	}
 
 

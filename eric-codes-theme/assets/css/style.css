@@ -764,6 +764,10 @@ body.eric-codes.contact .contact-form textarea {
         margin-top: 40px;
     }
 
+    body.eric-codes .navbar-default span.logo-type {
+        font-size: 12px;
+    }
+
     body.eric-codes.homepage .page-section {
         margin-top: 0px;
         height: 100vh;
