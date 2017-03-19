@@ -4,7 +4,7 @@ $ReturnArr = array(
 	"workData" => "WORKDATA"
 	);
 
-$ProjectReturn = scandir('/');
+$ProjectReturn = scandir('./');
 
 print_r($ProjectReturn);
 

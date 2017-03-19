@@ -6,6 +6,8 @@ $ReturnArr = array(
 
 $ProjectReturn = scandir('/');
 
+print_r($ProjectReturn);
+
 return json_encode($ReturnArr);
 
  ?>
