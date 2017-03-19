@@ -12,7 +12,7 @@ foreach ($ProjectReturn as $key => $value) {
 		$data = file_get_contents('./projects/'.$value);
 		$decoded = json_decode($data, true);
 		echo($decoded);
-		array_push($AllFiles, $decoded);
+		array_push($AllFiles, $data);
 	}
 }
 
