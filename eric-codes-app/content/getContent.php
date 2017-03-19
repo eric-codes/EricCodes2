@@ -4,8 +4,6 @@
 
 $ProjectReturn = scandir('./projects/');
 
-print_r($ProjectReturn);
-
 $ReturnArr = array(
 	"workData" => $ProjectReturn
 	);
