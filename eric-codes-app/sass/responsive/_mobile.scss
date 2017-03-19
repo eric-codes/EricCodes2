@@ -141,6 +141,10 @@ body.eric-codes {
 		.work-item {
 			transition:0.4s;
 
+			.work-item-title {
+				font-size: 20px;
+			}
+
 			a.btn {
 				display: block;
 				margin-top: 20px;

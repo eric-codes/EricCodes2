@@ -1,5 +1,5 @@
 
-app.controller('CoreController', ['$scope', '$rootScope', function($scope,$rootScope){
+app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($scope,$rootScope,loadData){
 	
 	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
 		$('html, body').animate({

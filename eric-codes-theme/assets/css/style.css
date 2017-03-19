@@ -862,6 +862,10 @@ body.eric-codes.contact .contact-form textarea {
         transition: 0.4s;
     }
 
+    body.eric-codes.work .work-item .work-item-title {
+        font-size: 20px;
+    }
+
     body.eric-codes.work .work-item a.btn {
         display: block;
         margin-top: 20px;
