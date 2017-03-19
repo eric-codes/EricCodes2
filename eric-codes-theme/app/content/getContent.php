@@ -10,8 +10,7 @@ foreach ($ProjectReturn as $key => $value) {
 	if(strpos($value,'json')) {
 
 		$data = file_get_contents('./projects/'.$value);
-		$dataRmv = substr($data, 3);
-		$decoded = json_decode($dataRmv, true);
+		$decoded = json_decode($data, true);
 		print_r($decoded);
 		array_push($AllFiles, $decoded);
 	}
