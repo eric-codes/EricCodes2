@@ -14,13 +14,12 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
 		var FileList = [];
 
-		$.each(data.files,function(i,v){
-			Log.Set('test',v);
+		$.each(data.files,function(i,val){
+			Log.Set('test',val);
 
-			if (v.includes('json')) {
-				// Log.Warning(v);
+			if (val.includes('json')) {
 
-				FileList.push(v);
+				FileList.push(val);
 			}
 		})
 
