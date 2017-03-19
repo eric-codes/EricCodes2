@@ -9,6 +9,6 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 	
 	$rootScope.Footer = true;
 
-	Log.Value('LoadData Test',LoadData.GetData());
+	Log.Value('LoadData Test',loadData.GetData());
 
 }])
