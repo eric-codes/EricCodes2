@@ -2,7 +2,7 @@
 
 $ReturnArr = array();
 
-$ProjectReturn = scandir('projects/');
+$ProjectReturn = scandir('./');
 
 return json_encode($ProjectReturn);
 
