@@ -13,7 +13,7 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
         var FileList = [];
 
-        $.each(data.files, function(i, val) {
+        $.each(data.data.files, function(i, val) {
             Log.Set('test', val);
 
             if (val.includes('json')) {
