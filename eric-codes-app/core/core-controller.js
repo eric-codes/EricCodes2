@@ -9,6 +9,10 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 	
 	$rootScope.Footer = true;
 
-	Log.Value('LoadData Test',loadData.GetData());
+	loadData.GetData().then(function(data){
+		Log.Set('LoadData test',data);
+	}, function(data){
+		Log.Set('LoadData test error',data);
+	})
 
 }])
