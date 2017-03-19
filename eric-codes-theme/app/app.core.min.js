@@ -11,6 +11,17 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
 	loadData.GetData().then(function(data){
 		Log.Set('LoadData test',data);
+
+		var FileList = [];
+
+		$.each(data.files,function(i,v){
+			if (v.includes('json')) {
+				FileList.push(v);
+			}
+		})
+
+		Log.Set('FileList',FileList);
+
 	}, function(data){
 		Log.Set('LoadData test error',data);
 	})

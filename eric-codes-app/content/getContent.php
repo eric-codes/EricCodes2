@@ -5,7 +5,7 @@
 $ProjectReturn = scandir('./projects/');
 
 $ReturnArr = array(
-	"workData" => $ProjectReturn
+	"files" => $ProjectReturn
 	);
 
 $ReturnJSON = json_encode($ReturnArr);
