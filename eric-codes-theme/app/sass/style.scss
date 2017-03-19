@@ -1,0 +1,111 @@
+@import 'fonts/LFT_Etica';
+@import 'variables';
+
+
+
+
+body.eric-codes {
+	font-family:"LFT Etica";
+	font-weight: 300;
+	letter-spacing: 0.04em;
+	color:$COLOR_Main;
+	background:$COLOR_Bg;
+
+	hr {
+		width: 260px;
+		border-top: solid $COLOR_Spot 1px;
+		margin: 40px auto;
+	}
+
+
+	.page-section {
+		min-height:calc(100vh - 50px);
+		margin-top: 50px;
+	}
+
+	span.mid-breaker {
+		margin: 0px 10px;
+		color: $COLOR_Spot;
+	}
+
+	
+
+	.btn-default {
+		border: none;
+		background: #212121;
+		color: white;
+		padding: 20px 40px;
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+
+	h1.top-title {
+		margin-top: 0px;
+		margin-bottom: 20px;
+		font-weight: 600;
+		font-size: 48px;
+		color: $COLOR_Spot;
+	}
+
+	@media (min-width: 1200px) {
+		.container {
+			width:80%;
+		}
+	}
+
+
+	/* Main elements */
+	@import 'components/nav';
+	@import 'components/social-icons';
+	@import 'components/footer';
+
+	/* Import pages */
+
+
+
+	&.homepage {
+		@import 'components/homepage';
+	}
+
+	&.about {
+		@import 'components/about';
+	}
+
+	&.work {
+		@import 'components/work';
+	}
+
+	&.work-single {
+		@import 'components/work-single';
+	}
+
+
+	&.contact {
+		@import 'components/contact';
+	}
+
+
+
+
+
+
+
+
+}
+
+/* responsive */
+
+@media (max-width: 1200px) {
+	@import 'responsive/desktop';
+}
+
+@media (max-width: 992px) {
+	@import 'responsive/tablet';
+}
+
+@media (max-width: 768px) {
+	@import 'responsive/mobile';
+}

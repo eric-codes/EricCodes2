@@ -1,0 +1,91 @@
+/* nav */
+
+.navbar-default {
+	border: none;
+	background: #444;
+	color: white;
+	padding: 10px;
+	max-height: 50px;
+	margin-bottom: 0px;
+	transition:0.5s;
+
+	.icon-area .icon-drawer {
+
+		.icon-link {
+			margin: 0px 5px;
+			display: inline-block;
+
+			&:last-child {
+				margin-right: 0px;
+			}
+
+			.nav-icon {
+				width:30px;
+				height:30px;
+
+				.nav-icon-fill {
+					fill: $COLOR_Bg;
+					fill-rule: evenodd;
+					transition:0.3s;
+				}
+
+
+
+				&:hover {
+
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
+
+				}
+
+
+
+			}
+
+			&.selected {
+
+				.nav-icon {
+					.nav-icon-fill {
+						fill: $COLOR_Spot;
+					}
+				}
+
+			}
+
+		}
+
+
+	}
+
+	span.logo-type {
+		font-family: "Space Mono";
+		line-height: 30px;
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: 0.03em;
+
+		a.crumb {
+			color: white;
+
+			&:last-child {
+				font-weight:700;
+			}
+
+			&:first-child {
+				font-weight:400 !important;
+			}
+
+		}
+
+
+
+	}
+
+	&.not-shown {
+		top: -70px;
+	}
+
+
+
+}
