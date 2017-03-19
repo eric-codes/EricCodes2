@@ -10,7 +10,7 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
     loadData.GetData().then(function(data) {
 
-    	var FileSet = data.data.files;
+    	var FileSet = data.data;
 
         Log.Set('FileSet', FileSet);
 
