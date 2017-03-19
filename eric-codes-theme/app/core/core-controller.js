@@ -10,11 +10,23 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
     loadData.GetData().then(function(data) {
 
-    	var FileSet = data.data.files;
+    	var FileSet = data.data;
 
         Log.Set('FileSet', FileSet);
 
+        var AllFiles = {};
+        var WorkItems = [];
 
+        $.each(FileSet,function(i,val){
+        	AllFiles[val.workData.slug] = val;
+        	WorkItems.push(val.workData);
+        })
+
+        $rootScope.AllData = AllFiles;
+        $rootScope.WorkItems = WorkItems;
+
+        Log.Set("$rootScope.AllData",$rootScope.AllData);
+        Log.Set("$rootScope.WorkItems",$rootScope.WorkItems);
 
     }, function(data) {
         Log.Set('LoadData test error', data);

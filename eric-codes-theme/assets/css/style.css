@@ -517,13 +517,13 @@ body.eric-codes.work .work-item a.btn {
     background-color: #4f8ac8;
 }
 
-body.eric-codes.work .work-icon-container {
+body.eric-codes.work .work-icon-inner {
     text-align: center;
     width: 100%;
     margin: auto;
 }
 
-body.eric-codes.work .work-icon-container .icon-container {
+body.eric-codes.work .work-icon-inner .icon-container {
     display: inline-block;
     padding: 0px 10px;
     width: calc(100% / 5);
