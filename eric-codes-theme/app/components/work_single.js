@@ -15,11 +15,13 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     $scope.AllProjects;
     $scope.WorkData;
+    $scope.Tags;
     $scope.Sections;
 
     function UpdateScope() {
         $scope.AllProjects = $rootScope.WorkItems;
         $scope.WorkData = $rootScope.AllData[ThisSlug].workData;
+        $scope.Tags = returnTags($rootScope.AllData[ThisSlug].workData.tags);
         $scope.Sections = $rootScope.AllData[ThisSlug].sections;
 
         breadcrumbs.updateSecondChild({
