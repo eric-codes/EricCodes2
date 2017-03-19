@@ -22,6 +22,8 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
         Log.Set('Parsed',Parsed);
 
+        
+
     }, function(data) {
         Log.Set('LoadData test error', data);
     })
