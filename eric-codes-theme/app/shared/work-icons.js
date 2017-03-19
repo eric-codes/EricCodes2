@@ -13,7 +13,7 @@ app.directive('workIcons', function(){
 			maindata: "="
 		}, 
 		 restrict: 'E',
-		 templateUrl: GetShared('work-gallery'),
+		 templateUrl: GetShared('work-icons'),
 		 link: link_return
 	};
 });
