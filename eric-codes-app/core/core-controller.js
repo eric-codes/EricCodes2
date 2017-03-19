@@ -1,32 +1,31 @@
+app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($scope, $rootScope, loadData) {
 
-app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($scope,$rootScope,loadData){
-	
-	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-		$('html, body').animate({
-			scrollTop: 0
-		}, 0);
-	});
-	
-	$rootScope.Footer = true;
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 0);
+    });
 
-	loadData.GetData().then(function(data){
-		Log.Set('LoadData test',data);
+    $rootScope.Footer = true;
 
-		var FileList = [];
+    loadData.GetData().then(function(data) {
+        Log.Set('LoadData test', data);
 
-		$.each(data.files,function(i,val){
-			Log.Set('test',val);
+        var FileList = [];
 
-			if (val.includes('json')) {
+        $.each(data.files, function(i, val) {
+            Log.Set('test', val);
 
-				FileList.push(val);
-			}
-		})
+            if (val.includes('json')) {
 
-		Log.Set('FileList',FileList);
+                FileList.push(val);
+            }
+        })
 
-	}, function(data){
-		Log.Set('LoadData test error',data);
-	})
+        Log.Set('FileList', FileList);
+
+    }, function(data) {
+        Log.Set('LoadData test error', data);
+    })
 
 }])
