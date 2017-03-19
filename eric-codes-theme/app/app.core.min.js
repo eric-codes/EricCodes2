@@ -14,7 +14,13 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
         Log.Set('FileSet', FileSet);
 
+        var WorkItems = [];
 
+        $.each(FileSet,function(i,val){
+        	WorkItems.push(val.workData);
+        })
+
+        $rootScope.WorkItems = WorkItems;
 
     }, function(data) {
         Log.Set('LoadData test error', data);

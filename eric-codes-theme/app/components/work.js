@@ -13,47 +13,15 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
         link: "/work"
     })
 
-    $scope.WorkItems = [{
-        name: "Chisel Cartel",
-        codeName: "chisel.cartel",
-        blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
-        tags: returnTags([
-            'jquery',
-            'angular',
-            'uidesign',
-            'typography'
-        ]),
-    }, {
-        name: "Chisel Cartel",
-        codeName: "chisel.cartel",
-        blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
-        tags: returnTags([
-            'jquery',
-            'angular',
-            'uidesign',
-            'typography'
-        ]),
-    }, {
-        name: "Chisel Cartel",
-        codeName: "chisel.cartel",
-        blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
-        tags: returnTags([
-            'jquery',
-            'angular',
-            'uidesign',
-            'typography'
-        ]),
-    }, {
-        name: "Chisel Cartel",
-        codeName: "chisel.cartel",
-        blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero.",
-        tags: returnTags([
-            'jquery',
-            'angular',
-            'uidesign',
-            'typography'
-        ]),
-    }, ]
+    $scope.WorkItems = [];
+
+    if ($rootScope.WorkItems) {
+        $scope.WorkItems = $rootScope.WorkItems;
+    }
+
+    $rootScope.$watch('WorkItems',function(nv,ov){
+        $scope.WorkItems = $rootScope.WorkItems;
+    },true)
 
     setTimeout(function() {
         $('[data-toggle="tooltip"]').tooltip();
