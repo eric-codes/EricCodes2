@@ -145,6 +145,7 @@
         Main: FilePaths.App,
         Components: FilePaths.App + "components/",
         Shared: FilePaths.App + "shared/",
+        Content: FilePaths.App + "content/",
         Core: FilePaths.App + "core/",
         Sass: FilePaths.App + "sass/",
         Admin: FilePaths.App + "admin/",
@@ -167,10 +168,12 @@
  */
  var Select = {
     All: {
+        Files: "**/*",
         JS: "**/*.js",
         HTML: "**/*.html",
         SCSS: "**/*.scss",
         CSS: "**/*.css",
+        JSON: "**/*.json",
         PHP: "**/*.php"
     },
     ThisFolder: {
@@ -178,6 +181,7 @@
         HTML: "*.html",
         SCSS: "*.scss",
         CSS: "*.css",
+        JSON: "*.json",
         PHP: "*.php"
     }
 }
@@ -478,6 +482,8 @@ gulp.task('theme-minify-admin', function() {
 gulp.task('theme-copy-view-assets', function() {
     Log.Heading("Copying HTML views");
     gulp.src(Directory.App.Main + Select.All.HTML)
+    .pipe(gulp.dest(Directory.Theme.App))
+    gulp.src(Directory.App.Main + Select.All.Files)
     .pipe(gulp.dest(Directory.Theme.App))
 })
 

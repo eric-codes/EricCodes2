@@ -90,7 +90,6 @@ body.eric-codes {
   /* Main elements */
   /* nav */
   /* Import pages */
-  /* responsive */
 }
 
 body.eric-codes hr {
@@ -314,6 +313,11 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-titl
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.04em;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-title a {
+    color: #4f8ac8;
+    font-size: 12px;
 }
 
 body.eric-codes.about .page-section > .container {
@@ -751,4 +755,238 @@ body.eric-codes.contact .contact-form button {
 
 body.eric-codes.contact .contact-form textarea {
     min-height: 220px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    body.eric-codes h1.top-title {
+        font-size: 28px;
+        margin-top: 40px;
+    }
+
+    body.eric-codes .navbar-default span.logo-type {
+        font-size: 12px;
+    }
+
+    body.eric-codes.homepage .page-section {
+        margin-top: 0px;
+        height: 100vh;
+        padding: 25px;
+    }
+
+    body.eric-codes.homepage .page-section .homepage-container .logo-container {
+        width: 100%;
+    }
+
+    body.eric-codes.homepage .page-section .homepage-container .main-headlines {
+        font-size: 11px;
+        font-weight: 400;
+        margin: 30px 0px 50px;
+    }
+
+    body.eric-codes.about .page-section > .container {
+        height: auto;
+    }
+
+    body.eric-codes.about .page-section > .container > .text-outer {
+        height: auto;
+        display: block;
+    }
+
+    body.eric-codes.about .text-container p {
+        font-size: 14px;
+        width: 100%;
+        line-height: 1.7em;
+    }
+
+    body.eric-codes.about .social-icons {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    body.eric-codes.about .about-image-container {
+        height: 401px;
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+
+    body.eric-codes.about .skill-section h2.center-header {
+        font-size: 28px;
+    }
+
+    body.eric-codes.about .skill-icon-set.container .skill-icon-container {
+        width: calc(100% / 2);
+        padding: 0px 25px;
+    }
+
+    body.eric-codes.about .skill-icon-set.container .skill-icon-container span.skill-icon-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #4f8ac8;
+    }
+
+    body.eric-codes.about .large-list {
+        width: 100%;
+        text-align: left;
+    }
+
+    body.eric-codes.about .large-list li {
+        width: 100%;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    body.eric-codes.about .large-list li:before {
+        content: "•";
+        margin-left: 10px;
+        margin-right: 10px;
+        color: #4f8ac8;
+    }
+
+    body.eric-codes.about .large-list li:after {
+        content: "" !important;
+        display: block;
+    }
+
+    body.eric-codes.work .text-container h1.top-title {
+        margin-top: 40px;
+    }
+
+    body.eric-codes.work .text-container p {
+        font-size: 14px;
+        width: 100%;
+        line-height: 1.7em;
+    }
+
+    body.eric-codes.work .work-item {
+        transition: 0.4s;
+    }
+
+    body.eric-codes.work .work-item .work-item-title {
+        font-size: 20px;
+    }
+
+    body.eric-codes.work .work-item a.btn {
+        display: block;
+        margin-top: 20px;
+    }
+
+    body.eric-codes.work .work-item:hover {
+        height: 600px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info {
+        overflow: hidden;
+    }
+
+    body.eric-codes.work .work-item .work-item-info p {
+        font-size: 12px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info .col-sm-6 {
+        height: auto;
+    }
+
+    body.eric-codes.work .work-icon-container {
+        margin-top: 20px;
+    }
+
+    body.eric-codes.work .work-icon-container .icon-container {
+        width: calc(100% / 4);
+        padding: 0px 5px;
+    }
+
+    body.eric-codes.work .work-icon-container .icon-container img.icon {
+        width: 100%;
+    }
+
+    body.eric-codes.work-single .page-section {
+        margin-top: 0px;
+    }
+
+    body.eric-codes.work-single h2.layout-header {
+        font-size: 28px;
+    }
+
+    body.eric-codes.work-single .work-layout .work-icon-container {
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    body.eric-codes.work-single .work-layout .work-icon-container .icon-container {
+        width: calc((100% / 10) - 4px);
+        margin: 0px 2px;
+    }
+
+    body.eric-codes.work-single .work-layout .work-icon-container .icon-container:first-child {
+        margin-left: 0px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.description p {
+        font-size: 15px;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-container {
+        height: 300px;
+        margin-bottom: 25px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.section p.section-description {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    body.eric-codes.work-single .work-layout .row.section .main-image-container {
+        min-height: initial;
+        height: 300px;
+        margin-bottom: 30px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
+        width: auto;
+        height: 100%;
+        top: initial;
+        left: 50%;
+        transform: translateY(0) translateX(-50%);
+    }
+
+    body.eric-codes.work-single .work-layout .row.section h3.section-heading {
+        font-size: 16px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.section h4.sub-heading {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+    }
+
+    body.eric-codes.work-single a.return-link {
+        font-size: 12px;
+    }
+
+    body.eric-codes.work-single ul.other-projects-list li.project-link {
+        display: block;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    body.eric-codes.work-single ul.other-projects-list li.project-link:before {
+        content: "";
+        display: inline-block;
+        margin: 0px;
+    }
+
+    body.eric-codes.contact .page-section {
+        min-height: initial;
+        margin-top: 0px;
+    }
+
+    body.eric-codes.contact .contact-info p {
+        width: 100%;
+    }
+
+    body.eric-codes.contact .page-section .container > div {
+        min-height: initial;
+        margin-top: 50px;
+    }
 }
