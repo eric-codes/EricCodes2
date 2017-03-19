@@ -16,6 +16,8 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
 		$.each(data.files,function(i,v){
 			if (v.includes('json')) {
+				Log.Warning(v);
+				
 				FileList.push(v);
 			}
 		})
