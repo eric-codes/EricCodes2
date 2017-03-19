@@ -8,7 +8,10 @@ $AllFiles = array();
 
 foreach ($ProjectReturn as $key => $value) {
 	if(strpos($value,'json')) {
-		array_push($AllFiles, $value);
+
+		$data = file_get_contents('./projects/'.$value);
+
+		array_push($AllFiles, json_decode($data));
 	}
 }
 
