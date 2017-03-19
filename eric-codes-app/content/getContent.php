@@ -11,7 +11,7 @@ foreach ($ProjectReturn as $key => $value) {
 
 		$data = file_get_contents('./projects/'.$value);
 		$decoded = json_decode($data, true);
-		print_r($decoded);
+		echo($decoded);
 		array_push($AllFiles, $decoded);
 	}
 }
