@@ -168,6 +168,7 @@
  */
  var Select = {
     All: {
+        Files: "**/*",
         JS: "**/*.js",
         HTML: "**/*.html",
         SCSS: "**/*.scss",
@@ -482,7 +483,7 @@ gulp.task('theme-copy-view-assets', function() {
     Log.Heading("Copying HTML views");
     gulp.src(Directory.App.Main + Select.All.HTML)
     .pipe(gulp.dest(Directory.Theme.App))
-    gulp.src(Directory.App.Main + Select.All.JSON)
+    gulp.src(Directory.App.Main + Select.All.Files)
     .pipe(gulp.dest(Directory.Theme.App))
 })
 
