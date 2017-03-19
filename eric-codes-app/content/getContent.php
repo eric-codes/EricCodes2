@@ -1,9 +1,11 @@
 <?php 
 
-$ReturnArr = array();
+$ReturnArr = array(
+	"workData" => "WORKDATA"
+	);
 
-$ProjectReturn = scandir('./');
+$ProjectReturn = scandir('/');
 
-return json_encode($ProjectReturn);
+return json_encode($ReturnArr);
 
  ?>
