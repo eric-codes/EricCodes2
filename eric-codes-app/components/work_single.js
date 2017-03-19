@@ -11,13 +11,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     var ThisSlug = $stateParams.workSlug;
 
 
-    breadcrumbs.updateSecondChild({
-        text: ".chisel.cartel",
-        link: "/chisel-cartel"
-    }, {
-        text: ".work",
-        link: "/work"
-    })
+
 
     $scope.AllProjects;
     $scope.WorkData;
@@ -27,6 +21,15 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         $scope.AllProjects = $rootScope.WorkItems;
         $scope.WorkData = $rootScope.AllData[ThisSlug].workData;
         $scope.Sections = $rootScope.AllData[ThisSlug].sections;
+
+        breadcrumbs.updateSecondChild({
+            text: $scope.WorkData.title,
+            link: "/" + $scope.WorkData.slug
+        }, {
+            text: ".work",
+            link: "/work"
+        })
+
     }
 
     if ($rootScope.AllData) {
