@@ -9,20 +9,12 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
     $rootScope.Footer = true;
 
     loadData.GetData().then(function(data) {
-        Log.Set('LoadData test', data);
 
-        var FileList = [];
+    	var FileSet = data.data.files;
 
-        $.each(data.data.files, function(i, val) {
-            Log.Set('test', val);
+        Log.Set('FileSet', FileSet);
 
-            if (val.includes('json')) {
 
-                FileList.push(val);
-            }
-        })
-
-        Log.Set('FileList', FileList);
 
     }, function(data) {
         Log.Set('LoadData test error', data);

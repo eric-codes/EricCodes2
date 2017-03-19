@@ -4,8 +4,16 @@
 
 $ProjectReturn = scandir('./projects/');
 
+$AllFiles = array();
+
+foreach ($ProjectReturn as $key => $value) {
+	if(strpos($value,'json')) {
+		array_push($AllFiles, $value);
+	}
+}
+
 $ReturnArr = array(
-	"files" => $ProjectReturn
+	"files" => $AllFiles
 	);
 
 $ReturnJSON = json_encode($ReturnArr);
