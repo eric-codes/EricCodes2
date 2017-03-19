@@ -1,28 +1,21 @@
-app.service('loadData', ['$rootScope', function($rootScope){
-	
-	var scope = {};
+app.service('loadData', ['$rootScope', '$http', function($rootScope, $http) {
 
-	scope.GetData = function(){
+    var scope = {};
 
-		$.$.ajax({
-			url: themeURL + "",
-			type: 'default GET (Other values: POST)',
-			dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-			data: {param1: 'value1'},
-		})
-		.done(function() {
-			console.log("success");
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("complete");
-		});
-		
+    scope.GetData = function() {
 
-	}
+        $http({
+                url: themeURL + "app/content/projects/",
+            })
+            .success(function(data) {
+                return data;
+            })
+            .error(function(data) {
+                return data;
+            })
 
-	return scope;
+    }
+
+    return scope;
 
 }])
