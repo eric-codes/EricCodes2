@@ -7,12 +7,12 @@ app.service('loadData', ['$rootScope', '$http', function($rootScope, $http) {
         $http({
                 url: themeURL + "app/content/projects/",
             })
-            .success(function(data) {
+            .then(function(data) {
                 return data;
-            })
-            .error(function(data) {
+            },function(data) {
                 return data;
-            })
+            });
+
 
     }
 
