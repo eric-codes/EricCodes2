@@ -39,10 +39,8 @@
             "html5",
             "typography",
             "uidesign"
-        ]
-    }, {
-        "description": "Flex Marketing Group needed a full redesign of their website to bring their original webpage up to modern web design standards. I conceptualized, designed, developed, and maintained the new Flex Marketing Group website from the ground up, integrated WordPress into their site for easy content management, and redeveloped their visual language in order to appeal to a younger, more technologically savvy crowd."
-    }, {
+        ],
+        "description": "Flex Marketing Group needed a full redesign of their website to bring their original webpage up to modern web design standards. I conceptualized, designed, developed, and maintained the new Flex Marketing Group website from the ground up, integrated WordPress into their site for easy content management, and redeveloped their visual language in order to appeal to a younger, more technologically savvy crowd.",
         "textSections": [{
             "title": "design()",
             "description": "I opted for a clean, tech-company business feel with the visual language for their new online identity. For their primary font, I chose Karla, a clean sans-serif with a hint of artistic playfulness, as that’s what the company represented - a smaller, family unit with business and technical roots. A royal blue was chosen for their spot treatment, as a nod to their NYC roots and the vibrance."
@@ -53,6 +51,7 @@
             "title": "backEnd()",
             "description": "The back-end is a WordPress CMS with some custom plugins integrated in order to integrate the site into Flex’s advertisement system. In addition, some AngularJS was used for specific forms and inquiries on the website."
         }]
+
     }, {
         "gallery": [{
             "thumbnail": "http://placehold.it/640x480",
