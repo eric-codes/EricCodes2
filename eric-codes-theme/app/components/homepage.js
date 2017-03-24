@@ -36,6 +36,48 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 
 	$scope.BGVidURL = themeURL + "images/background.mp4"
 
+	function RunAnimation(){
+
+		var typeSpeed = 300,
+		typeSpeedSlow = typeSpeed * 2,
+		typeSpeedFast = (typeSpeed / 3) * 2;
+
+		function Link(id,speed,callback) {
+			setTimeout(function(){
+				$(id).addClass('in');
+				if (callback) {
+					callback();
+				}
+			},speed);
+		}
+
+		Link('#br_l',typeSpeedSlow,function(){
+			Link('#b_e',typeSpeed,function(){
+				Link('#b_r',typeSpeed,function(){
+					Link('#b_i',typeSpeed,function(){
+						Link('#b_c',typeSpeedSlow,function(){
+							Link('#dot',typeSpeedSlow,function(){
+								Link('#t_c',typeSpeedFast,function(){
+									Link('#t_o',typeSpeedFast,function(){
+										Link('#t_d',typeSpeedFast,function(){
+											Link('#t_e',typeSpeedFast,function(){
+												Link('#t_s',typeSpeedSlow,function(){
+													Link('#br_r',typeSpeedFast);
+												})
+											})
+										})
+									})
+								})
+							})
+						})
+					})
+				})
+			})
+		})
+
+
+	}
+
 	$(document).ready(function(){
 		setTimeout(function(){
 			$('video')[0].play();
