@@ -61,8 +61,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 									Link('#t_o',typeSpeedFast,function(){
 										Link('#t_d',typeSpeedFast,function(){
 											Link('#t_e',typeSpeedFast,function(){
-												Link('#t_s',typeSpeedSlow,function(){
-													Link('#br_r',typeSpeedFast);
+												Link('#t_s',typeSpeedFast,function(){
+													Link('#br_r',typeSpeedSlow);
 												})
 											})
 										})
