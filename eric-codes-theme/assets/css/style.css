@@ -277,11 +277,17 @@ body.eric-codes.homepage .page-section {
     background: rgba(255, 255, 255, 0.5);
 }
 
-body.eric-codes.homepage .page-section video.background-video {
+body.eric-codes.homepage .page-section .video-container {
     position: absolute;
     width: 100%;
+    height: 100vh;
+    overflow: hidden;
     top: 0px;
     z-index: -5;
+}
+
+body.eric-codes.homepage .page-section .video-container video {
+    width: 100%;
 }
 
 body.eric-codes.homepage .page-section .homepage-container {
@@ -304,7 +310,8 @@ body.eric-codes.homepage .page-section .homepage-container .logo-container .logo
 }
 
 body.eric-codes.homepage .page-section .homepage-container .main-headlines {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons {
