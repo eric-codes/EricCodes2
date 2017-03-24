@@ -277,6 +277,22 @@ body.eric-codes.homepage .page-section {
     background: rgba(255, 255, 255, 0.5);
 }
 
+body.eric-codes.homepage .page-section .logo-img path {
+    opacity: 0;
+}
+
+body.eric-codes.homepage .page-section .logo-img path.in {
+    opacity: 1;
+}
+
+body.eric-codes.homepage .page-section .logo-img .logo-dark {
+    fill: #231f20;
+}
+
+body.eric-codes.homepage .page-section .logo-img .logo_spot {
+    fill: #4f8ac8;
+}
+
 body.eric-codes.homepage .page-section .video-container {
     position: absolute;
     width: 100%;

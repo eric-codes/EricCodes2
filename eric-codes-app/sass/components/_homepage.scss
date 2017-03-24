@@ -5,6 +5,27 @@
 	background: rgba(255, 255, 255, 0.50);
 
 
+	.logo-img {
+
+		path {
+			opacity:0;
+
+			&.in {
+				opacity:1;
+			}
+
+		}
+
+		.logo-dark {
+			fill: #231f20;
+		}
+
+		.logo_spot {
+			fill: #4f8ac8;
+		}
+
+	}
+
 	.video-container {
 		position: absolute;
 		width: 100%;
