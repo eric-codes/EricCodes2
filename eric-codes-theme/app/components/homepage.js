@@ -38,7 +38,7 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 
 	function RunAnimation(){
 
-		var typeSpeed = 300,
+		var typeSpeed = 100,
 		typeSpeedSlow = typeSpeed * 2,
 		typeSpeedFast = (typeSpeed / 3) * 2;
 
