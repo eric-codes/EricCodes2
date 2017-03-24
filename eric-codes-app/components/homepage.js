@@ -34,4 +34,6 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 		window.location.href = link;
 	}
 
+	$scope.BGVidURL = themeURL + "images/background.mp4"
+
 }])

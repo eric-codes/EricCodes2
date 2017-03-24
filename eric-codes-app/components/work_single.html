@@ -24,13 +24,16 @@
 
 
 		<div class="row description">
-			<div class="col-sm-6">
+			<div class="col-sm-6" ng-if="WorkData.problem">
 			<h4>{{WorkData.title}}.<span>problem()</span></h4>
 				<p>{{WorkData.problem}}</p>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-6" ng-if="WorkData.solution">
 			<h4>{{WorkData.title}}.<span>solution()</span></h4>
 				<p>{{WorkData.solution}}</p>
+			</div>
+			<div class="col-xs-12" ng-if="WorkData.description">
+				<p>{{WorkData.description}}</p>
 			</div>
 		</div>
 
@@ -55,12 +58,24 @@
 			</div>
 
 
+
 			<div class="clearfix" ng-if="section.title"></div>
 
 			<div class="col-xs-12" ng-if="section.description">
 				<p class="section-description">{{section.description}}</p>
 			</div>
 
+			<div class="col-sm-6" ng-if="section.problem">
+							<h4>{{section.title}}.<span>problem()</span></h4>
+				<p>{{section.problem}}</p>
+			</div>
+
+			<div class="col-sm-6" ng-if="section.solution">
+							<h4>{{section.title}}.<span>solution()</span></h4>
+				<p>{{section.solution}}</p>
+			</div>
+
+			<div class="clearfix" ng-if="section.problem"></div>
 
 
 			<work-gallery class="row" ng-if="section.gallery" maindata="section.gallery"></work-gallery>
