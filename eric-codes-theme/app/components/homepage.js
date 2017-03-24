@@ -36,4 +36,10 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 
 	$scope.BGVidURL = themeURL + "images/background.mp4"
 
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('video')[0].play();
+		},500);
+	})
+
 }])
