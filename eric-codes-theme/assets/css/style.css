@@ -272,6 +272,16 @@ body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
 
 body.eric-codes.homepage .page-section {
     display: flex;
+    height: 100vh;
+    margin-top: 0px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body.eric-codes.homepage .page-section video.background-video {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    z-index: -5;
 }
 
 body.eric-codes.homepage .page-section .homepage-container {

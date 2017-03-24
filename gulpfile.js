@@ -562,7 +562,7 @@ gulp.task('theme-release', function() {
             type: bumpType
         };
 
-        if (!argv.nogit) {
+        if (!argv.nogit && !argv.n) {
             gulp.src('./package.json')
             .pipe(bump(BumpSettings))
             .pipe(gulp.dest('./'));
