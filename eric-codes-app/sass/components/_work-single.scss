@@ -127,10 +127,12 @@ h2.layout-header {
 		h4 {
 			font-family: "Space Mono";
 			letter-spacing: 0.05em;
-			color: $COLOR_Spot;
 			margin-bottom: 20px;
 			font-size: 16px;
-			font-weight: 700;
+			span {
+				color: $COLOR_Spot;
+				font-weight: 700;
+			}
 		}
 		p {
 			width: 80%;

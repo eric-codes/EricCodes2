@@ -626,9 +626,12 @@ body.eric-codes.work-single .work-layout .row.header {
 body.eric-codes.work-single .work-layout .row.description h4 {
     font-family: "Space Mono";
     letter-spacing: 0.05em;
-    color: #4f8ac8;
     margin-bottom: 20px;
     font-size: 16px;
+}
+
+body.eric-codes.work-single .work-layout .row.description h4 span {
+    color: #4f8ac8;
     font-weight: 700;
 }
 
