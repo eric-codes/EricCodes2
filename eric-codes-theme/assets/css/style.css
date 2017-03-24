@@ -820,6 +820,18 @@ body.eric-codes.contact .contact-form textarea {
         padding: 25px;
     }
 
+    body.eric-codes.homepage .page-section .video-container {
+        left: 0px;
+    }
+
+    body.eric-codes.homepage .page-section .video-container video {
+        width: auto;
+        height: 100%;
+        left: 50%;
+        position: relative;
+        transform: translateX(-40%);
+    }
+
     body.eric-codes.homepage .page-section .homepage-container .logo-container {
         width: 100%;
     }

@@ -15,6 +15,18 @@ body.eric-codes {
 			margin-top: 0px;
 			height: 100vh;
 			padding: 25px;
+			
+			.video-container {
+				left: 0px;
+
+				video {
+					width: auto;
+					height: 100%;
+					left: 50%;
+					position: relative;
+					transform: translateX(-40%);
+				}
+			}
 
 
 			.homepage-container {
@@ -32,6 +44,7 @@ body.eric-codes {
 			}
 
 		}
+
 
 
 
