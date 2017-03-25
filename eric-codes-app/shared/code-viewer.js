@@ -24,7 +24,11 @@ app.directive('codeViewer', function(){
 			elem.find('.nav li').eq(index).addClass('active');
 
 			if (scope.Active.lang == 'php') {
-				elem.find('code').prepend('<?php').append('?>');
+				var TextContainer = elem.find('code'),
+					MainText = TextContainer.text(),
+					TextString = '<?php '+MainText+'?>';
+
+					TextContainer.text(TextString);
 			}
 
 			setTimeout(function(){

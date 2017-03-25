@@ -23,6 +23,10 @@ app.directive('codeViewer', function(){
 			elem.find('.nav li').removeClass('active');
 			elem.find('.nav li').eq(index).addClass('active');
 
+			if (scope.Active.lang == 'php') {
+				elem.find('code').prepend('<?php').append('?>');
+			}
+
 			setTimeout(function(){
 				Prism.highlightAll();
 			},500);
