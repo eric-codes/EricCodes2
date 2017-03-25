@@ -1,4 +1,4 @@
-app.directive('codeViewer', ['$rootScope', function($rootScope){
+app.directive('codeViewer', function(){
 
 
 	function link_return(scope,elem,attr) {
@@ -42,4 +42,4 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
     	templateUrl: GetShared('code-viewer'),
     	link: link_return
     };
-}]);
+});
