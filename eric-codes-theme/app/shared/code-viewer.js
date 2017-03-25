@@ -22,7 +22,13 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		}
 
-		scope.setActive(0);
+		if ($rootScope.WorkItems) {
+			scope.setActive(0);
+		}
+
+		$rootScope.$watch('WorkItems',function(){
+			scope.setActive(0);
+		})
 
 	}
 
