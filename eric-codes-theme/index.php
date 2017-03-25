@@ -20,6 +20,7 @@ function TemplateGet($input) {
 	<script type="text/javascript" src="<?php TemplateGet('/assets/js/angular-ui-router.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php TemplateGet('/assets/js/angular-animate.min.js'); ?>"></script>
 	<script type="text/javascript" src="<?php TemplateGet('/assets/js/prism.js'); ?>"></script>
+	<script type="text/javascript" src="<?php TemplateGet('/assets/js/prism-php.min.js'); ?>"></script>
 
 	<link rel="stylesheet" type="text/css" href="<?php TemplateGet('/assets/css/bootstrap.min.css'); ?>">
 	<script type="text/javascript" src="<?php TemplateGet('/assets/js/bootstrap.min.js'); ?>"></script>
