@@ -1,4 +1,4 @@
-app.directive('codeViewer', ['$rootScope', '$watch', function($rootScope,$watch){
+app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 
 	function link_return(scope,elem,attr) {
@@ -8,6 +8,8 @@ app.directive('codeViewer', ['$rootScope', '$watch', function($rootScope,$watch)
 		scope.maindata;
 		scope.Active;
 		scope.ActiveFileLocation;
+
+		Log.Set('scope.maindata',scope.maindata)
 
 		scope.setActive = function(index){
 
