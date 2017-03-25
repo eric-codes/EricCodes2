@@ -20,6 +20,8 @@ app.directive('codeViewer', function(){
 			Log.Set('Active value',scope.Active);
 			Log.Set('Active File Location',scope.ActiveFileLocation);
 
+			Prism.highlightAll();
+
 		}
 
 		scope.$watch('maindata',function(newv,oldv){
