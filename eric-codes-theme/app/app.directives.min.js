@@ -8,9 +8,7 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 		scope.maindata;
 		scope.Active;
 
-		scope.OutputData = scope.maindata;
-
-		scope.Active = scope.OutputData[0];
+		scope.Active = scope.maindata[0];
 
 
 	}

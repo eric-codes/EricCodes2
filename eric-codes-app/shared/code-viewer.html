@@ -1,14 +1,14 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" ng-repeat="tab in maindata">
-    <a role="tab" data-toggle="tab">{{tab.file}}</a>
+    <a role="tab" data-toggle="tab" ng-click="setActive($index)">{{tab.file}}</a>
     </li>
 </ul>
 <!-- Tab panes -->
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active">
     	<pre>
-    		<code class="language-{{Active.lang}}">
+    		<code class="language-{{Active.lang}}" ng-include="">
     			
     		</code>
     	</pre>
