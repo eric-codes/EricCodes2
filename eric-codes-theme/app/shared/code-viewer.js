@@ -10,6 +10,8 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		scope.OutputData = scope.maindata;
 
+		scope.Active = scope.OutputData[0];
+
 
 	}
 
