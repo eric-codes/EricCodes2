@@ -7,7 +7,12 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		scope.maindata;
 
-		
+		scope.OutputData = scope.maindata;
+
+		scope.$watch('maindata',function(newv,oldv){
+			scope.OutputData = newv;
+		})
+
 
 	}
 
