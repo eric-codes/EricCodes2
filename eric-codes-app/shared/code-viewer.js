@@ -3,8 +3,6 @@ app.directive('codeViewer', function(){
 
 	function link_return(scope,elem,attr) {
 
-		var scope = {};
-
 		scope.maindata;
 		scope.Active;
 		scope.ActiveFileLocation;
@@ -24,6 +22,11 @@ app.directive('codeViewer', function(){
 
 		}
 
+		scope.$watch('maindata',function(newv,oldv){
+			if (newv.length > 0) {
+				scope.setActive(0);
+			}
+		},true)
 
 	}
 
