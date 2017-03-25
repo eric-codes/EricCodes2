@@ -33,9 +33,14 @@ app.directive('codeViewer', function() {
                         TextString = '<?php ' + MainText + '?>';
 
                     TextContainer.text(TextString);
-                }
 
-                Prism.highlightAll();
+                    setTimeout(function() {
+                        Prism.highlightAll();
+                    }, 100)
+                } else {
+
+                    Prism.highlightAll();
+                }
             }, 200);
 
         }
