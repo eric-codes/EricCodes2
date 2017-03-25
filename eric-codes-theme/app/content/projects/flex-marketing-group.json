@@ -90,8 +90,12 @@
         }]
     }, {
         "code": [{
-            "file": "sample.js"
-        }]
+            "file": "sample.js",
+            "lang":"javascript"
+        },{
+            "file": "sample.php",
+            "lang": "php",
+        },]
     }, {
         "title": "website.preprocessing",
         "tags": [

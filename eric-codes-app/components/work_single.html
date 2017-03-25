@@ -89,18 +89,7 @@
 			<div class="clearfix" ng-if="section.textSections"></div>
 
 			<div class="col-xs-12" ng-if="section.code">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs" role="tablist">
-					<li role="presentation" class="active"><a aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-					<li role="presentation"><a aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-					<li role="presentation"><a aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-					<li role="presentation"><a aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-				</ul>
-
-				<!-- Tab panes -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="home">...</div>
-				</div>
+			<code-viewer maindata="section.code"></code-viewer>
 			</div>
 
 			
