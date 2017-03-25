@@ -22,10 +22,6 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		}
 
-		if ($rootScope.WorkItems) {
-			scope.setActive(0);
-		}
-
 		$rootScope.$watch('WorkItems',function(){
 			scope.setActive(0);
 		})
