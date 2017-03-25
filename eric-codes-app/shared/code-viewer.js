@@ -7,10 +7,13 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		scope.maindata;
 		scope.Active;
+		scope.ActiveFileLocation;
 
 		scope.setActive = function(index){
 
 			scope.Active = scope.maindata[index];
+
+			scope.ActiveFileLocation = themeURL + "app/content/projects/" + scope.Active.location + "/" + scope.Active.file + ".html";
 
 		}
 

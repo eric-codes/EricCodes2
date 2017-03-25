@@ -91,10 +91,12 @@
     }, {
         "code": [{
             "file": "sample.js",
-            "lang":"javascript"
+            "lang":"javascript",
+            "location":"flex-marketing"
         },{
             "file": "sample.php",
-            "lang": "php"
+            "lang": "php",
+            "location":"flex-marketing"
         }]
     }, {
         "title": "website.preprocessing",

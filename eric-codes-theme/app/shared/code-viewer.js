@@ -8,19 +8,24 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 		scope.maindata;
 		scope.Active;
 
-		scope.Active = scope.maindata[0];
+		scope.setActive = function(index){
 
+			scope.Active = scope.maindata[index];
+
+		}
+
+		scope.setActive(0);
 
 	}
 
 
     // Runs during compile
     return {
-        scope: {
-            maindata: "="
-        },
-        restrict: 'E',
-        templateUrl: GetShared('code-viewer'),
-        link: link_return
+    	scope: {
+    		maindata: "="
+    	},
+    	restrict: 'E',
+    	templateUrl: GetShared('code-viewer'),
+    	link: link_return
     };
 }]);
