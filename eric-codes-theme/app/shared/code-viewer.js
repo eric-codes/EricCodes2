@@ -22,11 +22,11 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		}
 
-		$rootScope.$watch('WorkData',function(){
-			setTimeout(function(){
+		scope.$watch('maindata',function(newv,oldv){
+			if (newv.length > 0) {
 				scope.setActive(0);
-			},200);
-		})
+			}
+		},true)
 
 	}
 
