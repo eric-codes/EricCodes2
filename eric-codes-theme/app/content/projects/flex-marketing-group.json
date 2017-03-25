@@ -94,8 +94,8 @@
             "lang":"javascript"
         },{
             "file": "sample.php",
-            "lang": "php",
-        },]
+            "lang": "php"
+        }]
     }, {
         "title": "website.preprocessing",
         "tags": [
