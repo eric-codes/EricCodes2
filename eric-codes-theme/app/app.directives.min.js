@@ -1,4 +1,4 @@
-app.directive('codeViewer', ['$rootScope', function($rootScope){
+app.directive('codeViewer', ['$rootScope', '$watch', function($rootScope,$watch){
 
 
 	function link_return(scope,elem,attr) {
