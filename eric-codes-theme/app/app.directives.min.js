@@ -6,12 +6,9 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 		var scope = {};
 
 		scope.maindata;
+		scope.Active;
 
 		scope.OutputData = scope.maindata;
-
-		scope.$watch('maindata',function(newv,oldv){
-			scope.OutputData = newv;
-		})
 
 
 	}
