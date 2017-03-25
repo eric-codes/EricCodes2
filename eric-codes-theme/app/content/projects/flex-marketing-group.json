@@ -93,6 +93,10 @@
             "file": "cms-API.js",
             "lang":"javascript",
             "location":"flex-marketing"
+        },{
+            "file": "request.php",
+            "lang":"php",
+            "location":"flex-marketing"
         }]
     }, {
         "title": "website.preprocessing",
