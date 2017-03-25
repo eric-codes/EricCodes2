@@ -20,6 +20,9 @@ app.directive('codeViewer', function(){
 			Log.Set('Active value',scope.Active);
 			Log.Set('Active File Location',scope.ActiveFileLocation);
 
+			elem.find('.nav li').removeClass('active');
+			elem.find('.nav li').eq(index).addClass('active');
+
 			setTimeout(function(){
 				Prism.highlightAll();
 			},500);

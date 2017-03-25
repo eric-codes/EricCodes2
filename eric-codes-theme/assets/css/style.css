@@ -570,6 +570,11 @@ body.eric-codes.work-single .page-section:first-child {
     margin-top: 0px;
 }
 
+body.eric-codes.work-single pre {
+    height: 55vh;
+    min-height: 350px;
+}
+
 body.eric-codes.work-single .return-area {
     padding: 20px 0px;
 }

@@ -1,0 +1,522 @@
+/**
+ *
+ * @file ESP API Full Script Documentation - Front End
+ * @author Eric Cheung - Flex Marketing Group 2016
+ *
+ * Script heavily edited to remove sensitive information!
+ * 
+ */
+
+ /**
+  * Public function to initialize all API functionality
+  * @function
+  * @param {String} InitObj     - Any parameters to pass to the API 
+  */
+  function InitializeAPI(InitObj) {
+
+    /**
+     * Parameters and public functions for CMS API
+     * @type {Object}
+     */
+     window.CMSAPI = {};
+
+    /**
+     * Main parameters for CMS API calls - also sets defaults for parameters
+     * @type {Object}
+     * 
+     */
+     var Params = {
+        domain:"testdomain.com",
+        pseJSObject: {},
+        EventObjects: {
+            MainButton: $('#btn4'),
+            CheckBox: $('#disclaimerP'),
+            VerificationBox: $('.verifying'),
+            VerificationText: $('.verifying .spinner-text')
+        },
+        Debug: false,
+        LinkConstruct:{
+            stage: 866,
+            map: 476
+        },
+        Tokens: {
+            fname:"TestName",
+            incentive_item:"Test Item",
+        }
+    };
+
+    // Replace Parameters with ones that are initialized from WC
+    $.each(InitObj,function(i,val){
+        Params[i] = val;
+    });
+
+     // Set Debug Mode - true or false
+     var RunCheck = Params.Debug;
+
+     /**
+      * Performs console outputs for error handling
+      * @param {Object} object  - Input object for error handler
+      * @param {String} title   - Title for error handler output
+      * @param {String} message - Message to output for error
+      * @param {Object} log     - If not a string or message, can log basically any type of variable
+      */
+      function Check(object) {
+        var Obj = object;
+        var ReturnLine = "";
+
+        if (Obj.type) {
+            ReturnLine = "";
+        } else if (Obj.title) {
+            ReturnLine = Obj.title + ": " + Obj.message;
+        } else {
+            ReturnLine = Obj.message;
+        }
+
+        if (RunCheck === true) {
+
+            console.log(ReturnLine);
+            if (Obj.log) {
+                console.log(Obj.log);
+            }
+
+        }
+
+    }
+
+
+    window.TriggerSet = {};
+    $.get('trigger-set-request.php',function(data){
+        console.log(data);
+        window.TriggerSet = $.parseJSON(data);
+    });
+
+
+
+
+
+    Check({
+        message: "||||================================"
+    });
+    Check({
+        message: "ESP API SCRIPT CHECKING INTERFACE INITIALIZED: &incentive_item;"
+    });
+    Check({
+        message: "||||================================"
+    });
+
+
+    /**
+     *
+     * Fetches the URL parameters from the URL. Works to retrieve session ID.
+     * @function getUrlParameter
+     * @protected
+     * @param  {String} sParam  - URL parameter you want to retrieve
+     * @return {String}         - The value of the retrieved param
+     */
+     var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    /**
+     * Defines the stage and the map the return link will direct the user to
+     *
+     * @namespace LinkIn
+     * @property {Number} stage     - Defines node # of return link
+     * @property {Number} map       - Defines map # of return link
+     * 
+     */
+     window.LinkIn = {
+        stage: Params.LinkConstruct.stage,
+        map: Params.LinkConstruct.map
+    };
+
+    /**
+     *
+     * Constructs the return URL to send to ESP
+     * @function BuildURL
+     * @param {Object} PSEObject    - the pseJSObj that WebClients creates on page
+     * @return {string}             - The return URL that the user clicks on with all variables filled in
+     * 
+     * 
+     */
+     function BuildURL(PSEObject) {
+
+        if (window.location.host == "localhost:8080") {
+            var pseJSObj = {
+                config: 8565,
+                s: 'xyz',
+                r: '123',
+                m: 'fuck'
+            };
+        }
+
+        var ReturnUrl = 'http://' + window.location.host + "?config=" + PSEObject.config + "&amp;map=" + LinkIn.map + "&amp;stage=" + LinkIn.stage + "&amp;session_id=" + getUrlParameter('session_id') + "&amp;email=" + jQuery('input#email').val() + "&amp;fname=" + jQuery('input#fname').val() + "&amp;lname=" + jQuery('input#lname').val() + "&amp;src=FX-" + PSEObject.s + PSEObject.r + PSEObject.m;
+
+
+        Check({
+            title: "Return URL Built",
+            message: ReturnUrl
+        });
+        return ReturnUrl;
+
+    }
+
+
+    /**
+     * Defines the on page elements being used in the scripts using jQuery selectors
+     *
+     * @namespace DOI
+     * @property {Object} MainButton        - Button clicked to submit
+     * @property {Object} CheckBox          - Checkbox ID for verification
+     * @property {Object} VerificationBox   - Verification window shown to user
+     * @property {Object} VerificationText  - Verification text inside verification box
+     * 
+     */
+     var DOI = {
+        MainButton: jQuery('#btn4'),
+        CheckBox: jQuery('#disclaimerP'),
+        VerificationBox: jQuery('.verifying'),
+        VerificationText: jQuery('.verifying .spinner-text')
+    };
+
+    $.each(Params.EventObjects,function(i,val){
+        DOI[i] = val;
+    });
+
+    function ocs_detectjs() {
+        return true;
+    }
+
+
+
+    /**
+     *
+     * Fires the API using the currently selected settings.
+     * 
+     * @method FireAPI
+     * @param {Number} listID       ESP Mailing list ID
+     * @param {Number} triggerID    ESP trigger ID
+     * @param {Number} siteID       ESP site ID
+     * @param {String} serverName   ESP Email Server Name/ID (found in URL of EmailLabs)
+     * @example 
+     * // Fires API on click
+     * $('button').click(function(e){
+     * FireAPI(506853,48267,12347332,'elabs6');
+     * });
+     * 
+     */
+     function FireAPI(listID, triggerID, siteID, serverName, incentToken, retLinkToken) {
+        Check({
+            message: "API trigger fired!"
+        });
+        Check({
+            title: "List ID",
+            message: listID
+        });
+        Check({
+            title: "Site ID",
+            message: siteID
+        });
+        Check({
+            title: "Server Name",
+            message: serverName
+        });
+        Check({
+            title: "Trigger ID",
+            message: triggerID
+        });
+        Check({
+            title: "Incentive Token",
+            message: incentToken
+        });
+        Check({
+            title: "Return Link Token",
+            message: retLinkToken
+        });
+
+        $.getJSON("trigger-request.php", function(returnData) {
+
+            Check({
+                message: "Trigger Status Request Data",
+                log: returnData
+            });
+
+            if (returnData[triggerID] === true) {
+
+                Check({
+                    message: "Trigger is confirmed on!"
+                });
+
+
+                $.post('request.php', {
+
+                    action: 'check',
+                    list_id: listID,
+                    trigger_id: triggerID,
+                    site_id: siteID,
+                    fname: Params.Tokens.fname.val(),
+                    return_link: BuildURL(Params.pseJSObject),
+                    return_link_token: retLinkToken,
+                    incentive_item: Params.Tokens.incentive_item,
+                    incentive_item_token: incentToken,
+                    server_url: serverName,
+                    email: jQuery('input#email').val()
+
+                }, function(data) {
+
+                    var ReturnCheck = $.parseJSON(data);
+
+                    if (ReturnCheck.status !== 'success') {
+
+                        Check({
+                            message:"Person not on email list!"
+                        });
+
+                ////////////////////////////////////
+                // Validation Service Integration //
+                ////////////////////////////////////
+
+                // Fires AJAX request to Validation Service with user email
+                Check({
+                    message: "Validation Service Firing..."
+                });
+                $.ajax("emails.json", {
+                    dataType: "jsonp",
+                    data: {
+                        address: jQuery('input#email').val(),
+                        apikey: "xxxxxxxxxxxxxxxxxxxxx"
+                    },
+                    success: function(data) { // On Success
+                        if (data.status != 'invalid') { // If the return is not invalid
+                            Check({
+                                title: "Validation Service Verification",
+                                message: "Good"
+                            });
+                                ////////////////////////
+                                // Post data to ESP //
+                                ////////////////////////
+
+                                var ThisDomain = Params.domain;
+                                var Host = ThisDomain.toLowerCase();
+                                Check({
+                                    title: "Current Host",
+                                    message: Host
+                                });
+
+                                var UserEmail = jQuery('input#email').val();
+                                var EmailDomain = UserEmail.split("@")[1];
+                                Check({
+                                    title: "Email Domain",
+                                    message: EmailDomain
+                                });
+
+                                if (EmailDomain == "yahoo.com") {
+                                    Host = Host + " -Y";
+                                }
+
+                                setTimeout(function() {
+                                    Check({
+                                        message: "***** Form fired after 10s, either ESP/Validation Service/FDPT slow or the fire didn't work *****"
+                                    });
+                                    jQuery('form').submit();
+                                }, 10000);
+
+                                Check({
+                                    message: "Posting data to FDPT & firing trigger..."
+                                });
+                                $.post('request.php', {
+
+                                    action: 'trigger',
+                                    list_id: listID,
+                                    trigger_id: triggerID,
+                                    site_id: siteID,
+                                    fname: Params.Tokens.fname.val(),
+                                    return_link: BuildURL(Params.pseJSObject),
+                                    return_link_token: retLinkToken,
+                                    incentive_item: Params.Tokens.incentive_item,
+                                    incentive_item_token: incentToken,
+                                    server_url: serverName,
+                                    email: jQuery('input#email').val()
+
+                            }, function(data) { // When the request is finished
+                                Check({
+                                    title: "Data Sent! Returned",
+                                    message: data
+                                });
+                                var Return = jQuery.parseJSON(data);
+                                jQuery('form').submit(); // Submit form and proceed
+                            });
+
+                        } else { // Otherwise if the email is invalid
+                            Check({
+                                title: "Validation Service Verification",
+                                message: "No Good! Email not sending."
+                            });
+                            DOI.VerificationText.text('Invalid Email!'); // Set text to Invalid Email!
+                            setTimeout(function() {
+                                DOI.VerificationBox.addClass('closed'); // Close the verification box after a few seconds
+                            }, 2000);
+
+                        }
+                    }
+                });
+} else {
+    Check({
+        message:"Person on email list! Skipping..."
+    });
+    $('form').submit();
+}
+});
+
+} else {
+    Check({
+        message: "Trigger is OFF! Not sending..."
+    });
+    jQuery('form').submit();
+}
+
+});
+
+}
+
+    /**
+     * Fires a different trigger depending on the domain name input
+     *
+     * @method FireByDomain
+     * @param {String} domain   - The domain name pushed to the function
+     * @example
+     * // Will dispatch to NRS branded trigger
+     * // Will send to List ID: 506853
+     * // Will send to Trigger ID: 48267
+     * // Will send to Site ID: 12347332
+     * // Will send with Site Server: elabs6
+     * FireByDomain('nationalrewardsurveys.com');
+     * 
+     */
+     function FireByDomain(domain) {
+        console.log(domain);
+        // National Reward Surveys
+        if (domain == "test.com") {
+            FireAPI(506853, 48423, 12347332, 'listID_6', 88165, 88166);
+
+            // National Reward Surveys - YAHOO
+        } else if (domain == "test.com -Y") {
+            FireAPI(315615, 43923, 2010003192, 'listID_10', 71956, 71957);
+
+            // DealZingo
+        } else if (domain == "test2.com") {
+            FireAPI(304391, 303663, 669499, 'listID_3', 85242, 85241);
+
+            // DZ - YAHOO
+        } else if (domain == "test2.com -Y") {
+            FireAPI(30876, 45724, 2012000687, 'listID_12', 47749, 47750);
+
+            // Weekly Cash Sweeps
+        } else if (domain == "test3.com") {
+            FireAPI(304391, 303664, 669499, 'listID_3', 85242, 85241);
+
+            // WCS - YAHOO
+        } else if (domain == "test3.com -Y") {
+            FireAPI(30876, 45725, 2012000687, 'listID_12', 47749, 47750);
+
+        } else {
+            FireAPI(506853, 48423, 12347332, 'listID_6', 88165, 88166);
+
+        }
+    }
+
+    /**
+     * Fires API on click
+     * 
+     * @fires DOI.MainButton#click
+     * 
+     */
+     DOI.MainButton.click(function(e) {
+        Check({
+            title: "Continue Button",
+            message: "Clicked"
+        });
+        var CheckboxCheck = function() {
+            if (DOI.CheckBox.prop('checked')) {
+                return "CHECKED!";
+            } else {
+                return "NOT CHECKED!";
+            }
+        };
+        Check({
+            title: "Checkbox checked?",
+            message: CheckboxCheck()
+        });
+        var UserEmail = jQuery('input#email').val(); // Get user email from input box
+        var EmailDomain = UserEmail.split("@")[1]; // Get domain from user email
+        Check({
+            title: "User Email Address",
+            message: UserEmail
+        });
+        Check({
+            title: "User Email Domain",
+            message: EmailDomain
+        });
+
+        // If the checkbox is checked and the domain is gmail
+        if (DOI.CheckBox.prop('checked') && EmailDomain == "gmail.com" || DOI.CheckBox.prop('checked') && EmailDomain == "yahoo.com") {
+            Check({
+                title: "Gmail or Yahoo email, and checkbox checked?",
+                message: "YES"
+            });
+            e.preventDefault(); // stop form fire
+
+            DOI.VerificationBox.removeClass('closed'); // Fire verification box
+            DOI.VerificationText.text('Verifying'); // and change text inside it to verifying
+
+            var ThisDomain = Params.domain;
+            var FinalDomain = ThisDomain.toLowerCase();
+
+            // FIRST CHECK FOR PROPERTY
+            var GrepReturn = $.grep(TriggerSet,function(k){
+                console.log("PROPERTY ECHO " + k.parameters.property);
+                return ($.inArray(Params.pseJSObject.config, k.parameters.property) != -1 && k.parameters.accepted_email_domain == EmailDomain);
+            });
+            Check({
+                message: "======   GREP RETURN   ======"
+            })
+            console.log(GrepReturn.length);
+
+            if (GrepReturn.length > 0) {
+                var Trigger = GrepReturn[0];
+                FireAPI(Trigger.list_id,Trigger.trigger_id,Trigger.site_id,Trigger.server_id,Trigger.incentive_item_token,Trigger.return_link_token);
+            } else {
+                console.log('Checking Email / Domain...');
+                // IF NO PROPERTY MATCH, CHECK FOR DOMAIN & EMAIL
+                GrepReturn = $.grep(TriggerSet,function(k){
+                    return(k.parameters.domain == FinalDomain && k.parameters.accepted_email_domain == EmailDomain);
+                });
+                console.log(GrepReturn);
+                if (GrepReturn.length > 0) {
+                 var Trigger = GrepReturn[0];
+                 FireAPI(Trigger.list_id,Trigger.trigger_id,Trigger.site_id,Trigger.server_id,Trigger.incentive_item_token,Trigger.return_link_token);
+             } else {
+                $('form').submit();
+            }
+        }
+
+
+    } else {
+        Check({
+            title: "Gmail or Yahoo email, and checkbox checked?",
+            message: "NO"
+        });
+    }
+});
+}
