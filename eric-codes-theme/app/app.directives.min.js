@@ -11,9 +11,14 @@ app.directive('codeViewer', ['$rootScope', function($rootScope){
 
 		scope.setActive = function(index){
 
+			Log.Function('Setting active');
+
 			scope.Active = scope.maindata[index];
 
 			scope.ActiveFileLocation = themeURL + "app/content/projects/" + scope.Active.location + "/" + scope.Active.file + ".html";
+
+			Log.Set('Active value',scope.Active);
+			Log.Set('Active File Location',scope.ActiveFileLocation);
 
 		}
 
