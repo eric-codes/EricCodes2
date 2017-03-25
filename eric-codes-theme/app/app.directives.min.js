@@ -27,20 +27,8 @@ app.directive('codeViewer', function() {
 
             setTimeout(function() {
 
-                if (scope.Active.lang == 'php') {
-                    var TextContainer = elem.find('code'),
-                        MainText = TextContainer.text(),
-                        TextString = '<?php ' + MainText + '?>';
-
-                    TextContainer.text(TextString);
-
-                    setTimeout(function() {
-                        Prism.highlightAll();
-                    }, 100)
-                } else {
-
                     Prism.highlightAll();
-                }
+
             }, 200);
 
         }
