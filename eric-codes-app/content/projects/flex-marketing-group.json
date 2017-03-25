@@ -90,12 +90,8 @@
         }]
     }, {
         "code": [{
-            "file": "sample.js",
+            "file": "cms-API.js",
             "lang":"javascript",
-            "location":"flex-marketing"
-        },{
-            "file": "sample.php",
-            "lang": "php",
             "location":"flex-marketing"
         }]
     }, {
