@@ -89,27 +89,8 @@
             "description": "Extensive documentation was written and compiled for the usage of this system - a Gulp script was created that handled documenting code, as well as uploading and sorting files, updating sorting variables and keeping the workflow streamlined."
         }]
     }, {
-        "gallery": [{
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1210x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1220x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1230x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1240x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1250x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1260x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1270x1024"
+        "code": [{
+            "file": "sample.js"
         }]
     }, {
         "title": "website.preprocessing",

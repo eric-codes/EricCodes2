@@ -70,45 +70,46 @@
             "URL": "http://placehold.it/1285x1024"
         }]
     }, {
-        "title": "development",
+        "title": "email.registration",
         "tags": [
             "jquery",
-            "gulp",
             "backend",
-            "angular"
+            "gulp"
         ],
+        "description" : "I was tasked to create an email registration system that was able to collect leads in real time from content websites. The system needed to collect leads, scrub them for reliability, separate them into multiple email lists to interact with multiple ESPs. The project was a long project, spanning about 4 months, in which a large amount of A/B testing was conducted to best optimize the system.",
+
         "textSections": [{
-            "title": "frontEnd()",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+            "title": "javaScript()",
+            "description": "The front-end user-facing JavaScript collected leads based on inputs, sorted and formatted the data to be used in different ESPs, and sent the data to the back-end to be sorted. Depending on the location of the website, the back-end would categorize and format the data accordingly, and return an action for the front-end to take."
         }, {
-            "title": "backEnd()",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+            "title": "PHP()",
+            "description": "PHP scripts on the back-end would receive the data, log the interaction, and interact directly with the APIs of the assigned ESPs. A total of three different ESP APIs were integrated into the system. Logging capabilities were also added for cross verification purposes with another system tied directly into the front end."
         }, {
             "title": "automation()",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. Donec luctus, massa eu elementum vulputate, purus lectus lacinia enim, in rutrum purus lacus nec nibh. Proin mollis semper blandit. Phasellus eget enim consectetur, laoreet lorem quis, tincidunt libero. "
+            "description": "Extensive documentation was written and compiled for the usage of this system - a Gulp script was created that handled documenting code, as well as uploading and sorting files, updating sorting variables and keeping the workflow streamlined."
         }]
     }, {
-        "gallery": [{
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1210x1024"
+        "code": [{
+            "file": "sample.js"
+        }]
+    }, {
+        "title": "website.preprocessing",
+        "tags": [
+            "jquery",
+            "sass",
+            "css3",
+            "gulp",
+            "html5"
+        ],
+        "problem" : "Because of an outdated content management system, updating the content websites was incredibly complicated and cumbersome. When I arrived at Flex, it took them on average about 2 - 4 days to create a new content website variation, and 6 months to develop a templating system for the variations.",
+        "solution" : "I created a Gulp script to handle processing SASS into CSS for upload, organization and tidying of file structure, a polished local-side development system powered by the Gulp file, and archiving and organizing assets to be uploaded to their CMS, reducing their output time from 2 - 4 days per property to an average of 5 minutes to an hour, depending on the complexity of variations and changes, and reduced the time to develop new features from 6 months to two to three weeks.",
+
+        "textSections": [{
+            "title": "tokenSystem()",
+            "description": "A token system was implemented in order to create the local-side development system. I took their existing layouts, replaced their tokens with my own tokens that were identified by the Gulp file to produce full pages based on the tokens. When activated, the Gulp file created both a version that was viewable and easily editable on the local computers, as well as a version that had the correct tokens and file structures to be integrated seamlessly into the main CMS. Tokens were managed via a main JSON file that was easily configurable."
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1220x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1230x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1240x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1250x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1260x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1270x1024"
+            "title": "SASSSystem()",
+            "description": "In order to alleviate the stress of having to copy and paste and find values to create page variations, I taught the development team SASS and converted their existing CSS into clean SASS files, complete with variables and options for them to be easily edited. I then integrated into the Gulp file functions that allowed exporting and compiling specific variations based on ID."
         }]
     }]
 }
