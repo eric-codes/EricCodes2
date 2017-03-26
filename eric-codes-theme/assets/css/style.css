@@ -340,17 +340,38 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-
     max-width: 200px;
 }
 
-body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-title {
-    margin-top: 20px;
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title {
+    margin-top: 0px;
     display: block;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.04em;
+    opacity: 0;
+    transition: 0.3s;
 }
 
-body.eric-codes.homepage .page-section .homepage-container .nav-icons .icon-title a {
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
     color: #4f8ac8;
     font-size: 12px;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a:hover {
+    text-decoration: none;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .nav-icon-img {
+    transform: scale(1);
+    transition: 0.3s;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .icon-title {
+    margin-top: 20px;
+    opacity: 1;
+}
+
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .nav-icon-img {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 body.eric-codes.about .page-section > .container {
