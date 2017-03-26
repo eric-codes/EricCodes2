@@ -14,6 +14,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 
 	Log.Value("$scope.LogoURL",$scope.LogoURL);
 
+	$scope.Logo = themeURL + "app/shared/logo-homepage.html";
+
 	$scope.NavIcons = [
 	{
 		name: "About",

@@ -1,0 +1,367 @@
+/*
+
+UI TOOLBOX - A Bootstrap Plugin
+by Eric Cheung of Eric.Codes
+
+2014
+
+VERSION: 1.0.2.0
+
+This file is a script I've worked on over a series of months applied to differet projects
+that allows me to easily create and run animations, as well as fixing a myriad of different
+minor bugfixes I've noticed in the core Bootstrap platform.
+
+*/
+
+
+
+function init_desktop(page_id_var,callback){
+	// Init vars
+	window.Desktop = {};
+	window.Desktop.width = $(window).width();
+	window.Desktop.height = $(window).height();
+
+	// Return device
+	window.Desktop.device = function(){
+		var width = window.Desktop.width;
+		if (width <= 767) {
+			return "mobile";
+		} else if (width < 992) {
+			return "tablet";
+		} else if (width < 1200) {
+			return "monitor";
+		} else {
+			return "widescreen";
+		}
+	}
+
+	// iOS fixed pos
+	window.Desktop.iOSfix = function() {
+		if (Desktop.device() == 'tablet' || Desktop.device() == 'mobile') {
+
+			$('input').focus(function(){
+				$('body').addClass('fixfixed');
+			}).blur(function(){
+				$('body').removeClass('fixfixed');
+			})
+
+			$(window).ajaxComplete(function(){
+				Desktop.iOSfix();
+			})
+
+		}
+
+	}
+
+
+
+	// Set resize function
+	$(window).resize(function(){
+		window.Desktop.width = $(window).width();
+		window.Desktop.height = $(window).height();
+	})
+
+
+
+	// Check if nav ID active defined
+	if (page_id_var) {
+		$('.navbar').find('a'+page_id_var).parent('li').addClass('active');
+	}
+
+	if (callback) {
+		callback();
+	}
+}
+
+function init_anim_chain(callback) {
+/*
+
+EXAMPLE USAGE:
+
+ADDING AN ANIMATION CHAIN:
+Anims.addChain('intro',[
+Anims.createLink({'opacity':0},'.search-box',100),
+Anims.createLink({'opacity':0},'.search-box',200)
+])
+
+
+
+ADDING AN INIT PROPERTY:
+Anims.addInit('.search-box',{
+	opacity: 1
+})
+
+*/
+window.Anims = {};
+window.Anims.Chain = {};
+window.Anims.Init = [];
+window.Anims.Single = {};
+
+window.Anims.createLink = function(props,obj,spd,easing,Callback){
+	var link_obj = {
+		properties : props,
+		object: $(obj),
+		speed : spd
+	};
+	if (easing) {
+		link_obj.easing = easing;
+	}
+	if (Callback) {
+		link_obj.callback = Callback;
+	} 
+	return link_obj;
+}
+
+window.Anims.createSingle = function(name,props,obj,spd,easing,Callback){
+	var link_obj = Anims.createLink(props,obj,spd,easing,Callback);
+	Anims.Single[name] = link_obj;
+}
+
+window.Anims.createCSSLink = function(props,obj,Callback){
+	var link_obj = {
+		properties : props,
+		object: $(obj),
+		speed : 'css',
+		callback : Callback
+	};
+	return link_obj;
+}
+
+window.Anims.createFnLink = function(fn,spd){
+	var link_obj = {
+		link_type : 'fn',
+		speed : 2,
+	};
+	link_obj.funct = fn;
+	return link_obj;
+}
+
+window.Anims.addChain = function(name,chain) {
+	var chain_obj = {};
+	chain_obj.steps = chain;
+	chain_obj.chainTime = function(){
+		var total = 0;
+		$.each(chain,function(i,link){
+			total = total+link.speed;
+		})
+		return total;
+	}
+	Anims.Chain[name] = chain_obj;
+}
+
+window.Anims.fireChain = function(name){
+	var active_chain = this.Chain[name];
+	var timeout = 0;
+	$.each(active_chain.steps,function(i,link){
+		if (link.speed == 'css') {
+			setTimeout(function(){
+				Anims.fireSingle(link);
+			},timeout);
+		} else if (link.link_type == 'fn') {
+			setTimeout(function(){
+				Anims.fireSingle(link);
+			},timeout);
+		} else {
+			setTimeout(function(){
+				Anims.fireSingle(link);
+			},timeout);
+			if (link.callback) {
+				link.callback();
+			}
+			timeout = timeout + link.speed;
+
+		}
+
+	})
+}
+
+window.Anims.fireSingle = function(link,type){
+	var easing = function(){
+		if (link.easing) {
+			return link.easing;
+		} else {
+			return 'easeInOutQuad';
+		}
+	}
+	if (link.link_type == 'fn') {
+		link.funct();
+	} else if (link.link_type == 'css') {
+		link.object.css(link.properties);
+		if (link.callback) {
+			link.callback();
+		}
+	} else {
+		link.object.animate(link.properties,link.speed,easing());
+	}
+}
+
+window.Anims.addInit = function(Selector,Properties){
+	var ind = Anims.Init.length;
+	var return_obj = {
+		selector: Selector,
+		properties: Properties
+	}
+	window.Anims.Init[ind] = return_obj;
+}
+
+window.Anims.fireInit = function(){
+	$.each(Anims.Init,function(i,init){
+		$(init.selector).css(init.properties);
+	})
+}
+
+window.Anims
+
+$(document).ready(function(){
+	Anims.fireInit();
+})
+}
+
+
+/*
+
+AJAX PRELOADER
+
+CLASS: ajax-loader
+
+USAGE:
+<div class="ajax-loader">
+	<img src="img/loader.GIF" class="ajax-loader-img">
+</div>
+
+
+*/
+function init_preloader(selector){
+	window.Preloader = selector;
+
+	Anims.addChain('preloader_show',[
+		Anims.createCSSLink({'display':'block'},window.Preloader),
+		Anims.createLink({'opacity':0.9},window.Preloader,200)
+		])
+
+	Anims.addChain('preloader_hide',[
+		Anims.createLink({'opacity':0},window.Preloader,200),
+		Anims.createCSSLink({'display':'none'},window.Preloader)
+		])
+
+	Anims.addInit(window.Preloader,{
+		opacity: 0,
+		display: 'none'
+	})
+
+	$(document).ajaxStart(function(){
+		Anims.fireChain('preloader_show');
+	}).ajaxComplete(function(){
+		Anims.fireChain('preloader_hide');
+	})
+
+}
+
+/*
+
+BACKGROUND VIDEOS
+
+CLASS: background-video
+
+Usage:
+<video autoplay="true" class="background-video" loop poster="img/bg_poster.jpg">
+<source src="img/bgvid.mp4" type="video/mp4">
+</video>
+
+*/
+function init_bgvideo(selector){
+	if (selector || $('.background-video')) {
+		if (selector) {
+			window.BgVideo = selector;
+		} else {
+			window.BgVideo = $('.background-video');
+		}
+	}
+}
+
+
+function init_button_system(selector){
+	if (selector || $('.btn-system')) {
+
+		window.BtnSystem = {};
+
+		$('.btn-system').each(function(i,e){
+
+			var return_obj = $(e);
+			return_obj.Items = [];
+
+			if (return_obj.attr('data-radio-id')) {
+				return_obj.RadioLink = $('#'+return_obj.attr('data-radio-id'));
+			}
+
+			$(this).find('.btn-selection').each(function(i,e){
+				return_obj.Items[i] = $(e);
+				$(this).click(function(ev){
+					ev.preventDefault();
+					BtnSystem.Switch(return_obj.Items[i]);
+					if (return_obj.RadioLink){
+						return_obj.RadioLink.find('input[checked="checked"]').prop("checked", false);
+						var link_id = '#'+return_obj.Items[i].attr('data-radio-id');
+						return_obj.RadioLink.find(link_id).prop("checked", true);
+					}
+				})
+			})
+
+			return_obj.id = $(this).attr('id');
+			return_obj.selector = e;
+
+
+
+			window.BtnSystem[return_obj.id] = return_obj;
+
+		})
+
+		window.BtnSystem.Switch = function(item_index){
+			console.log(item_index);
+			item_index.parents('.btn-system').find('.active').removeClass('active');
+			item_index.addClass('active');
+		}
+
+	}
+}
+
+/*
+
+Initialization script:
+
+var properties = {
+	dynamic_nav : '#id-of-nav-link' || false,
+	preloader: '#preloader-div' || false,
+	bg_video : 'video#background-video-div' || false,
+	button_system : '#button-system-container' || false
+}
+
+UIToolboxInit(properties);
+
+
+
+*/
+function UIToolboxInit(properties) {
+// On doc ready
+$(document).ready(function(){
+		// Fire desktop
+		if (properties.dynamic_nav) {
+			init_desktop(properties.dynamic_nav);
+		} else {
+			init_desktop();
+		}
+		// Init animation chain system
+		init_anim_chain();
+		// If preloader, enable preloader
+		if (properties.preloader) {
+			init_preloader(properties.preloader);
+		} else {
+			init_preloader();
+		}
+		// If bgvideo, enable bgvideo
+		init_bgvideo();
+		// If button system, enable button systems
+		init_button_system();
+	})
+
+}
