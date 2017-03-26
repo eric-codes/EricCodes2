@@ -74,17 +74,21 @@
 
 
 				.icon-title {
-					margin-top: 0px;
+					margin-top: 20px;
 					display: block;
 					text-transform: uppercase;
 					font-weight: 600;
 					letter-spacing: 0.04em;
-					opacity: 0;
-					transition: 0.3s;
+
 
 					a {
 						color: $COLOR_Spot;
 						font-size: 12px;
+						opacity: 0;
+						transition: 0.3s;
+						margin-top:-20px;
+						display: block;
+						text-align: center;
 
 						&:hover {
 							text-decoration: none;
@@ -103,8 +107,10 @@
 				&.over {
 
 					.icon-title {
-						margin-top: 20px;
-						opacity:1;
+						a {
+							margin-top: 0px;
+							opacity:1;
+						}
 					}
 
 					.nav-icon-img {

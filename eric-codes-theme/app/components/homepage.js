@@ -84,6 +84,13 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 		setTimeout(function(){
 			$('video')[0].play();
 			RunAnimation();
+
+			$('.nav-icon-img').mouseover(function(){
+				$(this).parents('.nav-icon-single').addClass('over');
+			}).mouseout(function(){
+				$(this).parents('.nav-icon-single').removeClass('over');
+			})
+
 		},500);
 	})
 

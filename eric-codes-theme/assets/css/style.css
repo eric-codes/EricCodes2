@@ -341,18 +341,21 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title {
-    margin-top: 0px;
+    margin-top: 20px;
     display: block;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.04em;
-    opacity: 0;
-    transition: 0.3s;
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
     color: #4f8ac8;
     font-size: 12px;
+    opacity: 0;
+    transition: 0.3s;
+    margin-top: -20px;
+    display: block;
+    text-align: center;
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a:hover {
@@ -364,8 +367,8 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-
     transition: 0.3s;
 }
 
-body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .icon-title {
-    margin-top: 20px;
+body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .icon-title a {
+    margin-top: 0px;
     opacity: 1;
 }
 
