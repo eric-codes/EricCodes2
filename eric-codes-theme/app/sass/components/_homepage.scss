@@ -71,19 +71,49 @@
 				display: inline-block;
 				width: calc(100% / 3);
 				max-width: 200px;
-			}
 
-			.icon-title {
-				margin-top: 20px;
-				display: block;
-				text-transform: uppercase;
-				font-weight: 600;
-				letter-spacing: 0.04em;
 
-				a {
-					color: $COLOR_Spot;
-					font-size: 12px;
+				.icon-title {
+					margin-top: 0px;
+					display: block;
+					text-transform: uppercase;
+					font-weight: 600;
+					letter-spacing: 0.04em;
+					opacity: 0;
+					transition: 0.3s;
+
+					a {
+						color: $COLOR_Spot;
+						font-size: 12px;
+
+						&:hover {
+							text-decoration: none;
+						}
+
+					}
+
 				}
+
+				.nav-icon-img {
+					transform: scale(1.0);
+					transition: 0.3s;
+				}
+
+
+				&.over {
+
+					.icon-title {
+						margin-top: 20px;
+						opacity:1;
+					}
+
+					.nav-icon-img {
+						transform: scale(1.1);
+						transition: 0.3s;
+					}
+
+				}
+
 
 			}
 
