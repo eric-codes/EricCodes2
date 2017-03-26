@@ -5,9 +5,54 @@ body.eric-codes {
 		margin-top: 40px;
 	}
 
-	.navbar-default span.logo-type {
-		font-size: 12px;
+
+	.navbar-default {
+		.icon-area {
+			.icon-drawer {
+				background: #444444;
+				margin-top:-10px;
+				padding-top:10px;
+				height: 50px;
+				margin-right: -15px;
+
+				.icon-link {
+					transition: 0.3s;
+					width: 0px;
+					overflow: hidden;
+					margin:0px;
+
+					&.selected {
+						width:30px;
+						margin-left:5px;
+					}
+
+				}
+
+
+				&.open {
+					z-index:500;
+
+					.icon-link {
+						width:30px;
+						margin:0px 5px;
+					}
+
+				}
+
+
+
+			}
+		}
+
+		span.logo-type {
+			font-size: 12px;
+		}
 	}
+
+
+
+
+
 
 	&.homepage {
 
