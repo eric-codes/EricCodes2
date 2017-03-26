@@ -353,9 +353,9 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-
     font-size: 12px;
     opacity: 0;
     transition: 0.3s;
-    margin-top: -20px;
     display: block;
     text-align: center;
+    transform: translateY(-20px);
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a:hover {
@@ -368,8 +368,8 @@ body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .icon-title a {
-    margin-top: 0px;
     opacity: 1;
+    transform: translateY(0px);
 }
 
 body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single.over .nav-icon-img {

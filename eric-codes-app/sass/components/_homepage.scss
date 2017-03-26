@@ -86,9 +86,9 @@
 						font-size: 12px;
 						opacity: 0;
 						transition: 0.3s;
-						margin-top:-20px;
 						display: block;
 						text-align: center;
+						transform: translateY(-20px);
 
 						&:hover {
 							text-decoration: none;
@@ -108,8 +108,8 @@
 
 					.icon-title {
 						a {
-							margin-top: 0px;
 							opacity:1;
+							transform: translateY(0px);
 						}
 					}
 
