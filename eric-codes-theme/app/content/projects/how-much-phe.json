@@ -57,5 +57,15 @@
         ]
     }, {
         "description": "Most of the development I had to do for this project was a mixture of PHP, jQuery, and good old HTML5/CSS3. I used Bootstrap for a framework in order to simplify the production process and make this app accessible from both the desktop and mobile devices, and all Bootstrap breakpoints were individually treated for optimization on screen."
+    },{
+        "code": [{
+            "file": "cms-API.js",
+            "lang":"javascript",
+            "location":"flex-marketing"
+        },{
+            "file": "cms-API.js",
+            "lang":"javascript",
+            "location":"flex-marketing"
+        },]
     }]
 }
