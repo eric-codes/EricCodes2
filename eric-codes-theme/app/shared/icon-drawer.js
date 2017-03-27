@@ -12,7 +12,7 @@ app.directive('iconDrawer', ['$rootScope', function($rootScope){
 
 		scope.ToggleOpen = function(){
 
-			Log.Msg('Test is good!');
+			elem.find('.icon-drawer').addClass('open');
 
 		}
 
