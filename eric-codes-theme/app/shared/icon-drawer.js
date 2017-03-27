@@ -41,9 +41,9 @@ app.directive('iconDrawer', ['$rootScope', function($rootScope){
 		scope.Toggle = function(){
 
 			if (scope.IconDrawer.hasClass('open')) {
-				Toggle.Remove();
+				scope.ToggleClose();
 			} else {
-				Toggle.Add();
+				scope.ToggleOpen();
 			}
 
 		}

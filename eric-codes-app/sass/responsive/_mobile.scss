@@ -19,6 +19,7 @@ body.eric-codes {
 				position: absolute;
 				right: 0px;
 				width:55px;
+				transition: 0.3s;
 
 				a.icon-caret {
 					position: absolute;
@@ -28,7 +29,7 @@ body.eric-codes {
 					color: white;
 					font-size: 12px;
 					font-weight: normal;
-					transition: 0.3s;
+					
 					
 
 					.fa {

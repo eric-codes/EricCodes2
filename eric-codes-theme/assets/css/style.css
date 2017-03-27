@@ -853,6 +853,7 @@ body.eric-codes.contact .contact-form textarea {
         position: absolute;
         right: 0px;
         width: 55px;
+        transition: 0.3s;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer a.icon-caret {
@@ -863,7 +864,6 @@ body.eric-codes.contact .contact-form textarea {
         color: white;
         font-size: 12px;
         font-weight: normal;
-        transition: 0.3s;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer a.icon-caret .fa {
