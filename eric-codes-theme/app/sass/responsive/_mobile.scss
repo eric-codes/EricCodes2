@@ -14,6 +14,18 @@ body.eric-codes {
 				padding-top:10px;
 				height: 50px;
 				margin-right: -15px;
+				position: relative;
+
+				a.icon-caret {
+					position: absolute;
+					left: -15px;
+					top: 50%;
+					transform: translateY(-50%);
+					color: white;
+					font-size: 12px;
+					font-weight: normal;
+					transition: 0.3s;
+				}
 
 				.icon-link {
 					transition: 0.3s;
