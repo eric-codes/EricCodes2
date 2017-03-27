@@ -25,6 +25,12 @@ body.eric-codes {
 					font-size: 12px;
 					font-weight: normal;
 					transition: 0.3s;
+
+					.fa {
+						transition: 0.3s;
+
+					}
+
 				}
 
 				.icon-link {
@@ -32,10 +38,12 @@ body.eric-codes {
 					width: 0px;
 					overflow: hidden;
 					margin:0px;
+					opacity:0;
 
 					&.selected {
 						width:30px;
 						margin-left:5px;
+						opacity:1;
 					}
 
 				}
@@ -47,7 +55,15 @@ body.eric-codes {
 					.icon-link {
 						width:30px;
 						margin:0px 5px;
+						opacity: 1;
 					}
+
+					.icon-caret {
+						.fa {
+							transform: rotate(180deg);
+						}
+					}
+
 
 				}
 

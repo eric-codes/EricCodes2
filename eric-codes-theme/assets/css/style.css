@@ -862,16 +862,22 @@ body.eric-codes.contact .contact-form textarea {
         transition: 0.3s;
     }
 
+    body.eric-codes .navbar-default .icon-area .icon-drawer a.icon-caret .fa {
+        transition: 0.3s;
+    }
+
     body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link {
         transition: 0.3s;
         width: 0px;
         overflow: hidden;
         margin: 0px;
+        opacity: 0;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer .icon-link.selected {
         width: 30px;
         margin-left: 5px;
+        opacity: 1;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer.open {
@@ -881,6 +887,11 @@ body.eric-codes.contact .contact-form textarea {
     body.eric-codes .navbar-default .icon-area .icon-drawer.open .icon-link {
         width: 30px;
         margin: 0px 5px;
+        opacity: 1;
+    }
+
+    body.eric-codes .navbar-default .icon-area .icon-drawer.open .icon-caret .fa {
+        transform: rotate(180deg);
     }
 
     body.eric-codes .navbar-default span.logo-type {
