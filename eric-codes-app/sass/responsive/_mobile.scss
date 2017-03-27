@@ -15,16 +15,18 @@ body.eric-codes {
 				height: 50px;
 				margin-right: -15px;
 				position: relative;
+				padding-left: 20px;
 
 				a.icon-caret {
 					position: absolute;
-					left: -15px;
+					left: 5px;
 					top: 50%;
 					transform: translateY(-50%);
 					color: white;
 					font-size: 12px;
 					font-weight: normal;
 					transition: 0.3s;
+					width:55px;
 
 					.fa {
 						transition: 0.3s;
@@ -50,7 +52,12 @@ body.eric-codes {
 
 
 				&.open {
-					z-index:500;
+					z-index: 500;
+					position: absolute;
+					width: 135px;
+					right: 0px;
+
+
 
 					.icon-link {
 						width:30px;
