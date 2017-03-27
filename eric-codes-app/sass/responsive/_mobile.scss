@@ -16,6 +16,8 @@ body.eric-codes {
 				margin-right: -15px;
 				position: relative;
 				padding-left: 20px;
+				position: absolute;
+				right: 0px;
 
 				a.icon-caret {
 					position: absolute;
@@ -53,9 +55,9 @@ body.eric-codes {
 
 				&.open {
 					z-index: 500;
-					position: absolute;
+
 					width: 135px;
-					right: 0px;
+					
 
 
 
