@@ -148,6 +148,17 @@ body.eric-codes {
 			height: 401px;
 			margin-left: -30px;
 			margin-right: -30px;
+			position: relative;
+			
+			.about-image {
+				height: auto;
+				left: 50%;
+				position: absolute;
+				transform: translateX(-50%) translateY(-50%);
+				width: 100%;
+				min-height: 100%;
+				top: 50%;
+			}
 		}
 
 		.skill-section h2.center-header {
