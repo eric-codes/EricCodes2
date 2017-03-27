@@ -847,11 +847,12 @@ body.eric-codes.contact .contact-form textarea {
         margin-top: -10px;
         padding-top: 10px;
         height: 50px;
-        margin-right: -15px;
+        margin-right: 10px;
         position: relative;
         padding-left: 20px;
         position: absolute;
         right: 0px;
+        width: 55px;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer a.icon-caret {
@@ -863,7 +864,6 @@ body.eric-codes.contact .contact-form textarea {
         font-size: 12px;
         font-weight: normal;
         transition: 0.3s;
-        width: 55px;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer a.icon-caret .fa {
@@ -886,7 +886,7 @@ body.eric-codes.contact .contact-form textarea {
 
     body.eric-codes .navbar-default .icon-area .icon-drawer.open {
         z-index: 500;
-        width: 135px;
+        width: auto;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer.open .icon-link {
