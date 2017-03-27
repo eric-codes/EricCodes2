@@ -109,6 +109,16 @@
             "description": "A massive Gulp script was created in order to streamline the workflow and production process of this website. The Gulp script was responsible for minifying and concatenating the major JS files into one file, preprocessing, version control, GitHub interfacing, and general organization of files and project management."
         }]
     }, {
+        "code": [{
+            "file": "cms-API.js",
+            "lang":"javascript",
+            "location":"flex-marketing"
+        },{
+            "file": "request.php",
+            "lang":"php",
+            "location":"flex-marketing"
+        }]
+    }, {
 
         "title": "social.media()",
 
