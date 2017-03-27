@@ -32,6 +32,8 @@ app.directive('iconDrawer', ['$rootScope', function($rootScope){
 			MobileCheck();
 		})
 
+		MobileCheck();
+
 	}
 
     // Runs during compile
