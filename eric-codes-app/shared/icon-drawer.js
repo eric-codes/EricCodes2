@@ -38,6 +38,16 @@ app.directive('iconDrawer', ['$rootScope', function($rootScope){
 
 		}
 
+		scope.Toggle = function(){
+
+			if (scope.IconDrawer.hasClass('open')) {
+				Toggle.Remove();
+			} else {
+				Toggle.Add();
+			}
+
+		}
+
 		function MobileCheck(){
 			if ($(window).width() <= 768) {
 
