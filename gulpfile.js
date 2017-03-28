@@ -640,11 +640,7 @@ var Git = {
             Log.Function('Committing Current');
             Git.Exec('add .',function(){
                 Git.Exec('commit -m "' + commitMsg + '"',function(){
-                    Git.Exec('push',function(){
-                        if (callback) {
-                            callback();
-                        }
-                    })
+                    Git.Exec('push',callback);
                 })
             });
         }
@@ -652,19 +648,11 @@ var Git = {
     Checkout: {
         Develop: function(callback) {
             Log.Function("Switching to develop");
-            Git.Exec('checkout develop',callback());
+            Git.Exec('checkout develop',callback);
         },
         Branch: function(branchName, callback) {
             Log.Function("Switching to " + branchName);
-            git.exec({
-                args: "checkout " + branchName
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-                if (callback) {
-                    callback();
-                }
-            })
+            Git.Exec("checkout " + branchName,callback);
         }
     },
     Create: {
