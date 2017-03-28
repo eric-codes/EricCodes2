@@ -109,8 +109,8 @@ var params = {
  * 
  */
 var FilePaths = {
-    App: './jupiter-app/',
-    Theme: './jupiter-child-theme/',
+    App: './app-path/',
+    Theme: './wp-theme-path/',
 }
 
 /**
@@ -133,7 +133,7 @@ var FilePaths = {
  * @property {String} Theme.Models      Theme Models path
  * 
  * @example
- * // Returns './jupiter-app/components'
+ * // Returns './app-path/components'
  * Directory.App.Components;
  *
  * // Returns gulp file selection
@@ -189,16 +189,16 @@ var Select = {
  */
 var FTP = {
     Live: {
-        host: 'chiselcartel.com',
-        user: 'chiselcartel',
-        password: 'Stabyouquick1!',
+        host: 'live.com',
+        user: 'LiveAllDay',
+        password: 'WeGetLive1!',
         parallel: 10,
         log: gutil.log
     },
     Dev: {
-        host: 'sinister-styles.com',
-        user: 'chiselcartel@sinister-styles.com',
-        password: 'r10t5NYC',
+        host: 'underconstruction.com',
+        user: 'BlueCollarGuy',
+        password: 'LayingDemBricks234!',
         parallel: 10,
         log: gutil.log
     },
@@ -320,66 +320,6 @@ var Prompt = {
 
 
 
-/**
- *
- *  =====  PLUGIN FUNCTIONS (DEPRECATED)  =====
- * 
- */
-
-/**
- * Parses SASS in `sass/` and returns to clipboard
- *
- * @param {String} -f   Specific filename of `.scss` file
- *
- * @deprecated
- * @example
- * gulp sass -f 'homepage'
- * gulp sass
- */
-gulp.task('sass', function() {
-
-    var FileCheck = function() {
-        if (params.file) {
-            return './sass/' + params.file + '.scss';
-        } else {
-            return './sass/*.scss';
-        }
-    }
-
-    return gulp.src(FileCheck())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(cssbeautify())
-        .pipe(clipboard())
-        .pipe(gulp.dest('./css'))
-        .pipe(gulp.dest('./wp-vote-angular-plugin/css'));
-
-});
-
-gulp.task('sass:watch', function() {
-    gulp.watch('./sass/**/*.scss', ['sass']);
-});
-
-
-
-gulp.task('plugin', function() {
-
-    var globs = [
-        'wp-vote-angular-plugin/**',
-    ];
-
-    return gulp.src(globs, { base: '.', buffer: false })
-        .pipe(FTP.Live.newer('public_html/wp-content/plugins/')) // only upload newer files 
-        .pipe(FTP.Live.dest('public_html/wp-content/plugins/'));
-
-});
-
-
-
-
-
-
-
-
 
 
 
@@ -440,6 +380,9 @@ var Compile = {
     }
 }
 
+
+
+
 gulp.task('theme-sass', function() {
     Log.Heading('Compiling theme SASS');
     var FileCheck = function() {
@@ -488,7 +431,7 @@ gulp.task('theme-copy-view-assets', function() {
 gulp.task('theme-deploy', function() {
     Log.Heading("Deploying Theme");
     SetDelay(5, function() {
-        FTP.Deploy(FTP.Dev, ['jupiter-child-theme/**'], 'wp-content/themes/');
+        FTP.Deploy(FTP.Dev, ['wp-theme-path/**'], 'wp-content/themes/');
     })
 })
 
@@ -496,9 +439,11 @@ gulp.task('theme-deploy', function() {
 gulp.task('theme-release', function() {
     Log.Heading("Deploying Theme");
     SetDelay(5, function() {
-        FTP.Deploy(FTP.Live, ['jupiter-child-theme/**'], 'public_html/wp-content/themes/');
+        FTP.Deploy(FTP.Live, ['wp-theme-path/**'], 'public_html/wp-content/themes/');
     })
 })
+
+
 
 
 
@@ -527,6 +472,9 @@ gulp.task('doc-gulp', function(cb) {
         })
         .pipe(jsdoc(configs, cb));
 });
+
+
+
 
 
 
@@ -577,6 +525,9 @@ var Bump = {
         Bump.Version('prerelease', callback);
     }
 }
+
+
+
 
 
 
