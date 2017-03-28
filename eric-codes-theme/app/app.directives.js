@@ -1,1 +1,208 @@
-app.directive("codeViewer",function(){function e(e,i,t){e.maindata,e.Active,e.ActiveFileLocation,Log.Set("scope.maindata",e.maindata),e.setActive=function(t){Log.Function("Setting active"),e.Active=e.maindata[t],e.ActiveFileLocation=themeURL+"app/content/projects/"+e.Active.location+"/"+e.Active.file+".html",Log.Set("Active value",e.Active),Log.Set("Active File Location",e.ActiveFileLocation),i.find(".nav li").removeClass("active"),i.find(".nav li").eq(t).addClass("active"),setTimeout(function(){Prism.highlightAll()},200)},e.$watch("maindata",function(i,t){i.length>0&&e.setActive(0)},!0)}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("code-viewer"),link:e}}),app.directive("iconDrawer",["$rootScope",function(e){function i(e,i,t){function n(){$(window).width()<=768?a.Add(e.ToggleOpen):a.Remove()}e.maindata,e.Links,e.$watch("maindata",function(){e.Links=e.maindata},!0),e.IconDrawer=$(".icon-drawer");var a={Add:function(i){e.IconDrawer.on("click",".icon-link",i)},Remove:function(){e.IconDrawer.off("click",".icon-link")}};e.ToggleOpen=function(){e.IconDrawer.addClass("open"),a.Remove(),a.Add(e.ToggleClose)},e.ToggleClose=function(){e.IconDrawer.removeClass("open"),a.Remove(),a.Add(e.ToggleOpen)},e.Toggle=function(){e.IconDrawer.hasClass("open")?e.ToggleClose():e.ToggleOpen()},$(window).resize(function(){n()}),n()}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("icon-drawer"),link:i}}]),app.directive("socialIcons",function(){function e(e,i,t){e.SocialIcons=[{icon:GetShared("social_linkedin")},{icon:GetShared("social_behance")},{icon:GetShared("social_twitter")}]}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("social-icons"),link:e}}),app.directive("workGallery",function(){function e(e,i,t){e.maindata,e.currentSlide=e.maindata[1],e.ChangeSlide=function(i){Log.Msg("Gallery item clicked!"),e.currentSlide=e.maindata[i]}}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("work-gallery"),link:e}}),app.directive("workIcons",function(){function e(e,i,t){e.maindata,e.Tags=returnTags(e.maindata),i.find('[data-toggle="tooltip"]').tooltip()}return{scope:{maindata:"="},restrict:"E",templateUrl:GetShared("work-icons"),link:e}});
+app.directive('codeViewer', function() {
+
+
+    function link_return(scope, elem, attr) {
+
+        scope.maindata;
+        scope.Active;
+        scope.ActiveFileLocation;
+
+        Log.Set('scope.maindata', scope.maindata)
+
+        scope.setActive = function(index) {
+
+            Log.Function('Setting active');
+
+            scope.Active = scope.maindata[index];
+
+            scope.ActiveFileLocation = themeURL + "app/content/projects/" + scope.Active.location + "/" + scope.Active.file + ".html";
+
+            Log.Set('Active value', scope.Active);
+            Log.Set('Active File Location', scope.ActiveFileLocation);
+
+            elem.find('.nav li').removeClass('active');
+            elem.find('.nav li').eq(index).addClass('active');
+
+
+
+            setTimeout(function() {
+
+                    Prism.highlightAll();
+
+            }, 200);
+
+        }
+
+        scope.$watch('maindata', function(newv, oldv) {
+            if (newv.length > 0) {
+                scope.setActive(0);
+            }
+        }, true)
+
+    }
+
+
+    // Runs during compile
+    return {
+        scope: {
+            maindata: "="
+        },
+        restrict: 'E',
+        templateUrl: GetShared('code-viewer'),
+        link: link_return
+    };
+});
+
+app.directive('iconDrawer', ['$rootScope', function($rootScope){
+
+	function link_return(scope,elem,attr) {
+
+		scope.maindata;
+
+		scope.Links;
+
+		scope.$watch('maindata',function(){
+			scope.Links = scope.maindata;
+		},true);
+
+		scope.IconDrawer = $('.icon-drawer');
+
+		var Toggle = {
+			Add: function(funct){
+				scope.IconDrawer.on('click','.icon-link',funct);
+			},
+			Remove: function(){
+				scope.IconDrawer.off('click','.icon-link');
+			}
+		}
+
+		scope.ToggleOpen = function(){
+
+			scope.IconDrawer.addClass('open');
+			Toggle.Remove();
+			Toggle.Add(scope.ToggleClose);
+
+
+		}
+
+		scope.ToggleClose = function(){
+
+			scope.IconDrawer.removeClass('open');
+			Toggle.Remove();
+			Toggle.Add(scope.ToggleOpen);
+
+		}
+
+		scope.Toggle = function(){
+
+			if (scope.IconDrawer.hasClass('open')) {
+				scope.ToggleClose();
+			} else {
+				scope.ToggleOpen();
+			}
+
+		}
+
+		function MobileCheck(){
+			if ($(window).width() <= 768) {
+
+				Toggle.Add(scope.ToggleOpen);
+
+			} else {
+
+				Toggle.Remove();
+			}
+		}
+
+
+		$(window).resize(function(){
+			MobileCheck();
+		})
+
+		MobileCheck();
+
+	}
+
+    // Runs during compile
+    return {
+    	scope: {
+    		maindata: "="
+    	},
+    	restrict: 'E',
+    	templateUrl: GetShared('icon-drawer'),
+    	link: link_return
+    };
+}]);
+app.directive('socialIcons', function() {
+
+    function link_return(scope, elem, attr) {
+
+        scope.SocialIcons = [{
+            icon: GetShared("social_linkedin")
+        }, {
+            icon: GetShared("social_behance")
+        }, {
+            icon: GetShared("social_twitter")
+        }];
+
+    }
+
+    // Runs during compile
+    return {
+        scope: {
+            maindata: "="
+        },
+        restrict: 'E',
+        templateUrl: GetShared('social-icons'),
+        link: link_return
+    };
+});
+
+
+
+app.directive('workGallery', function(){
+
+	function link_return(scope,elem,attr){
+
+		scope.maindata;
+
+		scope.currentSlide = scope.maindata[1];
+
+		scope.ChangeSlide = function(i){
+			Log.Msg('Gallery item clicked!');
+			scope.currentSlide = scope.maindata[i];
+		}
+
+	}
+
+	// Runs during compile
+	return {
+		scope: {
+			maindata: "="
+		}, 
+		 restrict: 'E',
+		 templateUrl: GetShared('work-gallery'),
+		 link: link_return
+	};
+});
+app.directive('workIcons', function(){
+
+	function link_return(scope,elem,attr) {
+
+		scope.maindata;
+
+		scope.Tags = returnTags(scope.maindata);
+
+		elem.find('[data-toggle="tooltip"]').tooltip();
+
+	}
+
+	return {
+		scope: {
+			maindata: "="
+		}, 
+		 restrict: 'E',
+		 templateUrl: GetShared('work-icons'),
+		 link: link_return
+	};
+});
