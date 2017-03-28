@@ -12,6 +12,10 @@
 
 }
 
+pre {
+    height: 55vh;
+    min-height: 350px;
+}
 
 
 
@@ -123,9 +127,22 @@ h2.layout-header {
 	}
 
 
-	.row.description p {
-		font-size: 18px;
-		line-height: 1.6em;
+	.row.description {
+		h4 {
+			font-family: "Space Mono";
+			letter-spacing: 0.05em;
+			margin-bottom: 20px;
+			font-size: 16px;
+			span {
+				color: $COLOR_Spot;
+				font-weight: 700;
+			}
+		}
+		p {
+			width: 80%;
+			font-size: 16px;
+			line-height: 1.6em;
+		}
 	}
 
 

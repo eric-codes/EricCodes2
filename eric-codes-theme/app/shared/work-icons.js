@@ -6,6 +6,8 @@ app.directive('workIcons', function(){
 
 		scope.Tags = returnTags(scope.maindata);
 
+		elem.find('[data-toggle="tooltip"]').tooltip();
+
 	}
 
 	return {

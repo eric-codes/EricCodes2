@@ -10,28 +10,28 @@
  * @typedef {String} Task
  */
 
- var gulp = require('gulp');
- var runSequence = require('run-sequence');
- var sass = require('gulp-sass');
- var argv = require('yargs').argv;
- var clipboard = require("gulp-clipboard");
- var gutil = require('gulp-util');
- var cssbeautify = require('gulp-cssbeautify');
- var ftp = require('vinyl-ftp');
- var jsdoc = require('gulp-jsdoc3');
- var concat = require('gulp-concat');
- var minify = require('gulp-minify');
- var bump = require('gulp-bump');
- var git = require('gulp-git');
- var prompt = require('gulp-prompt');
- var reload = require('require-reload')(require);
- var gitRev = require('git-rev');
- var clear = require('clear');
- var fs = require('fs');
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
+var argv = require('yargs').argv;
+var clipboard = require("gulp-clipboard");
+var gutil = require('gulp-util');
+var cssbeautify = require('gulp-cssbeautify');
+var ftp = require('vinyl-ftp');
+var jsdoc = require('gulp-jsdoc3');
+var concat = require('gulp-concat');
+var minify = require('gulp-minify');
+var bump = require('gulp-bump');
+var git = require('gulp-git');
+var prompt = require('gulp-prompt');
+var reload = require('require-reload')(require);
+var gitRev = require('git-rev');
+var clear = require('clear');
+var fs = require('fs');
 
- var npmPackage = require('./package.json');
+var npmPackage = require('./package.json');
 
- clear();
+clear();
 
 
 /**
@@ -40,7 +40,7 @@
  * 
  */
 
- var Log = {
+var Log = {
     Msg: function(msg) {
         console.log(msg);
     },
@@ -97,7 +97,7 @@
  * Settings parameters - changed using yargs
  * @type {Object}
  */
- var params = {
+var params = {
     file: argv.f,
     debug: false,
     phpOnly: false
@@ -108,7 +108,7 @@
  * @type {Object}
  * 
  */
- var FilePaths = {
+var FilePaths = {
     App: './eric-codes-app/',
     Theme: './eric-codes-theme/',
 }
@@ -139,7 +139,7 @@
  * // Returns gulp file selection
  * Directory.GulpFile;
  */
- var Directory = {
+var Directory = {
     GulpFile: './gulpfile.js',
     App: {
         Main: FilePaths.App,
@@ -166,7 +166,7 @@
  * // Returns "*.js"
  * Select.ThisFolder.JS
  */
- var Select = {
+var Select = {
     All: {
         Files: "**/*",
         JS: "**/*.js",
@@ -191,7 +191,7 @@
  * @type {Object}
  * @namespace FTP
  */
- var FTP = {
+var FTP = {
     Live: {
         host: 'dev1.ericcodes.com',
         user: 'development@dev1.ericcodes.com',
@@ -212,8 +212,8 @@
         var Connection = ftp.create(Conn);
 
         gulp.src(FolderArr, { base: '.', buffer: false })
-        .pipe(Connection.newer(FTPDir))
-        .pipe(Connection.dest(FTPDir));
+            .pipe(Connection.newer(FTPDir))
+            .pipe(Connection.dest(FTPDir));
         if (callback) callback();
     }
 }
@@ -228,7 +228,7 @@
  * 
  */
 
- if (argv.d) {
+if (argv.d) {
     params.debug = true;
 }
 
@@ -260,10 +260,10 @@ if (params.debug) {
  * 
  */
 
- function SetDelay(seconds, callback) {
+function SetDelay(seconds, callback) {
     Log.Value("Setting Timeout", seconds + " seconds");
     var WaitSecs = seconds,
-    TempSecs = WaitSecs;
+        TempSecs = WaitSecs;
 
     for (var i = WaitSecs; i >= 0; i = i - 1) {
         var Sauce = i;
@@ -288,7 +288,7 @@ if (params.debug) {
  * 
  */
 
- var Prompt = {
+var Prompt = {
     Ask: function(name, message, type, callback, choices, validation) {
 
         var PromptArgs = {
@@ -306,11 +306,11 @@ if (params.debug) {
         }
 
         gulp.src('./')
-        .pipe(prompt.prompt([PromptArgs], function(rsp) {
-            if (callback) {
-                callback(rsp);
-            }
-        }))
+            .pipe(prompt.prompt([PromptArgs], function(rsp) {
+                if (callback) {
+                    callback(rsp);
+                }
+            }))
     },
     Text: function(name, message, callback) {
         Prompt.Ask(name, message, 'input', callback);
@@ -340,7 +340,7 @@ if (params.debug) {
  * gulp sass -f 'homepage'
  * gulp sass
  */
- gulp.task('sass', function() {
+gulp.task('sass', function() {
 
     var FileCheck = function() {
         if (params.file) {
@@ -351,31 +351,31 @@ if (params.debug) {
     }
 
     return gulp.src(FileCheck())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(cssbeautify())
-    .pipe(clipboard())
-    .pipe(gulp.dest('./css'))
-    .pipe(gulp.dest('./wp-vote-angular-plugin/css'));
+        .pipe(sass().on('error', sass.logError))
+        .pipe(cssbeautify())
+        .pipe(clipboard())
+        .pipe(gulp.dest('./css'))
+        .pipe(gulp.dest('./wp-vote-angular-plugin/css'));
 
 });
 
- gulp.task('sass:watch', function() {
+gulp.task('sass:watch', function() {
     gulp.watch('./sass/**/*.scss', ['sass']);
 });
 
 
 
- gulp.task('plugin', function() {
+gulp.task('plugin', function() {
 
     var globs = [
-    'wp-vote-angular-plugin/**',
+        'wp-vote-angular-plugin/**',
     ];
 
     return gulp.src(globs, { base: '.', buffer: false })
         .pipe(FTP.Live.newer('public_html/wp-content/plugins/')) // only upload newer files 
         .pipe(FTP.Live.dest('public_html/wp-content/plugins/'));
 
-    });
+});
 
 
 
@@ -393,26 +393,26 @@ if (params.debug) {
  * 
  */
 
- var Compile = {
+var Compile = {
     Folder: function(selection, outputFileName, outputFileDir, callback) {
         gulp.src(selection)
-        .pipe(concat(outputFileName))
-        .pipe(minify(MinifyOptions))
-        .pipe(gulp.dest(outputFileDir));
+            .pipe(concat(outputFileName))
+            .pipe(minify(MinifyOptions))
+            .pipe(gulp.dest(outputFileDir));
         if (callback) callback();
     },
     File: function(selection, outputFileDir, callback) {
         gulp.src(selection)
-        .pipe(minify(MinifyOptions))
-        .pipe(gulp.dest(outputFileDir));
+            .pipe(minify(MinifyOptions))
+            .pipe(gulp.dest(outputFileDir));
         if (callback) callback();
     },
     SASS: function(selection, outputFileDir, callback) {
         Log.Function('Running SASS Compilation');
         gulp.src(selection)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(cssbeautify())
-        .pipe(gulp.dest(outputFileDir));
+            .pipe(sass().on('error', sass.logError))
+            .pipe(cssbeautify())
+            .pipe(gulp.dest(outputFileDir));
         if (callback) callback();
     },
     App: {
@@ -482,9 +482,9 @@ gulp.task('theme-minify-admin', function() {
 gulp.task('theme-copy-view-assets', function() {
     Log.Heading("Copying HTML views");
     gulp.src(Directory.App.Main + Select.All.HTML)
-    .pipe(gulp.dest(Directory.Theme.App))
+        .pipe(gulp.dest(Directory.Theme.App))
     gulp.src(Directory.App.Main + Select.All.Files)
-    .pipe(gulp.dest(Directory.Theme.App))
+        .pipe(gulp.dest(Directory.Theme.App))
 })
 
 
@@ -516,22 +516,22 @@ gulp.task('theme-release', function() {
  * 
  */
 
- gulp.task('doc-theme', function(cb) {
+gulp.task('doc-theme', function(cb) {
     Log.Heading("Documenting Theme");
     var configs = require('./jsdocConfig.json');
     gulp.src(['README.md', Directory.App.Main + '**/*.js'], {
-        read: false
-    })
-    .pipe(jsdoc(configs, cb));
+            read: false
+        })
+        .pipe(jsdoc(configs, cb));
 });
 
- gulp.task('doc-gulp', function(cb) {
+gulp.task('doc-gulp', function(cb) {
     Log.Heading("Documenting Gulpfile");
     var configs = require('./jsdocConfig.gulp.json');
     gulp.src(['README.md', Directory.GulpFile], {
-        read: false
-    })
-    .pipe(jsdoc(configs, cb));
+            read: false
+        })
+        .pipe(jsdoc(configs, cb));
 });
 
 
@@ -543,7 +543,7 @@ gulp.task('theme-release', function() {
  */
 
 
- gulp.task('bump', function() {
+gulp.task('bump', function() {
     Log.Heading("Bumping Version");
     var BumpSettings = 'minor';
 
@@ -555,17 +555,17 @@ gulp.task('theme-release', function() {
 
 })
 
- var Bump = {
+var Bump = {
     Version: function(bumpType, callback) {
         Log.Function("Bumping...")
         var BumpSettings = {
             type: bumpType
         };
 
-        if (!argv.nogit) {
+        if (!argv.nogit && !argv.n) {
             gulp.src('./package.json')
-            .pipe(bump(BumpSettings))
-            .pipe(gulp.dest('./'));
+                .pipe(bump(BumpSettings))
+                .pipe(gulp.dest('./'));
 
 
             npmPackage = reload('./package.json');
@@ -601,7 +601,7 @@ gulp.task('theme-release', function() {
 
 
 
- function commitMsg(bumpType, commit, statusMsg) {
+function commitMsg(bumpType, commit, statusMsg) {
     Log.Function("Generating commit message");
 
     npmPackage = reload('./package.json');
@@ -624,6 +624,17 @@ gulp.task('theme-release', function() {
 }
 
 var Git = {
+    Exec: function(arguments,callback) {
+        git.exec({
+            args: arguments
+        }, function(err, std) {
+            if (err) throw err;
+            console.log(std);
+            if (callback) {
+                callback();
+            }
+        });
+    },
     Commit: {
         Current: function(commitMsg, callback) {
             Log.Function('Committing Current');
@@ -761,27 +772,13 @@ var Git = {
         To: {
             Develop: function(CurrentBranch, callback) {
                 Log.Function("Merging to develop");
-
-                git.exec({
-                    args: "merge --no-ff " + CurrentBranch
-                }, function(err, std) {
-                    if (err) throw err;
-                    console.log(std);
-
-                    git.exec({
-                        args: "push"
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
+                Git.Exec("merge --no-ff " + CurrentBranch, function(){
+                    Git.Exec("push",function(){
                         if (callback) {
                             callback();
                         }
-
                     })
-
                 })
-
             },
             Master: function(callback) {
                 Log.Function("Merging to master");
@@ -891,7 +888,7 @@ gulp.task('deploy-update', function() {
     Git.Push.Commit('prerelease', function() {
         runSequence(
             'theme-deploy'
-            );
+        );
     });
 })
 
@@ -899,7 +896,7 @@ gulp.task('deploy-release', function() {
     Log.Heading("Deploying Update");
     runSequence(
         'theme-release'
-        );
+    );
 })
 
 
@@ -907,12 +904,12 @@ gulp.task('deploy-release', function() {
  * Deploy theme
  */
 
- gulp.task('process-theme', function() {
+gulp.task('process-theme', function() {
     Log.Heading("Processing Theme");
     Process.Theme();
 });
 
- var Process = {
+var Process = {
     Theme: function(callback) {
         Log.Function("Processing theme...")
 
@@ -931,7 +928,7 @@ gulp.task('deploy-release', function() {
 
                     }
                 }
-                );
+            );
 
         } else {
             Log.Msg('Running full compile...');
@@ -954,7 +951,7 @@ gulp.task('deploy-release', function() {
                         }
                     }
                 }
-                );
+            );
 
         }
 
@@ -969,7 +966,7 @@ gulp.task('push-update', function() {
         runSequence(
             'process-theme',
             'deploy-update'
-            )
+        )
     })
 
 });

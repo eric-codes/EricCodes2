@@ -109,16 +109,57 @@
             "description": "A massive Gulp script was created in order to streamline the workflow and production process of this website. The Gulp script was responsible for minifying and concatenating the major JS files into one file, preprocessing, version control, GitHub interfacing, and general organization of files and project management."
         }]
     }, {
+        "code": [{
+            "file": "vote-controller.js",
+            "lang":"javascript",
+            "location":"chisel-cartel"
+        },{
+            "file": "battle-model.php",
+            "lang":"php",
+            "location":"chisel-cartel"
+        },{
+            "file": "gulpfile.js",
+            "lang":"js",
+            "location":"chisel-cartel"
+        }]
+    }, {
 
         "title": "social.media()",
 
         "tags": [
             "graphicdesign",
             "typography"
-        ]
-    }, {
+        ],
 
         "description": "A social media campaign was also created for the Chisel Cartel Instagram. Template systems for contestant entries were created, with Photoshop actions to export a three-panel post in order to take full advantage of Instagram’s multi-paneled post format. A templating system for battle announcements and scoreboards was also created, with similar Photoshop actions to quickly export multiple variations of the same battle announcement."
 
+    }, {
+
+        "gallery": [{
+
+            "thumbnail": "http://placehold.it/640x480",
+
+            "URL": "http://placehold.it/1281x1024"
+        }, {
+
+            "thumbnail": "http://placehold.it/640x480",
+
+            "URL": "http://placehold.it/1282x1024"
+        }, {
+
+            "thumbnail": "http://placehold.it/640x480",
+
+            "URL": "http://placehold.it/1283x1024"
+        }, {
+
+            "thumbnail": "http://placehold.it/640x480",
+
+            "URL": "http://placehold.it/1284x1024"
+        }, {
+
+            "thumbnail": "http://placehold.it/640x480",
+
+            "URL": "http://placehold.it/1285x1024"
+        }]
     }]
 }

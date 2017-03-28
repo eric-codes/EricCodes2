@@ -1,0 +1,206 @@
+
+/**
+*
+* Code snippets from the model that controls
+* individual battle data and handling &
+* integration into WP REST API.
+*
+* Sensitive code redacted.
+* 
+*/
+class Battles {
+	
+	function __construct() {
+		add_action( 'admin_init',array( $this, 'AddAdminMeta' ) );
+		add_action( 'admin_init', array($this,'AddFeaturedCategory') );
+		add_action( 'init', array($this,'AddDatabase') );
+
+		add_action( 'rest_api_init', array($this,'AddRESTData') );
+	}
+
+	function AddAdminMeta(){
+		add_meta_box('battle-data', "Battle Data", array($this,'BattleDataOutput'), 'battle', 'normal' );
+		add_action('save_post', array($this,'SaveBattleData'), 1, 2);
+	}
+
+	function AddRESTData(){
+
+		register_rest_field( 'battle',
+			'scoreboard',
+			array(
+				'get_callback'    => array($this,'REST_ReturnScoreboard'),
+				'update_callback' => null, 
+				'schema'          => null,
+				)
+			);
+		register_rest_field( 'battle',
+			'battle_meta',
+			array(
+				'get_callback'    => array($this,'REST_ReturnBattleMeta'),
+				'update_callback' => null, 
+				'schema'          => null,
+				)
+			);
+		register_rest_route( 'battle-system/v1', 
+			'/battles/get-all', 
+			array(
+				'methods' => 'GET',
+				'callback' => array($this,'REST_GetAllBattles'),
+				) 
+			);
+		register_rest_route( 'battle-system/v1', 
+			'/battle', 
+			array(
+				'methods' => 'GET',
+				'callback' => array($this,'REST_RetrieveBattle'),
+				)
+			);
+		register_rest_route( 'battle-system/v1', 
+			'/battle/get-id-by-slug', 
+			array(
+				'methods' => 'GET',
+				'callback' => array($this,'REST_GetIDBySlug'),
+				)
+			);
+	}
+
+
+
+	function REST_GetAllBattles($request){
+		global $wpdb;
+
+		$parameters = $request->get_url_params();
+
+		$ConstructQuery = "SELECT * FROM wp_posts 
+		WHERE post_status LIKE 'publish'
+		AND post_type LIKE 'battle'";
+
+		$GetResults = $wpdb->get_results($ConstructQuery,OBJECT);
+
+		$returnResults = array();
+
+		foreach ($GetResults as $index => $battle) {
+			$returnVal = $battle;
+
+			$returnVal->dates = array(
+				'battle' => get_post_meta( $battle->ID , 'battle_end_date', true ),
+				'vote' => get_post_meta( $battle->ID , 'voting_end_date', true )
+				);
+
+			$returnVal->image = get_the_post_thumbnail_url( $battle->ID, 'large');
+			$returnVal->thumb = get_the_post_thumbnail_url( $battle->ID, 'small');
+
+			$battleCheck = time() - strtotime($returnVal->dates['battle']);
+			$voteCheck = time() - strtotime($returnVal->dates['vote']);
+
+			if ($battleCheck < 0) {
+				$returnVal->status = "open";
+			} else if ($voteCheck < 0) {
+				$returnVal->status = "voting";
+			} else {
+				$returnVal->status = "closed";
+			}
+
+			$returnResults[$index] = $returnVal;
+		}
+
+		return $returnResults;
+
+	}
+
+
+
+	function AddFeaturedCategory(){
+		$catCheck = get_category_by_slug('featured-battles');
+
+		if (empty($catCheck)) {
+
+			$cat_defaults = array(
+				'cat_name' => 'Featured Battles',
+				'category_nicename' => 'featured-battles',
+				'taxonomy' => 'category' );
+
+			$insertCheck = wp_insert_category( $cat_defaults, true );
+			echo $insertCheck;
+		}
+	}
+
+
+
+	function REST_ReturnScoreboard( $object, $field_name, $request ){
+		$postID = $object['id'];
+
+		$returnArr = array();
+
+		$getEntries = get_posts( array(
+			'posts_per_page' => 500,
+			'orderby' => 'date',
+			'order' => 'DESC',
+			'meta_key' => 'battle_parent',
+			'meta_value' => $postID,
+			'post_type' => 'entry'
+			) );
+
+		foreach ($getEntries as $key => $value) {
+			$return = array(
+				'ID' => $value->ID,
+				'name' => $value->post_title,
+				'score' => array(
+					'won' => get_post_meta( $value->ID, 'won', true ),
+					'lost' => get_post_meta( $value->ID, 'lost', true ),
+					'drawn' => get_post_meta( $value->ID, 'drawn', true ),
+					),
+				'assets' => array(
+					'battle_photo' => wp_get_attachment_image_src( get_post_thumbnail_id($value->ID), "full"),
+					'battle_thumb' => wp_get_attachment_image_src( get_post_thumbnail_id($value->ID), "thumbnail"),
+					)
+				);
+
+			$return['score']['shown'] = intval($return['score']['won']) + intval($return['score']['lost']) + intval($return['score']['drawn']);
+
+			$return['score']['win_percentage'] = ((intval($return['score']['won']) * 100) / intval($return['score']['shown']));
+
+			$returnArr[$key] = $return;
+
+		}
+
+		return $returnArr;
+
+	}
+
+	function REST_ReturnBattleMeta($object,$field_name,$request) {
+		$postID = $object['id'];
+
+		$returnArr = array();
+
+		$returnArr['battle_end_date'] = get_post_meta( $postID, 'battle_end_date', true );
+		$returnArr['voting_end_date'] = get_post_meta( $postID, 'voting_end_date', true );
+
+		$returnArr['prize_details'] = get_post_meta( $postID, 'prize_details', true );
+		$returnArr['photo'] = wp_get_attachment_image_src( get_post_thumbnail_id($postID), "full");
+		$returnArr['thumbnail'] = wp_get_attachment_image_src( get_post_thumbnail_id($postID), "thumbnail");
+		
+		$battleCheck = time() - strtotime($returnArr['battle_end_date']);
+		$voteCheck = time() - strtotime($returnArr['voting_end_date']);
+
+		if ($battleCheck < 0) {
+			$returnArr['status'] = "open";
+		} else if ($voteCheck < 0) {
+			$returnArr['status'] = "voting";
+		} else {
+			$returnArr['status'] = "closed";
+		}
+
+		return $returnArr;
+	}
+
+	function REST_GetIDBySlug($request) {
+		global $wpdb;
+
+		$parameters = $request->get_params();
+
+		$PostID = get_page_by_path( $request['slug'], OBJECT, 'battle' );
+
+		return $PostID->ID;
+	}
+}
