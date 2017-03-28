@@ -1060,6 +1060,7 @@ body.eric-codes.contact .contact-form textarea {
     body.eric-codes.work .work-icon-container .icon-container {
         width: calc(100% / 4);
         padding: 0px 5px;
+        margin-bottom: 10px;
     }
 
     body.eric-codes.work .work-icon-container .icon-container img.icon {

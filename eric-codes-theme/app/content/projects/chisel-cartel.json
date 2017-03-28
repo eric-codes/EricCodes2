@@ -110,13 +110,17 @@
         }]
     }, {
         "code": [{
-            "file": "cms-API.js",
+            "file": "vote-controller.js",
             "lang":"javascript",
-            "location":"flex-marketing"
+            "location":"chisel-cartel"
         },{
-            "file": "request.php",
+            "file": "battle-model.php",
             "lang":"php",
-            "location":"flex-marketing"
+            "location":"chisel-cartel"
+        },{
+            "file": "battle-model.php",
+            "lang":"php",
+            "location":"chisel-cartel"
         }]
     }, {
 
@@ -126,7 +130,7 @@
             "graphicdesign",
             "typography"
         ],
-        
+
         "description": "A social media campaign was also created for the Chisel Cartel Instagram. Template systems for contestant entries were created, with Photoshop actions to export a three-panel post in order to take full advantage of Instagram’s multi-paneled post format. A templating system for battle announcements and scoreboards was also created, with similar Photoshop actions to quickly export multiple variations of the same battle announcement."
 
     }, {
