@@ -118,8 +118,8 @@
             "lang":"php",
             "location":"chisel-cartel"
         },{
-            "file": "battle-model.php",
-            "lang":"php",
+            "file": "gulpfile.js",
+            "lang":"js",
             "location":"chisel-cartel"
         }]
     }, {

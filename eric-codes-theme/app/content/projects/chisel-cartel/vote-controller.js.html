@@ -1,0 +1,469 @@
+/**
+ *
+ *  Partial controller for voting system
+ *  for Chisel Cartel
+ *
+ *  * Some sensitive code redacted *
+ * 
+ * @namespace voting
+ * @memberof Controllers
+ */
+app.controller('voting', ['$scope', '$rootScope', '$stateParams', 'BattleService', '$cookies', 'VoteSystem', function($scope, $rootScope, $stateParams, BattleService, $cookies, VoteSystem) {
+
+    // Set body class
+    $rootScope.BodyClass = "vote";
+
+    // Close the slider
+    $rootScope.closeSlider = true;
+
+    // Updated featured scores
+    $rootScope.UpdateFeatured();
+
+    // Create empty slide object
+    $scope.SlideObject = {
+        SlideObject: [{
+            header: "Vote"
+        }]
+    };
+
+    // Send to $rS slider
+    $rootScope.slider = $scope.SlideObject;
+
+    // Set LastVoted in scope
+    if ($rootScope.LastVoted.length >= 1) {
+
+        /**
+         * Array of last voted entries
+         * @type {Array}
+         * @memberof Controllers.voting
+         */
+        $scope.LastVoted = $rootScope.LastVoted;
+    } else {
+        $scope.LastVoted = [];
+    }
+
+    // Set watcher for LastVoted
+    $rootScope.$watch('LastVoted', function(newv, oldv) {
+
+        $scope.LastVoted = newv;
+        console.log(newv);
+    })
+
+    /**
+     * Text to be displayed on voting popup
+     * @type {String}
+     * @memberof Controllers.voting
+     */
+    $scope.LoadingText = "Loading Battle";
+
+    // Set VoteLoading
+    $scope.VoteLoading = true;
+
+    /**
+     * Array of IDs of battle contestants
+     * @type {Array}
+     * @memberof Controllers.voting
+     */
+    $scope.FightList;
+
+    /**
+     * Current Battle ID
+     * @type {Integer}
+     * @memberof Controllers.voting
+     */
+    $scope.CurrentBattleID;
+
+    /**
+     * Competitor 1 model
+     * @type {Array}
+     * @memberof Controllers.voting
+     */
+    $scope.Comp1;
+
+    /**
+     * Competitor 2 model
+     * @type {Array}
+     * @memberof Controllers.voting
+     */
+    $scope.Comp2;
+
+    /**
+     * True if there are no votable pairs left
+     * @type {Boolean}
+     */
+    $scope.NoVotes = false;
+
+    /**
+     * Array shuffler
+     * @param  {Array} array  Input array to shuffle
+     * @return {Array}        Shuffled array
+     * @memberof Controllers.voting
+     */
+    function shuffle(array) {
+        var currentIndex = array.length,
+            temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
+    $scope.EmptyScore = false;
+
+    function SetEmptyScoreboard() {
+        Log.Function('Setting Empty scoreboard...');
+
+        $scope.EmptyScore = true;
+    }
+
+    /**
+     * Retrieve competitor list and start the battle
+     * @memberof Controllers.voting
+     */
+    function GetCompetitors() {
+
+        // Set scope current battle id
+
+        Log.Function('Get Competitors');
+
+        if ($stateParams.battleSlug) {
+            VoteSystem.getBattleBySlug($stateParams.battleSlug)
+                .success(function(id) {
+                    $scope.CurrentBattleID = id;
+                    BattleService.scoreboard(id)
+                        .success(function(data) {
+
+                            Log.Set('GetCompetitors() return data', data);
+
+                            if (data.length > 1) {
+                                $scope.CurrentScoreboard = data;
+                                $scope.CurrentScoreboardParsed = ParseBattleData(data);
+                                RunCompetitors();
+                            } else {
+                                SetEmptyScoreboard();
+                            }
+                        })
+                })
+        } else {
+            if ($rootScope.featuredEmpty === true) {
+                SetEmptyScoreboard();
+            } else {
+                $scope.CurrentBattleID = $rootScope.featuredBattle.id;
+                $scope.CurrentScoreboard = $rootScope.featuredScore;
+                $scope.CurrentScoreboardParsed = $rootScope.featuredScoreParsed;
+                RunCompetitors();
+            }
+        }
+
+        function RunCompetitors() {
+            /**
+             * Array of competitor IDs
+             * @type {Array}
+             * @memberof Controllers.voting
+             */
+            $scope.CompetitorList = [];
+
+            // Add competitors to CompetitorList
+            $.each($scope.CurrentScoreboard, function(i, val) {
+                $scope.CompetitorList[i] = val.id;
+            })
+
+            /**
+             * Array of VS fights
+             * @type {Array}
+             * @memberof Controllers.voting
+             */
+            $scope.FightList = BuildFightList();
+
+            // Check if cookie exists
+            var CookieCheck = $cookies.get('sid');
+
+            // If not, create cookie
+            if (CookieCheck === undefined) {
+                var UID = GenerateUID();
+                $cookies.put('sid', UID);
+            }
+
+            // Start battle
+            StartBattle();
+        }
+
+    }
+
+    /**
+     * Fire vote
+     * @param {Integer} winner [description]
+     * @param {Integer} loser  [description]
+     * @param {Boolean} draw   [description]
+     * @memberof Controllers.voting
+     */
+    $scope.Vote = function(winner, loser, draw, clickIndex) {
+
+        $scope.LoadingText = "Sending Vote";
+
+        // Create POST object
+        var OutputObj = {
+            winner: winner,
+            loser: loser,
+            draw: draw,
+            battle_id: $scope.CurrentBattleID
+        }
+
+        // Dim boxes
+        $('.dimmer').addClass('dim');
+
+        // If Voted
+        if (clickIndex < 3) {
+
+            // Add dimmer to unclicked
+            $('.competitor-box').eq(clickIndex).removeClass('dim').addClass('selected');
+
+
+
+        }
+
+
+        // Send vote POST request
+        VoteSystem.vote(OutputObj).success(function(data) {
+            // Set loader
+            $scope.VoteLoading = true;
+            // If the return is good
+            if (data == 1) {
+                AddLastVoted(winner);
+                // Shift fight list
+                var Remove = $scope.FightList.shift();
+
+                // Remove dimmer in less than a second after vote is cast
+                if (clickIndex < 3) {
+                    setTimeout(function() {
+                        $('.dimmer').removeClass('dim').removeClass('selected');
+                    }, 700);
+                }
+
+                // Restart battle
+                StartBattle();
+            }
+        })
+    }
+
+    /**
+     * Add vote to last voted list
+     * @param {Integer} ID      ID of entry
+     * @memberof Controllers.voting
+     */
+    function AddLastVoted(ID) {
+
+        var LastVoted = $rootScope.LastVoted,
+            GetEntry = $.grep($scope.CurrentScoreboardParsed, function(a) {
+                return a.id == ID;
+            }),
+            Entry = GetEntry[0];
+
+
+        if (LastVoted.length == 6) {
+            var Sliced = LastVoted.slice(0, 8);
+            LastVoted = Sliced;
+        }
+
+        LastVoted.unshift(Entry);
+
+        $rootScope.LastVoted = LastVoted;
+    }
+
+    // Hover effects for box
+    $('.competitor-box').mouseenter(function(e) {
+        $(this).addClass('hover');
+    }).mouseout(function(e) {
+        $(this).removeClass('hover');
+    })
+
+    /**
+     * Check if next battle has already been voted
+     * @param {Function} callback Callback function
+     * @memberof Controllers.voting
+     */
+    function CheckDouble(callback) {
+
+        // Create POST object
+        var OutputObj = {
+            comp1: $scope.FightList[0][0],
+            comp2: $scope.FightList[0][1]
+        }
+
+        // Send check POST request
+        VoteSystem.checkdouble(OutputObj).success(function(data) {
+            if (callback) {
+                // Fire callback
+                callback(data);
+            }
+        })
+    }
+
+    /**
+     * Start battle
+     * @memberof Controllers.voting
+     */
+    function StartBattle() {
+
+        // Set Loading text
+        $scope.LoadingText = "Getting Fight";
+
+        Log.Set('$scope.FightList', $scope.FightList);
+
+        // Check to see if fight list is over 1
+        if ($scope.FightList.length > 0) {
+
+            // Check if same uid voted before
+            CheckDouble(function(response) {
+
+                // If not
+                if (response === false) {
+
+                    $('.dimmer').removeClass('dim').removeClass('selected');
+
+                    // Set current battle and populate competitors
+                    $scope.CurrentBattleVote = $scope.FightList[0];
+                    SetCompetitors();
+
+
+                } else { // otherwise
+
+                    // Remove this pair from FightList and restart battle
+                    $scope.FightList.shift();
+                    StartBattle();
+
+                }
+
+            })
+
+            // If fightlist is empty
+        } else {
+
+            $scope.NoVotes = true;
+            Log.Warning('No active votes!!');
+
+        }
+
+    }
+
+    /**
+     * Populate competitor model output
+     * @memberof Controllers.voting
+     */
+    function SetCompetitors() {
+
+        Log.Function('Setting Competitors');
+
+        $scope.LoadingText = "Setting Up Battle";
+
+        /**
+         * Array of entry data for current competitors
+         * @type {Array}
+         * @memberof Controllers.voting
+         */
+        $scope.CurrentBattleCompetitors = [
+            $.grep($scope.CurrentScoreboard, function(a) {
+                return a.id == $scope.CurrentBattleVote[0]
+            }),
+
+            $.grep($scope.CurrentScoreboard, function(a) {
+                return a.id == $scope.CurrentBattleVote[1]
+            }),
+        ]
+
+        // Set competitor models
+        $scope.Comp1 = $scope.CurrentBattleCompetitors[0][0];
+        $scope.Comp2 = $scope.CurrentBattleCompetitors[1][0];
+
+
+        // Remove loader after 1 sec
+        $scope.VoteLoading = false;
+
+    }
+
+    /**
+     * Generate UID string
+     * @return {String}
+     * @memberof Controllers.voting
+     */
+    function GenerateUID() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 10; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    /**
+     * Create and shuffle FightList from CompetitorList
+     * @return {Array}
+     * @memberof Controllers.voting
+     */
+    function BuildFightList() {
+
+        // Create empty fight list
+        var FightList = [];
+
+        // For each entry ID in competitor list
+        $.each($scope.CompetitorList, function(i, val) {
+
+            // Create temp matchlist
+            var MatchList = [];
+
+            // Put together VS list of each competitor
+            $.each($scope.CompetitorList, function(i2, val2) {
+                if (val !== val2) {
+                    MatchList.push([val, val2]);
+                }
+            })
+
+            // Check if reverses are found, and if not, add to main fight list
+            $.each(MatchList, function(i, val) {
+                var reverseVal = [val[1], val[0]];
+                var Found = false;
+                $.each(FightList, function(i2, val2) {
+                    if (val[0] == val2[0] && val[1] == val2[1] || reverseVal[0] == val2[0] && reverseVal[1] == val2[1]) {
+                        Found = true;
+                    }
+                })
+                if (Found == false) {
+                    FightList.push(val);
+                }
+            })
+        })
+
+        // Shuffle the deck
+        var ShuffleOnce = shuffle(FightList),
+            Cut = ShuffleOnce.slice(0, (ShuffleOnce.length / 2) - 1),
+            ShuffleTwice = shuffle(ShuffleOnce.slice(ShuffleOnce.length / 2, ShuffleOnce.length - 1).concat(Cut));
+
+        // And return shuffled battles
+        return ShuffleTwice;
+    }
+
+
+
+    // GetCompetitors on featuredScore
+    if ($rootScope.featuredScore && !$stateParams.battleSlug) {
+        GetCompetitors();
+    } else {
+        // Set watcher on featuredScore
+        $rootScope.$watch('featuredScore', function() {
+            GetCompetitors();
+        })
+    }
+
+}])
