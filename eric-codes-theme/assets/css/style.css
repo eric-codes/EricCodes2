@@ -597,11 +597,6 @@ body.eric-codes.work-single .page-section:first-child {
     margin-top: 0px;
 }
 
-body.eric-codes.work-single pre {
-    height: 55vh;
-    min-height: 350px;
-}
-
 body.eric-codes.work-single .return-area {
     padding: 20px 0px;
 }
@@ -635,6 +630,19 @@ body.eric-codes.work-single .work-layout .row.section h3.section-heading {
 
 body.eric-codes.work-single .work-layout .row.section h3.section-heading span {
     color: #4f8ac8;
+}
+
+body.eric-codes.work-single .work-layout .row.section .nav-tabs a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: #4f8ac8;
+}
+
+body.eric-codes.work-single .work-layout .row.section pre {
+    height: 55vh;
+    min-height: 350px;
+    margin-top: 10px;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container {

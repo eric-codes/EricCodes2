@@ -12,10 +12,9 @@
 
 }
 
-pre {
-    height: 55vh;
-    min-height: 350px;
-}
+
+
+
 
 
 
@@ -60,8 +59,18 @@ h2.layout-header {
 
 		}
 
+		.nav-tabs a {
+			font-size: 12px;
+			font-weight: 400;
+			letter-spacing: 0.06em;
+			color: $COLOR_Spot;
+		}
 
-
+		pre {
+			height: 55vh;
+			min-height: 350px;
+			margin-top: 10px;
+		}
 
 		.main-image-container {
 			overflow: hidden;
