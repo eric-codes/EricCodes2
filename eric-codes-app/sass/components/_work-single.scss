@@ -166,10 +166,10 @@ h2.layout-header {
 
 		.hero-image {
 			position: relative;
-			left: 50%;
-			transform: translateX(-50%);
-			height: 100%;
-			width: auto;
+			top: 50%;
+			transform: translateY(-50%);
+			height: auto;
+			width: 100%;
 		}
 
 	}

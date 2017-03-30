@@ -726,8 +726,8 @@ body.eric-codes.work-single .work-layout .hero-image-container .hero-image {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
 }
 
 body.eric-codes.work-single .work-layout .work-icon-container {
