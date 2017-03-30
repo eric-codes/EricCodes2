@@ -29,13 +29,13 @@
 
         "hero": [{
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_tablet.png"
         }, {
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_mobile.png"
         }, {
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_computer.png"
         }]
     },
     "sections": [{
