@@ -19,11 +19,14 @@
             "uidesign"
         ],
         "hero": [{
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_tablet.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_phone.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_computer.png"
         }]
     },
     "sections": [{
