@@ -54,29 +54,19 @@
 
         "gallery": [{
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/color_palette.jpg",
 
-            "URL": "http://placehold.it/1281x1024"
+            "URL": "design/color_palette_thumb.jpg"
         }, {
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/typography.jpg",
 
-            "URL": "http://placehold.it/1282x1024"
+            "URL": "design/typography_thumb.jpg"
         }, {
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/logo_usage.jpg",
 
-            "URL": "http://placehold.it/1283x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1284x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1285x1024"
+            "URL": "design/logo_usage_thumb.jpg"
         }]
     }, {
 
