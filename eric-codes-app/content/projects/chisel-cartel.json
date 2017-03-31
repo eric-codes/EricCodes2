@@ -54,19 +54,19 @@
 
         "gallery": [{
 
-            "thumbnail": "design/color_palette.jpg",
+            "thumbnail": "design/color_palette_thumb.jpg",
 
-            "URL": "design/color_palette_thumb.jpg"
+            "URL": "design/color_palette.jpg"
         }, {
 
-            "thumbnail": "design/typography.jpg",
+            "thumbnail": "design/typography_thumb.jpg",
 
-            "URL": "design/typography_thumb.jpg"
+            "URL": "design/typography.jpg"
         }, {
 
-            "thumbnail": "design/logo_usage.jpg",
+            "thumbnail": "design/logo_usage_thumb.jpg",
 
-            "URL": "design/logo_usage_thumb.jpg"
+            "URL": "design/logo_usage.jpg"
         }]
     }, {
 
