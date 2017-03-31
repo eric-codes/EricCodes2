@@ -127,14 +127,14 @@
 
         "gallery": [{
 
-            "thumbnail": "social/social_media1_thumb.jpg",
+            "thumbnail": "social/socialmedia_1_thumb.jpg",
 
-            "URL": "social/social_media1.jpg"
+            "URL": "social/socialmedia_1.jpg"
         }, {
 
-            "thumbnail": "social/social_media2_thumb.jpg",
+            "thumbnail": "social/socialmedia_2_thumb.jpg",
 
-            "URL": "social/social_media2.jpg"
+            "URL": "social/socialmedia_2.jpg"
         }]
     }]
 }
