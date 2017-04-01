@@ -27,7 +27,7 @@ app.directive('codeViewer', function() {
 
             setTimeout(function() {
 
-                    Prism.highlightElement(elem.find('code'));
+                    Prism.highlightAll();
 
             }, 200);
 
