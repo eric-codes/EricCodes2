@@ -65,7 +65,7 @@
             "URL": "website/typography.jpg"
         }, {
             "thumbnail": "website/homepage_thumb.jpg",
-            "URL": "website/homepage.jpg"
+            "scrollURL": "website/homepage.jpg"
         }, {
             "thumbnail": "website/advertisers_thumb.jpg",
             "scrollURL": "website/advertisers.jpg"
@@ -123,6 +123,12 @@
         }, {
             "title": "SASSSystem()",
             "description": "In order to alleviate the stress of having to copy and paste and find values to create page variations, I taught the development team SASS and converted their existing CSS into clean SASS files, complete with variables and options for them to be easily edited. I then integrated into the Gulp file functions that allowed exporting and compiling specific variations based on ID."
+        }]
+    }, {
+        "code": [{
+            "file": "gulpfile.js",
+            "lang":"javascript",
+            "location":"flex-marketing"
         }]
     }]
 }
