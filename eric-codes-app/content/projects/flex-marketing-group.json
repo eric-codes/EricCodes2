@@ -68,13 +68,13 @@
             "URL": "website/homepage.jpg"
         }, {
             "thumbnail": "website/advertisers_thumb.jpg",
-            "URL": "website/advertisers.jpg"
+            "scrollURL": "website/advertisers.jpg"
         }, {
             "thumbnail": "website/email_thumb.jpg",
-            "URL": "website/email.jpg"
+            "scrollURL": "website/email.jpg"
         }, {
             "thumbnail": "website/flexpath_thumb.jpg",
-            "URL": "website/flexpath.jpg"
+            "scrollURL": "website/flexpath.jpg"
         }]
     }, {
         "title": "email.registration",
