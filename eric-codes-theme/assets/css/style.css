@@ -658,6 +658,16 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .mai
     transform: translateY(-50%);
 }
 
+body.eric-codes.work-single .work-layout .row.section .scroll-container {
+    height: 100%;
+    overflow-y: scroll;
+    border: solid #f1f1f1 1px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .scroll-container .scroll-image {
+    width: 100%;
+}
+
 body.eric-codes.work-single .work-layout .row.section p.section-description {
     font-size: 16px;
     width: 80%;

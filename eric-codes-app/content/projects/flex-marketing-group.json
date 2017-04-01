@@ -65,7 +65,7 @@
             "URL": "website/typography.jpg"
         }, {
             "thumbnail": "website/homepage_thumb.jpg",
-            "URL": "website/homepage.jpg"
+            "scrollURL": "website/homepage.jpg"
         }, {
             "thumbnail": "website/advertisers_thumb.jpg",
             "scrollURL": "website/advertisers.jpg"
