@@ -1,6 +1,9 @@
 <div class="col-sm-8">
 	<div class="main-image-container">
-		<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}"></img>
+		<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
+		<div class="scroll-container" ng-if="currentSlide.scrollURL">
+			<img class="scroll-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
+		</div>
 	</div>
 </div>
 

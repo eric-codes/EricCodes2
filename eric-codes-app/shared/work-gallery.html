@@ -2,7 +2,7 @@
 	<div class="main-image-container">
 		<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
 		<div class="scroll-container" ng-if="currentSlide.scrollURL">
-		<img class="main-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
+			<img class="scroll-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
 		</div>
 	</div>
 </div>
