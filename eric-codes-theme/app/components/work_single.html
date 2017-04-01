@@ -81,12 +81,17 @@
 			<work-gallery class="row" ng-if="section.gallery" maindata="section.gallery" workdata="WorkData"></work-gallery>
 
 
-			<div class="col-sm-{{TextSectionCount($parent.$index)}}" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
+			<div class="col-sm-4" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
 				<h4 class="sub-heading">{{section.title}}.<span>{{textSection.title}}</span></h4>
 				<p class="sub-section-description">{{textSection.description}}</p>
 			</div>
 
-			<div class="clearfix" ng-if="section.textSections"></div>
+			<div class="col-sm-6" ng-repeat="textSection in section.textSectionsDouble" ng-if="section.textSectionsDouble">
+				<h4 class="sub-heading">{{section.title}}.<span>{{textSection.title}}</span></h4>
+				<p class="sub-section-description">{{textSection.description}}</p>
+			</div>
+
+			<div class="clearfix" ng-if="section.textSections || section.textSectionsDouble"></div>
 
 			<div class="col-xs-10 col-sm-12" ng-if="section.code">
 			<code-viewer maindata="section.code"></code-viewer>

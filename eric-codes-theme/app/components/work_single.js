@@ -33,10 +33,6 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         }
     }
 
-    $scope.TextSectionCount = function(index) {
-        console.log(index);
-    }
-
     function UpdateScope() {
         $scope.AllProjects = $rootScope.WorkItems;
 
