@@ -81,7 +81,7 @@
 			<work-gallery class="row" ng-if="section.gallery" maindata="section.gallery" workdata="WorkData"></work-gallery>
 
 
-			<div class="col-sm-{{TextSectionCount($index)}}" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
+			<div class="col-sm-{{TextSectionCount($parent.$index)}}" ng-repeat="textSection in section.textSections" ng-if="section.textSections">
 				<h4 class="sub-heading">{{section.title}}.<span>{{textSection.title}}</span></h4>
 				<p class="sub-section-description">{{textSection.description}}</p>
 			</div>
