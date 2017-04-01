@@ -54,9 +54,7 @@ function HTMLInject(folder, filename, DestFolder) {
 }
 
 
-/** 
- * Creates a new project
- */
+// Creates a new project
 gulp.task('create', function() {
     if (argv.name) {
         if (argv.propid) {
@@ -101,9 +99,7 @@ gulp.task('create', function() {
 
 
 
-/** 
- * Processes a specific project
- */
+// Processes a specific project
 gulp.task('process', ['sass', 'publish', 'test', 'zip', 'zip-css-v3-rsp', 'zip-css-v3', 'zip-display-css'], function() {});
 
 gulp.task('process:watch', function() {
@@ -120,9 +116,7 @@ gulp.task('process:watch', function() {
     }
 });
 
-/**
- * Documents specific projects
- */
+// Documents specific projects
 gulp.task('document', function() {
     if (argv.name) {
 
@@ -135,9 +129,7 @@ gulp.task('document', function() {
     }
 });
 
-/**
- * Processes specific project for release
- */
+// Processes specific project for release
 gulp.task('publish', function() {
     if (argv.name) {
         console.log(argv.name);
@@ -199,9 +191,7 @@ gulp.task('publish', function() {
     }
 });
 
-/**
- * Creates a local test version of a project for quick updates
- */
+// Creates a local test version of a project for quick updates
 gulp.task('test', function() {
     if (argv.name) {
 
@@ -246,9 +236,7 @@ gulp.task('test', function() {
 });
 
 
-/**
- * Removes a project
- */
+// Removes a project
 gulp.task('remove', function() {
     if (argv.name) {
         return del([
@@ -259,9 +247,7 @@ gulp.task('remove', function() {
     }
 });
 
-/**
- * Creates a variation of a project
- */
+// Creates a variation of a project
 gulp.task('makeprop', function() {
     if (argv.ID && argv.name) {
 
@@ -304,9 +290,7 @@ gulp.task('makeprop', function() {
     }
 });
 
-/**
- * Processes a variation of a project
- */
+// Processes a variation of a project
 gulp.task('processprop', function() {
     if (argv.ID && argv.name) {
 
@@ -324,9 +308,7 @@ gulp.task('processprop', function() {
     }
 });
 
-/**
- * Processes all variations of a project based on files inside a specific folder
- */
+// Processes all variations of a project based on files inside a specific folder
 gulp.task('processall', function() {
     if (argv.name) {
 
@@ -352,9 +334,7 @@ gulp.task('processall', function() {
     }
 });
 
-/**
- * Process SASS for specific project
- */
+// Process SASS for specific project
 gulp.task('sass', function() {
     if (argv.name) {
 
@@ -368,9 +348,7 @@ gulp.task('sass', function() {
     }
 });
 
-/**
- * Zips up files and prepares for CMS upload
- */
+// Zips up files and prepares for CMS upload
 gulp.task('zip', function() {
     if (argv.name) {
         var DestFolder = 'projects/' + argv.name;
@@ -382,9 +360,7 @@ gulp.task('zip', function() {
     }
 });
 
-/**
- * Opens specific variation of project in CMS
- */
+// Opens specific variation of project in CMS
 gulp.task('openproperty', function() {
     if (argv.ID) {
         gulp.src("/")
@@ -392,9 +368,7 @@ gulp.task('openproperty', function() {
     }
 });
 
-/**
- * Opens all projects in CMS for mass upload
- */
+// Opens all projects in CMS for mass upload
 gulp.task('openall', function() {
 
     if (argv.name) {
