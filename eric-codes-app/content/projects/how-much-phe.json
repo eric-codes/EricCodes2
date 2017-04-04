@@ -13,11 +13,14 @@
             "backend"
         ],
         "hero": [{
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_tablet.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_phone.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_computer.png"
         }]
     },
     "sections": [{
@@ -32,20 +35,11 @@
         "description": "I chose a warm, welcoming tomato orange as a base color, and coupled it with a few happy cool colors to give it a more playful, child friendly vibe. I went with Source Sans Pro as a type choice because of it’s fantastic on-screen readability and friendly, but serious character. I also created a visual identity for this app, choosing a tall but friendly typeface for the logotype treatment. For the graphic identity, I simplified the chemical model for the phenylalanine amino acid into a circular icon that renders well on all device sizes. Much of the final design work was flat, clean vector imagery that makes things easy to find, with a clean, polished feel."
     }, {
         "gallery": [{
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1281x1024"
+            "thumbnail": "design/color_palette_thumb.jpg",
+            "URL": "design/color_palette.jpg"
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1282x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1283x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1284x1024"
-        }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1285x1024"
+            "thumbnail": "design/typography_thumb.jpg",
+            "URL": "design/typography.jpg"
         }]
     }, {
         "title": "development()",
