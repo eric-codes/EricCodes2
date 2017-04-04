@@ -40,6 +40,18 @@
         }, {
             "thumbnail": "design/typography_thumb.jpg",
             "URL": "design/typography.jpg"
+        }, {
+            "thumbnail": "design/screen_item_thumb.jpg",
+            "scrollURL": "design/screen_item.jpg"
+        }, {
+            "thumbnail": "design/screen_tracking_thumb.jpg",
+            "scrollURL": "design/screen_tracking.jpg"
+        }, {
+            "thumbnail": "design/screen_search_thumb.jpg",
+            "scrollURL": "design/screen_search.jpg"
+        }, {
+            "thumbnail": "design/screen_tracking2_thumb.jpg",
+            "scrollURL": "design/screen_tracking2.jpg"
         }]
     }, {
         "title": "development()",
