@@ -84,6 +84,34 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
         }
 
+        $scope.HeroCyclePrev = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current - 1;
+
+            if (Next <= 0) {
+                Next = HeroImage.length - 1;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+        function FireCycle() {
+            setTimeout(HeroCycleNext(),3000);
+        }
+
+        FireCycle();
 
     }
 
