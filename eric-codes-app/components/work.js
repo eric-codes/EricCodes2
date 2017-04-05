@@ -40,4 +40,8 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     }, 500);
 
+    $scope.GetBackground = function(slug) {
+        return themeURL + "assets/img/" + slug + "/background.jpg"
+    }
+
 }])
