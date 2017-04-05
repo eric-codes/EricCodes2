@@ -333,6 +333,29 @@ body.eric-codes {
 				}
 			}
 
+			.hero-image-set {
+				overflow: hidden;
+				height: 300px;
+
+				.hero-image-single {
+					position: absolute;
+					z-index: 5;
+					opacity: 0;
+					transition:0.4s;
+
+					&.open {
+						opacity:1;
+						z-index:10;
+					}
+
+				}
+
+
+
+			}
+
+
+
 
 
 			.row.description p {

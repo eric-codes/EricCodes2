@@ -1116,6 +1116,23 @@ body.eric-codes.contact .contact-form textarea {
         margin-left: 0px;
     }
 
+    body.eric-codes.work-single .work-layout .hero-image-set {
+        overflow: hidden;
+        height: 300px;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .hero-image-single {
+        position: absolute;
+        z-index: 5;
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .hero-image-single.open {
+        opacity: 1;
+        z-index: 10;
+    }
+
     body.eric-codes.work-single .work-layout .row.description p {
         font-size: 15px;
         width: 100%;
