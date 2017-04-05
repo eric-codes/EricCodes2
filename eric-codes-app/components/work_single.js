@@ -108,7 +108,10 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         }
 
         function FireCycle() {
-            setTimeout(HeroCycleNext(),3000);
+            setTimeout(function(){
+                HeroCycleNext();
+                FireCycle();
+            },3000);
         }
 
         FireCycle();
