@@ -1,0 +1,11 @@
+<div class="icon-drawer">
+
+<a class="icon-caret visible-xs" ng-click="Toggle()">
+	<i class="fa fa-chevron-left" aria-hidden="true"></i>
+</a>
+
+    <a class="icon-link" ng-repeat="link in Links" ng-href="{{link.link}}">
+        <div ng-include="link.icon"></div>
+    </a>
+
+</div>

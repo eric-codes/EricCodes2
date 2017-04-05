@@ -21,11 +21,18 @@
 
 .work-item {
     height: 300px;
-    background: black;
     display: flex;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
+
+    .background-image {
+        position: absolute;
+        z-index: -5;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: 0.4s;
+    }
 
     .work-item-info {
         position: absolute;
@@ -76,13 +83,17 @@
     }
 
     &:hover {
-        
+
         .work-item-info {
             top:0;
         }
 
         .work-item-title {
             opacity: 0;
+        }
+
+        .background-image {
+            transform: translateY(-50%) scale(1.1);
         }
 
 

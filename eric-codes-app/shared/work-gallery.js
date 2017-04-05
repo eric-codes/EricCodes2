@@ -5,6 +5,7 @@ app.directive('workGallery', function(){
 	function link_return(scope,elem,attr){
 
 		scope.maindata;
+		scope.workdata;
 
 		scope.currentSlide = scope.maindata[1];
 
@@ -13,12 +14,17 @@ app.directive('workGallery', function(){
 			scope.currentSlide = scope.maindata[i];
 		}
 
+		scope.GetImage = function(filename) {
+			return themeURL + "assets/img/" + scope.workdata.slug + "/" + filename;
+		}
+
 	}
 
 	// Runs during compile
 	return {
 		scope: {
-			maindata: "="
+			maindata: "=",
+			workdata: "="
 		}, 
 		 restrict: 'E',
 		 templateUrl: GetShared('work-gallery'),

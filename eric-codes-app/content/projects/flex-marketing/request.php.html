@@ -1,0 +1,115 @@
+
+/*=========================================
+=            ESP PHP REQUEST            =
+=========================================*/
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+header("Access-Control-Allow-Origin: *");
+include_once('ESPapi.php');
+
+
+
+// Get data from POST
+$PostVars = array(
+	'action' => $_POST['action'],
+	'list_id' => $_POST['list_id'], 
+	'trigger_id' => $_POST['trigger_id'],
+	'site_id' => $_POST['site_id'],
+	'fname' => $_POST['fname'],
+	'incentive_item' => $_POST['incentive_item'],
+	'return_link' => $_POST['return_link'],
+	'server_url' => $_POST['server_url'],
+	'email' => $_POST['email']
+	);
+
+// Set constants
+$siteID = $PostVars['site_id'];
+$globalPassword = 'xxxxxxx';
+$ESPServer = $PostVars['server_url'];
+
+// Initialize ESP
+$ESP = new ESP\API($siteID,$globalPassword);
+
+
+
+/*=================================
+=            FUNCTIONS            =
+=================================*/
+
+// FIRE TRIGGER
+function TriggerFire($listID,$triggerID,$email,$password,$demographics) {
+	global $ESP; 
+
+	try {
+		// CHECK IF MEMBER EXISTS
+		$CheckMember = $ESP->memberQuery($listID,$email);
+		if ($CheckMember['status'] == 'success') {
+			// If member exists, edit member with new incentive item
+			$ESP->memberEdit($listID,$email,array(),$demographics);
+		}
+	} catch (Exception $e) {
+		// If not, add em to the list!
+		$ESP->memberAdd($listID,$email,$demographics);
+	}
+
+	// Once added, fire the send trigger!
+	try {
+	$Send = $ESP->triggersFireTrigger($listID,$triggerID,$email,$password);
+	} catch (Exception $e) {
+	$Send = array(
+		'status' => 'disabled'
+		);
+	}
+	return $Send;
+
+};
+
+
+/*=============================
+=            LOGIC            =
+=============================*/
+
+// Shorthand for action POST
+$action = $PostVars['action'];
+
+
+// Check action
+if ($action == 'trigger') {
+	
+	//Shorthand for list id
+	$listId = $PostVars['list_id'];
+
+	// TRIGGER
+	if($listId == '506853'){
+		
+		//A LIST
+		$returnVal = TriggerFire($PostVars['list_id'],$PostVars['trigger_id'],$PostVars['email'],$globalPassword,array(
+		'88165' => $PostVars['incentive_item'],
+		'88166' => $PostVars['return_link'],
+		'1' => $PostVars['fname'],
+		));
+	} else if($listId == '16555'){
+		//B LIST
+		$returnVal = TriggerFire($PostVars['list_id'],$PostVars['trigger_id'],$PostVars['email'],$globalPassword,array(
+		'49023' => $PostVars['incentive_item'],
+		'49022' => $PostVars['return_link'],
+		'1' => $PostVars['fname'],
+		));
+	}
+
+	
+
+} else if ($action == 'check') {
+// Check test
+	$returnVal = $ESP->memberQuery($PostVars['list_id'],$PostVars['email']);
+
+} else {
+// THROW ERROR
+	$returnVal = "No trigger call!";
+
+}
+
+
+// FINAL ECHO
+echo json_encode($returnVal);
+

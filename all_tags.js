@@ -1,0 +1,10 @@
+"jquery",
+"angular",
+"sass",
+"backend",
+"css3",
+"graphicdesign",
+"gulp",
+"html5",
+"typography",
+"uidesign"

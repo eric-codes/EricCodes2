@@ -1,0 +1,386 @@
+/*
+
+This file is the main JS file that runs the front-end of
+How Much Phe. Some sensitive functions have been redacted for
+security purposes.
+
+
+HMP.ContentBox = selector for content area - search return and item
+HMP.Calculator = Selector for calculator area
+
+CALCULATOR FUNCTIONS:
+HMP.Calculator.Display = selector for calc table
+Calculator.Values[value] = value is 'weight', 'phe', 'exchanges','protein'
+Calculator.InputArea = selector for grams + input box
+Calculator.Input = selector for input box
+Calculator.Calculate = selector for calculate button
+Calculator.Refresh = selector for reset button
+Calculator.ActiveSelection = false if no measurement selected, name of selected value ('weight') if selected
+Calculator.ReturnToResults = selector for return button
+
+Calculator.SetActiveSelection(value) = value is 'weight', 'phe', etc - when triggered, selects that measurement
+Calculator.ReturnActiveSelection() = unselects any open value for calc
+
+Calculator.RunCalculation(measurement,value,current_item_values) - The Abacus math function. 
+
+*/
+
+
+
+
+// INITIATE ANIMATION CHAINS FOR HMP
+function hmp_anim_chains(){
+	var ScreenSize = Desktop.device(); // Get screen size
+
+	var HMPAnims = {}; // Create animation chain obj
+
+	// Adjust padding for searchbox
+	HMPAnims.search_submit = function(){
+		if (ScreenSize == 'mobile') {
+			return [
+			Anims.createLink({'padding-top':'30px'},'.search-box',500)
+			];
+		} else {
+			return [
+			Anims.createLink({'margin-top':0},'.search-box',500)
+			];
+		}
+	}
+
+	// Add animation chains
+	Anims.addChain('search_submit',HMPAnims.search_submit()); // On search submit
+
+	Anims.addChain('search_return',[ // On search return
+		Anims.createLink({'opacity':1},'.content-box',300) 
+		])
+
+	Anims.addChain('search_hide',[ // On search change
+		Anims.createLink({'opacity':0},'.content-box',300)
+		])
+
+}
+
+// MAIN SCRIPT FOR HMP WEBSITE
+function hmp_main_script(){
+
+	window.HMP = {} // Create the mother function
+
+	window.HMP.ContentBox = $('.content-box'); // Define content area where items and search results are displayed
+
+	var ScreenSize = Desktop.device(); // Get device type
+	var Href = document.location.href; // Get main URL
+
+	/*
+
+	HMP.InitSearch(data);
+	
+	data = return obj from an ajax request
+
+	- function fires the content fade in animation after loading ajax request
+	- call this on search box click
+
+	*/
+	window.HMP.InitSearch = function(data){
+					Anims.fireChain('search_return'); // Fire fade in anim
+
+					window.HMP.SearchResults = $('table.search-results'); // Define search results object
+					window.HMP.SearchResults.results = []; // array for results
+
+					/*
+
+					HMP.SearchResults.fireResult(url);
+
+					url = string with http url to load
+
+					- loads the HTML into the content box
+
+					*/
+					window.HMP.SearchResults.fireResult = function(url){
+						$.post(url,function(data){ // ajax call
+							HMP.ContentBox.html(data); // on return, load HTML into content box
+							HMP.InitAddButton();
+						})
+					}
+
+					// Load each result into the SearchResults.results array
+					HMP.SearchResults.find('tr').each(function(i,e){ // for each search row
+						var length = HMP.SearchResults.results.length; // get total results count
+						var return_obj = e; // set return obj result
+						return_obj.url = $(e).attr('data-url'); // set url for return obj
+						window.HMP.SearchResults.results[length] = return_obj; // Add result obj to SearchResults.results array
+
+						$(this).click(function(){ // when search result is clicked
+							HMP.SearchResults.fireResult(HMP.SearchResults.results[length].url); // Fire result with url from row
+						})
+
+					})
+	}
+
+	/* START ADDED 2/10/2015 */
+
+	window.HMP.InitAddButton = function(){
+		var AddBtn = $('.btn#add');
+		AddBtn.click(function(){
+			HMP.Modal.LoadModal('include/record_food.php');
+		})
+	}
+
+	/* END ADDED 2/10/2015 */
+
+	
+
+	// For the main search page!
+	if (UITB_init.dynamic_nav == "#search") {
+		
+		// Add init CSS for searchbox
+		if (ScreenSize == 'mobile') {
+			Anims.addInit('.search-box',{
+				'margin-top': '-30px',
+				'padding-top': '50px'
+			});
+			Anims.addInit('.main-container > .container',{
+				'padding':'0px'
+			})
+		} else {
+			Anims.addInit('.search-box',{
+				'margin-top' : '25%'
+			})
+		}
+
+		Anims.addInit('.content-box',{
+			'opacity':0
+		})
+
+		// Add Click event listener to the search button
+		/*
+
+		NOTE: TO CHANGE FUNCTIONS WHEN YOU SEARCH, EDIT HERE!!!!
+
+		*/
+		$('.search-box').find('button').click(function(e){
+			e.preventDefault();
+			Anims.fireChain('search_submit');
+			var return_url = "include/search_results.php";
+			$.post(return_url,function(data){
+				$('.container').find('.content-box').html(data).ready(function(){
+					HMP.InitSearch(data);
+				})
+			})
+		})
+
+	}
+
+}
+
+
+function hmp_calculator_init(calc_class,item_init){
+	window.HMP.Calculator = $(calc_class);
+	window.HMP.Calculator.Display = HMP.Calculator.find('table');
+	window.HMP.Calculator.Values = {};
+	window.HMP.Calculator.InputArea = HMP.Calculator.find('.calculator-input');
+	window.HMP.Calculator.Input = HMP.Calculator.InputArea.find('input');
+	window.HMP.Calculator.Calculate = HMP.Calculator.find('.calculator-functs #calculate');
+	window.HMP.Calculator.Refresh = HMP.Calculator.find('.calculator-functs #reset');
+	window.HMP.Calculator.ActiveSelection = false;
+	window.HMP.Calculator.ReturnToResults = HMP.Calculator.parents('.item-page').find('.return-results > a');
+
+	window.Item = item_init;
+	window.InitValues = item_init;
+
+    // set up calc values
+    HMP.Calculator.Display.find('tr').each(function(i,e){
+    	var return_obj = {};
+    	return_obj.heading = $(e).find('td.heading');
+    	return_obj.value = $(e).find('td.value');
+    	var row_name = $(e).attr('id');
+    	window.HMP.Calculator.Values[row_name] = return_obj;
+    })
+    // set up calc buttons
+    window.HMP.Calculator.CalcButtons = HMP.Calculator.find('.calculator-buttons');
+    window.HMP.Calculator.CalcSelect = {};
+    HMP.Calculator.find('.calculator-buttons > .btn').each(function(i,e){
+    	var name = $(e).attr('id');
+    	var calcselect = $(e);
+    	calcselect.Measure = $(e).attr('data-measure');
+    	window.HMP.Calculator.CalcSelect[name] = calcselect;
+    	$(e).click(function(e){
+    		if (HMP.Calculator.ActiveSelection == name) {
+    			HMP.Calculator.ReturnActiveSelection();
+    		} else {
+    			HMP.Calculator.SetActiveSelection(name);
+    		}
+    	})
+    })
+    // Set init values for rows
+    $.each(item_init,function(i,val){
+    	if (HMP.Calculator.Values[i]) {
+    		HMP.Calculator.Values[i].value.attr('data-init',val);
+    	}
+    })
+
+    // Some anims
+
+    window.HMP.Calculator.SetActiveSelection = function(name) {
+    	HMP.Calculator.CalcButtons.find('.active').removeClass('active');
+    	HMP.Calculator.CalcSelect[name].addClass('active');
+    	window.HMP.Calculator.ActiveSelection = name;
+    	$.each(HMP.Calculator.Values,function(i,val){
+    		if (i !== name) {
+    			val.value.parent('tr').animate({'opacity':'0.4'},200);
+    		} else {
+    			val.value.parent('tr').animate({'opacity':'1'},200);
+    		}
+    	})
+    	HMP.Calculator.InputArea.find('h3').text(HMP.Calculator.CalcSelect[name].Measure);
+
+    }
+
+    window.HMP.Calculator.ReturnActiveSelection = function(){
+    	HMP.Calculator.CalcButtons.find('.active').removeClass('active');
+    	window.HMP.Calculator.ActiveSelection = false;
+    	$.each(HMP.Calculator.Values,function(i,val){
+    		val.value.parent('tr').animate({'opacity':'1'},200);
+    	})
+    }
+
+	/*
+	================================================================================
+	================================================================================
+	==                                                                            ==
+	==   ABACUS DESIGNS - INTEGRATED CALCULATOR FUNCTION                          ==
+	==                                                                            ==
+	================================================================================
+	================================================================================
+	*/
+	window.HMP.Calculator.RunCalculation = function(funct,value,calc_values){
+
+		if (calc_values == undefined) {
+			return_calc = InitValues;
+		} else {
+		var return_calc = calc_values;
+		}
+
+		var calcValues = {
+			mgperg : return_calc.mgperg,
+			proteinperunit : return_calc.protein,
+			grams : value,
+			phe : value,
+			exchanges : value,
+			sizeRatio : value/return_calc.weight,
+
+				// if you're entering grams
+				exchangegram : return_calc.exchanges/return_calc.weight,
+				calgram : return_calc.calories/return_calc.weight,
+
+				// if you're entering phe
+				exchangesphe : return_calc.exchanges/return_calc.phe,
+				calphe : return_calc.calories/return_calc.phe,
+
+				// if you're entering exchanges
+				pheex : return_calc.phe/return_calc.exchanges,
+				calex : return_calc.calories/return_calc.exchanges,
+				weightex : return_calc.weight/return_calc.exchanges
+			}
+
+			var new_calc = return_calc;
+
+			if (funct == "weight"){
+				new_calc.weight = calcValues.grams;
+				new_calc.phe = Math.round(calcValues.grams * calcValues.mgperg);
+				new_calc.exchanges = Math.round(((calcValues.grams * calcValues.exchangegram)*10))/10; 
+				new_calc.calories = Math.round(calcValues.grams * calcValues.calgram);
+				new_calc.protein = Math.round((calcValues.sizeRatio*calcValues.proteinperunit)*10)/10;
+			} else if (funct == "phe") {
+				new_calc.phe = calcValues.phe;
+				new_calc.weight = Math.round(calcValues.phe / calcValues.mgperg);
+				new_calc.exchanges = Math.round(((calcValues.phe * calcValues.exchangesphe)*10))/10;
+				new_calc.calories = Math.round(calcValues.phe * calcValues.calphe);
+			} else if (funct == "exchanges") {
+				new_calc.exchanges = calcValues.exchanges;
+				new_calc.weight = Math.round(calcValues.exchanges * calcValues.weightex);
+				new_calc.phe = Math.round(((calcValues.exchanges * calcValues.pheex)*10))/10;
+				new_calc.calories = Math.round(calcValues.exchanges * calcValues.calex);
+			}
+
+			window.Item.CurrentCalc = new_calc;
+			HMP.Calculator.UpdateRows(new_calc);
+
+	}
+
+	window.HMP.Calculator.UpdateRows = 	function(data_obj){;
+		HMP.Calculator.Input.val('');
+		HMP.Calculator.Values.phe.value.html(data_obj.phe+"<span>mg</span>");
+		HMP.Calculator.Values.weight.value.html(data_obj.weight+"<span>g</span>");
+		HMP.Calculator.Values.protein.value.html(data_obj.protein+"<span>g</span>");
+		HMP.Calculator.Values.exchanges.value.html(data_obj.exchanges);
+		HMP.Calculator.Values.calories.value.html(data_obj.calories);
+	}
+	/*
+	================================================================================
+	================================================================================
+	=    END ABACUS CALC FUNCTIONS!!                                              ==
+	================================================================================
+	================================================================================
+	*/
+
+	HMP.Calculator.Calculate.click(function(e){
+		e.preventDefault();
+		var value = HMP.Calculator.Input.val();
+		$('.navbar').css('top','0px');
+		HMP.Calculator.RunCalculation(HMP.Calculator.ActiveSelection,value,Item.CurrentCalc);
+		HMP.Calculator.ReturnActiveSelection();
+	})
+
+	HMP.Calculator.Refresh.click(function(e){
+		e.preventDefault();
+		Item.weight = HMP.Calculator.Values.weight.value.attr('data-init');
+		Item.phe = HMP.Calculator.Values.phe.value.attr('data-init');
+		Item.protein = HMP.Calculator.Values.protein.value.attr('data-init');
+		Item.exchanges = HMP.Calculator.Values.exchanges.value.attr('data-init');
+		Item.calories = HMP.Calculator.Values.calories.value.attr('data-init');
+		HMP.Calculator.UpdateRows(Item);
+		HMP.Calculator.ReturnActiveSelection();
+	})
+
+	HMP.Calculator.ReturnToResults.click(function(e){
+		e.preventDefault();
+		$.post('include/search_results.php',function(data){
+				$('.container').find('.content-box').html(data).ready(function(){
+					HMP.InitSearch(data);
+				})
+		})
+	})
+
+}
+
+function hmp_modal_init(){
+	window.HMP.Modal = $('.modal');
+	window.HMP.Modal.Content = HMP.Modal.find('.modal-content');
+
+	window.HMP.Modal.LoadModal = function(url){
+		$.post(url,function(data){
+			HMP.Modal.Content.html(data);
+			HMP.Modal.modal('show');
+
+		})
+	}
+
+	$('.btn#subscribe').click(function(e){
+		e.preventDefault();
+		HMP.Modal.LoadModal('subscribe.php');
+	})
+
+	$('.btn#login').click(function(e){
+		e.preventDefault();
+		HMP.Modal.LoadModal('login.php');
+	})
+
+}
+
+
+$(document).ready(function(){
+	hmp_main_script();
+	hmp_anim_chains();
+	hmp_modal_init();
+	Desktop.iOSfix();
+})

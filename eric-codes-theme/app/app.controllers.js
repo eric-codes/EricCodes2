@@ -92,6 +92,8 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 
 	Log.Value("$scope.LogoURL",$scope.LogoURL);
 
+	$scope.Logo = themeURL + "app/shared/logo-homepage.html";
+
 	$scope.NavIcons = [
 	{
 		name: "About",
@@ -111,6 +113,65 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 	$scope.OpenLink = function(link){
 		window.location.href = link;
 	}
+
+	$scope.BGVidURL = themeURL + "images/background.mp4"
+	$scope.BGVidPoster = themeURL + "assets/images/bg-still.jpg"
+
+	function RunAnimation(){
+
+		var typeSpeed = 200,
+		typeSpeedSlow = typeSpeed * 2,
+		typeSpeedFast = (typeSpeed / 3) * 2;
+
+		function Link(id,speed,callback) {
+			setTimeout(function(){
+				$(id).addClass('in');
+				if (callback) {
+					callback();
+				}
+			},speed);
+		}
+
+		Link('#br_l',typeSpeedSlow,function(){
+			Link('#b_e',typeSpeed,function(){
+				Link('#b_r',typeSpeed,function(){
+					Link('#b_i',typeSpeed,function(){
+						Link('#b_c',typeSpeed,function(){
+							Link('#dot',typeSpeedSlow,function(){
+								Link('#t_c',typeSpeedFast,function(){
+									Link('#t_o',typeSpeedFast,function(){
+										Link('#t_d',typeSpeedFast,function(){
+											Link('#t_e',typeSpeedFast,function(){
+												Link('#t_s',typeSpeedFast,function(){
+													Link('#br_r',typeSpeedSlow);
+												})
+											})
+										})
+									})
+								})
+							})
+						})
+					})
+				})
+			})
+		})
+
+
+	}
+
+	$(document).ready(function(){
+		setTimeout(function(){
+			$('video')[0].play();
+			RunAnimation();
+
+			$('.nav-icon-img').mouseover(function(){
+				$(this).parents('.nav-icon-single').addClass('over');
+			}).mouseout(function(){
+				$(this).parents('.nav-icon-single').removeClass('over');
+			})
+
+		},500);
+	})
 
 }])
 app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
@@ -428,7 +489,15 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     }, 500);
 
+    $scope.GetBackground = function(slug) {
+        return themeURL + "assets/img/" + slug + "/background.jpg"
+    }
+
 }])
+
+/**
+ * @todo INSTALL PRISMJS!
+ */
 
 app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$stateParams', function($scope, $rootScope, breadcrumbs, $stateParams) {
 
@@ -452,6 +521,14 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     $scope.WorkData;
     $scope.Tags;
     $scope.Sections;
+
+    $scope.ContentImgUrl = function(filename,type) {
+        if (type == "hero") {
+            return themeURL + "assets/img/" + $scope.WorkData.slug + "/mockup/" + filename;
+        } else if (type == "gallery") {
+            return themeURL + "assets/img/" + $scope.WorkData.slug + "/" + filename;
+        }
+    }
 
     function UpdateScope() {
         $scope.AllProjects = $rootScope.WorkItems;

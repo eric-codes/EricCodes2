@@ -1,0 +1,77 @@
+{
+    "workData": {
+        "name": "How Much PHE",
+        "slug": "how-much-phe",
+        "title": "how.much.phe",
+        "blurb": "I was commissioned by Abacus Designs to design and develop a front end for their mobile web app, called How Much Phe. How Much Phe is a service that allows their end users to search for foods and retrieve their amino acid content, save food listings, track their amino acid consumption and calculate exactly what they need to eat each day to fulfill their amino acid needs.",
+        "problem": "I was commissioned by Abacus Designs to design and develop a front end for their mobile web app, called How Much Phe. How Much Phe is a service that allows their end users to search for foods and retrieve their amino acid content, save food listings, track their amino acid consumption and calculate exactly what they need to eat each day to fulfill their amino acid needs.",
+        "solution": "I understood the main demographic of the app were mothers and possibly children, so I had to come up with a typographic treatment and color choices that would aesthetically appeal to that demographic. In addition, the user flow had to be intuitive, calculator functions had to be easily accessible and the app as a whole had to be painless for the end users to use.",
+        "tags": [
+            "jquery",
+            "gulp",
+            "uidesign",
+            "backend"
+        ],
+        "hero": [{
+
+            "image": "mockup_tablet.png"
+        }, {
+
+            "image": "mockup_phone.png"
+        }, {
+
+            "image": "mockup_computer.png"
+        }]
+    },
+    "sections": [{
+        "title": "design()",
+        "tags": [
+            "typography",
+            "html5",
+            "css3",
+            "graphicdesign"
+        ]
+    }, {
+        "description": "I chose a warm, welcoming tomato orange as a base color, and coupled it with a few happy cool colors to give it a more playful, child friendly vibe. I went with Source Sans Pro as a type choice because of it’s fantastic on-screen readability and friendly, but serious character. I also created a visual identity for this app, choosing a tall but friendly typeface for the logotype treatment. For the graphic identity, I simplified the chemical model for the phenylalanine amino acid into a circular icon that renders well on all device sizes. Much of the final design work was flat, clean vector imagery that makes things easy to find, with a clean, polished feel."
+    }, {
+        "gallery": [{
+            "thumbnail": "design/color_palette_thumb.jpg",
+            "URL": "design/color_palette.jpg"
+        }, {
+            "thumbnail": "design/typography_thumb.jpg",
+            "URL": "design/typography.jpg"
+        }, {
+            "thumbnail": "design/screen_item_thumb.jpg",
+            "scrollURL": "design/screen_item.jpg"
+        }, {
+            "thumbnail": "design/screen_tracking_thumb.jpg",
+            "scrollURL": "design/screen_tracking.jpg"
+        }, {
+            "thumbnail": "design/screen_search_thumb.jpg",
+            "scrollURL": "design/screen_search.jpg"
+        }, {
+            "thumbnail": "design/screen_tracking2_thumb.jpg",
+            "scrollURL": "design/screen_tracking2.jpg"
+        }]
+    }, {
+        "title": "development()",
+        "tags": [
+            "jquery",
+            "gulp",
+            "backend",
+            "angular"
+        ]
+    }, {
+        "description": "Most of the development I had to do for this project was a mixture of PHP-embedded HTML, jQuery, and good old HTML5/CSS3. I used Bootstrap for a framework in order to simplify the production process and make this app accessible from both the desktop and mobile devices, and all Bootstrap breakpoints were individually treated for optimization on different devices."
+    },{
+        "code": [{
+            "file": "ui-toolbox.js",
+            "lang":"javascript",
+            "location":"how-much-phe"
+        },{
+            "file": "hmp-main.js",
+            "lang":"javascript",
+            "location":"how-much-phe"
+        }]
+    }]
+}
