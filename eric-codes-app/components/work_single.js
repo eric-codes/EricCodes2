@@ -87,8 +87,10 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     }
 
+    $(document).ready(function() {
+        InitHeroSlider();
+    })
 
-    InitHeroSlider();
 
     if ($rootScope.AllData) {
         UpdateScope();

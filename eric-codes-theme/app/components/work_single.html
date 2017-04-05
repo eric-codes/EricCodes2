@@ -38,16 +38,19 @@
 		</div>
 
 		<div class="row hero-image-set">
+
 			<div class="col-sm-4 hero-image-single" ng-repeat="image in WorkData.hero">
 				<div class="hero-image-container">
 					<img class="hero-image" ng-src="{{ContentImgUrl(image.image,'hero')}}"></img>
 				</div>
 			</div>
+
 		</div>
 
 		<div class="row section" ng-repeat="section in Sections">
 
-
+			<a class="cycle next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a class="cycle prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
 
 			<div class="col-sm-6" ng-if="section.title">
 				<h3 class="section-heading">{{WorkData.title}}.<span>{{section.title}}</span></h3>
@@ -94,7 +97,7 @@
 			<div class="clearfix" ng-if="section.textSections || section.textSectionsDouble"></div>
 
 			<div class="col-xs-10 col-sm-12" ng-if="section.code">
-			<code-viewer maindata="section.code"></code-viewer>
+				<code-viewer maindata="section.code"></code-viewer>
 			</div>
 
 			

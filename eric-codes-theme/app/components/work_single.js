@@ -25,7 +25,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     $scope.Tags;
     $scope.Sections;
 
-    $scope.ContentImgUrl = function(filename,type) {
+    $scope.ContentImgUrl = function(filename, type) {
         if (type == "hero") {
             return themeURL + "assets/img/" + $scope.WorkData.slug + "/mockup/" + filename;
         } else if (type == "gallery") {
@@ -42,10 +42,10 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         $scope.Tags = returnTags($scope.ThisData.workData.tags);
         $scope.Sections = $scope.ThisData.sections;
 
-        Log.Set('Tags',$scope.Tags);
+        Log.Set('Tags', $scope.Tags);
 
         breadcrumbs.updateSecondChild({
-            text: '.'+$scope.WorkData.title,
+            text: '.' + $scope.WorkData.title,
             link: "/" + $scope.WorkData.slug
         }, {
             text: ".work",
@@ -53,6 +53,44 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         })
 
     }
+
+    function InitHeroSlider() {
+
+        var HeroImage = $('.hero-image-single');
+
+        HeroImage.eq(0).addClass('open');
+
+
+        $scope.HeroCycleNext = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current + 1;
+
+            if (Next - 1 >= HeroImage.length) {
+                Next = 0;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+
+    }
+
+    $(document).ready(function() {
+        InitHeroSlider();
+    })
+
 
     if ($rootScope.AllData) {
         UpdateScope();
