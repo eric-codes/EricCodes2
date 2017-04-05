@@ -3,3 +3,6 @@ jupiter
 bower_components
 gulp-docs/styles
 docs/styles
+*.jpg
+*.png
+*.PNG

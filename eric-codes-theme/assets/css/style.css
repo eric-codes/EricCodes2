@@ -512,11 +512,18 @@ body.eric-codes.work .text-container p {
 
 body.eric-codes.work .work-item {
     height: 300px;
-    background: #0A0A0A;
     display: flex;
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
+}
+
+body.eric-codes.work .work-item .background-image {
+    position: absolute;
+    z-index: -5;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.4s;
 }
 
 body.eric-codes.work .work-item .work-item-info {
@@ -573,6 +580,10 @@ body.eric-codes.work .work-item:hover .work-item-title {
     opacity: 0;
 }
 
+body.eric-codes.work .work-item:hover .background-image {
+    transform: translateY(-50%) scale(1.1);
+}
+
 body.eric-codes.work .work-item a.btn {
     background-color: #4f8ac8;
 }
@@ -595,11 +606,6 @@ body.eric-codes.work-single .return-area {
 
 body.eric-codes.work-single .page-section:first-child {
     margin-top: 0px;
-}
-
-body.eric-codes.work-single pre {
-    height: 55vh;
-    min-height: 350px;
 }
 
 body.eric-codes.work-single .return-area {
@@ -637,6 +643,19 @@ body.eric-codes.work-single .work-layout .row.section h3.section-heading span {
     color: #4f8ac8;
 }
 
+body.eric-codes.work-single .work-layout .row.section .nav-tabs a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: #4f8ac8;
+}
+
+body.eric-codes.work-single .work-layout .row.section pre {
+    height: 55vh;
+    min-height: 350px;
+    margin-top: 10px;
+}
+
 body.eric-codes.work-single .work-layout .row.section .main-image-container {
     overflow: hidden;
     min-height: 600px;
@@ -648,6 +667,16 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .mai
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+body.eric-codes.work-single .work-layout .row.section .scroll-container {
+    height: 100%;
+    overflow-y: scroll;
+    border: solid #f1f1f1 1px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .scroll-container .scroll-image {
+    width: 100%;
 }
 
 body.eric-codes.work-single .work-layout .row.section p.section-description {
@@ -716,10 +745,8 @@ body.eric-codes.work-single .work-layout .hero-image-container {
 
 body.eric-codes.work-single .work-layout .hero-image-container .hero-image {
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
 }
 
 body.eric-codes.work-single .work-layout .work-icon-container {

@@ -12,10 +12,9 @@
 
 }
 
-pre {
-    height: 55vh;
-    min-height: 350px;
-}
+
+
+
 
 
 
@@ -60,8 +59,18 @@ h2.layout-header {
 
 		}
 
+		.nav-tabs a {
+			font-size: 12px;
+			font-weight: 400;
+			letter-spacing: 0.06em;
+			color: $COLOR_Spot;
+		}
 
-
+		pre {
+			height: 55vh;
+			min-height: 350px;
+			margin-top: 10px;
+		}
 
 		.main-image-container {
 			overflow: hidden;
@@ -72,6 +81,18 @@ h2.layout-header {
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+			}
+
+		}
+
+
+		.scroll-container {
+			height: 100%;
+			overflow-y: scroll;
+			border: solid rgb(241, 241, 241) 1px;
+
+			.scroll-image {
+				width: 100%;
 			}
 
 		}
@@ -157,10 +178,8 @@ h2.layout-header {
 
 		.hero-image {
 			position: relative;
-			left: 50%;
-			transform: translateX(-50%);
-			height: 100%;
-			width: auto;
+			height: auto;
+			width: 100%;
 		}
 
 	}

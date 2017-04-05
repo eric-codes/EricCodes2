@@ -29,13 +29,13 @@
 
         "hero": [{
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_tablet.png"
         }, {
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_phone.png"
         }, {
 
-            "image": "http://placehold.it/500x500"
+            "image": "mockup_computer.png"
         }]
     },
     "sections": [{
@@ -54,29 +54,19 @@
 
         "gallery": [{
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/color_palette_thumb.jpg",
 
-            "URL": "http://placehold.it/1281x1024"
+            "URL": "design/color_palette.jpg"
         }, {
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/typography_thumb.jpg",
 
-            "URL": "http://placehold.it/1282x1024"
+            "URL": "design/typography.jpg"
         }, {
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "design/logo_usage_thumb.jpg",
 
-            "URL": "http://placehold.it/1283x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1284x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1285x1024"
+            "URL": "design/logo_usage.jpg"
         }]
     }, {
 
@@ -137,29 +127,14 @@
 
         "gallery": [{
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "social/socialmedia_1_thumb.jpg",
 
-            "URL": "http://placehold.it/1281x1024"
+            "URL": "social/socialmedia_1.jpg"
         }, {
 
-            "thumbnail": "http://placehold.it/640x480",
+            "thumbnail": "social/socialmedia_2_thumb.jpg",
 
-            "URL": "http://placehold.it/1282x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1283x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1284x1024"
-        }, {
-
-            "thumbnail": "http://placehold.it/640x480",
-
-            "URL": "http://placehold.it/1285x1024"
+            "URL": "social/socialmedia_2.jpg"
         }]
     }]
 }

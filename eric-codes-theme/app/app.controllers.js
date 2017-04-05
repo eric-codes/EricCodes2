@@ -489,6 +489,10 @@ app.controller('work', ['$scope', '$rootScope', 'breadcrumbs', function($scope, 
 
     }, 500);
 
+    $scope.GetBackground = function(slug) {
+        return themeURL + "assets/img/" + slug + "/background.jpg"
+    }
+
 }])
 
 /**
@@ -517,6 +521,14 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     $scope.WorkData;
     $scope.Tags;
     $scope.Sections;
+
+    $scope.ContentImgUrl = function(filename,type) {
+        if (type == "hero") {
+            return themeURL + "assets/img/" + $scope.WorkData.slug + "/mockup/" + filename;
+        } else if (type == "gallery") {
+            return themeURL + "assets/img/" + $scope.WorkData.slug + "/" + filename;
+        }
+    }
 
     function UpdateScope() {
         $scope.AllProjects = $rootScope.WorkItems;

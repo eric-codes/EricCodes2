@@ -1,3 +1,4 @@
+
 /**
  * @file Chisel Cartel Angular Theme Gulp File and Workflow
  * @author Eric.Codes - Eric Cheung - 2016 - 2017
@@ -565,222 +566,96 @@ function commitMsg(bumpType, commit, statusMsg) {
 }
 
 var Git = {
+    Exec: function(arguments, callback) {
+        git.exec({
+            args: arguments
+        }, function(err, std) {
+            if (err) throw err;
+            console.log(std);
+            if (callback) {
+                callback();
+            }
+        });
+    },
     Commit: {
         Current: function(commitMsg, callback) {
             Log.Function('Committing Current');
-            git.exec({
-                args: 'add .'
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-                git.exec({
-                    args: 'commit -m "' + commitMsg + '"'
-                }, function(err, std) {
-                    if (err) throw err;
-                    console.log(std);
-                    git.exec({
-                        args: 'push'
-                    }, function(err, stdout) {
-                        if (err) throw err;
-                        console.log(stdout);
-                        if (callback) {
-                            callback();
-                        }
-                    });
-                });
-
+            Git.Exec('add .', function() {
+                Git.Exec('commit -m "' + commitMsg + '"', function() {
+                    Git.Exec('push', callback);
+                })
             });
         }
     },
     Checkout: {
         Develop: function(callback) {
             Log.Function("Switching to develop");
-            git.exec({
-                args: 'checkout develop'
-            }, function(err, stdout) {
-                if (err) throw err;
-                console.log(stdout);
-                if (callback) {
-                    callback();
-                }
-            });
+            Git.Exec('checkout develop', callback);
         },
         Branch: function(branchName, callback) {
             Log.Function("Switching to " + branchName);
-            git.exec({
-                args: "checkout " + branchName
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-                if (callback) {
-                    callback();
-                }
-            })
+            Git.Exec("checkout " + branchName, callback);
         }
     },
     Create: {
         Feature: function(branchName, callback) {
             Log.Function("Creating feature");
-            git.exec({
-                args: 'checkout -b feature-' + branchName
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-
+            Git.Exec('checkout -b feature-' + branchName, function() {
                 Prompt.Text('featureDescription', 'Description of New Branch: ', function(res) {
-                    git.exec({
-                        args: "add ."
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
+                    Git.Exec("add .", function() {
                         var CommitMsg = commitMsg('minor', res.featureDescription, 'CREATED');
-
-
-                        git.exec({
-                            args: 'commit -m "' + CommitMsg + '"'
-                        }, function(err, std) {
-                            if (err) throw err;
-                            console.log(std);
-
-                            git.exec({
-                                args: 'push --set-upstream origin feature-' + branchName
-                            }, function(err, std) {
-                                if (err) throw err;
-                                console.log(std);
-                                if (callback) {
-                                    callback();
-                                }
-                            })
+                        Git.Exec('commit -m "' + CommitMsg + '"', function() {
+                            Git.Exec('push --set-upstream origin feature-' + branchName, callback);
                         })
                     })
                 })
-
-            });
+            })
         },
         Patch: function(branchName, callback) {
             Log.Function("Creating patch");
-            git.exec({
-                args: 'checkout -b patch-' + branchName
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-
-                Prompt.Text('featureDescription', 'Description of New Branch: ', function(res) {
-                    git.exec({
-                        args: "add ."
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
-                        var CommitMsg = commitMsg('patch', res.featureDescription, 'CREATED');
-
-
-                        git.exec({
-                            args: 'commit -m "' + CommitMsg + '"'
-                        }, function(err, std) {
-                            if (err) throw err;
-                            console.log(std);
-
-                            git.exec({
-                                args: 'push --set-upstream origin patch-' + branchName
-                            }, function(err, std) {
-                                if (err) throw err;
-                                console.log(std);
-                                if (callback) {
-                                    callback();
-                                }
-                            })
+            Git.Exec('checkout -b patch-' + branchName, function() {
+                Prompt.Text('patchDescription', 'Description of New Branch: ', function(res) {
+                    Git.Exec("add .", function() {
+                        var CommitMsg = commitMsg('patch', res.patchDescription, 'CREATED');
+                        Git.Exec('commit -m "' + CommitMsg + '"', function() {
+                            Git.Exec('push --set-upstream origin patch-' + branchName, callback);
                         })
                     })
                 })
-
-            });
+            })
         },
     },
     Merge: {
         To: {
             Develop: function(CurrentBranch, callback) {
                 Log.Function("Merging to develop");
-
-                git.exec({
-                    args: "merge --no-ff " + CurrentBranch
-                }, function(err, std) {
-                    if (err) throw err;
-                    console.log(std);
-
-                    git.exec({
-                        args: "push"
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
+                Git.Exec("merge --no-ff " + CurrentBranch, function() {
+                    Git.Exec("push", function() {
                         if (callback) {
                             callback();
                         }
-
                     })
-
                 })
-
             },
             Master: function(callback) {
                 Log.Function("Merging to master");
-                git.exec({
-                    args: "checkout master"
-                }, function(err, std) {
-                    if (err) throw err;
-                    console.log(std);
 
-                    git.exec({
-                        args: "merge --no-ff develop"
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
-                        git.exec({
-                            args: "push"
-                        }, function(err, std) {
-                            if (err) throw err;
-                            console.log(std);
-
-                            if (callback) {
-                                callback();
-                            }
-                        })
+                Git.Exec("checkout master", function() {
+                    Git.Exec("merge --no-ff develop", function() {
+                        Git.Exec("push", callback);
                     })
                 })
+
             }
         }
     },
     Cleanup: {
         Release: function(releaseBranch, callback) {
             Log.Function('Cleaning up release');
-            git.exec({
-                args: "branch -d " + releaseBranch
-            }, function(err, std) {
-                if (err) throw err;
-                console.log(std);
-
-                git.exec({
-                    args: "checkout develop"
-                }, function(err, std) {
-                    if (err) throw err;
-                    console.log(std);
-
-                    git.exec({
-                        args: "merge --no-ff master"
-                    }, function(err, std) {
-                        if (err) throw err;
-                        console.log(std);
-
-                        git.exec({
-                            args: "push"
-                        }, function(err, std) {
-                            if (err) throw err;
-                            console.log(std);
-                            if (callback) callback();
-                        })
+            Git.Exec("branch -d " + releaseBranch,function(){
+                Git.Exec("checkout develop",function(){
+                    Git.Exec("merge --no-ff master",function(){
+                        Git.Exec("push",callback);
                     })
                 })
             })

@@ -19,11 +19,14 @@
             "uidesign"
         ],
         "hero": [{
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_tablet.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_phone.png"
         }, {
-            "image": "http://placehold.it/500x500"
+
+            "image": "mockup_computer.png"
         }]
     },
     "sections": [{
@@ -53,21 +56,25 @@
         }]
 
     }, {
+
         "gallery": [{
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1281x1024"
+            "thumbnail": "website/color_palette_thumb.jpg",
+            "URL": "website/color_palette.jpg"
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1282x1024"
+            "thumbnail": "website/typography_thumb.jpg",
+            "URL": "website/typography.jpg"
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1283x1024"
+            "thumbnail": "website/homepage_thumb.jpg",
+            "scrollURL": "website/homepage.jpg"
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1284x1024"
+            "thumbnail": "website/advertisers_thumb.jpg",
+            "scrollURL": "website/advertisers.jpg"
         }, {
-            "thumbnail": "http://placehold.it/640x480",
-            "URL": "http://placehold.it/1285x1024"
+            "thumbnail": "website/email_thumb.jpg",
+            "scrollURL": "website/email.jpg"
+        }, {
+            "thumbnail": "website/flexpath_thumb.jpg",
+            "scrollURL": "website/flexpath.jpg"
         }]
     }, {
         "title": "email.registration",
@@ -110,12 +117,18 @@
         "problem" : "Because of an outdated content management system, updating the content websites was incredibly complicated and cumbersome. When I arrived at Flex, it took them on average about 2 - 4 days to create a new content website variation, and 6 months to develop a templating system for the variations.",
         "solution" : "I created a Gulp script to handle processing SASS into CSS for upload, organization and tidying of file structure, a polished local-side development system powered by the Gulp file, and archiving and organizing assets to be uploaded to their CMS, reducing their output time from 2 - 4 days per property to an average of 5 minutes to an hour, depending on the complexity of variations and changes, and reduced the time to develop new features from 6 months to two to three weeks.",
 
-        "textSections": [{
+        "textSectionsDouble": [{
             "title": "tokenSystem()",
             "description": "A token system was implemented in order to create the local-side development system. I took their existing layouts, replaced their tokens with my own tokens that were identified by the Gulp file to produce full pages based on the tokens. When activated, the Gulp file created both a version that was viewable and easily editable on the local computers, as well as a version that had the correct tokens and file structures to be integrated seamlessly into the main CMS. Tokens were managed via a main JSON file that was easily configurable."
         }, {
             "title": "SASSSystem()",
             "description": "In order to alleviate the stress of having to copy and paste and find values to create page variations, I taught the development team SASS and converted their existing CSS into clean SASS files, complete with variables and options for them to be easily edited. I then integrated into the Gulp file functions that allowed exporting and compiling specific variations based on ID."
+        }]
+    }, {
+        "code": [{
+            "file": "gulpfile.js",
+            "lang":"javascript",
+            "location":"flex-marketing"
         }]
     }]
 }
