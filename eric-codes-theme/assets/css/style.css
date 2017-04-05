@@ -581,7 +581,7 @@ body.eric-codes.work .work-item:hover .work-item-title {
 }
 
 body.eric-codes.work .work-item:hover .background-image {
-    transform: translateY(-50%) scale(1.2);
+    transform: translateY(-50%) scale(1.1);
 }
 
 body.eric-codes.work .work-item a.btn {
