@@ -75,7 +75,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
             var Next = Current + 1;
 
-            if (Next >= HeroImage.length - 1) {
+            if (Next >= HeroImage.length) {
                 Next = 0;
             }
 
