@@ -1,17 +1,19 @@
-<div class="col-sm-8">
-	<div class="main-image-container">
-		<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
-		<div class="scroll-container" ng-if="currentSlide.scrollURL">
-			<img class="scroll-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
+<div class="row">
+	<div class="col-sm-8">
+		<div class="main-image-container">
+			<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
+			<div class="scroll-container" ng-if="currentSlide.scrollURL">
+				<img class="scroll-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="col-sm-4">
-	<div class="image-thumbs row">
-		<div class="col-xs-6" ng-repeat="image in maindata">
-			<div class="image-thumb">
-				<img class="image-thumb-img" ng-src="{{GetImage(image.thumbnail)}}" ng-click="ChangeSlide($index)"></img>
+	<div class="col-sm-4">
+		<div class="image-thumbs row">
+			<div class="col-xs-6" ng-repeat="image in maindata">
+				<div class="image-thumb">
+					<img class="image-thumb-img" ng-src="{{GetImage(image.thumbnail)}}" ng-click="ChangeSlide($index)"></img>
+				</div>
 			</div>
 		</div>
 	</div>
