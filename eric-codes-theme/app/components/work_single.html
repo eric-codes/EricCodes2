@@ -25,11 +25,11 @@
 
 		<div class="row description">
 			<div class="col-sm-6" ng-if="WorkData.problem">
-				<h4>{{WorkData.title}}.<span>problem()</span></h4>
+				<h4><span class="hidden-xs">{{WorkData.title}}.</span><span>problem()</span></h4>
 				<p>{{WorkData.problem}}</p>
 			</div>
 			<div class="col-sm-6" ng-if="WorkData.solution">
-				<h4>{{WorkData.title}}.<span>solution()</span></h4>
+				<h4><span class="hidden-xs">{{WorkData.title}}.</span><span>solution()</span></h4>
 				<p>{{WorkData.solution}}</p>
 			</div>
 			<div class="col-xs-12" ng-if="WorkData.description">
@@ -71,12 +71,12 @@
 			</div>
 
 			<div class="col-sm-6" ng-if="section.problem">
-				<h4 class="sub-heading"><span class="hidden-xs">{{section.title}}.</span><span class="blue-span">problem()</span></h4>
+				<h4 class="sub-heading"><span>{{section.title}}.</span><span class="blue-span">problem()</span></h4>
 				<p class="sub-section-description">{{section.problem}}</p>
 			</div>
 
 			<div class="col-sm-6" ng-if="section.solution">
-				<h4><span class="hidden-xs">{{section.title}}.</span><span class="blue-span">solution()</span></h4>
+				<h4><span>{{section.title}}.</span><span class="blue-span">solution()</span></h4>
 				<p>{{section.solution}}</p>
 			</div>
 
@@ -92,7 +92,7 @@
 			</div>
 
 			<div class="col-sm-6" ng-repeat="textSection in section.textSectionsDouble" ng-if="section.textSectionsDouble">
-				<h4 class="sub-heading"><span class="hidden-xs">{{section.title}}.</span><span class="blue-span">{{textSection.title}}</span></h4>
+				<h4 class="sub-heading"><span>{{section.title}}.</span><span class="blue-span">{{textSection.title}}</span></h4>
 				<p class="sub-section-description">{{textSection.description}}</p>
 			</div>
 
