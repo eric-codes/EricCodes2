@@ -864,6 +864,10 @@ body.eric-codes.contact .contact-form textarea {
 
 /* responsive */
 @media (max-width: 768px) {
+    body.eric-codes .no-padding {
+        padding: 0px !important;
+    }
+
     body.eric-codes h1.top-title {
         font-size: 28px;
         margin-top: 40px;
