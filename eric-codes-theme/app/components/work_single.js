@@ -98,7 +98,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
             var Next = Current - 1;
 
-            if (Next <= 0) {
+            if (Next < 0) {
                 Next = HeroImage.length - 1;
             }
 
@@ -109,7 +109,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
         function FireCycle() {
             setTimeout(function(){
-                HeroCycleNext();
+                $scope.HeroCycleNext();
                 FireCycle();
             },3000);
         }
