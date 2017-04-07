@@ -76,6 +76,8 @@ h2.layout-header {
 			overflow: hidden;
 			min-height: 600px;
 			height: 70vh;
+			background: darken($COLOR_Bg, 5%);
+
 			.main-image {
 				width: 100%;
 				position: relative;

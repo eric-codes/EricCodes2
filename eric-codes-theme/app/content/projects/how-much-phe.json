@@ -36,22 +36,34 @@
     }, {
         "gallery": [{
             "thumbnail": "design/color_palette_thumb.jpg",
-            "URL": "design/color_palette.jpg"
+            "URL": "design/color_palette.jpg",
+            "title": "Color Swatches",
+            "description": "Color scheme and usage"
         }, {
             "thumbnail": "design/typography_thumb.jpg",
-            "URL": "design/typography.jpg"
+            "URL": "design/typography.jpg",
+            "title": "Typography",
+            "description": "Source Sans Pro & Pathway Gothic"
         }, {
             "thumbnail": "design/screen_item_thumb.jpg",
-            "scrollURL": "design/screen_item.jpg"
+            "scrollURL": "design/screen_item.jpg",
+            "title": "Food Item View",
+            "description": "Desktop view for individual food item"
         }, {
             "thumbnail": "design/screen_tracking_thumb.jpg",
-            "scrollURL": "design/screen_tracking.jpg"
+            "scrollURL": "design/screen_tracking.jpg",
+            "title": "Tracking View",
+            "description": "Amino acid tracking for individual user"
         }, {
             "thumbnail": "design/screen_search_thumb.jpg",
-            "scrollURL": "design/screen_search.jpg"
+            "scrollURL": "design/screen_search.jpg",
+            "title": "Search view",
+            "description": "Search view for foods"
         }, {
             "thumbnail": "design/screen_tracking2_thumb.jpg",
-            "scrollURL": "design/screen_tracking2.jpg"
+            "scrollURL": "design/screen_tracking2.jpg",
+            "title": "Tracking Graph",
+            "description": "Tracking graph for individual user"
         }]
     }, {
         "title": "development()",

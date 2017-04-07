@@ -660,6 +660,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container {
     overflow: hidden;
     min-height: 600px;
     height: 70vh;
+    background: #ececec;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
