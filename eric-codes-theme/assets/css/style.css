@@ -661,6 +661,30 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container {
     min-height: 600px;
     height: 70vh;
     background: #ececec;
+    position: relative;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
+    position: absolute;
+    bottom: 20px;
+    z-index: 100;
+    background: rgba(25, 25, 25, 0.8);
+    color: white;
+    padding: 15px 25px;
+    left: 20px;
+    border-radius: 3px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description h3 {
+    margin: 5px 0px 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description p {
+    margin-bottom: 0px;
+    font-size: 14px;
+    letter-spacing: 0.055em;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
