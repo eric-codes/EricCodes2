@@ -59,22 +59,34 @@
 
         "gallery": [{
             "thumbnail": "website/color_palette_thumb.jpg",
-            "URL": "website/color_palette.jpg"
+            "URL": "website/color_palette.jpg",
+            "title": "Color Swatches",
+            "description": "Color scheme and usage"
         }, {
             "thumbnail": "website/typography_thumb.jpg",
-            "URL": "website/typography.jpg"
+            "URL": "website/typography.jpg",
+            "title": "Typography",
+            "description": "Karla and Lato"
         }, {
             "thumbnail": "website/homepage_thumb.jpg",
-            "scrollURL": "website/homepage.jpg"
+            "scrollURL": "website/homepage.jpg",
+            "title": "Home Page",
+            "description": "Home Page content"
         }, {
             "thumbnail": "website/advertisers_thumb.jpg",
-            "scrollURL": "website/advertisers.jpg"
+            "scrollURL": "website/advertisers.jpg",
+            "title": "Advertisers Page",
+            "description": "Business pitch for advertisers"
         }, {
             "thumbnail": "website/email_thumb.jpg",
-            "scrollURL": "website/email.jpg"
+            "scrollURL": "website/email.jpg",
+            "title": "Email Service",
+            "description": "Web infographic for email service"
         }, {
             "thumbnail": "website/flexpath_thumb.jpg",
-            "scrollURL": "website/flexpath.jpg"
+            "scrollURL": "website/flexpath.jpg",
+            "title": "FlexPATH",
+            "description": "Web infographic for affiliate service"
         }]
     }, {
         "title": "email.registration",
