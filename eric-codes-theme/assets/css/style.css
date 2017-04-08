@@ -666,13 +666,14 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container {
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     z-index: 100;
     background: rgba(25, 25, 25, 0.8);
     color: white;
     padding: 15px 40px 15px 25px;
-    left: 20px;
-    border-radius: 3px;
+    left: 0px;
+    border-radius: 0px 3px 3px 0px;
+    transition: 0.5s;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description h3 {
@@ -685,6 +686,14 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .ima
     margin-bottom: 0px;
     font-size: 14px;
     letter-spacing: 0.055em;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description span.toggle-caret {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
