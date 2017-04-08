@@ -89,6 +89,8 @@ h2.layout-header {
 				left: 0px;
 				border-radius: 0px 3px 3px 0px;
 				transition:0.5s;
+				max-width: 400px;
+				width: 100%;
 
 				h3 {
 					margin: 5px 0px 15px;
@@ -109,6 +111,17 @@ h2.layout-header {
 					transform: translateY(-50%);
 					transition:0.5s;
 				}
+
+
+				&.closed {
+					left: -370px;
+
+					.toggle-caret {
+						transform: translateY(-50%) rotate(180deg);
+					}
+
+				}
+
 
 			}
 
