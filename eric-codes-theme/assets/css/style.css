@@ -1234,11 +1234,10 @@ body.eric-codes.contact .contact-form textarea {
     }
 
     body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
-        width: auto;
-        height: 100%;
-        top: initial;
-        left: 50%;
-        transform: translateY(0) translateX(-50%);
+        width: 100%;
+        height: auto;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     body.eric-codes.work-single .work-layout .row.section h3.section-heading {

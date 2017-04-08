@@ -408,15 +408,26 @@ body.eric-codes {
 					min-height: initial;
 					height: 300px;
 					margin-bottom: 30px;
+
+
+					.image-description {
+						bottom:0px;
+
+						&.closed {
+							left: calc(-100% + 30px);
+						}
+					}
+
+					.main-image {
+						width: auto;
+						height: 100%;
+						top: initial;
+						left: 50%;
+						transform: translateY(0) translateX(-50%);
+					}
 				}
 
-				.main-image-container .main-image {
-					width: auto;
-					height: 100%;
-					top: initial;
-					left: 50%;
-					transform: translateY(0) translateX(-50%);
-				}
+
 
 				h3.section-heading {
 					font-size: 16px;
