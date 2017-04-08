@@ -670,7 +670,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .ima
     z-index: 100;
     background: rgba(25, 25, 25, 0.8);
     color: white;
-    padding: 15px 25px;
+    padding: 15px 40px 15px 25px;
     left: 20px;
     border-radius: 3px;
 }
