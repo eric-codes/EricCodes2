@@ -419,11 +419,10 @@ body.eric-codes {
 					}
 
 					.main-image {
-						width: auto;
-						height: 100%;
-						top: initial;
-						left: 50%;
-						transform: translateY(0) translateX(-50%);
+						width: 100%;
+						height: auto;
+						top: 50%;
+						transform: translateY(-50%);
 					}
 				}
 
