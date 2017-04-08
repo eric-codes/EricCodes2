@@ -1,8 +1,8 @@
 
 	<div class="col-sm-8 no-padding">
 		<div class="main-image-container">
-		<div class="image-description" ng-if="currentSlide.title || currentSlide.description">
-			<span class="toggle-caret" ng-class="DescriptionOpen" ng-click="ToggleBox()"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+		<div class="image-description" ng-class="DescriptionOpen" ng-if="currentSlide.title || currentSlide.description">
+			<span class="toggle-caret" ng-click="ToggleBox()"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
 			<h3 ng-if="currentSlide.title">{{currentSlide.title}}</h3>
 			<p ng-if="currentSlide.description">{{currentSlide.description}}</p>
 		</div>
