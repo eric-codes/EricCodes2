@@ -733,6 +733,9 @@ body.eric-codes.work-single .work-layout .row.section .image-thumb {
     overflow: hidden;
     height: 15vh;
     margin-bottom: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 body.eric-codes.work-single .work-layout .row.section .image-thumb .image-thumb-img {
@@ -740,6 +743,27 @@ body.eric-codes.work-single .work-layout .row.section .image-thumb .image-thumb-
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb .description {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover {
+    transform: scale(1.05);
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover .description {
+    bottom: -1px;
 }
 
 body.eric-codes.work-single .work-layout .row.section h4.sub-heading {
