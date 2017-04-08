@@ -36,6 +36,11 @@ function TemplateGet($input) {
 
 </head>
 <body ng-app="EricCodes" ng-class="BodyClass" class="eric-codes">
+
+<div class="modal-container">
+	
+</div>
+
 <div ng-controller="CoreController"></div> 
 
 <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
