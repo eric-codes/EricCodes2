@@ -276,8 +276,9 @@ body.eric-codes .modal-container {
     width: 100vw;
     height: 100vh;
     left: 0px;
-    top: 0px;
+    top: 100%;
     background: rgba(0, 0, 0, 0.9);
+    transition: 0.5s;
 }
 
 body.eric-codes .modal-container .modal-inside {
@@ -297,6 +298,11 @@ body.eric-codes .modal-container .modal-inside .modal-image-container {
 body.eric-codes .modal-container .modal-inside .modal-image-container img.modal-image {
     max-width: 100%;
     max-height: 100%;
+    border-radius: 1px;
+}
+
+body.eric-codes .modal-container.open {
+    top: 0px;
 }
 
 body.eric-codes.homepage .page-section {

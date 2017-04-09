@@ -1,6 +1,6 @@
 
 
-app.directive('workGallery', function(){
+app.directive('workGallery', ['modal', function(modal){
 
 	function link_return(scope,elem,attr){
 
@@ -42,6 +42,10 @@ app.directive('workGallery', function(){
 			return themeURL + "assets/img/" + scope.workdata.slug + "/" + filename;
 		}
 
+		scope.OpenModal = function(){
+			modal.Open();
+		}
+
 	}
 
 	// Runs during compile
@@ -54,4 +58,4 @@ app.directive('workGallery', function(){
 		 templateUrl: GetShared('work-gallery'),
 		 link: link_return
 	};
-});
+}]);

@@ -41,11 +41,11 @@ function TemplateGet($input) {
 
 
 
-	<div class="modal-container" ng-controller="modal">
+	<div class="modal-container" ng-controller="modalController" ng-class="ModalStatus">
 
 		<div class="modal-inside">
 
-		<span class="close-modal"><i class="fa fa-times" aria-hidden="true"></i></span>
+		<span class="close-modal" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
 
 			<div class="modal-image-container">
 				<img class="modal-image" src="http://placehold.it/1920x1080"></img>
