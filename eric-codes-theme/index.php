@@ -45,6 +45,8 @@ function TemplateGet($input) {
 
 		<div class="modal-inside">
 
+		<span class="close-modal"><i class="fa fa-times" aria-hidden="true"></i></span>
+
 			<div class="modal-image-container">
 				<img class="modal-image" src="http://placehold.it/1920x1080"></img>
 			</div>
