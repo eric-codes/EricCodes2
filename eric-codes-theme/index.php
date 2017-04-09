@@ -37,60 +37,67 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes" ng-class="BodyClass" class="eric-codes">
 
-<div class="modal-container" ng-controller="modal">
-	
-<div class="modal-inside">
-	
-<div class="modal-image-container">
-	<img class="modal-image" src="http://placehold.it/1920x1080"></img>
-</div>
-
-</div>
-
-</div>
-
-<div ng-controller="CoreController"></div> 
-
-<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
-	<div class="container">
+	<div ng-controller="CoreController"></div> 
 
 
-		<div class="pull-left logo-area">
-			<span class="logo-type">
-			<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
-			</span>
-		</div>
 
-		<div class="pull-right icon-area">
+	<div class="modal-container" ng-controller="modal">
 
-		<icon-drawer maindata="NavBar"></icon-drawer>
+		<div class="modal-inside">
+
+			<div class="modal-image-container">
+				<img class="modal-image" src="http://placehold.it/1920x1080"></img>
+			</div>
 
 		</div>
 
 	</div>
-</nav>
+
+
+
+	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
+		<div class="container">
+
+
+			<div class="pull-left logo-area">
+				<span class="logo-type">
+					<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
+				</span>
+			</div>
+
+			<div class="pull-right icon-area">
+
+				<icon-drawer maindata="NavBar"></icon-drawer>
+
+			</div>
+
+		</div>
+	</nav>
+
+
 
 	<section ui-view class="main-page-section">
 
-
-
 	</section>
+
+
+
 
 	<footer ng-if="Footer">
 		
-	<div class="container">
-		<div class="pull-left">
-			
-		<span class="footer-text">2010 - 2017 Eric.Codes</span>
-		<social-icons class="social"></social-icons>
-		</div>
-		<div class="pull-right">
-			
-			<a class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+		<div class="container">
+			<div class="pull-left">
 
+				<span class="footer-text">2010 - 2017 Eric.Codes</span>
+				<social-icons class="social"></social-icons>
+			</div>
+			<div class="pull-right">
+
+				<a class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
-	</div>
 
 	</footer>
 

@@ -270,6 +270,35 @@ body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
     color: #333;
 }
 
+body.eric-codes .modal-container {
+    position: fixed;
+    z-index: 5000;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+body.eric-codes .modal-container .modal-inside {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-image-container {
+    width: calc(100% - 80px);
+    height: calc(100% - 140px);
+    overflow: hidden;
+    margin: 40px;
+    text-align: center;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-image-container img.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 body.eric-codes.homepage .page-section {
     display: flex;
     height: 100vh;
