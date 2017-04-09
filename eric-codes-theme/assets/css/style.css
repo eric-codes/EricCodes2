@@ -986,6 +986,25 @@ body.eric-codes.contact .contact-form textarea {
         margin-top: 40px;
     }
 
+    body.eric-codes .modal-container {
+        transform: rotate(90deg);
+        width: 100vh;
+        height: 100vw;
+        transform-origin: 0 0;
+        top: 0px;
+        left: 0px;
+    }
+
+    body.eric-codes .modal-container.open {
+        left: 100%;
+    }
+
+    body.eric-codes .modal-container .modal-inside .modal-image-container {
+        width: 100%;
+        height: calc(100% - 60px);
+        margin: 30px;
+    }
+
     body.eric-codes .navbar-default .icon-area .icon-drawer {
         background: #444444;
         margin-top: -10px;

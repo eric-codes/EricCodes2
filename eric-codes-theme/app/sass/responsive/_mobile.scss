@@ -9,6 +9,29 @@ body.eric-codes {
 		margin-top: 40px;
 	}
 
+	.modal-container {
+		transform: rotate(90deg);
+		width: 100vh;
+		height: 100vw;
+		transform-origin: 0 0;
+		top: 0px;
+		left: 0px;
+
+		&.open {
+			left: 100%;
+		}
+
+		.modal-inside .modal-image-container {
+			width: 100%;
+			height: calc(100% - 60px);
+			margin: 30px;
+		}
+
+
+	}
+
+
+
 
 	.navbar-default {
 		.icon-area {

@@ -51,6 +51,10 @@ function TemplateGet($input) {
 				<img class="modal-image" ng-src="{{GetImage(ModalSettings.URL)}}"></img>
 			</div>
 
+			<div class="modal-scroll-image-container" ng-if="ModalSettings.scrollURL">
+				<img class="modal-scroll-image" ng-src="{{GetImage(ModalSettings.scrollURL)}}"></img>
+			</div>
+
 		</div>
 
 	</div>
