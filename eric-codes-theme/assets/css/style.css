@@ -285,6 +285,15 @@ body.eric-codes .modal-container .modal-inside {
     display: flex;
     height: 100%;
     width: 100%;
+    position: relative;
+}
+
+body.eric-codes .modal-container .modal-inside span.close-modal {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    color: white;
+    font-size: 18px;
 }
 
 body.eric-codes .modal-container .modal-inside .modal-image-container {

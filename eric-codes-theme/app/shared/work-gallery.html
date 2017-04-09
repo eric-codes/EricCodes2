@@ -6,9 +6,9 @@
 			<h3 ng-if="currentSlide.title">{{currentSlide.title}}</h3>
 			<p ng-if="currentSlide.description">{{currentSlide.description}}</p>
 		</div>
-			<img class="main-image" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
+			<img class="main-image" ng-click="OpenModal()" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL"></img>
 			<div class="scroll-container" ng-if="currentSlide.scrollURL">
-				<img class="scroll-image" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
+				<img class="scroll-image" ng-click="OpenModal()" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
 			</div>
 		</div>
 	</div>
