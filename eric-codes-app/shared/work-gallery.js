@@ -31,7 +31,7 @@ app.directive('workGallery', ['modalService', function(modalService){
 			DescriptionBox.Toggle();
 		}
 
-		scope.currentSlide = scope.maindata[1];
+		scope.currentSlide = scope.maindata[0];
 
 		scope.ChangeSlide = function(i){
 			Log.Msg('Gallery item clicked!');
@@ -43,7 +43,7 @@ app.directive('workGallery', ['modalService', function(modalService){
 		}
 
 		scope.OpenModal = function(){
-			modalService.Open();
+			modalService.Open(scope.currentSlide);
 		}
 
 	}
