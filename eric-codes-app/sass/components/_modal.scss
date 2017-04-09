@@ -38,6 +38,20 @@
 
         }
 
+        .modal-scroll-image-container {
+            width: 100%;
+            text-align: center;
+            padding: 40px;
+            overflow-y: scroll;
+
+            .modal-scroll-image {
+                max-width: 100%;
+                border-radius: 1px;
+            }
+        }
+
+
+
 
     }
 

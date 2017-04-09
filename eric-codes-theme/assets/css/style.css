@@ -310,6 +310,18 @@ body.eric-codes .modal-container .modal-inside .modal-image-container img.modal-
     border-radius: 1px;
 }
 
+body.eric-codes .modal-container .modal-inside .modal-scroll-image-container {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    overflow-y: scroll;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-scroll-image-container .modal-scroll-image {
+    max-width: 100%;
+    border-radius: 1px;
+}
+
 body.eric-codes .modal-container.open {
     top: 0px;
 }
@@ -756,6 +768,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .mai
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
 body.eric-codes.work-single .work-layout .row.section .scroll-container {
@@ -766,6 +779,7 @@ body.eric-codes.work-single .work-layout .row.section .scroll-container {
 
 body.eric-codes.work-single .work-layout .row.section .scroll-container .scroll-image {
     width: 100%;
+    cursor: pointer;
 }
 
 body.eric-codes.work-single .work-layout .row.section p.section-description {
