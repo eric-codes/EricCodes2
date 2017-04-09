@@ -39,7 +39,7 @@ function TemplateGet($input) {
 
 <div class="modal-container" ng-controller="modal">
 	
-<div class="modal-content">
+<div class="modal-inside">
 	
 <div class="modal-image-container">
 	<img class="modal-image" src="http://placehold.it/1920x1080"></img>
