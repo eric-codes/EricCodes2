@@ -1,6 +1,6 @@
 
 
-app.directive('workGallery', ['modal', function(modal){
+app.directive('workGallery', ['modalService', function(modalService){
 
 	function link_return(scope,elem,attr){
 
@@ -43,7 +43,7 @@ app.directive('workGallery', ['modal', function(modal){
 		}
 
 		scope.OpenModal = function(){
-			modal.Open();
+			modalService.Open();
 		}
 
 	}
