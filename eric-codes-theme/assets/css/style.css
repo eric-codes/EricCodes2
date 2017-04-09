@@ -696,6 +696,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .ima
     top: 50%;
     transform: translateY(-50%);
     transition: 0.5s;
+    cursor: pointer;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description.closed {
