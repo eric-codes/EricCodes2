@@ -1,4 +1,4 @@
-app.factory('modal', ['$rootScope', function($rootScope){
+app.factory('modalService', ['$rootScope', function($rootScope){
 
 	var scope = {};
 

@@ -1,4 +1,4 @@
-app.controller('modalController', ['$scope', "modal", '$rootScope', function($scope, $rootScope, modal) {
+app.controller('modalController', ['$scope', '$rootScope', "modal", function($scope, $rootScope, modal) {
 
     $rootScope.ModalSettings;
     $rootScope.ModalToggle = false;

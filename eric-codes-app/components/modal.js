@@ -1,4 +1,4 @@
-app.controller('modalController', ['$scope', '$rootScope', "modal", function($scope, $rootScope, modal) {
+app.controller('modalController', ['$scope', '$rootScope', "modalService", function($scope, $rootScope, modalService) {
 
     $rootScope.ModalSettings;
     $rootScope.ModalToggle = false;
@@ -22,7 +22,7 @@ app.controller('modalController', ['$scope', '$rootScope', "modal", function($sc
     }
 
     $scope.CloseModal = function(){
-    	modal.Close();
+    	modalService.Close();
     }
 
     $rootScope.$watch('ModalSettings', function(newv, oldv) {
