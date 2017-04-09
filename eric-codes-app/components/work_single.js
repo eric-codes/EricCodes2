@@ -14,7 +14,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     var ThisSlug = $stateParams.workSlug;
 
-
+    $rootScope.ModalSlug = $stateParams.workSlug;
 
 
     $scope.AllProjects;

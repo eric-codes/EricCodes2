@@ -1,6 +1,7 @@
 app.controller('modalController', ['$scope', '$rootScope', "modalService", function($scope, $rootScope, modalService) {
 
     $rootScope.ModalSettings;
+    $rootScope.ModalSlug;
     $rootScope.ModalToggle = false;
 
     $scope.ModalSettings;
@@ -18,7 +19,7 @@ app.controller('modalController', ['$scope', '$rootScope', "modalService", funct
     }
 
     $scope.GetImage = function(filename) {
-        return themeURL + "assets/img/" + $scope.ModalSettings.slug + "/" + filename;
+        return themeURL + "assets/img/" + $rootScope.ModalSlug + "/" + filename;
     }
 
     $scope.CloseModal = function(){
