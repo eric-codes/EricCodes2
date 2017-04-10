@@ -90,7 +90,7 @@ function TemplateGet($input) {
 
 
 
-	<footer ng-if="Footer">
+	<footer ng-if="Footer" ng-controller="footer">
 		
 		<div class="container">
 			<div class="pull-left">
@@ -100,7 +100,7 @@ function TemplateGet($input) {
 			</div>
 			<div class="pull-right">
 
-				<a class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+				<a class="back-to-top" ng-click="ScrollToTop()"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 
 			</div>
 			<div class="clearfix"></div>
