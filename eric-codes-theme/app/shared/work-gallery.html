@@ -16,8 +16,8 @@
 	<div class="col-sm-4">
 		<div class="image-thumbs row">
 			<div class="col-xs-6" ng-repeat="image in maindata">
-				<div class="image-thumb">
-					<img class="image-thumb-img" ng-src="{{GetImage(image.thumbnail)}}" ng-click="ChangeSlide($index)"></img>
+				<div class="image-thumb" ng-click="ChangeSlide($index)">
+					<img class="image-thumb-img" ng-src="{{GetImage(image.thumbnail)}}" ></img>
 					<div class="description">{{image.title}}</div>
 				</div>
 			</div>

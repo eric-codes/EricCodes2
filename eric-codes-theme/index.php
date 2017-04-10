@@ -47,11 +47,11 @@ function TemplateGet($input) {
 
 		<span class="close-modal" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-			<div class="modal-image-container" ng-if="ModalSettings.URL">
+			<div class="modal-image-container" ng-click="CloseModal()" ng-if="ModalSettings.URL">
 				<img class="modal-image" ng-src="{{GetImage(ModalSettings.URL)}}"></img>
 			</div>
 
-			<div class="modal-scroll-image-container" ng-if="ModalSettings.scrollURL">
+			<div class="modal-scroll-image-container" ng-click="CloseModal()" ng-if="ModalSettings.scrollURL">
 				<img class="modal-scroll-image" ng-src="{{GetImage(ModalSettings.scrollURL)}}"></img>
 			</div>
 
