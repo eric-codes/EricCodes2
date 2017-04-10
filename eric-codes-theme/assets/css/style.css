@@ -259,6 +259,7 @@ body.eric-codes footer a.back-to-top {
     width: 30px;
     height: 30px;
     display: block;
+    cursor: pointer;
 }
 
 body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
