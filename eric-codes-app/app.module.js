@@ -111,7 +111,7 @@ Log.Value('themeURL', themeURL);
  * Initialize Angular site main module
  * @type {class}
  */
-var app = angular.module('EricCodes', ['ui.router', 'ngAnimate']);
+var app = angular.module('EricCodes', ['ui.router', 'ngAnimate', 'angular-scroll-animate']);
 
 /**
  * Returns template URL for the view name input.
