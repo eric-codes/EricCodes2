@@ -33,23 +33,28 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
 
         function Preload(list) {
             preloader.preloadImages(list)
-            .then(function() {
-                Log.Warning('Images preloaded!');
-            }, function() {
-                Log.Warning('Error preloading!');
-            });
+                .then(function() {
+                    Log.Warning('Images preloaded!');
+                }, function() {
+                    Log.Warning('Error preloading!');
+                });
         }
 
         $.each(AllFiles, function(i, val) {
             var Return = themeURL + "assets/img/" + i + "/background.jpg";
             Log.Set('Preload for ' + i, Return);
             PreloadList.push(Return);
+            Preload(PreloadList);
 
-            $.each(val.workData.hero,function(i2,val2){
+            var PreloadListHero = [];
+            $.each(val.workData.hero, function(i2, val2) {
                 var Return = themeURL + "assets/img/" + i + "/mockup/" + val2.image;
-                PreloadList.push(Return);
+                PreloadListHero.push(Return);
             })
+            Preload(PreloadListHero);
 
+
+            var PreloadListGallery = [];
             $.each(val.sections, function(i2, val2) {
                 if (val2.gallery) {
                     $.each(val2.gallery, function(itemIndex, item) {
@@ -60,10 +65,11 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
                         }
 
                         var ReturnThumb = themeURL + "assets/img/" + i + "/" + item.thumbnail;
-                        PreloadList.push(Return, ReturnThumb);
+                        PreloadListGallery.push(Return, ReturnThumb);
                     })
                 }
             })
+            Preload(PreloadListGallery);
 
 
 
