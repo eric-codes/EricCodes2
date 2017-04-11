@@ -655,6 +655,7 @@ body.eric-codes.work .work-icon-inner .icon-container {
     display: inline-block;
     padding: 0px 10px;
     width: calc(100% / 5);
+    margin-bottom: 15px;
 }
 
 body.eric-codes.work-single .return-area {

@@ -1,4 +1,4 @@
-app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader', function($scope, $rootScope, loadData,preloader) {
+app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader', function($scope, $rootScope, loadData, preloader) {
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
         $('html, body').animate({
@@ -39,23 +39,28 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
             $.each(val.sections, function(i2, val2) {
                 if (val2.gallery) {
                     $.each(val2.gallery, function(itemIndex, item) {
-                        var Return = themeURL + "assets/img/" + i + "/" + item.URL,
-                            ReturnThumb = themeURL + "assets/img/" + i + "/" + item.thumbnail;
-                            PreloadList.push(Return,ReturnThumb);
+                        if (item.URL) {
+                            var Return = themeURL + "assets/img/" + i + "/" + item.URL;
+                        } else {
+                            var Return = themeURL + "assets/img/" + i + "/" + item.scrollURL;
+                        }
+
+                        var ReturnThumb = themeURL + "assets/img/" + i + "/" + item.thumbnail;
+                        PreloadList.push(Return, ReturnThumb);
                     })
                 }
             })
 
         })
 
-        Log.Set("PreloadList",PreloadList);
+        Log.Set("PreloadList", PreloadList);
 
         preloader.preloadImages(PreloadList)
-        .then(function(){
-            Log.Warning('Images preloaded!');
-        },function(){
-            Log.Warning('Error preloading!');
-        });
+            .then(function() {
+                Log.Warning('Images preloaded!');
+            }, function() {
+                Log.Warning('Error preloading!');
+            });
 
     }, function(data) {
         Log.Set('LoadData test error', data);
