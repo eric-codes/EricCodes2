@@ -48,6 +48,8 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
 
         })
 
+        Log.Set("PreloadList",PreloadList);
+
         preloader.preloadImages(PreloadList)
         .then(function(){
             Log.Warning('Images preloaded!');
