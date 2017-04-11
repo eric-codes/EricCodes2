@@ -1,4 +1,4 @@
-app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($scope, $rootScope, loadData) {
+app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader', function($scope, $rootScope, loadData,preloader) {
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
         $('html, body').animate({
@@ -48,7 +48,12 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
 
         })
 
-        preload(PreloadList);
+        preloader.preloadImages(PreloadList)
+        .then(function(){
+            Log.Warning('Images preloaded!');
+        },function(){
+            Log.Warning('Error preloading!');
+        });
 
     }, function(data) {
         Log.Set('LoadData test error', data);

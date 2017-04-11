@@ -39,8 +39,8 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
             $.each(val.sections, function(i2, val2) {
                 if (val2.gallery) {
                     $.each(val2.gallery, function(itemIndex, item) {
-                        var Return = themeURL + "assets/img/" + item.URL,
-                            ReturnThumb = themeURL + "assets/img/" + item.thumbnail;
+                        var Return = themeURL + "assets/img/" + i + "/" + item.URL,
+                            ReturnThumb = themeURL + "assets/img/" + i + "/" + item.thumbnail;
                             PreloadList.push(Return,ReturnThumb);
                     })
                 }
