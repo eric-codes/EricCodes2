@@ -22,11 +22,22 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', function($
         	WorkItems.push(val.workData);
         })
 
+
         $rootScope.AllData = AllFiles;
         $rootScope.WorkItems = WorkItems;
 
         Log.Set("$rootScope.AllData",$rootScope.AllData);
         Log.Set("$rootScope.WorkItems",$rootScope.WorkItems);
+
+        var PreloadList = [];
+
+        $.each(AllFiles,function(i,val){
+            var Return = themeURL + "assets/img/" + i + "/background.jpg";
+            Log.Set('Preload for '+i,Return);
+            PreloadList.push(Return);
+        })
+
+        preload(PreloadList);
 
     }, function(data) {
         Log.Set('LoadData test error', data);

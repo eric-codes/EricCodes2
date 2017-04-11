@@ -95,6 +95,12 @@ if (window.Debug == true) {
 }
 
 
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+
 /**
  * Set global child theme template folder
  * @type {String}
