@@ -98,6 +98,7 @@ if (window.Debug == true) {
 function preload(arrayOfImages) {
     $(arrayOfImages).each(function(){
         $('<img/>')[0].src = this;
+        Log.Set('Preloading', this);
     });
 }
 
