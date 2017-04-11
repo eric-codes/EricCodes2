@@ -31,10 +31,24 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
 
         var PreloadList = [];
 
+        function Preload(list) {
+            preloader.preloadImages(list)
+            .then(function() {
+                Log.Warning('Images preloaded!');
+            }, function() {
+                Log.Warning('Error preloading!');
+            });
+        }
+
         $.each(AllFiles, function(i, val) {
             var Return = themeURL + "assets/img/" + i + "/background.jpg";
             Log.Set('Preload for ' + i, Return);
             PreloadList.push(Return);
+
+            $.each(val.workData.hero,function(i2,val2){
+                var Return = themeURL + "assets/img/" + i + "/mockup/" + val2.image;
+                PreloadList.push(Return);
+            })
 
             $.each(val.sections, function(i2, val2) {
                 if (val2.gallery) {
@@ -51,16 +65,13 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
                 }
             })
 
+
+
         })
 
         Log.Set("PreloadList", PreloadList);
 
-        preloader.preloadImages(PreloadList)
-            .then(function() {
-                Log.Warning('Images preloaded!');
-            }, function() {
-                Log.Warning('Error preloading!');
-            });
+
 
     }, function(data) {
         Log.Set('LoadData test error', data);
