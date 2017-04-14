@@ -20,7 +20,7 @@
 			<div class="contact-form">
 				
 				<ng-form>
-					<form novalidate class="main-form" name="mainform">
+					<form novalidate class="main-form" name="mainform" ng-submit="SendMail()">
 
 						<div class="form-group">
 							<label>Name</label>
@@ -37,7 +37,7 @@
 							<textarea class="form-control" type="text" ng-model="contact.message" required ></textarea>
 						</div>
 
-						<button class="btn btn-default" ng-disabled="mainform.$invalid" ng-click="SendMail">Contact Me!</button>
+						<button class="btn btn-default" ng-disabled="mainform.$invalid" >Contact Me!</button>
 
 					</form>
 				</ng-form>
