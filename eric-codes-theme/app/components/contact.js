@@ -23,8 +23,14 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', 'sendMail', fu
 
     $scope.contact = {};
 
+    $scope.sent = false;
+
     $scope.SendMail = function(){
-        sendMail.send($scope.contact);
+        sendMail.send($scope.contact).then(function(data){
+            if (data.data == true) {
+                $scope.sent = true;
+            }
+        })
     }
 
 }])
