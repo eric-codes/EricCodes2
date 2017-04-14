@@ -2,8 +2,11 @@
 
 function DispatchMail($args) {
 
+	$headers  = 'From: eric.codes <website@ericcodes.com>' . "\r\n";
+	$headers .= 'Reply-To: myWebsite <website@ericcodes.com>';
+
 	$message = "Test is good!";
-	wp_mail('hello@ericcodes.com', 'Contact Form: ', $message);
+	wp_mail('hello@ericcodes.com', 'Contact Form: ', $message, $headers);
 
 	return 'success';
 
