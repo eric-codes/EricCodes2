@@ -37,7 +37,9 @@
 							<textarea class="form-control" type="text" ng-model="contact.message" required ></textarea>
 						</div>
 
-						<button class="btn btn-default" ng-disabled="mainform.$invalid" >Contact Me!</button>
+						<button ng-if="sent == false" class="btn btn-default" ng-disabled="mainform.$invalid" >Contact Me!</button>
+
+						<div ng-if="sent == true" class="alert alert-success" role="alert">Thanks for contacting me! I'll respond within 24 hours.</div>
 
 					</form>
 				</ng-form>
