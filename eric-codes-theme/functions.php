@@ -4,7 +4,7 @@ function DispatchMail($args) {
 
 	$headers = 'Reply-To: eric.codes <website@ericcodes.com>';
 
-	$message = $args->message; 
+	$message = $args['message']; 
 
 	$send = wp_mail('wicstwo@gmail.com', 'Contact Form: ', $message, $headers);
 
