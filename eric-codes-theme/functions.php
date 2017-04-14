@@ -2,7 +2,10 @@
 
 function DispatchMail($args) {
 
-	return 'Test is good';
+	$message = "Test is good!";
+	wp_mail('hello@ericcodes.com', 'Contact Form: ', $message);
+
+	return 'success';
 
 }
 
