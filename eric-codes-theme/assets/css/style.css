@@ -289,6 +289,16 @@ body.eric-codes .modal-container .modal-inside {
     position: relative;
 }
 
+body.eric-codes .modal-container .modal-inside .modal-description {
+    position: absolute;
+    color: white;
+    bottom: 20px;
+    padding: 10px 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    left: 20px;
+}
+
 body.eric-codes .modal-container .modal-inside span.close-modal {
     position: absolute;
     right: 30px;
@@ -915,7 +925,7 @@ body.eric-codes.work-single ul.other-projects-list li.project-link {
     display: inline-block;
     font-size: 18px;
     font-weight: 400;
-    color: blue;
+    color: #4f8ac8;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link a {
