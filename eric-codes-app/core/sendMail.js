@@ -4,6 +4,7 @@ app.factory('sendMail', ['$http', function($http){
 
 	scope.send = function(args) {
 		Log.Warning('Sending mail...');
+		Log.Set('Arguments..',args);
 		$http({
 			method: 'POST',
 			url: '/wp-json/ericcodes/v1/send'
