@@ -24,7 +24,7 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', 'sendMail', fu
     $scope.contact = {};
 
     $scope.SendMail = function(){
-        sendMail.send()
+        sendMail.send($scope.contact);
     }
 
 }])

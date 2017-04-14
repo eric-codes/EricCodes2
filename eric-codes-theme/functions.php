@@ -2,13 +2,12 @@
 
 function DispatchMail($args) {
 
-	
 
-	$headers = 'Reply-To: eric.codes <website@ericcodes.com>';
+	$headers = 'Reply-To: '. $args->name .' <'. $args->email .'>';
 
-	$message = "Test is good!"; 
+	$message = $args->message; 
 
-	$send = wp_mail('wicstwo@gmail.com', 'Contact Form: ', $message, $headers);
+	$send = wp_mail('wicstwo@gmail.com', 'Contact Form: ' . $args->name, $message, $headers);
 
 	return $send;
 
