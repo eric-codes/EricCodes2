@@ -14,6 +14,16 @@
         width: 100%;
         position: relative;
 
+        .modal-description {
+            position: absolute;
+            color:white;
+            bottom: 20px;
+            padding: 10px 25px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            left: 20px;
+        }
+
         span.close-modal {
             position: absolute;
             right: 30px;
