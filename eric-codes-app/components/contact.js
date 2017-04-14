@@ -21,6 +21,8 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', 'sendMail', fu
         icon: iconFolder + "social_twitter.svg"
     }, ];
 
+    $scope.contact = {};
+
     $scope.SendMail = function(){
         sendMail.send()
     }
