@@ -53,7 +53,7 @@ app.directive('workGallery', ['modalService', function(modalService){
 			Selector: elem.find('.scroll-cue'),
 			Fire: function(){
 				ScrollCue.Selector.addClass('open');
-				$timeout(function(){
+				setTimeout(function(){
 					ScrollCue.Selector.removeClass('open');
 				}, 3000);
 			}
