@@ -50,6 +50,10 @@
 
 		</div>
 
+		<div class="row live-site" ng-if="WorkData.liveLink">
+			<a class="btn btn-default" ng-href="{{WorkData.liveLink}}">View Live Project</a>
+		</div>
+
 		<div class="row section" ng-repeat="section in Sections">
 
 

@@ -14,6 +14,8 @@
 
         "solution": "I designed and developed a web app for Chisel Cartel that allowed users to vote and view battles. The system is currently in it’s infancy, but it’s set up in such a way that allows it to be scalable. Currently, the system can track votes based on cookies and IP, in a one-versus-one system that will pull random votes out of a pool of entries and allow users to vote until all pairs have been voted. The entire site runs on a WordPress back-end with a custom-built AngularJS theme that works with the WP REST API in order to manage data.",
 
+        "liveLink": "http://chiselcartel.com",
+
         "tags": [
             "jquery",
             "angular",
