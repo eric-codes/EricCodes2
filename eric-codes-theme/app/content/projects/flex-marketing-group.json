@@ -6,6 +6,7 @@
         "blurb": "I recreated the digital branding of Flex Marketing group and designed and developed a completely new website for them, and restructured the website to a modern web design standard. I also created and wrote a Gulp automation script / suite to optimize workflow in order to work with an outdated website content management system, and built a complex lead collection system to implement into their content websites that was able to track and collect data in real-time.",
         "problem": "Flex Marketing Group is a digital advertisement and marketing company that specializes in lead-generation and ad-serving. During my time at their company, I was tasked to implement various programmatic solutions to some of their major developmental problems, including an outdated content-management system, a questionable web presence, and the ability to collect leads from live users on content websites.",
         "solution": "I recreated the digital branding of Flex Marketing group and designed and developed a completely new website for them, and restructured the website to a modern web design standard. I also created and wrote a Gulp automation script / suite to optimize workflow in order to work with an outdated website content management system, and built a complex lead collection system to implement into their content websites that was able to track and collect data in real-time.",
+        "liveLink": "http://flexmg.com",
         "tags": [
             "jquery",
             "angular",
@@ -95,7 +96,7 @@
             "backend",
             "gulp"
         ],
-        "description" : "I was tasked to create an email registration system that was able to collect leads in real time from content websites. The system needed to collect leads, scrub them for reliability, separate them into multiple email lists to interact with multiple ESPs. The project was a long project, spanning about 4 months, in which a large amount of A/B testing was conducted to best optimize the system.",
+        "description": "I was tasked to create an email registration system that was able to collect leads in real time from content websites. The system needed to collect leads, scrub them for reliability, separate them into multiple email lists to interact with multiple ESPs. The project was a long project, spanning about 4 months, in which a large amount of A/B testing was conducted to best optimize the system.",
 
         "textSections": [{
             "title": "javaScript()",
@@ -110,12 +111,12 @@
     }, {
         "code": [{
             "file": "cms-API.js",
-            "lang":"javascript",
-            "location":"flex-marketing"
-        },{
+            "lang": "javascript",
+            "location": "flex-marketing"
+        }, {
             "file": "request.php",
-            "lang":"php",
-            "location":"flex-marketing"
+            "lang": "php",
+            "location": "flex-marketing"
         }]
     }, {
         "title": "website.preprocessing",
@@ -126,8 +127,8 @@
             "gulp",
             "html5"
         ],
-        "problem" : "Because of an outdated content management system, updating the content websites was incredibly complicated and cumbersome. When I arrived at Flex, it took them on average about 2 - 4 days to create a new content website variation, and 6 months to develop a templating system for the variations.",
-        "solution" : "I created a Gulp script to handle processing SASS into CSS for upload, organization and tidying of file structure, a polished local-side development system powered by the Gulp file, and archiving and organizing assets to be uploaded to their CMS, reducing their output time from 2 - 4 days per property to an average of 5 minutes to an hour, depending on the complexity of variations and changes, and reduced the time to develop new features from 6 months to two to three weeks.",
+        "problem": "Because of an outdated content management system, updating the content websites was incredibly complicated and cumbersome. When I arrived at Flex, it took them on average about 2 - 4 days to create a new content website variation, and 6 months to develop a templating system for the variations.",
+        "solution": "I created a Gulp script to handle processing SASS into CSS for upload, organization and tidying of file structure, a polished local-side development system powered by the Gulp file, and archiving and organizing assets to be uploaded to their CMS, reducing their output time from 2 - 4 days per property to an average of 5 minutes to an hour, depending on the complexity of variations and changes, and reduced the time to develop new features from 6 months to two to three weeks.",
 
         "textSectionsDouble": [{
             "title": "tokenSystem()",
@@ -139,8 +140,8 @@
     }, {
         "code": [{
             "file": "gulpfile.js",
-            "lang":"javascript",
-            "location":"flex-marketing"
+            "lang": "javascript",
+            "location": "flex-marketing"
         }]
     }]
 }
