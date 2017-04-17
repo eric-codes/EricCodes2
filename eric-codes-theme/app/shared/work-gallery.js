@@ -36,6 +36,9 @@ app.directive('workGallery', ['modalService', function(modalService){
 		scope.ChangeSlide = function(i){
 			Log.Msg('Gallery item clicked!');
 			scope.currentSlide = scope.maindata[i];
+			if (scope.currentSlide.scrollURL) {
+				ScrollCue.Fire();
+			}
 		}
 
 		scope.GetImage = function(filename) {
@@ -44,6 +47,16 @@ app.directive('workGallery', ['modalService', function(modalService){
 
 		scope.OpenModal = function(){
 			modalService.Open(scope.currentSlide);
+		}
+
+		var ScrollCue = {
+			Selector: elem.find('.scroll-cue'),
+			Fire: function(){
+				ScrollCue.Selector.addClass('open');
+				$timeout(function(){
+					ScrollCue.Selector.removeClass('open');
+				}, 3000);
+			}
 		}
 
 	}

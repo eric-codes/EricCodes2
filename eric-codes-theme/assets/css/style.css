@@ -746,6 +746,33 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container {
     position: relative;
 }
 
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+    transition: 1s;
+    opacity: 0;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue i {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue.open {
+    opacity: 1;
+}
+
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
     position: absolute;
     bottom: 15px;
