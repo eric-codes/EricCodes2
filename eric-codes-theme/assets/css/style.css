@@ -698,6 +698,20 @@ body.eric-codes.work-single h2.layout-header {
     font-size: 36px;
 }
 
+body.eric-codes.work-single .work-layout .live-site {
+    border-top: solid rgba(0, 0, 0, 0.2) 1px;
+    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+    padding: 40px 0px;
+    margin: 30px 0px;
+}
+
+body.eric-codes.work-single .work-layout .live-site .btn {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
 body.eric-codes.work-single .work-layout .row.section {
     margin-top: 50px;
 }
