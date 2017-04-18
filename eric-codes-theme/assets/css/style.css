@@ -135,6 +135,7 @@ body.eric-codes h1.top-title {
 @media (min-width: 1200px) {
     body.eric-codes .container {
         width: 80%;
+        min-width: 1170px;
     }
 }
 
@@ -1134,6 +1135,35 @@ body.eric-codes.contact .contact-form textarea {
 @media (max-width: 992px) {
     body.eric-codes .container {
         width: 100%;
+    }
+
+    body.eric-codes.about .text-container p {
+        font-size: 12px;
+    }
+
+    body.eric-codes.about .text-container p.lead-paragraph {
+        font-size: 15px;
+    }
+
+    body.eric-codes.about .large-list li {
+        font-size: 18px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info h3.work-inside-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    body.eric-codes.work .btn-default {
+        font-size: 14px;
+    }
+
+    body.eric-codes.work-single .work-layout .work-icon-container .icon-container {
+        width: 30px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.description p {
+        font-size: 14px;
     }
 }
 
