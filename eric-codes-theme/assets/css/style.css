@@ -342,6 +342,18 @@ body.eric-codes .modal-container.open {
     top: 0px;
 }
 
+body.eric-codes .transition {
+    transition: 0.7s;
+}
+
+body.eric-codes .not-shown {
+    opacity: 0;
+}
+
+body.eric-codes .shown {
+    opacity: 1;
+}
+
 body.eric-codes.homepage .page-section {
     display: flex;
     height: 100vh;
