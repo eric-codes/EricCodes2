@@ -8,6 +8,17 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
 
     $rootScope.Footer = true;
 
+    $scope.Animate = {
+        In: function($el){
+            $el.removeClass('not-shown');
+            $el.addClass('shown');
+        },
+        Out: function($el){
+            $el.addClass('not-shown');
+            $el.removeClass('shown');
+        }
+    }
+
     loadData.GetData().then(function(data) {
 
         var FileSet = data.data;
