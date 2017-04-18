@@ -18,7 +18,7 @@
 
 		<div class="work-container col-xs-12">
 
-			<div class="work-item" ng-repeat="item in WorkItems">
+			<div class="work-item not-shown" ng-repeat="item in WorkItems" when-visible="Animate.In" when-not-visible="Animate.Out">
 
 			<img class="background-image" ng-src="{{GetBackground(item.slug)}}"></img>
 
