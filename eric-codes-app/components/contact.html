@@ -6,8 +6,8 @@
 
 			<div class="contact-info">
 
-				<h1 class="top-title">Get in touch!</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget venenatis lectus. Suspendisse mollis facilisis sapien at rutrum. Nulla scelerisque gravida libero. Duis vestibulum diam a nulla feugiat cursus. </p>
+				<h1 class="top-title">I'd love to hear from you.</h1>
+				<p>I'm always available to hear an idea or a project, and I'm always interested in doing what I can to help - just let me know here, and I'll respond within 24 hours! Thank you for reaching out!</p>
 
 				<social-icons></social-icons>
 			</div>
@@ -20,7 +20,7 @@
 			<div class="contact-form">
 				
 				<ng-form>
-					<form novalidate class="main-form" name="mainform">
+					<form novalidate class="main-form" name="mainform" ng-submit="SendMail()">
 
 						<div class="form-group">
 							<label>Name</label>
@@ -33,11 +33,13 @@
 						</div>
 
 						<div class="form-group">
-							<label>Inquiry</label>
+							<label>Message</label>
 							<textarea class="form-control" type="text" ng-model="contact.message" required ></textarea>
 						</div>
 
-						<button class="btn btn-default" ng-disabled="mainform.$invalid">Contact Me!</button>
+						<button ng-if="sent == false" class="btn btn-default" ng-disabled="mainform.$invalid" >Contact Me</button>
+
+						<div ng-if="sent == true" class="alert alert-success" role="alert">Thanks for reaching out!</div>
 
 					</form>
 				</ng-form>

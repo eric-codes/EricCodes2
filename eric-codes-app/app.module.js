@@ -95,6 +95,13 @@ if (window.Debug == true) {
 }
 
 
+// function preload(arrayOfImages) {
+//     $(arrayOfImages).each(function(){
+//         $('<img/>')[0].src = this;
+//         Log.Set('Preloading', this);
+//     });
+// }
+
 /**
  * Set global child theme template folder
  * @type {String}
@@ -111,7 +118,7 @@ Log.Value('themeURL', themeURL);
  * Initialize Angular site main module
  * @type {class}
  */
-var app = angular.module('EricCodes', ['ui.router', 'ngAnimate']);
+var app = angular.module('EricCodes', ['ui.router', 'ngAnimate', 'angular-scroll-animate']);
 
 /**
  * Returns template URL for the view name input.
@@ -231,6 +238,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
     $locationProvider.html5Mode(true);
 
-
-
 }])
+
+.run(['$state', '$rootScope', function($state, $rootScope) {
+    $rootScope.$on('$stateChangeSuccess', function() {
+        setTimeout(function() {
+            $('body,html').scrollTop(1);
+        }, 100);
+    });
+}]);

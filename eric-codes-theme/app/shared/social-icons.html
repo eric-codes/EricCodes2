@@ -1,7 +1,7 @@
 <div class="social-icons">
-    <div class="icon-container" ng-repeat="icon in SocialIcons">
+    <a class="icon-container" ng-repeat="icon in SocialIcons" ng-href="{{icon.link}}" target="blank">
     <div ng-include="icon.icon">
     	
     </div>
-    </div>
+    </a>
 </div>

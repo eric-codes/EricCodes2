@@ -45,7 +45,25 @@ h2.layout-header {
 }
 
 
+
+
 .work-layout {
+
+
+	.live-site {
+		border-top: solid rgba(0, 0, 0, 0.2) 1px;
+		border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+		padding: 40px 0px;
+		margin: 30px 0px;
+
+		.btn {
+			margin: 0 auto;
+			display: block;
+			width: 100%;
+			max-width: 400px;
+		}
+	}
+
 
 	.row.section {
 		margin-top: 50px;
@@ -53,7 +71,7 @@ h2.layout-header {
 		h3.section-heading {
 			font-family: "Space Mono";
 			font-size: 20px;
-			span {
+			span.blue-span {
 				color: $COLOR_Spot;
 			}
 
@@ -76,23 +94,135 @@ h2.layout-header {
 			overflow: hidden;
 			min-height: 600px;
 			height: 70vh;
+			background: darken($COLOR_Bg, 5%);
+			position: relative;
+
+			.scroll-cue {
+				position: absolute;
+				bottom: 15px;
+				right: 15px;
+				padding: 15px;
+				color: white;
+				background: rgba(0, 0, 0, 0.7);
+				border-radius: 5px;
+				text-transform: uppercase;
+				font-weight: 600;
+				letter-spacing: 0.07em;
+				font-size: 13px;
+				line-height: 18px;
+				vertical-align: middle;
+				transition:1s;
+				opacity:0;
+
+				i {
+					margin-left: 5px;
+					font-size: 18px;
+				}
+
+				&.open {
+					opacity:1;
+				}
+
+			}
+
+
+
+
+
+
+			.image-description {
+				position: absolute;
+				bottom: 15px;
+				z-index: 100;
+				background: rgba(25, 25, 25, 0.8);
+				color: white;
+				padding: 15px 40px 15px 25px;
+				left: 0px;
+				border-radius: 0px 3px 3px 0px;
+				transition:0.5s;
+				max-width: 400px;
+				width: 100%;
+
+				h3 {
+					margin: 5px 0px 15px;
+					font-weight: 600;
+					font-size: 16px;
+				}
+
+				p {
+					margin-bottom: 0px;
+					font-size: 14px;
+					letter-spacing: 0.055em;
+				}
+
+				span.toggle-caret {
+					position: absolute;
+					right: 10px;
+					top: 50%;
+					transform: translateY(-50%);
+					transition:0.5s;
+					cursor: pointer;
+				}
+
+
+				&.closed {
+					left: -370px;
+
+					.toggle-caret {
+						transform: translateY(-50%) rotate(180deg);
+					}
+
+				}
+
+
+			}
+
+
 			.main-image {
 				width: 100%;
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+				cursor:pointer;
 			}
 
 		}
 
 
+		.mockup-top {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			height: 66px;
+			justify-content: space-between;
+			position: relative;
+
+
+			.mockup-center {
+				flex-grow: 2;
+				background:url('../img/tab_repeat.jpg') repeat-x center center;
+			}
+
+
+
+			span.mockup-address {
+				position: absolute;
+				z-index: 20;
+				left: 120px;
+				top: 40px;
+				font-size: 12px;
+			}
+
+		}
+
 		.scroll-container {
-			height: 100%;
+			height: calc(100% - 66px);
 			overflow-y: scroll;
 			border: solid rgb(241, 241, 241) 1px;
 
 			.scroll-image {
 				width: 100%;
+				cursor:pointer;
 			}
 
 		}
@@ -102,7 +232,7 @@ h2.layout-header {
 
 		p.section-description {
 			font-size: 16px;
-			width: 80%;
+			width: 100%;
 			line-height: 1.6em;
 		}
 
@@ -111,6 +241,9 @@ h2.layout-header {
 			overflow: hidden;
 			height: 15vh;
 			margin-bottom: 30px;
+			position: relative;
+			cursor:pointer;
+			transition: 0.3s;
 			.image-thumb-img {
 				width: 100%;
 				position: relative;
@@ -118,7 +251,29 @@ h2.layout-header {
 				transform: translateY(-50%);
 			}
 
+			.description {
+				position: absolute;
+				bottom: -50px;
+				background: rgba(0, 0, 0, 0.8);
+				color: white;
+				padding: 10px;
+				width: 100%;
+				font-size: 12px;
+				font-weight: 300;
+				letter-spacing: 0.1em;
+				transition: 0.3s;
+			}
+
+			&:hover {
+				transform:scale(1.05);
+				.description {
+					bottom:-1px;
+				}
+			}
 		}
+
+
+
 
 
 
@@ -224,10 +379,10 @@ ul.other-projects-list {
 		display: inline-block;
 		font-size: 18px;
 		font-weight: 400;
-		color: blue;
+		color: $COLOR_Spot;
 
 		a {
-			color: grey;
+			color: $COLOR_Main;
 		}
 
 		&:before {

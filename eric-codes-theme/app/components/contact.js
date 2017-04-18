@@ -1,4 +1,4 @@
-app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
+app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', 'sendMail', function($scope, $rootScope, breadcrumbs, sendMail) {
 
     breadcrumbs.updateNav(2);
 
@@ -20,5 +20,17 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scop
     }, {
         icon: iconFolder + "social_twitter.svg"
     }, ];
+
+    $scope.contact = {};
+
+    $scope.sent = false;
+
+    $scope.SendMail = function(){
+        sendMail.send($scope.contact,function(data){
+            if (data.data == true) {
+                $scope.sent = true;
+            }
+        });
+    }
 
 }])
