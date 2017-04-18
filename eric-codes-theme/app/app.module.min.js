@@ -240,8 +240,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
 }])
 
-.run(['$state','$rootScope',function($state,$rootScope){
-        $rootScope.$on('$stateChangeSuccess', function(){
-        $('body,html').scrollTop(1);
+.run(['$state', '$rootScope', function($state, $rootScope) {
+    $rootScope.$on('$stateChangeSuccess', function() {
+        setTimeout(function() {
+            $('body,html').scrollTop(1);
+        }, 100);
     });
 }]);

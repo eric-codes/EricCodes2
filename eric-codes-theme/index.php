@@ -97,7 +97,7 @@ function TemplateGet($input) {
 
 		<footer ng-if="Footer" ng-controller="footer">
 			
-			<div class="container">
+			<div class="container not-shown" when-visible="Animate.In" when-not-visible="Animate.Out">
 				<div class="pull-left">
 
 					<span class="footer-text">2010 - 2017 Eric.Codes</span>
