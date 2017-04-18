@@ -588,6 +588,11 @@ body.eric-codes.work .work-item {
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
+    /* 
+    a.btn {
+        background-color:$COLOR_Spot;
+    }
+ */
 }
 
 body.eric-codes.work .work-item .background-image {
@@ -654,10 +659,6 @@ body.eric-codes.work .work-item:hover .work-item-title {
 
 body.eric-codes.work .work-item:hover .background-image {
     transform: translateY(-50%) scale(1.1);
-}
-
-body.eric-codes.work .work-item a.btn {
-    background-color: #4f8ac8;
 }
 
 body.eric-codes.work .work-icon-inner {
