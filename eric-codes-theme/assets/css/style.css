@@ -787,6 +787,8 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .loa
     height: 100%;
     background: #f9f9f9;
     display: flex;
+    transition: 0.3s;
+    top: -100%;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box .loading-graphic {
@@ -820,6 +822,10 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .loa
     animation-name: loading;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box.open {
+    top: 0%;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue {

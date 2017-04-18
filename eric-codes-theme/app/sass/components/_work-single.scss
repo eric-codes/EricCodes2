@@ -104,6 +104,8 @@ h2.layout-header {
 				height: 100%;
 				background: #f9f9f9;
 				display: flex;
+				transition:0.3s;
+				top:-100%;
 
 				.loading-graphic {
 					margin: auto;
@@ -134,6 +136,11 @@ h2.layout-header {
 						animation-iteration-count: infinite;
 					}
 				}
+
+				&.open {
+					top:0%;
+				}
+
 			}
 
 
