@@ -1410,6 +1410,10 @@ body.eric-codes.contact .contact-form textarea {
         margin-left: 0px;
     }
 
+    body.eric-codes.work-single .work-layout pre {
+        font-size: 9px;
+    }
+
     body.eric-codes.work-single .work-layout .hero-image-set {
         overflow: hidden;
         height: 300px;
