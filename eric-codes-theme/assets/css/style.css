@@ -773,6 +773,28 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .scr
     opacity: 1;
 }
 
+body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 66px;
+    justify-content: space-between;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-left {
+    order: 1;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top .mockup-center {
+    order: 2;
+    flex-grow: 2;
+    background: url("../img/tab_repeat.jpg") repeat-x center center;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-right {
+    order: 3;
+}
+
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
     position: absolute;
     bottom: 15px;
