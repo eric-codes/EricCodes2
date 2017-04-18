@@ -14,6 +14,12 @@
 
 		<img class="main-image" ng-click="OpenModal()" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL" />
 
+		<div class="mockup-top" ng-if="currentSlide.scrollURL">
+			<img class="mockup-left"></img>
+			<div class="mockup-center"></div>
+			<img class="mockup-right"></img>
+		</div>	
+
 		<div class="scroll-container" ng-if="currentSlide.scrollURL">
 			<img class="scroll-image" ng-click="OpenModal()" ng-src="{{GetImage(currentSlide.scrollURL)}}"></img>
 		</div>

@@ -31,6 +31,11 @@ app.directive('workGallery', ['modalService', function(modalService){
 			DescriptionBox.Toggle();
 		}
 
+		scope.Mockup = {
+			Left: themeURL + "assets/img/tab_left.jpg",
+			Right: themeURL + "assets/img/tab_right.jpg",
+		}
+
 		scope.currentSlide = scope.maindata[0];
 
 		scope.ChangeSlide = function(i){
