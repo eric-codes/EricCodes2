@@ -25,7 +25,7 @@ app.directive('workGallery', ['modalService', function(modalService) {
 			},
 		}
 
-		scope.Loading = {
+		var Loading = {
 			Start: function() {
 				elem.find('.loading-box').addClass('open');
 			},

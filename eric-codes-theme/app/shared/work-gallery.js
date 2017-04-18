@@ -48,8 +48,11 @@ app.directive('workGallery', ['modalService', function(modalService) {
 		scope.ChangeSlide = function(i) {
 			Log.Msg('Gallery item clicked!');
 
+			Loading.Start();
+
 			var LoadImg = new Image(),
 			CurrentSlide = scope.maindata[i];
+			scope.currentSlide = scope.maindata[i];
 
 			if (CurrentSlide.scrollURL) {
 				LoadImg.src = scope.GetImage(CurrentSlide.scrollURL);
@@ -61,10 +64,10 @@ app.directive('workGallery', ['modalService', function(modalService) {
 
 			LoadImg.onload = function(){
 				Log.Warning('Loading was good!');
-				scope.currentSlide = scope.maindata[i];
 				if (scope.currentSlide.scrollURL) {
 					ScrollCue.Fire();
 				}
+				Loading.End();
 			}
 
 
