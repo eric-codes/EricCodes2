@@ -38,86 +38,86 @@ function TemplateGet($input) {
 </head>
 <body ng-app="EricCodes" ng-class="BodyClass" class="eric-codes">
 
-	<div ng-controller="CoreController"></div> 
+	<div ng-controller="CoreController">
 
 
 
-	<div class="modal-container" ng-controller="modalController" ng-class="ModalStatus">
+		<div class="modal-container" ng-controller="modalController" ng-class="ModalStatus">
 
-		<div class="modal-inside">
+			<div class="modal-inside">
 
-		<span class="close-modal" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
+				<span class="close-modal" ng-click="CloseModal()"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-			<div class="modal-image-container" ng-click="CloseModal()" ng-if="ModalSettings.URL">
-				<img class="modal-image" ng-src="{{GetImage(ModalSettings.URL)}}"></img>
-			</div>
+				<div class="modal-image-container" ng-click="CloseModal()" ng-if="ModalSettings.URL">
+					<img class="modal-image" ng-src="{{GetImage(ModalSettings.URL)}}"></img>
+				</div>
 
-			<div class="modal-scroll-image-container" ng-click="CloseModal()" ng-if="ModalSettings.scrollURL">
-				<img class="modal-scroll-image" ng-src="{{GetImage(ModalSettings.scrollURL)}}"></img>
-			</div>
+				<div class="modal-scroll-image-container" ng-click="CloseModal()" ng-if="ModalSettings.scrollURL">
+					<img class="modal-scroll-image" ng-src="{{GetImage(ModalSettings.scrollURL)}}"></img>
+				</div>
 
-			<div class="modal-description">
-				<h4>{{ModalSettings.title}}</h4>
-				<p>{{ModalSettings.description}}</p>
-			</div>
-
-		</div>
-
-	</div>
-
-
-
-	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
-		<div class="container">
-
-
-			<div class="pull-left logo-area">
-				<span class="logo-type">
-					<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
-				</span>
-			</div>
-
-			<div class="pull-right icon-area">
-
-				<icon-drawer maindata="NavBar"></icon-drawer>
+				<div class="modal-description">
+					<h4>{{ModalSettings.title}}</h4>
+					<p>{{ModalSettings.description}}</p>
+				</div>
 
 			</div>
 
 		</div>
-	</nav>
 
 
 
-	<section ui-view class="main-page-section">
-
-	</section>
-
+		<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navbar">
+			<div class="container">
 
 
+				<div class="pull-left logo-area">
+					<span class="logo-type">
+						<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
+					</span>
+				</div>
 
-	<footer ng-if="Footer" ng-controller="footer">
-		
-		<div class="container">
-			<div class="pull-left">
+				<div class="pull-right icon-area">
 
-				<span class="footer-text">2010 - 2017 Eric.Codes</span>
-				<social-icons class="social"></social-icons>
-			</div>
-			<div class="pull-right">
+					<icon-drawer maindata="NavBar"></icon-drawer>
 
-				<a class="back-to-top" ng-click="ScrollToTop()"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+				</div>
 
 			</div>
-			<div class="clearfix"></div>
-		</div>
-
-	</footer>
+		</nav>
 
 
-	<script type="text/javascript" src="<?php TemplateGet('/app/app.module.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?php TemplateGet('/app/app.core.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?php TemplateGet('/app/app.controllers.min.js'); ?>"></script>
-	<script type="text/javascript" src="<?php TemplateGet('/app/app.directives.min.js'); ?>"></script>
 
+		<section ui-view class="main-page-section">
+
+		</section>
+
+
+
+
+		<footer ng-if="Footer" ng-controller="footer">
+			
+			<div class="container">
+				<div class="pull-left">
+
+					<span class="footer-text">2010 - 2017 Eric.Codes</span>
+					<social-icons class="social"></social-icons>
+				</div>
+				<div class="pull-right">
+
+					<a class="back-to-top" ng-click="ScrollToTop()"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+		</footer>
+
+
+		<script type="text/javascript" src="<?php TemplateGet('/app/app.module.min.js'); ?>"></script>
+		<script type="text/javascript" src="<?php TemplateGet('/app/app.core.min.js'); ?>"></script>
+		<script type="text/javascript" src="<?php TemplateGet('/app/app.controllers.min.js'); ?>"></script>
+		<script type="text/javascript" src="<?php TemplateGet('/app/app.directives.min.js'); ?>"></script>
+	</div> 
 </body>
 </html>
