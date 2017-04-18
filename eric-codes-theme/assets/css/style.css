@@ -349,11 +349,13 @@ body.eric-codes .transition {
 body.eric-codes .not-shown {
     opacity: 0;
     transform: translateY(20px);
+    margin-bottom: -20px;
 }
 
 body.eric-codes .shown {
     opacity: 1;
     transform: translateY(0px);
+    margin-bottom: 0px;
 }
 
 body.eric-codes.homepage .page-section {

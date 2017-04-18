@@ -5,9 +5,11 @@
 .not-shown {
 	opacity:0;
 	transform: translateY(20px);
+	margin-bottom: -20px;
 }
 
 .shown {
 	opacity:1;
 	transform: translateY(0px);
+	margin-bottom:0px;
 }
