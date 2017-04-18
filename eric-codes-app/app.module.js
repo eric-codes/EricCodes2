@@ -205,7 +205,7 @@ Log.Set('returnTags Test', returnTags(['jquery', 'angular']));
 /**
  * Angular Routing configuration settings
  */
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$transitions', function($stateProvider, $urlRouterProvider, $locationProvider, $transitions) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider','$rootScope', function($stateProvider, $urlRouterProvider, $locationProvider, $rootScope) {
 
     $urlRouterProvider.otherwise("/");
 
@@ -238,12 +238,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$trans
 
     $locationProvider.html5Mode(true);
 
-    $transitions.onStart({},function(trans){
-        trans.promise.finally(function(){
-            $(window).scrollTop(1);
-        })
-    })
-
-
+    $rootScope.$on('$stateChangeSuccess', function(){
+        $(window).scrollTop(1);
+    });
 
 }])
