@@ -1137,6 +1137,12 @@ body.eric-codes.contact .contact-form textarea {
         width: 100%;
     }
 
+    body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
+        opacity: 1;
+        transform: translateY(0px);
+        color: #0A0A0A;
+    }
+
     body.eric-codes.about .text-container p {
         font-size: 12px;
     }
@@ -1275,14 +1281,16 @@ body.eric-codes.contact .contact-form textarea {
         transform: translateX(-40%);
     }
 
-    body.eric-codes.homepage .page-section .homepage-container .logo-container {
-        width: 100%;
+    body.eric-codes.homepage .page-section .homepage-container {
+      /* 				.nav-icons .nav-icon-single .icon-title a {
+					opacity: 1;
+					transform: translateY(0px);
+					color: $COLOR_Black;
+				} */
     }
 
-    body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
-        opacity: 1;
-        transform: translateY(0px);
-        color: #0A0A0A;
+    body.eric-codes.homepage .page-section .homepage-container .logo-container {
+        width: 100%;
     }
 
     body.eric-codes.homepage .page-section .homepage-container .main-headlines {

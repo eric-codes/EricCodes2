@@ -4,6 +4,24 @@ body.eric-codes {
 		width:100%;
 	}
 
+	&.homepage {
+
+		.page-section {
+
+
+			.homepage-container {
+
+				.nav-icons .nav-icon-single .icon-title a {
+					opacity: 1;
+					transform: translateY(0px);
+					color: $COLOR_Black;
+				}
+
+			}
+
+		}
+
+	}
 
 	&.about {
 
