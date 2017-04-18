@@ -11,10 +11,10 @@ app.controller('CoreController', ['$scope', '$rootScope', 'loadData', 'preloader
     $scope.Animate = {
         In: function($el){
             $el.removeClass('not-shown');
-            $el.addClass('shown');
+            $el.addClass('shown transition');
         },
         Out: function($el){
-            $el.addClass('not-shown');
+            $el.addClass('not-shown transition');
             $el.removeClass('shown');
         }
     }
