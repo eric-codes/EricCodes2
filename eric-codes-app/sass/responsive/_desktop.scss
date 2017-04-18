@@ -1,0 +1,50 @@
+body.eric-codes {
+
+
+
+	.btn-default {
+		padding: 15px 30px;
+	}
+
+	.container {
+		min-width: 1100px;
+		width: 90%;
+	}
+
+
+
+	h1.top-title {
+		font-size: 36px;
+	}
+
+	&.about {
+
+		.text-container p {
+			font-size: 14px;
+			width: 90%;
+		}
+
+		.large-list {
+			width: 100%;
+		}
+
+	}
+
+
+
+	&.work {
+		.work-item .work-item-info p {
+			font-size: 12px;
+		}
+	}
+
+	&.work-single { 
+		.work-layout .row.description p {
+			width: 100%;
+		}
+	}
+
+
+
+}
+
