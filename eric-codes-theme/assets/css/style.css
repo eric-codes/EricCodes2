@@ -866,7 +866,7 @@ body.eric-codes.work-single .work-layout .row.section .mockup-top span.mockup-ad
 }
 
 body.eric-codes.work-single .work-layout .row.section .scroll-container {
-    height: calc(100% - $MOCKUP_Height);
+    height: calc(100% - 66px);
     overflow-y: scroll;
     border: solid #f1f1f1 1px;
 }
