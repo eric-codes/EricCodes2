@@ -4,4 +4,52 @@ body.eric-codes {
 		width:100%;
 	}
 
+
+	&.about {
+
+		.text-container p {
+			font-size: 12px;
+			&.lead-paragraph {
+				font-size: 15px;
+			}
+		}
+
+
+
+		.large-list li {
+			font-size: 18px;
+		}
+
+	}
+
+
+
+	&.work {
+		.work-item .work-item-info h3.work-inside-title {
+			font-size: 20px;
+			font-weight: 600;
+		}
+		.btn-default {
+			font-size: 14px;
+		}
+	}
+
+
+
+	&.work-single {
+		.work-layout {
+			.work-icon-container .icon-container {
+				width: 30px;
+			}
+			.row.description p {
+				font-size: 14px;
+			}
+		}
+	}
+
+
+
+
 }
+
+
