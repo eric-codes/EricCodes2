@@ -1129,6 +1129,12 @@ body.eric-codes.contact .contact-form textarea {
     }
 }
 
+@media (max-width: 992px) {
+    body.eric-codes .container {
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
     body.eric-codes .no-padding {
         padding: 0px !important;
