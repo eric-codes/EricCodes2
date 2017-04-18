@@ -1,0 +1,40 @@
+<div class="page-section">
+	
+	<div class="video-container">
+		<video class="background-video" autobuffer autoplay loop="true" poster="{{BGVidPoster}}">
+			<source src="{{BGVidURL}}" type="video/mp4">
+			</video>
+		</div>
+
+		<div class="homepage-container">
+
+
+			<div class="logo-container" ng-include="Logo">
+
+
+				</div>
+
+				<div class="main-headlines">
+
+					UI / UX Design<span class="mid-breaker">•</span>Front End / Full Stack Development<span class="mid-breaker">•</span>Typography & Graphic Design
+
+				</div>
+
+				<div class="nav-icons">
+
+					<div class="nav-icon-single" ng-repeat="icon in NavIcons">
+
+						<div class="nav-icon-container">
+							<a href="{{icon.link}}"><img class="nav-icon-img" ng-src="{{icon.URL}}"></img></a>
+						</div>
+
+						<span class="icon-title"><a href="{{icon.link}}">{{icon.name}}</a></span>
+
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
