@@ -52,9 +52,9 @@ app.directive('workGallery', ['modalService', function(modalService) {
 			CurrentSlide = scope.maindata[i];
 
 			if (CurrentSlide.scrollURL) {
-				LoadImg.src = CurrentSlide.scrollURL;
+				LoadImg.src = scope.GetImage(CurrentSlide.scrollURL);
 			} else {
-				LoadImg.src = CurrentSlide.URL;
+				LoadImg.src = scope.GetImage(CurrentSlide.URL);
 			}
 
 			Log.Set('Loading Image',LoadImg);
