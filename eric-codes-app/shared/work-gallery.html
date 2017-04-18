@@ -15,9 +15,9 @@
 		<img class="main-image" ng-click="OpenModal()" ng-src="{{GetImage(currentSlide.URL)}}" ng-if="currentSlide.URL" />
 
 		<div class="mockup-top" ng-if="currentSlide.scrollURL">
-			<img class="mockup-left"></img>
+			<img class="mockup-left" ng-src="{{Mockup.Left}}"></img>
 			<div class="mockup-center"></div>
-			<img class="mockup-right"></img>
+			<img class="mockup-right" ng-src="{{Mockup.Right}}"></img>
 		</div>	
 
 		<div class="scroll-container" ng-if="currentSlide.scrollURL">
