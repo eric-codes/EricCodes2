@@ -807,7 +807,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .loa
     }
 
     50% {
-        content: "Loading... \ ";
+        content: "Loading... \\ ";
     }
 
     75% {
@@ -816,8 +816,10 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .loa
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box .loading-graphic:after {
+    content: "Loading... / ";
     animation-name: loading;
     animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue {
