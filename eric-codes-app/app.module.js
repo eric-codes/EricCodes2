@@ -242,6 +242,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
 .run(['$state','$rootScope',function($state,$rootScope){
         $rootScope.$on('$stateChangeSuccess', function(){
-        $(window).scrollTop(1);
+        $('body,html').scrollTop(1);
     });
 }]);
