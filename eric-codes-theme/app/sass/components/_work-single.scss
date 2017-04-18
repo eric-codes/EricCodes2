@@ -139,12 +139,13 @@ h2.layout-header {
 				.mockup-center {
 					order: 2;
 					flex-grow: 2;
+					background:url('../img/tab_repeat.jpg') repeat-x center center;
 				}
 
 				img.mockup-right {
 					order: 3;
 				}
-				
+
 			}
 
 
