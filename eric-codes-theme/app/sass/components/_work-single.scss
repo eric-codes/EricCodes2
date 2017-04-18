@@ -131,6 +131,7 @@ h2.layout-header {
 				flex-direction: row;
 				height: 66px;
 				justify-content: space-between;
+				position: relative;
 
 				img.mockup-left {
 					order: 1;
@@ -144,6 +145,14 @@ h2.layout-header {
 
 				img.mockup-right {
 					order: 3;
+				}
+
+				span.mockup-address {
+					position: absolute;
+					z-index: 20;
+					left: 120px;
+					top: 40px;
+					font-size: 12px;
 				}
 
 			}

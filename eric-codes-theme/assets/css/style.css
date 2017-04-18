@@ -117,6 +117,11 @@ body.eric-codes .btn-default {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: 0.2s;
+}
+
+body.eric-codes .btn-default:hover {
+    background: #3b3b3b;
 }
 
 body.eric-codes h1.top-title {
@@ -779,6 +784,7 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .moc
     flex-direction: row;
     height: 66px;
     justify-content: space-between;
+    position: relative;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-left {
@@ -793,6 +799,14 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .moc
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-right {
     order: 3;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top span.mockup-address {
+    position: absolute;
+    z-index: 20;
+    left: 120px;
+    top: 40px;
+    font-size: 12px;
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
