@@ -125,37 +125,7 @@ h2.layout-header {
 
 			}
 
-			.mockup-top {
-				display: flex;
-				width: 100%;
-				flex-direction: row;
-				height: 66px;
-				justify-content: space-between;
-				position: relative;
 
-				img.mockup-left {
-					order: 1;
-				}
-
-				.mockup-center {
-					order: 2;
-					flex-grow: 2;
-					background:url('../img/tab_repeat.jpg') repeat-x center center;
-				}
-
-				img.mockup-right {
-					order: 3;
-				}
-
-				span.mockup-address {
-					position: absolute;
-					z-index: 20;
-					left: 120px;
-					top: 40px;
-					font-size: 12px;
-				}
-
-			}
 
 
 
@@ -218,9 +188,36 @@ h2.layout-header {
 
 		}
 
+		$MOCKUP_Height: 66px;
+
+		.mockup-top {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
+			height: $MOCKUP_Height;
+			justify-content: space-between;
+			position: relative;
+
+
+			.mockup-center {
+				flex-grow: 2;
+				background:url('../img/tab_repeat.jpg') repeat-x center center;
+			}
+
+
+
+			span.mockup-address {
+				position: absolute;
+				z-index: 20;
+				left: 120px;
+				top: 40px;
+				font-size: 12px;
+			}
+
+		}
 
 		.scroll-container {
-			height: 100%;
+			height: calc(100% - $MOCKUP_Height);
 			overflow-y: scroll;
 			border: solid rgb(241, 241, 241) 1px;
 
@@ -386,7 +383,7 @@ ul.other-projects-list {
 		color: $COLOR_Spot;
 
 		a {
-			color: grey;
+			color: $COLOR_Main;
 		}
 
 		&:before {

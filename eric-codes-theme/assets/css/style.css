@@ -486,9 +486,22 @@ body.eric-codes.about .text-container {
 }
 
 body.eric-codes.about .text-container p {
-    font-size: 18px;
+    font-size: 16px;
     width: 80%;
     margin-bottom: 20px;
+}
+
+body.eric-codes.about .text-container p.lead-paragraph {
+    font-size: 18px;
+    font-weight: 500;
+    widows: 2;
+}
+
+body.eric-codes.about .text-container p.end-paragraph {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-top: 25px;
+    color: #4f8ac8;
 }
 
 body.eric-codes.about .skill-section {
@@ -779,37 +792,6 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .scr
     opacity: 1;
 }
 
-body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    height: 66px;
-    justify-content: space-between;
-    position: relative;
-}
-
-body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-left {
-    order: 1;
-}
-
-body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top .mockup-center {
-    order: 2;
-    flex-grow: 2;
-    background: url("../img/tab_repeat.jpg") repeat-x center center;
-}
-
-body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top img.mockup-right {
-    order: 3;
-}
-
-body.eric-codes.work-single .work-layout .row.section .main-image-container .mockup-top span.mockup-address {
-    position: absolute;
-    z-index: 20;
-    left: 120px;
-    top: 40px;
-    font-size: 12px;
-}
-
 body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
     position: absolute;
     bottom: 15px;
@@ -861,8 +843,30 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .mai
     cursor: pointer;
 }
 
+body.eric-codes.work-single .work-layout .row.section .mockup-top {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 66px;
+    justify-content: space-between;
+    position: relative;
+}
+
+body.eric-codes.work-single .work-layout .row.section .mockup-top .mockup-center {
+    flex-grow: 2;
+    background: url("../img/tab_repeat.jpg") repeat-x center center;
+}
+
+body.eric-codes.work-single .work-layout .row.section .mockup-top span.mockup-address {
+    position: absolute;
+    z-index: 20;
+    left: 120px;
+    top: 40px;
+    font-size: 12px;
+}
+
 body.eric-codes.work-single .work-layout .row.section .scroll-container {
-    height: 100%;
+    height: calc(100% - $MOCKUP_Height);
     overflow-y: scroll;
     border: solid #f1f1f1 1px;
 }
@@ -1007,7 +1011,7 @@ body.eric-codes.work-single ul.other-projects-list li.project-link {
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link a {
-    color: grey;
+    color: #212121;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link:before {
