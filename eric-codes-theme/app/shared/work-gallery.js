@@ -25,7 +25,7 @@ app.directive('workGallery', ['modalService', function(modalService) {
 			},
 		}
 
-		scope.Loading = {
+		var Loading = {
 			Start: function() {
 				elem.find('.loading-box').addClass('open');
 			},
@@ -49,6 +49,8 @@ app.directive('workGallery', ['modalService', function(modalService) {
 			Log.Msg('Gallery item clicked!');
 
 			Loading.Start();
+
+			Log.Set('This current item',this);
 
 			var LoadImg = new Image(),
 			CurrentSlide = scope.maindata[i];
