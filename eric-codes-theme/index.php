@@ -73,7 +73,9 @@ function TemplateGet($input) {
 
 				<div class="pull-left logo-area">
 					<span class="logo-type">
-						<a ng-href="{{crumb.link}}" class="crumb" ng-repeat="crumb in NavText"></a>
+						<a ng-href="{{crumb[0].link}}" class="crumb-0"></a>
+						<a ng-href="{{crumb[1].link}}" class="crumb-1"></a>
+						<a ng-href="{{crumb[2].link}}" class="crumb-2"></a>
 					</span>
 				</div>
 
