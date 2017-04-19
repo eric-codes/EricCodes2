@@ -170,7 +170,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             }
 
             if ($('.crumb:eq(0)').text().length < 1) {
-            	Animate.In(newv[0].text, 0);
+                Animate.In(newv[0].text, 0);
             }
 
         } else if (!newv[1]) {
@@ -257,12 +257,12 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
     }, true);
 
     $rootScope.$watch('NavHidden', function(newValue, oldValue) {
-    	
-    	if (newValue === true) {
-    		$('.navbar').addClass('not-shown');
-    	} else {
-    		$('.navbar').removeClass('not-shown');
-    	}
+
+        if (newValue === true) {
+            $('.navbar').addClass('not-shown');
+        } else {
+            $('.navbar').removeClass('not-shown');
+        }
 
     }, true);
 
