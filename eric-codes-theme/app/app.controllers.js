@@ -13,6 +13,8 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         link: "/about"
     })
 
+    $scope.ProfilePicture = themeURL + "assets/img/profile-picture.jpg";
+
     $scope.skillIcons = [{
         icon: iconFolder + "code_jquery.svg",
         title: "jQuery"
@@ -51,7 +53,7 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
 
 }])
 
-app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
+app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', 'sendMail', function($scope, $rootScope, breadcrumbs, sendMail) {
 
     breadcrumbs.updateNav(2);
 
@@ -74,8 +76,31 @@ app.controller('contact', ['$scope', '$rootScope', 'breadcrumbs', function($scop
         icon: iconFolder + "social_twitter.svg"
     }, ];
 
+    $scope.contact = {};
+
+    $scope.sent = false;
+
+    $scope.SendMail = function(){
+        sendMail.send($scope.contact,function(data){
+            if (data.data == true) {
+                $scope.sent = true;
+            }
+        });
+    }
+
 }])
 
+
+
+app.controller('footer', ['$scope', function($scope){
+	
+	$scope.ScrollToTop = function(){
+		$('body').animate({
+			scrollTop:0
+		},1000);
+	}
+
+}])
 
 
 app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($scope,$rootScope,breadcrumbs){
@@ -174,6 +199,49 @@ app.controller('homepage', ['$scope', '$rootScope', 'breadcrumbs', function($sco
 	})
 
 }])
+app.controller('modalController', ['$scope', '$rootScope', "modalService", function($scope, $rootScope, modalService) {
+
+    $rootScope.ModalSettings;
+    $rootScope.ModalSlug;
+    $rootScope.ModalToggle = false;
+
+    $scope.ModalSettings;
+
+    $scope.ModalToggle = $rootScope.ModalToggle;
+    $scope.ModalStatus = "";
+
+    $scope.Modal = {
+        Open: function() {
+            $scope.ModalStatus = "open";
+        },
+        Close: function() {
+            $scope.ModalStatus = "";
+        }
+    }
+
+    $scope.GetImage = function(filename) {
+        return themeURL + "assets/img/" + $rootScope.ModalSlug + "/" + filename;
+    }
+
+    $scope.CloseModal = function(){
+    	modalService.Close();
+    }
+
+    $rootScope.$watch('ModalSettings', function(newv, oldv) {
+        $scope.ModalSettings = newv;
+    })
+
+    $rootScope.$watch('ModalToggle', function(newv, oldv) {
+        if (newv === true) {
+            $scope.Modal.Open();
+        } else {
+            $scope.Modal.Close();
+        }
+    })
+
+
+}])
+
 app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope, $rootScope, breadcrumbs) {
 
     Log.Heading('Navbar Controller Loaded');
@@ -346,7 +414,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
             }
 
             if ($('.crumb:eq(0)').text().length < 1) {
-            	Animate.In(newv[0].text, 0);
+                Animate.In(newv[0].text, 0);
             }
 
         } else if (!newv[1]) {
@@ -433,12 +501,12 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
     }, true);
 
     $rootScope.$watch('NavHidden', function(newValue, oldValue) {
-    	
-    	if (newValue === true) {
-    		$('.navbar').addClass('not-shown');
-    	} else {
-    		$('.navbar').removeClass('not-shown');
-    	}
+
+        if (newValue === true) {
+            $('.navbar').addClass('not-shown');
+        } else {
+            $('.navbar').removeClass('not-shown');
+        }
 
     }, true);
 
@@ -511,7 +579,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     var ThisSlug = $stateParams.workSlug;
 
-
+    $rootScope.ModalSlug = $stateParams.workSlug;
 
 
     $scope.AllProjects;
@@ -522,7 +590,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     $scope.Tags;
     $scope.Sections;
 
-    $scope.ContentImgUrl = function(filename,type) {
+    $scope.ContentImgUrl = function(filename, type) {
         if (type == "hero") {
             return themeURL + "assets/img/" + $scope.WorkData.slug + "/mockup/" + filename;
         } else if (type == "gallery") {
@@ -539,10 +607,10 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         $scope.Tags = returnTags($scope.ThisData.workData.tags);
         $scope.Sections = $scope.ThisData.sections;
 
-        Log.Set('Tags',$scope.Tags);
+        Log.Set('Tags', $scope.Tags);
 
         breadcrumbs.updateSecondChild({
-            text: '.'+$scope.WorkData.title,
+            text: '.' + $scope.WorkData.title,
             link: "/" + $scope.WorkData.slug
         }, {
             text: ".work",
@@ -551,11 +619,80 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     }
 
+    function InitHeroSlider() {
+
+        var HeroImage = $('.hero-image-single');
+
+        HeroImage.eq(0).addClass('open');
+
+
+        $scope.HeroCycleNext = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current + 1;
+
+            if (Next >= HeroImage.length) {
+                Next = 0;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+        $scope.HeroCyclePrev = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current - 1;
+
+            if (Next < 0) {
+                Next = HeroImage.length - 1;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+        function FireCycle() {
+            setTimeout(function(){
+                $scope.HeroCycleNext();
+                FireCycle();
+            },3000);
+        }
+
+        FireCycle();
+
+    }
+
+    $(document).ready(function() {
+        InitHeroSlider();
+    })
+
+
     if ($rootScope.AllData) {
         UpdateScope();
     }
 
-    $rootScope.$watch('WorkData', function(nv, ov) {
+    $rootScope.$watch('AllData', function(nv, ov) {
         UpdateScope();
     }, true)
 

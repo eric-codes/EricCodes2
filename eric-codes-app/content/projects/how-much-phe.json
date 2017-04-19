@@ -3,6 +3,7 @@
         "name": "How Much PHE",
         "slug": "how-much-phe",
         "title": "how.much.phe",
+        "liveLink": "http://howmuchphe.org",
         "blurb": "I was commissioned by Abacus Designs to design and develop a front end for their mobile web app, called How Much Phe. How Much Phe is a service that allows their end users to search for foods and retrieve their amino acid content, save food listings, track their amino acid consumption and calculate exactly what they need to eat each day to fulfill their amino acid needs.",
         "problem": "I was commissioned by Abacus Designs to design and develop a front end for their mobile web app, called How Much Phe. How Much Phe is a service that allows their end users to search for foods and retrieve their amino acid content, save food listings, track their amino acid consumption and calculate exactly what they need to eat each day to fulfill their amino acid needs.",
         "solution": "I understood the main demographic of the app were mothers and possibly children, so I had to come up with a typographic treatment and color choices that would aesthetically appeal to that demographic. In addition, the user flow had to be intuitive, calculator functions had to be easily accessible and the app as a whole had to be painless for the end users to use.",
@@ -36,22 +37,34 @@
     }, {
         "gallery": [{
             "thumbnail": "design/color_palette_thumb.jpg",
-            "URL": "design/color_palette.jpg"
+            "URL": "design/color_palette.jpg",
+            "title": "Color Swatches",
+            "description": "Color scheme and usage"
         }, {
             "thumbnail": "design/typography_thumb.jpg",
-            "URL": "design/typography.jpg"
+            "URL": "design/typography.jpg",
+            "title": "Typography",
+            "description": "Source Sans Pro & Pathway Gothic"
         }, {
             "thumbnail": "design/screen_item_thumb.jpg",
-            "scrollURL": "design/screen_item.jpg"
+            "scrollURL": "design/screen_item.jpg",
+            "title": "Food Item View",
+            "description": "Desktop view for individual food item"
         }, {
             "thumbnail": "design/screen_tracking_thumb.jpg",
-            "scrollURL": "design/screen_tracking.jpg"
+            "scrollURL": "design/screen_tracking.jpg",
+            "title": "Tracking View",
+            "description": "Amino acid tracking for individual user"
         }, {
             "thumbnail": "design/screen_search_thumb.jpg",
-            "scrollURL": "design/screen_search.jpg"
+            "scrollURL": "design/screen_search.jpg",
+            "title": "Search view",
+            "description": "Search view for foods"
         }, {
             "thumbnail": "design/screen_tracking2_thumb.jpg",
-            "scrollURL": "design/screen_tracking2.jpg"
+            "scrollURL": "design/screen_tracking2.jpg",
+            "title": "Tracking Graph",
+            "description": "Tracking graph for individual user"
         }]
     }, {
         "title": "development()",
@@ -63,15 +76,15 @@
         ]
     }, {
         "description": "Most of the development I had to do for this project was a mixture of PHP-embedded HTML, jQuery, and good old HTML5/CSS3. I used Bootstrap for a framework in order to simplify the production process and make this app accessible from both the desktop and mobile devices, and all Bootstrap breakpoints were individually treated for optimization on different devices."
-    },{
+    }, {
         "code": [{
             "file": "ui-toolbox.js",
-            "lang":"javascript",
-            "location":"how-much-phe"
-        },{
+            "lang": "javascript",
+            "location": "how-much-phe"
+        }, {
             "file": "hmp-main.js",
-            "lang":"javascript",
-            "location":"how-much-phe"
+            "lang": "javascript",
+            "location": "how-much-phe"
         }]
     }]
 }

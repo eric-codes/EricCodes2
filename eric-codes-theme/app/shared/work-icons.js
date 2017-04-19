@@ -6,7 +6,9 @@ app.directive('workIcons', function(){
 
 		scope.Tags = returnTags(scope.maindata);
 
-		elem.find('[data-toggle="tooltip"]').tooltip();
+		setTimeout(function(){
+			$('[data-toggle="tooltip"]').tooltip()
+		},500)
 
 	}
 
@@ -14,8 +16,8 @@ app.directive('workIcons', function(){
 		scope: {
 			maindata: "="
 		}, 
-		 restrict: 'E',
-		 templateUrl: GetShared('work-icons'),
-		 link: link_return
+		restrict: 'E',
+		templateUrl: GetShared('work-icons'),
+		link: link_return
 	};
 });

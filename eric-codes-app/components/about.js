@@ -13,6 +13,8 @@ app.controller('about', ['$scope', '$rootScope', 'breadcrumbs', function($scope,
         link: "/about"
     })
 
+    $scope.ProfilePicture = themeURL + "assets/img/profile-picture.jpg";
+
     $scope.skillIcons = [{
         icon: iconFolder + "code_jquery.svg",
         title: "jQuery"

@@ -1,0 +1,13 @@
+.transition {
+	transition:0.7s;
+}
+
+.not-shown {
+	opacity:0;
+	transform: translateY(5px);
+}
+
+.shown {
+	opacity:1;
+	transform: translateY(0px);
+}

@@ -14,7 +14,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     var ThisSlug = $stateParams.workSlug;
 
-
+    $rootScope.ModalSlug = $stateParams.workSlug;
 
 
     $scope.AllProjects;
@@ -25,7 +25,7 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
     $scope.Tags;
     $scope.Sections;
 
-    $scope.ContentImgUrl = function(filename,type) {
+    $scope.ContentImgUrl = function(filename, type) {
         if (type == "hero") {
             return themeURL + "assets/img/" + $scope.WorkData.slug + "/mockup/" + filename;
         } else if (type == "gallery") {
@@ -42,10 +42,10 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
         $scope.Tags = returnTags($scope.ThisData.workData.tags);
         $scope.Sections = $scope.ThisData.sections;
 
-        Log.Set('Tags',$scope.Tags);
+        Log.Set('Tags', $scope.Tags);
 
         breadcrumbs.updateSecondChild({
-            text: '.'+$scope.WorkData.title,
+            text: '.' + $scope.WorkData.title,
             link: "/" + $scope.WorkData.slug
         }, {
             text: ".work",
@@ -54,11 +54,80 @@ app.controller('work_single', ['$scope', '$rootScope', 'breadcrumbs', '$statePar
 
     }
 
+    function InitHeroSlider() {
+
+        var HeroImage = $('.hero-image-single');
+
+        HeroImage.eq(0).addClass('open');
+
+
+        $scope.HeroCycleNext = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current + 1;
+
+            if (Next >= HeroImage.length) {
+                Next = 0;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+        $scope.HeroCyclePrev = function() {
+
+            var Current;
+
+            HeroImage.each(function(i, e) {
+
+                if ($(e).hasClass('open')) {
+                    Current = i;
+                }
+
+            })
+
+            var Next = Current - 1;
+
+            if (Next < 0) {
+                Next = HeroImage.length - 1;
+            }
+
+            HeroImage.removeClass('open')
+                .eq(Next).addClass('open');
+
+        }
+
+        function FireCycle() {
+            setTimeout(function(){
+                $scope.HeroCycleNext();
+                FireCycle();
+            },3000);
+        }
+
+        FireCycle();
+
+    }
+
+    $(document).ready(function() {
+        InitHeroSlider();
+    })
+
+
     if ($rootScope.AllData) {
         UpdateScope();
     }
 
-    $rootScope.$watch('WorkData', function(nv, ov) {
+    $rootScope.$watch('AllData', function(nv, ov) {
         UpdateScope();
     }, true)
 

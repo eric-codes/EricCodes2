@@ -117,6 +117,11 @@ body.eric-codes .btn-default {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: 0.2s;
+}
+
+body.eric-codes .btn-default:hover {
+    background: #474747;
 }
 
 body.eric-codes h1.top-title {
@@ -130,6 +135,7 @@ body.eric-codes h1.top-title {
 @media (min-width: 1200px) {
     body.eric-codes .container {
         width: 80%;
+        min-width: 1170px;
     }
 }
 
@@ -259,6 +265,7 @@ body.eric-codes footer a.back-to-top {
     width: 30px;
     height: 30px;
     display: block;
+    cursor: pointer;
 }
 
 body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
@@ -268,6 +275,86 @@ body.eric-codes footer a.back-to-top i.fa.fa-chevron-up {
     transform: translateX(-50%) translateY(-50%);
     left: 50%;
     color: #333;
+}
+
+body.eric-codes .modal-container {
+    position: fixed;
+    z-index: 5000;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    transition: 0.5s;
+}
+
+body.eric-codes .modal-container .modal-inside {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-description {
+    position: absolute;
+    color: white;
+    bottom: 20px;
+    padding: 10px 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    left: 20px;
+}
+
+body.eric-codes .modal-container .modal-inside span.close-modal {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-image-container {
+    width: calc(100% - 80px);
+    height: calc(100% - 140px);
+    overflow: hidden;
+    margin: 40px;
+    text-align: center;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-image-container img.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 1px;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-scroll-image-container {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    overflow-y: scroll;
+}
+
+body.eric-codes .modal-container .modal-inside .modal-scroll-image-container .modal-scroll-image {
+    max-width: 100%;
+    border-radius: 1px;
+}
+
+body.eric-codes .modal-container.open {
+    top: 0px;
+}
+
+body.eric-codes .transition {
+    transition: 0.7s;
+}
+
+body.eric-codes .not-shown {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+body.eric-codes .shown {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 body.eric-codes.homepage .page-section {
@@ -414,9 +501,22 @@ body.eric-codes.about .text-container {
 }
 
 body.eric-codes.about .text-container p {
-    font-size: 18px;
+    font-size: 16px;
     width: 80%;
     margin-bottom: 20px;
+}
+
+body.eric-codes.about .text-container p.lead-paragraph {
+    font-size: 18px;
+    font-weight: 500;
+    widows: 2;
+}
+
+body.eric-codes.about .text-container p.end-paragraph {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-top: 25px;
+    color: #4f8ac8;
 }
 
 body.eric-codes.about .skill-section {
@@ -507,7 +607,7 @@ body.eric-codes.work .text-container h1.top-title {
 body.eric-codes.work .text-container p {
     font-size: 18px;
     line-height: 1.5em;
-    width: 80%;
+    width: 100%;
 }
 
 body.eric-codes.work .work-item {
@@ -516,6 +616,11 @@ body.eric-codes.work .work-item {
     margin-bottom: 60px;
     position: relative;
     overflow: hidden;
+    /* 
+    a.btn {
+        background-color:$COLOR_Spot;
+    }
+ */
 }
 
 body.eric-codes.work .work-item .background-image {
@@ -584,10 +689,6 @@ body.eric-codes.work .work-item:hover .background-image {
     transform: translateY(-50%) scale(1.1);
 }
 
-body.eric-codes.work .work-item a.btn {
-    background-color: #4f8ac8;
-}
-
 body.eric-codes.work .work-icon-inner {
     text-align: center;
     width: 100%;
@@ -598,6 +699,7 @@ body.eric-codes.work .work-icon-inner .icon-container {
     display: inline-block;
     padding: 0px 10px;
     width: calc(100% / 5);
+    margin-bottom: 15px;
 }
 
 body.eric-codes.work-single .return-area {
@@ -630,6 +732,20 @@ body.eric-codes.work-single h2.layout-header {
     font-size: 36px;
 }
 
+body.eric-codes.work-single .work-layout .live-site {
+    border-top: solid rgba(0, 0, 0, 0.2) 1px;
+    border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+    padding: 40px 0px;
+    margin: 30px 0px;
+}
+
+body.eric-codes.work-single .work-layout .live-site .btn {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
 body.eric-codes.work-single .work-layout .row.section {
     margin-top: 50px;
 }
@@ -639,7 +755,7 @@ body.eric-codes.work-single .work-layout .row.section h3.section-heading {
     font-size: 20px;
 }
 
-body.eric-codes.work-single .work-layout .row.section h3.section-heading span {
+body.eric-codes.work-single .work-layout .row.section h3.section-heading span.blue-span {
     color: #4f8ac8;
 }
 
@@ -660,6 +776,126 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container {
     overflow: hidden;
     min-height: 600px;
     height: 70vh;
+    background: #ececec;
+    position: relative;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box {
+    position: absolute;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    display: flex;
+    transition: 0.3s;
+    top: -100%;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box .loading-graphic {
+    margin: auto;
+    font-family: "Space Mono";
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    text-transform: lowercase;
+}
+
+@keyframes loading {
+    0% {
+        content: "Loading... / ";
+    }
+
+    25% {
+        content: "Loading... - ";
+    }
+
+    50% {
+        content: "Loading... \\ ";
+    }
+
+    75% {
+        content: "Loading... | ";
+    }
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box .loading-graphic:after {
+    content: "Loading... / ";
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .loading-box.open {
+    top: 0%;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 15px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+    transition: 1s;
+    opacity: 0;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue i {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .scroll-cue.open {
+    opacity: 1;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
+    position: absolute;
+    bottom: 15px;
+    z-index: 100;
+    background: rgba(25, 25, 25, 0.8);
+    color: white;
+    padding: 15px 40px 15px 25px;
+    left: 0px;
+    border-radius: 0px 3px 3px 0px;
+    transition: 0.5s;
+    max-width: 400px;
+    width: 100%;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description h3 {
+    margin: 5px 0px 15px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description p {
+    margin-bottom: 0px;
+    font-size: 14px;
+    letter-spacing: 0.055em;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description span.toggle-caret {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description.closed {
+    left: -370px;
+}
+
+body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description.closed .toggle-caret {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
@@ -667,21 +903,45 @@ body.eric-codes.work-single .work-layout .row.section .main-image-container .mai
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
+}
+
+body.eric-codes.work-single .work-layout .row.section .mockup-top {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    height: 66px;
+    justify-content: space-between;
+    position: relative;
+}
+
+body.eric-codes.work-single .work-layout .row.section .mockup-top .mockup-center {
+    flex-grow: 2;
+    background: url("../img/tab_repeat.jpg") repeat-x center center;
+}
+
+body.eric-codes.work-single .work-layout .row.section .mockup-top span.mockup-address {
+    position: absolute;
+    z-index: 20;
+    left: 120px;
+    top: 40px;
+    font-size: 12px;
 }
 
 body.eric-codes.work-single .work-layout .row.section .scroll-container {
-    height: 100%;
+    height: calc(100% - 66px);
     overflow-y: scroll;
     border: solid #f1f1f1 1px;
 }
 
 body.eric-codes.work-single .work-layout .row.section .scroll-container .scroll-image {
     width: 100%;
+    cursor: pointer;
 }
 
 body.eric-codes.work-single .work-layout .row.section p.section-description {
     font-size: 16px;
-    width: 80%;
+    width: 100%;
     line-height: 1.6em;
 }
 
@@ -689,6 +949,9 @@ body.eric-codes.work-single .work-layout .row.section .image-thumb {
     overflow: hidden;
     height: 15vh;
     margin-bottom: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 body.eric-codes.work-single .work-layout .row.section .image-thumb .image-thumb-img {
@@ -696,6 +959,27 @@ body.eric-codes.work-single .work-layout .row.section .image-thumb .image-thumb-
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb .description {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover, body.eric-codes.work-single .work-layout .row.section .image-thumb.open {
+    transform: scale(1.05);
+}
+
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover .description, body.eric-codes.work-single .work-layout .row.section .image-thumb.open .description {
+    bottom: -1px;
 }
 
 body.eric-codes.work-single .work-layout .row.section h4.sub-heading {
@@ -786,11 +1070,11 @@ body.eric-codes.work-single ul.other-projects-list li.project-link {
     display: inline-block;
     font-size: 18px;
     font-weight: 400;
-    color: blue;
+    color: #4f8ac8;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link a {
-    color: grey;
+    color: #212121;
 }
 
 body.eric-codes.work-single ul.other-projects-list li.project-link:before {
@@ -863,10 +1147,105 @@ body.eric-codes.contact .contact-form textarea {
 }
 
 /* responsive */
+@media (max-width: 1280px) {
+    body.eric-codes .btn-default {
+        padding: 15px 30px;
+    }
+
+    body.eric-codes .container {
+        width: 90%;
+    }
+
+    body.eric-codes h1.top-title {
+        font-size: 36px;
+    }
+
+    body.eric-codes.about .text-container p {
+        font-size: 14px;
+        width: 90%;
+    }
+
+    body.eric-codes.about .large-list {
+        width: 100%;
+    }
+
+    body.eric-codes.work .work-item .work-item-info p {
+        font-size: 12px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.description p {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    body.eric-codes .container {
+        width: 100%;
+    }
+
+    body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
+        opacity: 1;
+        transform: translateY(0px);
+        color: #0A0A0A;
+    }
+
+    body.eric-codes.about .text-container p {
+        font-size: 12px;
+    }
+
+    body.eric-codes.about .text-container p.lead-paragraph {
+        font-size: 15px;
+    }
+
+    body.eric-codes.about .large-list li {
+        font-size: 18px;
+    }
+
+    body.eric-codes.work .work-item .work-item-info h3.work-inside-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    body.eric-codes.work .btn-default {
+        font-size: 14px;
+    }
+
+    body.eric-codes.work-single .work-layout .work-icon-container .icon-container {
+        width: 30px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.description p {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
+    body.eric-codes .no-padding {
+        padding: 0px !important;
+    }
+
     body.eric-codes h1.top-title {
         font-size: 28px;
         margin-top: 40px;
+    }
+
+    body.eric-codes .modal-container {
+        transform: rotate(90deg);
+        width: 100vh;
+        height: 100vw;
+        transform-origin: 0 0;
+        top: 0px;
+        left: 0px;
+    }
+
+    body.eric-codes .modal-container.open {
+        left: 100%;
+    }
+
+    body.eric-codes .modal-container .modal-inside .modal-image-container {
+        width: 100%;
+        height: calc(100% - 60px);
+        margin: 30px;
     }
 
     body.eric-codes .navbar-default .icon-area .icon-drawer {
@@ -948,14 +1327,16 @@ body.eric-codes.contact .contact-form textarea {
         transform: translateX(-40%);
     }
 
-    body.eric-codes.homepage .page-section .homepage-container .logo-container {
-        width: 100%;
+    body.eric-codes.homepage .page-section .homepage-container {
+      /* 				.nav-icons .nav-icon-single .icon-title a {
+					opacity: 1;
+					transform: translateY(0px);
+					color: $COLOR_Black;
+				} */
     }
 
-    body.eric-codes.homepage .page-section .homepage-container .nav-icons .nav-icon-single .icon-title a {
-        opacity: 1;
-        transform: translateY(0px);
-        color: #0A0A0A;
+    body.eric-codes.homepage .page-section .homepage-container .logo-container {
+        width: 100%;
     }
 
     body.eric-codes.homepage .page-section .homepage-container .main-headlines {
@@ -999,7 +1380,6 @@ body.eric-codes.contact .contact-form textarea {
         position: absolute;
         transform: translateX(-50%) translateY(-50%);
         width: 100%;
-        min-height: 100%;
         top: 50%;
     }
 
@@ -1116,6 +1496,49 @@ body.eric-codes.contact .contact-form textarea {
         margin-left: 0px;
     }
 
+    body.eric-codes.work-single .work-layout pre {
+        font-size: 9px;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set {
+        overflow: hidden;
+        height: 300px;
+        position: relative;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .cycle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        width: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .cycle.prev {
+        left: 5px;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .cycle.next {
+        right: 5px;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .hero-image-single {
+        position: absolute;
+        z-index: 5;
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    body.eric-codes.work-single .work-layout .hero-image-set .hero-image-single.open {
+        opacity: 1;
+        z-index: 10;
+    }
+
     body.eric-codes.work-single .work-layout .row.description p {
         font-size: 15px;
         width: 100%;
@@ -1138,12 +1561,19 @@ body.eric-codes.contact .contact-form textarea {
         margin-bottom: 30px;
     }
 
+    body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description {
+        bottom: 0px;
+    }
+
+    body.eric-codes.work-single .work-layout .row.section .main-image-container .image-description.closed {
+        left: calc(-100% + 30px);
+    }
+
     body.eric-codes.work-single .work-layout .row.section .main-image-container .main-image {
-        width: auto;
-        height: 100%;
-        top: initial;
-        left: 50%;
-        transform: translateY(0) translateX(-50%);
+        width: 100%;
+        height: auto;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     body.eric-codes.work-single .work-layout .row.section h3.section-heading {
