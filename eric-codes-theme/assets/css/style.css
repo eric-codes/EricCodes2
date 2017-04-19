@@ -974,11 +974,11 @@ body.eric-codes.work-single .work-layout .row.section .image-thumb .description 
     transition: 0.3s;
 }
 
-body.eric-codes.work-single .work-layout .row.section .image-thumb:hover {
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover, body.eric-codes.work-single .work-layout .row.section .image-thumb.open {
     transform: scale(1.05);
 }
 
-body.eric-codes.work-single .work-layout .row.section .image-thumb:hover .description {
+body.eric-codes.work-single .work-layout .row.section .image-thumb:hover .description, body.eric-codes.work-single .work-layout .row.section .image-thumb.open .description {
     bottom: -1px;
 }
 

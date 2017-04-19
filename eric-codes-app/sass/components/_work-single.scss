@@ -312,7 +312,7 @@ h2.layout-header {
 				transition: 0.3s;
 			}
 
-			&:hover {
+			&:hover, &.open {
 				transform:scale(1.05);
 				.description {
 					bottom:-1px;
