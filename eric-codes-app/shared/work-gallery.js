@@ -50,9 +50,8 @@ app.directive('workGallery', ['modalService', function(modalService) {
 
 			Loading.Start();
 
-			Log.Set('This current item',$event.currentTarget.parents('.image-thumbs'));
-
-			$event.currentTarget.$parent;
+			elem.find('.image-thumb').removeClass('open');
+			$event.currentTarget.addClass('open');
 
 			var LoadImg = new Image(),
 			CurrentSlide = scope.maindata[i];
