@@ -50,7 +50,7 @@ app.directive('workGallery', ['modalService', function(modalService) {
 
 			Loading.Start();
 
-			Log.Set('This current item',$(this));
+			Log.Set('This current item',$event.currentTarget);
 
 			var LoadImg = new Image(),
 			CurrentSlide = scope.maindata[i];
