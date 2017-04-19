@@ -1,8 +1,6 @@
+app.directive('workGallery', ['modalService', function(modalService) {
 
-
-app.directive('workGallery', ['modalService', function(modalService){
-
-	function link_return(scope,elem,attr){
+	function link_return(scope, elem, attr) {
 
 		scope.maindata;
 		scope.workdata;
@@ -10,15 +8,15 @@ app.directive('workGallery', ['modalService', function(modalService){
 		scope.DescriptionCurrent = true;
 
 		var DescriptionBox = {
-			Open: function(){
+			Open: function() {
 				scope.DescriptionOpen = "";
 				scope.DescriptionCurrent = true;
 			},
-			Close: function(){
+			Close: function() {
 				scope.DescriptionOpen = "closed";
 				scope.DescriptionCurrent = false;
 			},
-			Toggle: function(){
+			Toggle: function() {
 				if (scope.DescriptionCurrent === false) {
 					DescriptionBox.Open();
 				} else {
@@ -27,7 +25,16 @@ app.directive('workGallery', ['modalService', function(modalService){
 			},
 		}
 
-		scope.ToggleBox = function(){
+		var Loading = {
+			Start: function() {
+				elem.find('.loading-box').addClass('open');
+			},
+			End: function() {
+				elem.find('.loading-box').removeClass('open');
+			}
+		}
+
+		scope.ToggleBox = function() {
 			DescriptionBox.Toggle();
 		}
 
@@ -38,27 +45,50 @@ app.directive('workGallery', ['modalService', function(modalService){
 
 		scope.currentSlide = scope.maindata[0];
 
-		scope.ChangeSlide = function(i){
+		scope.ChangeSlide = function($event, i) {
 			Log.Msg('Gallery item clicked!');
+
+			Loading.Start();
+
+			elem.find('.image-thumb').removeClass('open');
+			$($event.currentTarget).addClass('open');
+
+			var LoadImg = new Image(),
+			CurrentSlide = scope.maindata[i];
 			scope.currentSlide = scope.maindata[i];
-			if (scope.currentSlide.scrollURL) {
-				ScrollCue.Fire();
+
+			if (CurrentSlide.scrollURL) {
+				LoadImg.src = scope.GetImage(CurrentSlide.scrollURL);
+			} else {
+				LoadImg.src = scope.GetImage(CurrentSlide.URL);
 			}
+
+			Log.Set('Loading Image',LoadImg);
+
+			LoadImg.onload = function(){
+				Log.Warning('Loading was good!');
+				if (scope.currentSlide.scrollURL) {
+					ScrollCue.Fire();
+				}
+				Loading.End();
+			}
+
+
 		}
 
 		scope.GetImage = function(filename) {
 			return themeURL + "assets/img/" + scope.workdata.slug + "/" + filename;
 		}
 
-		scope.OpenModal = function(){
+		scope.OpenModal = function() {
 			modalService.Open(scope.currentSlide);
 		}
 
 		var ScrollCue = {
 			Selector: elem.find('.scroll-cue'),
-			Fire: function(){
+			Fire: function() {
 				ScrollCue.Selector.addClass('open');
-				setTimeout(function(){
+				setTimeout(function() {
 					ScrollCue.Selector.removeClass('open');
 				}, 3000);
 			}
@@ -66,14 +96,14 @@ app.directive('workGallery', ['modalService', function(modalService){
 
 	}
 
-	// Runs during compile
-	return {
-		scope: {
-			maindata: "=",
-			workdata: "="
-		}, 
-		 restrict: 'E',
-		 templateUrl: GetShared('work-gallery'),
-		 link: link_return
-	};
+    // Runs during compile
+    return {
+    	scope: {
+    		maindata: "=",
+    		workdata: "="
+    	},
+    	restrict: 'E',
+    	templateUrl: GetShared('work-gallery'),
+    	link: link_return
+    };
 }]);
