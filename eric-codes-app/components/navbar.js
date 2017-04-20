@@ -76,14 +76,14 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                     var NewV = string;
                     var NewString = NewV.substr(0, string.length - i);
 
-                    Log.Value('Timeout fired', NewString);;
+                    Log.Value('Timeout fired', NewString);
 
 
                     Log.Set('Selector', $(Selector));
 
                     $(Selector).text(NewString);
 
-                    if (i + 1 == string.length) {
+                    if (i == string.length) {
                         if (callback) {
                             callback();
                         }
