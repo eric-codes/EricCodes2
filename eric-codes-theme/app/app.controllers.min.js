@@ -320,7 +320,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
                     var NewV = string;
                     var NewString = NewV.substr(0, string.length - i);
 
-                    Log.Value('Timeout fired', NewString);;
+                    Log.Value('Timeout fired', NewString);
 
 
                     Log.Set('Selector', $(Selector));

@@ -83,7 +83,7 @@ app.controller('navbar', ['$scope', '$rootScope', 'breadcrumbs', function($scope
 
                     $(Selector).text(NewString);
 
-                    if (i == string.length) {
+                    if (i + 1 == string.length) {
                         if (callback) {
                             callback();
                         }
