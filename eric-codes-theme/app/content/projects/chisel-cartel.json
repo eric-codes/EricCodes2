@@ -8,7 +8,7 @@
 
         "title": "chisel.cartel",
 
-        "blurb": "I designed and developed a web app for Chisel Cartel that allowed users to vote and view battles. The system is currently in it’s infancy, but it’s set up in such a way that allows it to be scalable. Currently, the system can track votes based on cookies and IP, in a one-versus-one system that will pull random votes out of a pool of entries and allow users to vote until all pairs have been voted. The entire site runs on a WordPress back-end with a custom-built AngularJS theme that works with the WP REST API in order to manage data.",
+        "blurb": "Chisel Cartel is a group that aims to bring the tradition of graffiti battling and style competition to the modern age. I ideated, designed, and developed a website system for them that allowed for popular voting, ranking competitors, and a front-facing scoreboard for users to refer back to. The platform was developed using AngularJS and WordPress, and serves about 6000 returning users.",
 
         "problem": "Chisel Cartel was started as a concept for the graffiti subculture. In graffiti culture, the roots of the letterforms and the entire concept of graffiti itself is based around competition - graffiti writers would battle each other in an effort to outdo each other’s style and create artwork that pushed boundaries. Chisel Cartel was a way to bring this tradition into the digital age, and they wanted to create a digital system where writers could battle and win by popular vote to win cash prizes.",
 
