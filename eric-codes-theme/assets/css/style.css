@@ -187,6 +187,8 @@ body.eric-codes .navbar-default span.logo-type {
 
 body.eric-codes .navbar-default span.logo-type a.crumb {
     color: white;
+    margin-right: -10px;
+    display: inline-block;
 }
 
 body.eric-codes .navbar-default span.logo-type a.crumb:last-child {
@@ -501,8 +503,8 @@ body.eric-codes.about .text-container {
 }
 
 body.eric-codes.about .text-container p {
-    font-size: 16px;
-    width: 80%;
+    font-size: 14px;
+    width: 90%;
     margin-bottom: 20px;
 }
 
