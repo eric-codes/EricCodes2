@@ -1452,6 +1452,7 @@ body.eric-codes.contact .contact-form textarea {
 
     body.eric-codes.work .work-item .work-item-info {
         overflow: hidden;
+        z-index: 20;
     }
 
     body.eric-codes.work .work-item .work-item-info p {
