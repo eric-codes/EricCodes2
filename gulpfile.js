@@ -193,8 +193,8 @@ var Select = {
  */
 var FTP = {
     Live: {
-        host: 'dev1.ericcodes.com',
-        user: 'development@dev1.ericcodes.com',
+        host: 'ericcodes.com',
+        user: 'ericcodes@ericcodes.com',
         password: 'r10t5NYC',
         parallel: 10,
         log: gutil.log
