@@ -700,7 +700,9 @@ var Git = {
 
                 Git.Exec("checkout master", function() {
                     Git.Exec("merge --no-ff develop", function() {
-                        Git.Exec("push", callback);
+                        Git.Exec("push", function(){
+                            FTP.Deploy(FTP.Live, ['eric-codes-theme/**'], 'wp-content/themes/',callback);
+                        });
                     })
                 })
 
