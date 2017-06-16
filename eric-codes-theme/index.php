@@ -32,7 +32,7 @@ function TemplateGet($input) {
 	<script src="https://use.fontawesome.com/e8d681bf45.js"></script>
 
 	<script type="text/javascript"> 
-		window.Debug = true;
+		window.Debug = false;
 	</script>
 
 </head>
